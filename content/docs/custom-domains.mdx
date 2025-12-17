@@ -1,0 +1,60 @@
+---
+title: Custom Domains
+description: How to set up a custom domain for your short links
+icon: Globe
+---
+
+## What is a Custom Domain?
+
+A custom domain lets you use your own brand in short links instead of `s.ee`. For example, instead of `s.ee/link`, you could use `go.example.com/link`.
+
+## Why Use a Custom Domain?
+
+- **Brand recognition** - Links display your brand, not ours
+- **Trust** - Users are more likely to click branded links
+- **Higher click-through rates** - Branded links perform better
+
+## Add a Custom Domain
+
+1. Go to [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Click **Add Domain**
+3. Enter your domain name
+4. Add the required DNS records:
+   - **TXT record** - For domain verification
+   - **CNAME or Alias record** - To point your domain to S.EE
+5. Wait for DNS propagation (usually a few minutes)
+6. Click **Verify** to confirm setup
+
+## Requirements
+
+- Domain must be different from your main website domain
+- Maximum 63 characters (including the dot)
+- You must have access to your domain's DNS settings
+
+## Important Notes
+
+### Cloudflare Users
+
+If you're using Cloudflare for DNS, **do not enable the Proxy (orange cloud icon)** for your CNAME record. Keep it in DNS-only mode (gray cloud). Enabling Cloudflare proxy may cause CDN conflicts and redirect issues.
+
+### Using a Naked Domain (Root Domain)
+
+If you want to use a naked domain (e.g., `example.com` instead of `go.example.com`), your DNS provider must support **ALIAS records** or **CNAME flattening**. Common providers with this feature:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+If your DNS provider doesn't support these features, please [contact us](https://s.ee/contact/) - we can help verify and add your naked domain manually.
+
+## Domain Limits by Plan
+
+| Plan | Custom Domains |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Unlimited |

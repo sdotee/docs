@@ -1,0 +1,13 @@
+services:
+  see-docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: see-docs
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+      - PORT=3000

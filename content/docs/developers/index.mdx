@@ -1,0 +1,55 @@
+---
+title: Getting Started
+description: S.EE REST API for creating, managing, and tracking short URLs
+icon: Rocket
+---
+
+## Overview
+
+The S.EE API lets you programmatically create and manage short links. Use it to:
+
+- Create short links at scale
+- Manage custom domains
+- Retrieve analytics data
+- Integrate link shortening into your applications
+
+## Getting Started
+
+### Prerequisites
+
+1. A S.EE account with an active plan
+2. An API access token
+
+### Authentication
+
+All API requests require an access token in the `Authorization` header:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Base URL
+
+```
+https://s.ee/api/v1
+```
+
+### Example Request
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+## Resources
+
+<Cards>
+  <Card title="API Reference" href="/docs/developers/api/">View all available endpoints</Card>
+  <Card title="SDKs" href="/docs/developers/sdk/">Official S.EE SDKs for various programming languages</Card>
+</Cards>

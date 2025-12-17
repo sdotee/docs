@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "index",
+    "---Getting Started---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Features---",
+    "links",
+    "text-sharing",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Help---",
+    "troubleshooting",
+    "---Integration---",
+    "developers",
+    "api"
+  ]
+}

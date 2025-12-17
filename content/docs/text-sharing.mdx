@@ -1,0 +1,70 @@
+---
+title: Text Sharing
+description: How to share text, code snippets, and markdown with S.EE
+icon: FileText
+---
+
+## Overview
+
+S.EE Text Sharing allows you to share plain text, code snippets, and markdown documents with a short, shareable link. Perfect for sharing configuration files, code examples, notes, and documentation.
+
+## Create a Text Share
+
+1. Log in to [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Click **Sharing > Text** in the left sidebar or go directly to [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Fill in the details:
+   - **Title** (optional) - Used as the filename when downloading
+   - **Short Link** - Select your preferred domain
+   - **Text Type** - Choose from Plain Text, Code, or Markdown
+4. Enter your content in the **Edit** box
+5. Configure optional settings (see below)
+6. Click **Create Text**
+
+## Text Types
+
+| Type | Description |
+|------|-------------|
+| Plain Text | Simple unformatted text |
+| Code | Syntax-highlighted code snippets |
+| Markdown | Rendered markdown with formatting |
+
+## Optional Settings
+
+| Option | Description |
+|--------|-------------|
+| Password | Protect your text with a password |
+| Tags | Organize your shared texts with tags |
+| Expiration | Set when the text share expires |
+| Disable search engine indexing | Prevent search engines from indexing your shared text |
+
+## Viewing Shared Text
+
+Once created, you'll receive a short link like `ba.sh/demo`.
+
+### View Modes
+
+| URL | Description |
+|-----|-------------|
+| `ba.sh/demo` | View the formatted text page with syntax highlighting |
+| `ba.sh/demo/raw` | View the raw plain text directly |
+
+The `/raw` endpoint is useful for:
+
+- Downloading scripts directly with `curl` or `wget`
+- Embedding in other applications
+- Viewing without any formatting
+
+## Supported Domains
+
+Text sharing is available on these domains for all plans:
+
+| Domain | Best For |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash and shell scripts |
+| [z.sh](https://z.sh) | Shell scripts |
+| [fs.to](https://fs.to) | General file sharing |
+| [files.to](https://files.to) | General file sharing |
+| [fileshare.to](https://fileshare.to) | General file sharing |
+| [filesharing.to](https://filesharing.to) | General file sharing |
+
+For Premium and Enterprise customers, please refer to our [official domains](https://s.ee/docs/official-domains/#premium--enterprise).

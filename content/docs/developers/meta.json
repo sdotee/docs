@@ -1,0 +1,10 @@
+{
+  "title": "Developers",
+  "description": "S.EE API and SDK documentation",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "api",
+    "sdk"
+  ]
+}
