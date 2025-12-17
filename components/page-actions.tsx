@@ -71,16 +71,18 @@ const optionVariants = cva(
 export function ViewOptions({
   markdownUrl,
   githubUrl,
+  pageUrl,
 }: {
   markdownUrl: string;
   githubUrl: string;
+  pageUrl: string;
 }) {
   const items = useMemo(() => {
-    const fullMarkdownUrl =
+    const fullPageUrl =
       typeof window !== 'undefined'
-        ? new URL(markdownUrl, window.location.origin)
+        ? new URL(pageUrl, window.location.origin).href.replace(/\/$/, '')
         : 'loading';
-    const q = `Read ${fullMarkdownUrl}, I want to ask questions about it.`;
+    const q = `Read ${fullPageUrl}, I want to ask questions about it.`;
 
     return [
       {
@@ -129,7 +131,7 @@ export function ViewOptions({
         ),
       },
     ];
-  }, [githubUrl, markdownUrl]);
+  }, [githubUrl, pageUrl]);
 
   return (
     <Popover>

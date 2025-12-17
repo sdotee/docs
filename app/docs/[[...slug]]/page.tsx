@@ -36,10 +36,11 @@ export default async function Page(props: {
         {page.data.description}
       </p>
       <div className="flex flex-row flex-wrap gap-2 items-center border-b pb-6">
-        <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+        <LLMCopyButton markdownUrl={`/docs/llms.mdx/${page.slugs.length > 0 ? page.slugs.join('/') : 'index'}`} />
         <ViewOptions
-          markdownUrl={`${page.url}.mdx`}
+          markdownUrl={`/docs/llms.mdx/${page.slugs.length > 0 ? page.slugs.join('/') : 'index'}`}
           githubUrl={`https://github.com/${owner}/${repo}/blob/main/content/docs/${page.path}`}
+          pageUrl={page.url}
         />
       </div>
       <DocsBody>
