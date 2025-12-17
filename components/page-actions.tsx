@@ -80,7 +80,7 @@ export function ViewOptions({
   const items = useMemo(() => {
     const fullPageUrl =
       typeof window !== 'undefined'
-        ? new URL(pageUrl, window.location.origin).href.replace(/\/$/, '')
+        ? new URL(pageUrl, window.location.origin).href.replace(/\/?$/, '/')
         : 'loading';
     const q = `Read ${fullPageUrl}, I want to ask questions about it.`;
 
