@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__deepwiki__read_wiki_structure",
+      "mcp__deepwiki__ask_question",
+      "Bash(bunx --bun shadcn add:*)",
+      "Bash(bunx:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl:*)"
+    ]
+  }
+}

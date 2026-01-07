@@ -3,6 +3,26 @@ import { openapiPlugin } from 'fumadocs-openapi/server';
 import { icons } from 'lucide-react';
 import { createElement } from 'react';
 import { docs } from 'fumadocs-mdx:collections/server';
+import { LinkIcon } from '@/components/ui/link';
+import { EarthIcon } from '@/components/ui/earth';
+import { LayoutPanelTopIcon } from '@/components/ui/layout-panel-top';
+import { BookTextIcon } from '@/components/ui/book-text';
+import { UserRoundPlusIcon } from '@/components/ui/user-round-plus';
+import { FileTextIcon } from '@/components/ui/file-text';
+import { RocketIcon } from '@/components/ui/rocket';
+import { BoxesIcon } from '@/components/ui/boxes';
+
+// Mapping from MDX icon names to animated icon components
+const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
+  Link: LinkIcon,
+  Globe: EarthIcon,
+  LayoutDashboard: LayoutPanelTopIcon,
+  BookOpen: BookTextIcon,
+  UserPlus: UserRoundPlusIcon,
+  FileText: FileTextIcon,
+  Rocket: RocketIcon,
+  Package: BoxesIcon,
+};
 
 function createLucideIconsPlugin(): LoaderPlugin {
   return {
@@ -10,18 +30,34 @@ function createLucideIconsPlugin(): LoaderPlugin {
     transformPageTree: {
       file(node) {
         if (typeof node.icon === 'string') {
-          const Icon = icons[node.icon as keyof typeof icons];
-          if (Icon) {
-            node.icon = createElement(Icon);
+          const iconName = node.icon;
+          // Check for animated icon first
+          const AnimatedIcon = animatedIcons[iconName];
+          if (AnimatedIcon) {
+            node.icon = createElement(AnimatedIcon, { key: `icon-${node.url}`, size: 16 });
+          } else {
+            // Fallback to lucide-react
+            const Icon = icons[iconName as keyof typeof icons];
+            if (Icon) {
+              node.icon = createElement(Icon, { key: `icon-${node.url}` });
+            }
           }
         }
         return node;
       },
       folder(node) {
         if (typeof node.icon === 'string') {
-          const Icon = icons[node.icon as keyof typeof icons];
-          if (Icon) {
-            node.icon = createElement(Icon);
+          const iconName = node.icon;
+          // Check for animated icon first
+          const AnimatedIcon = animatedIcons[iconName];
+          if (AnimatedIcon) {
+            node.icon = createElement(AnimatedIcon, { key: `icon-${node.index?.url ?? node.name}`, size: 16 });
+          } else {
+            // Fallback to lucide-react
+            const Icon = icons[iconName as keyof typeof icons];
+            if (Icon) {
+              node.icon = createElement(Icon, { key: `icon-${node.index?.url ?? node.name}` });
+            }
           }
         }
         return node;
