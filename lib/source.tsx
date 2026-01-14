@@ -17,6 +17,7 @@ import { ChromeIcon } from '@/components/ui/chrome';
 import { LogInIcon } from '@/components/ui/log-in';
 import { ServerIcon } from '@/components/ui/server';
 import { ShieldCheckIcon } from '@/components/ui/shield-check';
+import { PlugZapIcon } from '@/components/ui/plug-zap';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -34,6 +35,7 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   LogIn: LogInIcon,
   Server: ServerIcon,
   ShieldCheck: ShieldCheckIcon,
+  PlugZap: PlugZapIcon,
 };
 
 function createLucideIconsPlugin(): LoaderPlugin {

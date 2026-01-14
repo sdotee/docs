@@ -1,0 +1,156 @@
+---
+title: YOURLS Compatible API
+description: Use S.EE with any YOURLS-compatible client or integration
+icon: PlugZap
+---
+
+S.EE provides a YOURLS-compatible API endpoint, allowing you to use S.EE with existing third-party clients and integrations that support the [YOURLS](https://yourls.org/) API.
+
+This endpoint is designed to ease migration from YOURLS or to integrate S.EE into automation tools, browser extensions, and applications that already speak the YOURLS API protocol.
+
+---
+
+## API Endpoint
+
+```
+https://s.ee/api/v1/yourls
+````
+
+---
+
+## Compatibility Scope
+
+This endpoint implements a **partial YOURLS API compatibility layer**.
+
+### Supported
+
+- `action=shorturl`
+- `signature` authentication
+- Output formats: `json`, `jsonp`, `xml`, `simple`
+- GET and POST requests
+
+### Not Supported
+
+- `username` / `password` authentication
+- Other YOURLS actions such as `expand`, `stats`, or `db-stats`
+- Administrative or database-related operations
+
+Only the URL shortening functionality is provided.
+
+---
+
+## Authentication
+
+<Callout type="warn">
+Only `signature` authentication is supported. Username/password authentication is **not** available.
+</Callout>
+
+The `signature` parameter is your **S.EE API Token**.
+
+You can generate and manage your API token at:
+
+https://s.ee/user/developers/
+
+The API token is scoped to the authenticated user and inherits the same permissions and restrictions as the account.
+
+---
+
+## Supported Actions
+
+Currently, only the following action is supported:
+
+| Action | Description |
+|------|-------------|
+| `shorturl` | Create a short URL for a given link |
+
+---
+
+## Parameters
+
+| Parameter | Required | Description |
+|----------|----------|-------------|
+| `signature` | Yes | Your S.EE API Token |
+| `action` | Yes | The action to perform (currently only `shorturl`) |
+| `url` | Yes | The URL to shorten |
+| `format` | No | Output format: `json`, `jsonp`, `xml`, or `simple` (default: `simple`) |
+| `keyword` | No | Custom slug for the short URL |
+| `title` | No | Title for the short URL |
+
+### Notes
+
+- If a provided `keyword` is already in use, the API will automatically generate a new available keyword instead of returning an error.
+- Standard S.EE abuse prevention and validation rules apply to all requests.
+
+---
+
+## Examples
+
+### POST Request
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+````
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Some response fields are preserved for YOURLS compatibility and may be empty.
+</Callout>
+
+---
+
+### GET Request
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Response:**
+
+```
+https://s.ee/link
+```
+
+<Callout>
+Remember to URL-encode parameters when using GET requests.  
+For long URLs or additional parameters, POST requests are recommended to avoid URL length limits.
+</Callout>
+
+---
+
+## Third-Party Clients
+
+This API is compatible with any client that supports YOURLS-style URL shortening, including:
+
+* Browser extensions
+* Mobile applications
+* Desktop applications
+* Automation tools (Shortcuts, Tasker, Zapier, etc.)
+
+For full details on the original YOURLS API specification, refer to the official documentation:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

@@ -17,6 +17,8 @@
     "security",
     "---Integration---",
     "developers",
-    "api"
+    "api",
+    "---Third-Party Integration---",
+    "yourls"
   ]
 }
