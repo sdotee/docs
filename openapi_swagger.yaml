@@ -3,14 +3,14 @@ components:
     data:
       properties:
         data:
-          $ref: '#/components/schemas/val.GetTagsResp'
+          $ref: '#/components/schemas/val.GetTagsRespV'
       type: object
     httper.RespBody:
       allOf:
         - $ref: '#/components/schemas/data'
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           description: Response payload
@@ -25,10 +25,10 @@ components:
           maxLength: 255
           type: string
         domain:
+          default: s.ee
           description: The domain to use for your short URL (e.g., "s.ee")
           maxLength: 255
           type: string
-          default: s.ee
         expiration_redirect_url:
           description: URL to redirect visitors to after this short link expires
           maxLength: 2000
@@ -75,7 +75,7 @@ components:
     val.CreateShortURLRespV:
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           $ref: '#/components/schemas/val.CreateShortURLResp'
@@ -94,10 +94,10 @@ components:
           maxLength: 255
           type: string
         domain:
+          default: fs.to
           description: The domain to use for your text share URL (e.g., "fs.to")
           maxLength: 255
           type: string
-          default: fs.to
         expire_at:
           description: Unix timestamp when this text sharing should expire
           type: integer
@@ -145,7 +145,7 @@ components:
     val.CreateTextRespV:
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           $ref: '#/components/schemas/val.CreateTextResp'
@@ -203,7 +203,7 @@ components:
     val.GetAvailableDomainsRespV:
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           $ref: '#/components/schemas/val.GetAvailableDomainsResp'
@@ -221,7 +221,7 @@ components:
     val.GetLinkVisitStatRespV:
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           $ref: '#/components/schemas/val.GetLinkVisitStatResp'
@@ -230,6 +230,7 @@ components:
           type: string
       type: object
     val.GetTagsResp:
+      description: Get tags response payload
       properties:
         tags:
           description: List of your available tags
@@ -237,6 +238,17 @@ components:
             $ref: '#/components/schemas/val.TagInfo'
           type: array
           uniqueItems: false
+      type: object
+    val.GetTagsRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.GetTagsResp'
+        message:
+          description: Human-readable status message
+          type: string
       type: object
     val.GetUsageResp:
       description: Account usage statistics
@@ -281,7 +293,7 @@ components:
     val.GetUsageRespV:
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           $ref: '#/components/schemas/val.GetUsageResp'
@@ -389,7 +401,7 @@ components:
     val.UploadFileRespV:
       properties:
         code:
-          description: Response status code (0 indicates success)
+          description: Response status code (200 indicates success)
           type: integer
         data:
           $ref: '#/components/schemas/val.UploadFileRespData'
@@ -432,6 +444,75 @@ paths:
       summary: Get Available Domains for Short URLs
       tags:
         - Short URLs
+  /api/v1/file/delete/{hash}:
+    get:
+      description: This API allows you to delete a file using its delete key.
+      operationId: DeleteFile
+      parameters:
+        - description: Delete Key
+          in: path
+          name: hash
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.DeleteFileResp'
+          description: OK
+      summary: Delete File
+      tags:
+        - File
+  /api/v1/file/domains:
+    get:
+      description: Returns a list of all domains available for creating file sharing URLs with your account. Use these domain values when calling the File Upload endpoint.
+      operationId: GetFileAvailableDomains
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetAvailableDomainsRespV'
+          description: OK
+      summary: Get Available Domains for File Sharing
+      tags:
+        - File
+  /api/v1/file/upload:
+    post:
+      description: This API allows you to upload a file and create a short link for it.
+      operationId: UploadFile
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: file
+        description: The form-data should contain the file to be uploaded. The key should be 'file' (alias 'smfile').
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.UploadFileRespV'
+          description: OK
+      summary: Upload File
+      tags:
+        - File
   /api/v1/link/visit-stat:
     get:
       description: Retrieves click/visit statistics for a specific short URL. You can get daily, monthly, or all-time statistics by specifying the period parameter.
@@ -443,19 +524,19 @@ paths:
           required: true
           schema:
             type: string
-        - description: The domain of the short URL (e.g., "s.ee")
+        - description: The domain of the short URL (e.g., s.ee)
           in: query
           name: domain
           required: true
           schema:
             type: string
-        - description: The slug of the short URL (e.g., "abc123")
+        - description: The slug of the short URL (e.g., abc123)
           in: query
           name: slug
           required: true
           schema:
             type: string
-        - description: 'Statistics time range: "daily" (today), "monthly" (this month), or "totally" (all-time, default)'
+        - description: 'Statistics time range: daily (today), monthly (this month), or totally (all-time, default)'
           in: query
           name: period
           schema:
@@ -635,7 +716,7 @@ paths:
                   - $ref: '#/components/schemas/data'
                 properties:
                   code:
-                    description: Response status code (0 indicates success)
+                    description: Response status code (200 indicates success)
                     type: integer
                   data:
                     description: Response payload
@@ -752,3 +833,4 @@ paths:
         - Text Sharing
 servers:
   - url: https://s.ee
+

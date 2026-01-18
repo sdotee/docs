@@ -2,5 +2,24 @@
   "title": "API Reference",
   "description": "S.EE API endpoints",
   "defaultOpen": true,
-  "pages": ["..."]
+  "pages": [
+    "---Short URLs---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Text Sharing---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---File Sharing---",
+    "UploadFile",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---General---",
+    "GetTags"
+  ]
 }

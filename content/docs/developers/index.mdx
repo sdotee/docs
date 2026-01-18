@@ -1,17 +1,19 @@
 ---
 title: Getting Started
-description: S.EE REST API for creating, managing, and tracking short URLs
+description: S.EE REST API for creating, managing, and tracking short URLs, text sharing, and file sharing
 icon: Rocket
 ---
 
 ## Overview
 
-The S.EE API lets you programmatically create and manage short links. Use it to:
+The S.EE API lets you programmatically create and manage short links, text sharing, and file sharing. Use it to:
 
 - Create short links at scale
+- Share text snippets and code with syntax highlighting
+- Upload and share files
 - Manage custom domains
 - Retrieve analytics data
-- Integrate link shortening into your applications
+- Integrate into your applications
 
 ---
 
@@ -36,7 +38,11 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 https://s.ee/api/v1
 ```
 
-### Example Request
+---
+
+## Example Requests
+
+### Create Short URL
 
 ```bash
 curl -X POST "https://s.ee/api/v1/shorten" \
@@ -47,6 +53,29 @@ curl -X POST "https://s.ee/api/v1/shorten" \
     "domain": "s.ee",
     "custom_slug": "my-link"
   }'
+```
+
+### Create Text Sharing
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Upload File
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
 ```
 
 ---
