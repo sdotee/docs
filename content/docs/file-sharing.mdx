@@ -1,0 +1,233 @@
+---
+title: File Sharing
+description: How to upload and share files with S.EE
+icon: AttachFile
+---
+
+## Overview
+
+S.EE File Sharing allows you to upload and share files with a short, shareable link. Perfect for sharing images, documents, audio, video, and other files.
+
+---
+
+## Upload Files
+
+### Quick Upload (Drag & Drop)
+
+1. Log in to [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Click **Sharing > Files** in the left sidebar or go directly to [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Drag and drop files or folders into the **Drag & Drop** window
+   - You can also click the window to browse and select files
+   - Uploading a folder will upload all files within it
+4. Files will be shared with the default domain and a random slug
+
+### Advanced Upload (Create File)
+
+For more control over your file share:
+
+1. Click **Create File** button
+2. Configure your settings:
+   - **Domain** - Select your preferred domain for the share page
+   - **Custom Slug** - Set a custom URL slug
+   - **Other options** - Tags, expiration, etc.
+3. Select your file and upload
+
+---
+
+## File Links
+
+Each uploaded file has two types of links:
+
+| Link Type | Format | Description |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | Customizable domain and slug |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Direct access to the file with original filename |
+
+**Note:** Direct links currently do not support custom domains.
+
+---
+
+## Supported File Types
+
+S.EE supports a wide variety of file types:
+
+### Images
+
+| MIME Type | Description |
+|-----------|-------------|
+| image/jpeg | JPEG images (.jpg, .jpeg) |
+| image/png | PNG images (.png) |
+| image/gif | GIF images (.gif) |
+| image/webp | WebP images (.webp) |
+| image/avif | AVIF images (.avif) |
+| image/svg+xml | SVG images (.svg) |
+| image/bmp | BMP images (.bmp) |
+| image/tiff | TIFF images (.tiff, .tif) |
+| image/heic | HEIC images (.heic) |
+| image/heif | HEIF images (.heif) |
+| image/jp2 | JPEG 2000 images (.jp2) |
+| image/jpx | JPEG 2000 images (.jpx) |
+| image/jxl | JPEG XL images (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop files (.psd) |
+
+### Documents
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/pdf | PDF documents (.pdf) |
+| application/msword | Word documents (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word documents (.docx) |
+| application/vnd.ms-excel | Excel spreadsheets (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel spreadsheets (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint presentations (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint presentations (.pptx) |
+| application/vnd.apple.pages | Pages documents (.pages) |
+| application/vnd.apple.numbers | Numbers spreadsheets (.numbers) |
+| application/vnd.apple.keynote | Keynote presentations (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript files (.ps, .eps) |
+| application/epub+zip | EPUB ebooks (.epub) |
+
+### Text & Data
+
+| MIME Type | Description |
+|-----------|-------------|
+| text/plain | Plain text files (.txt) |
+| text/csv | CSV files (.csv) |
+| text/markdown | Markdown files (.md, .markdown, .mdx) |
+| application/json | JSON files (.json) |
+| application/yaml | YAML files (.yaml, .yml) |
+
+### Audio
+
+| MIME Type | Description |
+|-----------|-------------|
+| audio/mpeg | MP3 files (.mp3) |
+| audio/wav | WAV files (.wav) |
+| audio/ogg | OGG audio (.ogg) |
+| audio/flac | FLAC audio (.flac) |
+| audio/aac | AAC audio (.aac) |
+| audio/mp4, audio/x-m4a | M4A audio (.m4a) |
+| audio/midi | MIDI files (.mid, .midi) |
+| audio/x-ms-wma | WMA audio (.wma) |
+
+### Video
+
+| MIME Type | Description |
+|-----------|-------------|
+| video/mp4 | MP4 videos (.mp4) |
+| video/webm | WebM videos (.webm) |
+| video/quicktime | QuickTime videos (.mov) |
+| video/x-matroska | MKV videos (.mkv) |
+| video/x-msvideo | AVI videos (.avi) |
+| video/mpeg | MPEG videos (.mpeg, .mpg) |
+| video/ogg | OGG videos (.ogv) |
+| video/3gpp | 3GP videos (.3gp) |
+| video/x-flv | FLV videos (.flv) |
+| video/x-ms-wmv | WMV videos (.wmv) |
+
+### Archives & Disk Images
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/zip | ZIP archives (.zip) |
+| application/x-zip-compressed | ZIP archives (.zip) |
+| application/gzip | GZIP archives (.gz) |
+| application/x-bzip2 | BZIP2 archives (.bz2) |
+| application/x-xz | XZ archives (.xz) |
+| application/x-tar | TAR archives (.tar) |
+| application/x-7z-compressed | 7-Zip archives (.7z) |
+| application/x-rar-compressed | RAR archives (.rar) |
+| application/x-apple-diskimage | DMG disk images (.dmg) |
+| application/x-iso9660-image | ISO disk images (.iso) |
+
+<Callout type="warn">
+Executable files (.exe, .msi, .bat, .app, etc.) are **not allowed** for security reasons.
+</Callout>
+
+<Callout type="info">
+For the following file extensions, we may force the response `Content-Type` to `text/plain` to reduce script abuse: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+For unknown or ambiguous file types, we will force the response `Content-Type` to `application/octet-stream`.
+</Callout>
+
+### Legacy/Compatibility
+
+These MIME types are accepted for compatibility with older systems.
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/excel | Excel spreadsheets (.xls) |
+| application/x-excel | Excel spreadsheets (.xls) |
+| application/x-msexcel | Excel spreadsheets (.xls) |
+| application/mspowerpoint | PowerPoint presentations (.ppt) |
+| application/powerpoint | PowerPoint presentations (.ppt) |
+| application/x-mspowerpoint | PowerPoint presentations (.ppt) |
+
+---
+
+## Storage Limits
+
+Storage limits vary by plan:
+
+| Plan | Max File Size | Total Storage |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Custom | Custom |
+
+See [s.ee/pricing](https://s.ee/pricing) for full plan details.
+
+---
+
+## File Retention
+
+- Files are **permanently stored** as long as your subscription is active
+- If your subscription expires, files are retained for **7 days** before deletion
+
+---
+
+## Supported Domains
+
+File sharing is available on these domains:
+
+| Domain | Best For |
+|--------|----------|
+| [fs.to](https://fs.to) | General file sharing |
+| [files.to](https://files.to) | General file sharing |
+| [fileshare.to](https://fileshare.to) | General file sharing |
+| [filesharing.to](https://filesharing.to) | General file sharing |
+
+For Premium and Enterprise customers, please refer to our [official domains](/docs/official-domains/#premium--enterprise).
+
+---
+
+## API Access
+
+File sharing is also available via API. See our [API documentation](/docs/developers/api/#file-sharing) for details on programmatic uploads.
+
+---
+
+## FAQ
+
+### Who can upload files?
+
+Only paid subscribers can upload files. A valid subscription is required.
+
+### Are there download limits?
+
+No, there are no download count or bandwidth limits for shared files.
+
+### Can I customize the share page URL?
+
+Yes, you can set a custom domain and slug for the share page when using the **Create File** upload method.
+
+### Can I customize the direct link URL?
+
+Currently, direct links use a fixed format and do not support custom domains.
