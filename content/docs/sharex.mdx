@@ -1,0 +1,132 @@
+---
+title: ShareX
+description: Use S.EE with ShareX for easy screenshot and file uploading
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/) is an open-source screen capture and file sharing tool for Windows. It supports multiple upload services and custom uploaders. With S.EE's ShareX custom uploaders, you can easily upload screenshots, files, and text to S.EE and generate shareable links.
+
+---
+
+## About ShareX
+
+ShareX is a free and open-source screen capture, file sharing, and productivity tool. It offers:
+
+- Screenshot capture with various modes (fullscreen, region, window)
+- Screen recording and GIF creation
+- Image annotation and editing
+- File and text uploading to multiple services
+- Custom uploader support for third-party services
+
+For more information, visit the official [ShareX documentation](https://getsharex.com/docs/custom-uploader).
+
+---
+
+## Available Custom Uploaders
+
+S.EE provides the following ShareX custom uploaders:
+
+| Uploader | Description |
+|----------|-------------|
+| URL Shortener | Shorten URLs using S.EE |
+| Text Uploader | Upload text snippets to S.EE |
+| Code Uploader | Upload code with syntax highlighting |
+| Markdown Uploader | Upload Markdown documents with rendering |
+| Image Uploader | Upload images and screenshots to S.EE |
+| File Uploader | Upload files to S.EE |
+
+---
+
+## Installation
+
+### Download Configuration Files
+
+Download the custom uploader configuration files directly or import them via URL in ShareX:
+
+| Uploader | Download / Import Link |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### Import Configuration
+
+1. Open **ShareX**
+2. Navigate to **Destinations** > **Custom uploader settings**
+3. Click **Import** and select one of the following methods:
+   - **From file**: Select the downloaded `.sxcu` file
+   - **From URL**: Paste the download URL directly
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## Configuration
+
+After importing, you need to configure the API authentication:
+
+### Set Up API Key
+
+1. Get your API key from [S.EE Developer Settings](https://s.ee/user/developers/)
+2. In ShareX **Custom uploader settings**, select the imported S.EE uploader
+3. Find the **Headers** section
+4. Set the `Authorization` field value to your S.EE API Key
+
+<Callout type="warn">
+Keep your API key secure. Do not share it publicly or commit it to version control.
+</Callout>
+
+---
+
+## Usage
+
+### Select Custom Uploader
+
+After configuration, set S.EE as your active uploader:
+
+1. Go to **Destinations** in ShareX
+2. For each upload type, select the corresponding S.EE uploader:
+   - **URL shortener**: S.EE URL Shortener
+   - **Text uploader**: S.EE Text Uploader, S.EE Code Uploader, or S.EE Markdown Uploader
+   - **Image uploader**: S.EE File Uploader
+   - **File uploader**: S.EE File Uploader
+
+### Upload Content
+
+Once configured, you can use ShareX hotkeys or right-click menu to:
+
+- **Shorten URLs**: Copy a URL and use the URL shortener hotkey
+- **Upload text**: Select text and use the text upload hotkey
+- **Upload files**: Capture screenshots or select files to upload
+- **Share code**: Upload code snippets with syntax highlighting
+- **Share Markdown**: Upload Markdown documents with rendered preview
+
+ShareX will automatically upload to S.EE and copy the resulting link to your clipboard.
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+| Issue | Solution |
+|-------|----------|
+| Upload fails with 401 error | Check that your API key is correctly set in the Authorization header |
+| Upload fails with 403 error | Verify your API key has the required permissions |
+| File upload rejected | Check if the file type is supported (see [File Sharing](/docs/file-sharing) for allowed types) |
+
+### Testing Configuration
+
+1. In **Custom uploader settings**, click **Test** to verify your configuration
+2. Check the response to ensure the upload succeeded
+3. Verify the returned URL works correctly
+
+---
+
+## Related Documentation
+
+- [Developer API](/docs/developers) - Full API documentation
+- [File Sharing](/docs/file-sharing) - Supported file types and limits
+- [Text Sharing](/docs/text-sharing) - Text and code sharing features

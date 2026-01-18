@@ -4,6 +4,9 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
+  images: {
+    unoptimized: true,
+  },
   reactStrictMode: true,
   trailingSlash: true,
   output: 'standalone',
