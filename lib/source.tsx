@@ -20,6 +20,7 @@ import { ShieldCheckIcon } from '@/components/ui/shield-check';
 import { PlugZapIcon } from '@/components/ui/plug-zap';
 import { AttachFileIcon } from '@/components/ui/attach-file';
 import { UploadIcon } from '@/components/ui/upload';
+import { BananaIcon } from '@/components/ui/banana';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -40,6 +41,7 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   PlugZap: PlugZapIcon,
   AttachFile: AttachFileIcon,
   Upload: UploadIcon,
+  Banana: BananaIcon,
 };
 
 function createLucideIconsPlugin(): LoaderPlugin {
