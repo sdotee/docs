@@ -6,7 +6,8 @@
       "Bash(bunx --bun shadcn add:*)",
       "Bash(bunx:*)",
       "WebFetch(domain:localhost)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

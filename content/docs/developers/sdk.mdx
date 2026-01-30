@@ -6,15 +6,17 @@ icon: Package
 
 ## Official SDKs
 
-S.EE provides official SDKs to simplify API integration:
+S.EE provides official SDKs to ensure type safety and easy integration:
 
-| Language | Repository |
-|----------|------------|
-| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) |
-| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) |
-| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) |
-| Go | [sdotee/sdk.ts](https://github.com/sdotee/sdk.go) |
-| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) |
+| Language | Repository | Description |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Developer toolkit for PHP applications |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Type-safe integration for JavaScript/TypeScript projects |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go language support for link management |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Python-based URL shortening and file sharing |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | Enterprise Java implementation |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | Systems programming language support |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | Emerging language support (experimental) |
 
 ---
 
@@ -22,29 +24,56 @@ S.EE provides official SDKs to simplify API integration:
 
 For AI/LLM integrations, use our MCP (Model Context Protocol) server:
 
-- [sdotee/url-shorten-mcp-server](https://github.com/sdotee/url-shorten-mcp-server)
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### Features
+
+- **URL Management**: Create, update, delete, and list domains for short URLs
+- **Content Sharing**: Share code snippets and text with expiration and password protection
+- **File Operations**: Upload and delete files
+- **Time Utilities**: Access current time information with timezone support
+
+### Requirements
+
+- Go 1.25+
+- Valid S.EE API Key
+
+### Build
+
+```bash
+# Using Makefile (current OS)
+make build
+
+# Build for all platforms
+make build-all
+
+# Or using Go directly
+go build -o bin/cli-mcp-server .
+```
+
+### Run
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+You can also set the API key via environment variable:
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+The server defaults to port 30101 and uses Server-Sent Events for MCP connections. Configure the MCP server URL in your LLM client settings (e.g., Cherry Studio) to integrate.
 
 ---
 
 ## Installation
 
-### Java
+### PHP
 
-```xml
-<!-- Maven -->
-<dependency>
-    <groupId>s.ee</groupId>
-    <artifactId>see-java-sdk</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-### Rust
-
-```toml
-# Cargo.toml
-[dependencies]
-see-sdk = "1.0.0"
+```bash
+composer require sdotee/sdk
 ```
 
 ### TypeScript
@@ -64,6 +93,18 @@ go get github.com/sdotee/sdk.go
 ```bash
 pip install see-sdk
 ```
+
+### Java
+
+See the [sdk.java repository](https://github.com/sdotee/sdk.java) for installation instructions.
+
+### Rust
+
+See the [sdk.rs repository](https://github.com/sdotee/sdk.rs) for installation instructions.
+
+### Zig
+
+See the [sdk.zig repository](https://github.com/sdotee/sdk.zig) for installation instructions.
 
 ---
 
