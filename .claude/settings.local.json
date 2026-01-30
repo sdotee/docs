@@ -7,7 +7,10 @@
       "Bash(bunx:*)",
       "WebFetch(domain:localhost)",
       "Bash(curl:*)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(ls:*)",
+      "Bash(xargs:*)",
+      "Bash(grep:*)"
     ]
   }
 }
