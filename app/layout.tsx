@@ -1,4 +1,5 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
+import { Agentation } from 'agentation';
 import './global.css';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import Script from 'next/script';
@@ -96,6 +97,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         >
           {children}
         </RootProvider>
+        {process.env.NODE_ENV === 'development' && <Agentation />}
       </body>
     </html>
   );

@@ -1,0 +1,150 @@
+---
+title: CLI
+description: Command-line client for S.EE platform
+icon: Terminal
+---
+
+A command-line client for the S.EE platform, enabling you to create and manage short URLs, text snippets, and files directly from your terminal.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Features
+
+- **Short URL Management**: Create, update, and delete shortened links with custom slugs, domains, and expiration
+- **Text Snippets**: Share code snippets and notes from stdin or files
+- **File Upload**: Upload files directly or via stdin
+- **Domain & Tag Management**: List available domains and manage tags
+- **Password Protection**: Secure your content with passwords
+- **JSON Output**: Machine-readable output for scripting
+
+## Installation
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+## Configuration
+
+Set your API key via environment variable or flag:
+
+```bash
+# Environment variable (recommended)
+export SEE_API_KEY="your-api-key"
+
+# Or use the flag
+see --api-key "your-api-key" <command>
+```
+
+### Configuration Options
+
+| Option | Environment Variable | Description |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | Your S.EE API key (required) |
+| `--base-url` | `SEE_BASE_URL` | Custom API base URL |
+| `--timeout` | `SEE_TIMEOUT` | Request timeout |
+| `--json` | - | Enable JSON output format |
+
+## Commands
+
+### Domains & Tags
+
+```bash
+# List available domains for short URLs
+see domains
+
+# List available domains for file uploads
+see file domains
+
+# List your tags
+see tags
+```
+
+### Short URLs
+
+```bash
+# Create a short URL
+see url create https://example.com
+
+# Create with custom options
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Update a short URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Delete a short URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Text Snippets
+
+```bash
+# Create text from stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Create text from file
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Create with options
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Update text
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Delete text
+see text delete --domain fs.to --slug abc123
+```
+
+### File Upload
+
+```bash
+# Upload a file
+see file upload ./image.png
+
+# Upload with custom domain
+see file upload ./document.pdf --domain fs.to
+
+# Upload from stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Delete a file
+see file delete <delete-hash>
+```
+
+## JSON Output
+
+Use the `--json` flag for machine-readable output, useful for scripting:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Examples
+
+### Create a short URL and copy to clipboard (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Upload screenshot and get URL (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Batch create short URLs
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

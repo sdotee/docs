@@ -455,6 +455,12 @@ paths:
           required: true
           schema:
             type: string
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           content:
@@ -501,8 +507,21 @@ paths:
         content:
           multipart/form-data:
             schema:
-              type: file
-        description: The form-data should contain the file to be uploaded. The key should be 'file' (alias 'smfile').
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to be uploaded (alias 'smfile')
+                domain:
+                  type: string
+                  description: The domain to be used for the short link
+                custom_slug:
+                  type: string
+                  description: Your preferred custom slug (e.g., 'my-link'). If not provided, a random slug will be generated.
+              required:
+                - file
+        description: Upload a file using multipart/form-data. The file field is required, domain and custom_slug are optional.
       responses:
         "200":
           content:
@@ -831,6 +850,27 @@ paths:
       summary: Get Available Domains for Text Sharing
       tags:
         - Text Sharing
+  /api/v1/usage:
+    get:
+      description: This API allows you to get the usage of the short link service.
+      operationId: GetUsage
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetUsageRespV'
+          description: OK
+      summary: Get Usage
+      tags:
+        - Short URLs
 servers:
   - url: https://s.ee
 

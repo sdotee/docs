@@ -5,6 +5,9 @@
   "pages": [
     "index",
     "api",
-    "sdk"
+    "sdk",
+    "cli",
+    "desktop",
+    "smms-compatibility"
   ]
 }

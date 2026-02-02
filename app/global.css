@@ -8,6 +8,7 @@
 
 :root {
   --fd-layout-width: 1600px;
+  --fd-sidebar-width: 268px;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -127,5 +128,36 @@
   }
   code, pre, kbd, samp {
     font-family: var(--font-code), ui-sans-serif, system-ui, sans-serif;
+  }
+  /* Align content to left, same as API pages */
+  #nd-docs-layout article {
+    margin-inline-start: 0;
+  }
+}
+
+/* Fixed sidebar and ToC width for consistency - desktop only */
+@media (min-width: 768px) {
+  #nd-sidebar {
+    width: var(--fd-sidebar-width) !important;
+    min-width: var(--fd-sidebar-width) !important;
+    max-width: var(--fd-sidebar-width) !important;
+    flex-shrink: 0 !important;
+  }
+  #nd-sidebar > .overflow-hidden,
+  #nd-sidebar .size-full {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #nd-toc {
+    width: var(--fd-toc-width, 220px) !important;
+    min-width: var(--fd-toc-width, 220px) !important;
+    max-width: var(--fd-toc-width, 220px) !important;
+    flex-shrink: 0 !important;
+  }
+  #nd-docs-layout > main {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
   }
 }

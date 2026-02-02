@@ -1,0 +1,201 @@
+---
+title: SM.MS Compatibility
+description: Migrate from SM.MS to S.EE with minimal code changes
+icon: RefreshCw
+---
+
+S.EE provides a SM.MS-compatible API layer, allowing you to migrate from SM.MS to S.EE with minimal code changes. Simply replace the API endpoint and you're ready to go.
+
+## Quick Migration
+
+Replace the SM.MS API base URL with the S.EE equivalent:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Supported Endpoint
+
+| SM.MS Endpoint | S.EE Endpoint | Description |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Upload image |
+
+## Upload Image
+
+### Request
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=fs.to" \
+  -F "custom_slug=my-image"
+```
+
+### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `smfile` | file | Yes | The image file to upload (alias: `file`) |
+| `domain` | string | No | Custom domain for the short link |
+| `custom_slug` | string | No | Custom slug for the URL (random if not provided) |
+
+### Response
+
+```json
+{
+  "success": true,
+  "code": "success",
+  "message": "Upload success.",
+  "data": {
+    "file_id": 0,
+    "width": 1920,
+    "height": 1080,
+    "filename": "image.png",
+    "storename": "abc123.png",
+    "size": 102400,
+    "path": "/2024/01/01/abc123.png",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2024/01/01/abc123/image.png",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://fs.to/abc123"
+  },
+  "RequestId": "request-id"
+}
+```
+
+## Code Examples
+
+### Python (requests)
+
+```python
+import requests
+
+# SM.MS original code
+# url = "https://sm.ms/api/v2/upload"
+
+# S.EE compatible endpoint
+url = "https://s.ee/api/v1/file/upload"
+
+headers = {
+    "Authorization": "your-api-key"
+}
+
+files = {
+    "smfile": open("image.png", "rb")
+}
+
+data = {
+    "domain": "fs.to",  # optional
+    "custom_slug": "my-image"  # optional
+}
+
+response = requests.post(url, headers=headers, files=files, data=data)
+print(response.json())
+```
+
+### PHP (cURL)
+
+```php
+<?php
+// SM.MS original endpoint
+// $url = "https://sm.ms/api/v2/upload";
+
+// S.EE compatible endpoint
+$url = "https://s.ee/api/v1/file/upload";
+
+$ch = curl_init();
+
+curl_setopt_array($ch, [
+    CURLOPT_URL => $url,
+    CURLOPT_POST => true,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        "Authorization: your-api-key"
+    ],
+    CURLOPT_POSTFIELDS => [
+        "smfile" => new CURLFile("/path/to/image.png"),
+        "domain" => "fs.to",  // optional
+        "custom_slug" => "my-image"  // optional
+    ]
+]);
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+echo $response;
+```
+
+### JavaScript (fetch)
+
+```javascript
+// SM.MS original endpoint
+// const url = "https://sm.ms/api/v2/upload";
+
+// S.EE compatible endpoint
+const url = "https://s.ee/api/v1/file/upload";
+
+const formData = new FormData();
+formData.append("smfile", fileInput.files[0]);
+formData.append("domain", "fs.to");  // optional
+formData.append("custom_slug", "my-image");  // optional
+
+const response = await fetch(url, {
+  method: "POST",
+  headers: {
+    "Authorization": "your-api-key"
+  },
+  body: formData
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+## Third-Party Tool Integration
+
+Many tools and applications support SM.MS as an image hosting provider. You can use S.EE as a drop-in replacement by changing the API endpoint.
+
+### PicGo
+
+1. Open PicGo settings
+2. Go to **Image Hosting Settings** > **SM.MS**
+3. Change the custom API URL to `https://s.ee/api/v1/file`
+4. Enter your S.EE API key
+
+### ShareX
+
+1. Open ShareX
+2. Go to **Destinations** > **Custom Uploader Settings**
+3. Update the request URL from `https://sm.ms/api/v2/upload` to `https://s.ee/api/v1/file/upload`
+4. Update the Authorization header with your S.EE API key
+
+### uPic
+
+1. Open uPic preferences
+2. Select SM.MS from the host list
+3. Change the API URL to `https://s.ee/api/v1/file`
+4. Enter your S.EE API key
+
+## Differences from SM.MS
+
+While S.EE maintains compatibility with SM.MS API, there are some enhancements:
+
+| Feature | SM.MS | S.EE |
+|---------|-------|------|
+| Custom domain | No | Yes |
+| Custom slug | No | Yes |
+| File size limit | 5MB | Varies by plan |
+| Supported formats | Images only | Images, documents, and more |
+
+## Get Your API Key
+
+To use the S.EE API, you need an API key:
+
+1. Sign up or log in at [s.ee](https://s.ee)
+2. Go to **Settings** > **API**
+3. Generate a new API key
+
+## Need Help?
+
+If you encounter any issues during migration, please [contact support](https://s.ee/contact) or check our [API documentation](/docs/developers/api).

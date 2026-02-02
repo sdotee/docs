@@ -10,7 +10,13 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(ls:*)",
       "Bash(xargs:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(bun run build:*)",
+      "Bash(pkill:*)",
+      "Bash(gh api:*)",
+      "Bash(/opt/homebrew/bin/gh api repos/sdotee/desktop/releases/latest --jq '.assets[] | \"\"\\\\\\(.name\\) \\\\\\(.browser_download_url\\)\"\"')",
+      "WebFetch(domain:api.github.com)",
+      "Bash(bun add:*)"
     ]
   }
 }
