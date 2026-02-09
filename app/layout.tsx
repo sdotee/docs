@@ -80,7 +80,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <Script
-          src="https://stat.s.ee/js/pa-t6Oo-rwzMWYrqE-0Gx4Vp.js"
+          src="https://stat.s.ee/js/pa-D429lZSYlhSXgONOzDV01.js"
           strategy="afterInteractive"
         />
         <Script id="plausible-init" strategy="afterInteractive">
