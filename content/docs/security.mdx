@@ -1,143 +1,97 @@
 ---
 title: Security & Anti-Abuse
-description: Learn about S.EE's security measures, abuse prevention systems, and how we protect the platform from phishing and malicious links.
+description: How S.EE prevents phishing, malware, and abuse across short links, text sharing, and file sharing.
 icon: ShieldCheck
 ---
 
-At S.EE, security and abuse prevention are core parts of how we operate the service.
-
-As a URL shortening platform, we host and redirect links at scale—and that comes with responsibility. The same security and anti-abuse principles apply to all S.EE sharing features, including short links, text sharing, and file sharing.
-
-This document explains the measures we take to prevent phishing, malware distribution, and abusive behavior, while respecting user privacy.
+S.EE is a URL shortener that redirects links at scale. We take that seriously. Everything described here applies equally to short links, text sharing, and file sharing.
 
 ---
 
-## Proactive Abuse Prevention
+## Abuse prevention
 
-### Threat Database Updates
+### Blocklists
 
-We proactively block known abusive content by maintaining an internal blocklist that is updated daily using multiple reputable community-maintained sources, including:
+We maintain an internal blocklist, updated daily from community-maintained sources:
 
 * Disposable and temporary email domain databases
 * Public phishing and scam URL datasets
-* Domain lists associated with adult or high-risk abuse content
+* Domain lists associated with adult or high-risk content
 
-These datasets are used to prevent the creation of content that is known to be malicious or commonly abused.
-
----
-
-### No Free or Trial Accounts
-
-S.EE does not offer free accounts or trial access.
-
-Requiring paid accounts significantly raises the cost of abuse and discourages large-scale automated misuse, which is one of the most effective ways to reduce phishing and spam activity on sharing platforms.
+Known malicious content is blocked before it can be created.
 
 ---
 
-### Platform Registration and Domain Reputation
+### No free accounts
 
-The `s.ee` domain is registered and declared as an official short-link domain across major platforms and security ecosystems.
-
-This helps prevent impersonation, reduces false positives in automated moderation systems, and enables faster resolution if a platform or provider flags content for review.
+S.EE doesn't offer free accounts or trial access. Requiring payment raises the cost of abuse and makes large-scale automated misuse impractical.
 
 ---
 
-## Content Creation Safeguards
+### Domain reputation
 
-### Real-Time URL Checks
-
-When a user creates a short link, the destination URL is checked in real time against our internal abuse and phishing detection systems.
-
-Links that match known malicious patterns or blocklisted targets are blocked before they can be published.
+The `s.ee` domain is registered as an official short-link domain across major platforms and security ecosystems. This reduces false positives in automated moderation and speeds up resolution when content is flagged.
 
 ---
 
-### Rate Limiting and Behavior Monitoring
+## Content creation checks
 
-To prevent automated or abusive behavior:
+### Real-time URL scanning
 
-* Content creation is subject to per-account rate limits
-* Unusual activity patterns, such as rapid bulk slug creation, may trigger manual review
-* High-risk regions are subject to additional safeguards
-
-These controls help protect the platform without affecting normal users.
+When someone creates a short link, the destination URL is checked against our abuse and phishing detection systems in real time. Links matching known malicious patterns are blocked.
 
 ---
 
-## Text and File Sharing Safeguards
+### Rate limiting
 
-Text and file sharing features on S.EE are subject to the same abuse prevention and enforcement standards as short links.
-
-Shared content may be reviewed or restricted if it is found to:
-
-* Distribute malware or malicious payloads
-* Facilitate phishing, scams, or social engineering
-* Violate applicable laws or our Acceptable Use Policy
-
-Where necessary, shared text or files may be disabled or removed, and associated accounts may be reviewed or suspended following manual verification.
+* Content creation has per-account rate limits
+* Unusual patterns (like rapid bulk slug creation) can trigger manual review
+* High-risk regions have additional safeguards
 
 ---
 
-## Ongoing Monitoring and Enforcement
+## Text and file sharing
 
-### Retroactive Content Disabling
+Text and file sharing follow the same rules as short links. Content may be restricted or removed if it:
 
-Abuse detection does not stop at the time content is created.
+* Distributes malware
+* Facilitates phishing, scams, or social engineering
+* Violates applicable laws or our [Acceptable Use Policy](https://s.ee/aup/)
 
-If a short link, shared text, or file is later identified as malicious, deceptive, or in violation of our policies, it may be disabled retroactively, even if it was previously allowed.
-
----
-
-### Manual Review and Human Oversight
-
-User reports and internal alerts are reviewed by a human moderator.
-
-If abuse is confirmed after review, we may:
-
-* Disable the affected content
-* Suspend or terminate the associated account
-* Take additional action as required by our policies
+Accounts tied to violations may be suspended after manual review.
 
 ---
 
-## Reporting Abuse
+## Monitoring and enforcement
 
-We encourage users, platforms, and security teams to report suspicious or abusive content hosted on S.EE.
+### Retroactive disabling
 
-You can contact us through any of the following channels:
+If a link, text, or file is later found to be malicious or deceptive, we disable it, even if it passed checks when it was created.
+
+---
+
+### Human review
+
+User reports and internal alerts go to a human moderator. If abuse is confirmed, we disable the content and may suspend or terminate the account.
+
+---
+
+## Reporting abuse
+
+If you spot something suspicious on S.EE, let us know:
 
 * Email: `abuse@s.ee`
 * Contact form: [https://s.ee/contact/](https://s.ee/contact/)
-* Policy references:
-  * [https://s.ee/terms/](https://s.ee/terms/)
-  * [https://s.ee/aup/](https://s.ee/aup/)
 
-Reports may relate to short links, shared text, or files. Verified abuse is reviewed promptly and addressed accordingly.
+See also: [Terms of Service](https://s.ee/terms/) and [Acceptable Use Policy](https://s.ee/aup/)
 
 ---
 
-## Privacy-Respecting Security Practices
+## Privacy
 
-S.EE is designed with privacy in mind.
+We may process limited technical information when investigating abuse or security incidents. This data is **not** used for tracking, profiling, analytics, or marketing.
 
-For security and abuse prevention purposes, we may process limited technical information associated with content creation or access events. This information is used solely to:
-
-* Investigate abuse or security incidents
-* Protect the integrity of the service
-
-Such information is **not** used for tracking, profiling, analytics, or marketing, and access is restricted to cases where it is strictly necessary.
-
-For details on how user data is handled, please refer to our Privacy Policy:
-
-[https://s.ee/privacy/](https://s.ee/privacy/)
-
----
-
-## Our Commitment
-
-We continuously refine our abuse prevention systems and policies to adapt to new threats.
-
-If you have questions about our security practices or believe content hosted on S.EE is being misused, please contact us. We take trust and safety seriously and are committed to keeping the platform reliable for everyone.
+Full details: [Privacy Policy](https://s.ee/privacy/)
 
 ---
 
