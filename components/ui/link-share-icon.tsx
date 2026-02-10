@@ -7,39 +7,40 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface AttachFileIconHandle {
+export interface LinkShareIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface AttachFileIconProps extends HTMLAttributes<HTMLDivElement> {
+interface LinkShareIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-const ARROW_VARIANTS: Variants = {
-  normal: { x: 0 },
+const BACK_VARIANTS: Variants = {
+  normal: { x: 0, y: 0 },
   animate: {
-    x: [0, 3, 0],
+    x: [0, -2, 0],
+    y: [0, 2, 0],
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: "easeInOut",
     },
   },
 };
 
-const WINDOW_VARIANTS: Variants = {
-  normal: { pathLength: 1, opacity: 1 },
+const FRONT_VARIANTS: Variants = {
+  normal: { x: 0, y: 0 },
   animate: {
-    pathLength: [0.6, 1],
-    opacity: [0.5, 1],
+    x: [0, 2, 0],
+    y: [0, -2, 0],
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      duration: 0.4,
+      ease: "easeInOut",
     },
   },
 };
 
-const AttachFileIcon = forwardRef<AttachFileIconHandle, AttachFileIconProps>(
+const LinkShareIcon = forwardRef<LinkShareIconHandle, LinkShareIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -87,21 +88,20 @@ const AttachFileIcon = forwardRef<AttachFileIconHandle, AttachFileIconProps>(
           height={size}
           stroke="currentColor"
           strokeLinecap="round"
-          strokeLinejoin="round"
           strokeWidth="1.5"
           viewBox="0 0 24 24"
           width={size}
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.path
-            d="M9.39584 4.5H8.35417C5.40789 4.5 3.93475 4.5 3.01946 5.37868C2.10417 6.25736 2.10417 7.67157 2.10417 10.5V14.5C2.10417 17.3284 2.10417 18.7426 3.01946 19.6213C3.93475 20.5 5.40789 20.5 8.35417 20.5H12.5608C15.5071 20.5 16.9802 20.5 17.8955 19.6213C18.4885 19.052 18.6973 18.2579 18.7708 17"
+            d="M13.5 13V11.5C13.5 10.0955 13.5 9.39331 13.1629 8.88886C13.017 8.67048 12.8295 8.48298 12.6111 8.33706C12.1705 8.04261 11.5789 8.00539 10.5 8.00068C10.3439 8 10.1775 8 10 8C8.59554 8 7.89331 8 7.38886 8.33706C7.17048 8.48298 6.98298 8.67048 6.83706 8.88886C6.5 9.39331 6.5 10.0955 6.5 11.5V17.5C6.5 18.9045 6.5 19.6067 6.83706 20.1111C6.98298 20.3295 7.17048 20.517 7.38886 20.6629C7.89331 21 8.59554 21 10 21C11.4045 21 12.1067 21 12.6111 20.6629C12.8295 20.517 13.017 20.3295 13.1629 20.1111C13.3503 19.8307 13.4335 19.4892 13.4705 19"
             animate={controls}
-            variants={WINDOW_VARIANTS}
+            variants={BACK_VARIANTS}
           />
           <motion.path
-            d="M16.1667 7V3.85355C16.1667 3.65829 16.3316 3.5 16.535 3.5C16.6326 3.5 16.7263 3.53725 16.7954 3.60355L21.5275 8.14645C21.7634 8.37282 21.8958 8.67986 21.8958 9C21.8958 9.32014 21.7634 9.62718 21.5275 9.85355L16.7954 14.3964C16.7263 14.4628 16.6326 14.5 16.535 14.5C16.3316 14.5 16.1667 14.3417 16.1667 14.1464V11H13.1157C8.875 11 7.3125 14.5 7.3125 14.5V12C7.3125 9.23858 9.64435 7 12.5208 7H16.1667Z"
+            d="M10.5 11V12.5C10.5 13.9045 10.5 14.6067 10.8371 15.1111C10.983 15.3295 11.1705 15.517 11.3889 15.6629C11.8295 15.9574 12.4211 15.9946 13.5 15.9993C13.6561 16 13.8225 16 14 16C15.4045 16 16.1067 16 16.6111 15.6629C16.8295 15.517 17.017 15.3295 17.1629 15.1111C17.5 14.6067 17.5 13.9045 17.5 12.5V6.5C17.5 5.09554 17.5 4.39331 17.1629 3.88886C17.017 3.67048 16.8295 3.48298 16.6111 3.33706C16.1067 3 15.4045 3 14 3C12.5955 3 11.8933 3 11.3889 3.33706C11.1705 3.48298 10.983 3.67048 10.8371 3.88886C10.6497 4.16925 10.5665 4.51076 10.5295 5"
             animate={controls}
-            variants={ARROW_VARIANTS}
+            variants={FRONT_VARIANTS}
           />
         </svg>
       </div>
@@ -109,6 +109,6 @@ const AttachFileIcon = forwardRef<AttachFileIconHandle, AttachFileIconProps>(
   }
 );
 
-AttachFileIcon.displayName = "AttachFileIcon";
+LinkShareIcon.displayName = "LinkShareIcon";
 
-export { AttachFileIcon };
+export { LinkShareIcon };

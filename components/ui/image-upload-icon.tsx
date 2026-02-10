@@ -7,19 +7,19 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface AttachFileIconHandle {
+export interface ImageUploadIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface AttachFileIconProps extends HTMLAttributes<HTMLDivElement> {
+interface ImageUploadIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
 const ARROW_VARIANTS: Variants = {
-  normal: { x: 0 },
+  normal: { y: 0 },
   animate: {
-    x: [0, 3, 0],
+    y: [0, -2, 0],
     transition: {
       duration: 0.5,
       ease: "easeInOut",
@@ -27,19 +27,20 @@ const ARROW_VARIANTS: Variants = {
   },
 };
 
-const WINDOW_VARIANTS: Variants = {
+const LANDSCAPE_VARIANTS: Variants = {
   normal: { pathLength: 1, opacity: 1 },
   animate: {
-    pathLength: [0.6, 1],
-    opacity: [0.5, 1],
+    pathLength: [0, 1],
+    opacity: [0.3, 1],
     transition: {
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
+      delay: 0.15,
     },
   },
 };
 
-const AttachFileIcon = forwardRef<AttachFileIconHandle, AttachFileIconProps>(
+const ImageUploadIcon = forwardRef<ImageUploadIconHandle, ImageUploadIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -94,21 +95,23 @@ const AttachFileIcon = forwardRef<AttachFileIconHandle, AttachFileIconProps>(
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.path
-            d="M9.39584 4.5H8.35417C5.40789 4.5 3.93475 4.5 3.01946 5.37868C2.10417 6.25736 2.10417 7.67157 2.10417 10.5V14.5C2.10417 17.3284 2.10417 18.7426 3.01946 19.6213C3.93475 20.5 5.40789 20.5 8.35417 20.5H12.5608C15.5071 20.5 16.9802 20.5 17.8955 19.6213C18.4885 19.052 18.6973 18.2579 18.7708 17"
+            d="M3 16L7.46967 11.5303C7.80923 11.1908 8.26978 11 8.75 11C9.23022 11 9.69077 11.1908 10.0303 11.5303L14 15.5M15.5 17L14 15.5M21 16L18.5303 13.5303C18.1908 13.1908 17.7302 13 17.25 13C16.7698 13 16.3092 13.1908 15.9697 13.5303L14 15.5"
             animate={controls}
-            variants={WINDOW_VARIANTS}
+            variants={LANDSCAPE_VARIANTS}
           />
-          <motion.path
-            d="M16.1667 7V3.85355C16.1667 3.65829 16.3316 3.5 16.535 3.5C16.6326 3.5 16.7263 3.53725 16.7954 3.60355L21.5275 8.14645C21.7634 8.37282 21.8958 8.67986 21.8958 9C21.8958 9.32014 21.7634 9.62718 21.5275 9.85355L16.7954 14.3964C16.7263 14.4628 16.6326 14.5 16.535 14.5C16.3316 14.5 16.1667 14.3417 16.1667 14.1464V11H13.1157C8.875 11 7.3125 14.5 7.3125 14.5V12C7.3125 9.23858 9.64435 7 12.5208 7H16.1667Z"
-            animate={controls}
-            variants={ARROW_VARIANTS}
+          <path
+            d="M12 2.5C7.77027 2.5 5.6554 2.5 4.25276 3.69797C4.05358 3.86808 3.86808 4.05358 3.69797 4.25276C2.5 5.6554 2.5 7.77027 2.5 12C2.5 16.2297 2.5 18.3446 3.69797 19.7472C3.86808 19.9464 4.05358 20.1319 4.25276 20.302C5.6554 21.5 7.77027 21.5 12 21.5C16.2297 21.5 18.3446 21.5 19.7472 20.302C19.9464 20.1319 20.1319 19.9464 20.302 19.7472C21.5 18.3446 21.5 16.2297 21.5 12"
           />
+          <motion.g animate={controls} variants={ARROW_VARIANTS}>
+            <path d="M15.5 5.5C16.0898 4.89316 17.6597 2.5 18.5 2.5C19.3403 2.5 20.9102 4.89316 21.5 5.5" />
+            <path d="M18.5 3V9.5" />
+          </motion.g>
         </svg>
       </div>
     );
   }
 );
 
-AttachFileIcon.displayName = "AttachFileIcon";
+ImageUploadIcon.displayName = "ImageUploadIcon";
 
-export { AttachFileIcon };
+export { ImageUploadIcon };

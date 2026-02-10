@@ -25,6 +25,8 @@ import { TerminalIcon } from '@/components/ui/terminal';
 import { MonitorIcon } from '@/components/ui/monitor';
 import { RefreshCwIcon } from '@/components/ui/refresh-cw';
 import { ImageIcon } from '@/components/ui/image-icon';
+import { ImageUploadIcon } from '@/components/ui/image-upload-icon';
+import { LinkShareIcon } from '@/components/ui/link-share-icon';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -50,6 +52,8 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   Monitor: MonitorIcon,
   RefreshCw: RefreshCwIcon,
   ImageUp: ImageIcon,
+  ImageUpload: ImageUploadIcon,
+  LinkShare: LinkShareIcon,
 };
 
 function createLucideIconsPlugin(): LoaderPlugin {
