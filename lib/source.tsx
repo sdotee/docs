@@ -24,6 +24,7 @@ import { BananaIcon } from '@/components/ui/banana';
 import { TerminalIcon } from '@/components/ui/terminal';
 import { MonitorIcon } from '@/components/ui/monitor';
 import { RefreshCwIcon } from '@/components/ui/refresh-cw';
+import { ImageIcon } from '@/components/ui/image-icon';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -48,6 +49,7 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   Terminal: TerminalIcon,
   Monitor: MonitorIcon,
   RefreshCw: RefreshCwIcon,
+  ImageUp: ImageIcon,
 };
 
 function createLucideIconsPlugin(): LoaderPlugin {

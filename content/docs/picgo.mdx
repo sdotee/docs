@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: Upload images and files to S.EE directly from PicGo — no plugins needed
+icon: ImageUp
+---
+
+[PicGo](https://github.com/Molunerfinn/PicGo) is a free, open-source image upload tool for Windows, macOS, and Linux. The latest version has native S.EE support built in — just add your API Token and start uploading. No plugins or extra configuration needed.
+
+- [Download PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Source Code](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Setup
+
+### 1. Get Your API Token
+
+1. Log in to your S.EE account
+2. Go to **[Tools > API Token](https://s.ee/user/developers/)**
+3. Generate a new API Token
+
+<Callout type="warn">
+Keep your API Token secure. Do not share it publicly or commit it to version control.
+</Callout>
+
+### 2. Configure PicGo
+
+1. Download and install [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Open PicGo
+3. Go to **Picbeds Settings** > **SM.MS (S.EE)**
+4. Click the **+** button to add a new configuration
+5. Enter a name in **Configuration Name** (e.g. `S.EE`)
+6. Paste your API Token in **Set Token**
+7. Click **Confirm** to save
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Usage
+
+Upload images or files to S.EE in four ways:
+
+- **Drag and drop** files onto the Upload Area
+- **Click to upload** and select files from your computer
+- **Mini window** — click the PicGo floating window to upload files directly
+- **Upload by Clipboard** — right-click the floating window and select **Upload by Clipboard**
+
+After uploading, PicGo copies the link to your clipboard in your preferred format (Markdown, HTML, URL, etc.).
+
+---
+
+## Related Documentation
+
+- [Developer API](/docs/developers) - Full API documentation
+- [File Sharing](/docs/file-sharing) - Supported file types and limits
+- [SM.MS Compatibility](/docs/developers/smms-compatibility) - SM.MS-compatible API layer

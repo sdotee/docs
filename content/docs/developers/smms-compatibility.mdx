@@ -152,31 +152,6 @@ const data = await response.json();
 console.log(data);
 ```
 
-## Third-Party Tool Integration
-
-Many tools and applications support SM.MS as an image hosting provider. You can use S.EE as a drop-in replacement by changing the API endpoint.
-
-### PicGo
-
-1. Open PicGo settings
-2. Go to **Image Hosting Settings** > **SM.MS**
-3. Change the custom API URL to `https://s.ee/api/v1/file`
-4. Enter your S.EE API key
-
-### ShareX
-
-1. Open ShareX
-2. Go to **Destinations** > **Custom Uploader Settings**
-3. Update the request URL from `https://sm.ms/api/v2/upload` to `https://s.ee/api/v1/file/upload`
-4. Update the Authorization header with your S.EE API key
-
-### uPic
-
-1. Open uPic preferences
-2. Select SM.MS from the host list
-3. Change the API URL to `https://s.ee/api/v1/file`
-4. Enter your S.EE API key
-
 ## Differences from SM.MS
 
 While S.EE maintains compatibility with SM.MS API, there are some enhancements:
@@ -193,7 +168,7 @@ While S.EE maintains compatibility with SM.MS API, there are some enhancements:
 To use the S.EE API, you need an API key:
 
 1. Sign up or log in at [s.ee](https://s.ee)
-2. Go to **Settings** > **API**
+2. Go to **[Tools > API Token](https://s.ee/user/developers/)**
 3. Generate a new API key
 
 ## Need Help?
