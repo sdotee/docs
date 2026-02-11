@@ -1,5 +1,5 @@
 # Build stage
-FROM oven/bun:1 AS builder
+FROM oven/bun:1-slim AS builder
 WORKDIR /app
 
 # Install dependencies
@@ -12,7 +12,7 @@ ENV NODE_ENV=production
 RUN bun run build
 
 # Production stage - use distroless for minimal size
-FROM gcr.io/distroless/nodejs24-debian13 AS release
+FROM oven/bun:1-distroless AS release
 WORKDIR /app
 
 # Copy standalone build
