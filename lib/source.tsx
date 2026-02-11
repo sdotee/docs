@@ -27,6 +27,7 @@ import { RefreshCwIcon } from '@/components/ui/refresh-cw';
 import { ImageIcon } from '@/components/ui/image-icon';
 import { ImageUploadIcon } from '@/components/ui/image-upload-icon';
 import { LinkShareIcon } from '@/components/ui/link-share-icon';
+import { AwesomeFaceIcon } from '@/components/ui/awesome-face';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -54,6 +55,7 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   ImageUp: ImageIcon,
   ImageUpload: ImageUploadIcon,
   LinkShare: LinkShareIcon,
+  AwesomeFace: AwesomeFaceIcon,
 };
 
 function createLucideIconsPlugin(): LoaderPlugin {
