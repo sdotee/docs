@@ -25,4 +25,8 @@ ENV NODE_ENV=production
 ENV HOSTNAME="0.0.0.0"
 ENV PORT=3000
 
+# Health check using exec form (no shell needed in distroless)
+HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+    CMD ["bun", "-e", "const r=await fetch('http://localhost:3000');if(!r.ok)process.exit(1)"]
+
 CMD ["server.js"]
