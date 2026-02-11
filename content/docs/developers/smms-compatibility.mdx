@@ -44,24 +44,22 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 
 ```json
 {
-  "success": true,
-  "code": "success",
-  "message": "Upload success.",
+  "code": 200,
+  "message": "success",
   "data": {
-    "file_id": 0,
-    "width": 1920,
-    "height": 1080,
-    "filename": "image.png",
-    "storename": "abc123.png",
-    "size": 102400,
-    "path": "/2024/01/01/abc123.png",
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
     "hash": "delete-hash-here",
-    "url": "https://i.see.you/2024/01/01/abc123/image.png",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
     "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
-    "page": "https://fs.to/abc123"
-  },
-  "RequestId": "request-id"
-}
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  }
 ```
 
 ## Code Examples
