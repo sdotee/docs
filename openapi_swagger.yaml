@@ -286,8 +286,41 @@ components:
         qrcode_count_month:
           description: QR codes generated this month
           type: integer
+        file_count:
+          description: Total uploaded files count
+          type: integer
         qrcode_count_month_limit:
           description: Maximum QR codes allowed per month
+          type: integer
+        storage_usage_limit_mb:
+          description: Maximum storage space allowed (in MB, rounded to 2 decimal places, -1 means unlimited)
+          type: string
+        storage_usage_mb:
+          description: Storage space used by uploaded files (in MB, rounded to 2 decimal places)
+          type: string
+        text_count_day:
+          description: Text shares created today
+          type: integer
+        text_count_day_limit:
+          description: Maximum text shares allowed per day
+          type: integer
+        text_count_month:
+          description: Text shares created this month
+          type: integer
+        text_count_month_limit:
+          description: Maximum text shares allowed per month
+          type: integer
+        upload_count_day:
+          description: Files uploaded today
+          type: integer
+        upload_count_day_limit:
+          description: Maximum file uploads allowed per day
+          type: integer
+        upload_count_month:
+          description: Files uploaded this month
+          type: integer
+        upload_count_month_limit:
+          description: Maximum file uploads allowed per month
           type: integer
       type: object
     val.GetUsageRespV:
@@ -361,6 +394,9 @@ components:
     val.UploadFileRespData:
       description: File upload response
       properties:
+        created_at:
+          description: File upload timestamp (for upload history only)
+          type: integer
         delete:
           description: URL to delete this file
           type: string
@@ -408,6 +444,23 @@ components:
         message:
           description: Human-readable status message
           type: string
+      type: object
+    val.GetFileHistoryRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          description: List of uploaded files
+          items:
+            $ref: '#/components/schemas/val.UploadFileRespData'
+          type: array
+        message:
+          description: Human-readable status message
+          type: string
+        success:
+          description: Request status
+          type: boolean
       type: object
   securitySchemes:
     ApiKeyAuth:
@@ -519,9 +572,14 @@ paths:
                 custom_slug:
                   type: string
                   description: Your preferred custom slug (e.g., 'my-link'). If not provided, a random slug will be generated.
+                is_private:
+                  default: 0
+                  description: Whether this file should be private (0 = public, 1 = private).
+                  enum: [0, 1]
+                  type: integer
               required:
                 - file
-        description: Upload a file using multipart/form-data. The file field is required, domain and custom_slug are optional.
+        description: Upload a file using multipart/form-data. The file field is required, domain, custom_slug, and is_private are optional.
       responses:
         "200":
           content:
@@ -530,6 +588,34 @@ paths:
                 $ref: '#/components/schemas/val.UploadFileRespV'
           description: OK
       summary: Upload File
+      tags:
+        - File
+  /api/v1/files:
+    get:
+      description: Returns a paginated list of uploaded files for the authenticated user. This API is compatible with sm.ms upload_history endpoint and returns 30 files per page sorted by creation time in descending order.
+      operationId: GetFileHistory
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: Page number (default 1)
+          in: query
+          name: page
+          schema:
+            default: 1
+            minimum: 1
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetFileHistoryRespV'
+          description: OK
+      summary: Get File Upload History
       tags:
         - File
   /api/v1/link/visit-stat:
@@ -873,4 +959,3 @@ paths:
         - Short URLs
 servers:
   - url: https://s.ee
-
