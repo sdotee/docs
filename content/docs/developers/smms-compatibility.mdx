@@ -45,7 +45,6 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 ```json
 {
   "code": 200,
-  "message": "success",
   "data": {
     "file_id": 14184137,
     "width": 1024,
@@ -59,7 +58,10 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
     "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
     "page": "https://sm.ms/my-cat",
     "upload_status": 2
-  }
+  },
+  "message": "success",
+  "success": true
+}
 ```
 
 ## Code Examples
