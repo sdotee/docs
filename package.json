@@ -25,14 +25,14 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "agentation": "^2.2.0",
+    "agentation": "^2.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "fumadocs-core": "^16.5.4",
+    "fumadocs-core": "^16.6.0",
     "fumadocs-mdx": "^14.2.7",
-    "fumadocs-openapi": "^10.3.4",
+    "fumadocs-openapi": "^10.3.5",
     "fumadocs-typescript": "^5.1.2",
-    "fumadocs-ui": "^16.5.4",
+    "fumadocs-ui": "^16.6.0",
     "lucide-react": "^0.563.0",
     "motion": "^12.34.0",
     "next": "^16.1.6",

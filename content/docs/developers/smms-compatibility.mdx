@@ -19,6 +19,7 @@ Replace the SM.MS API base URL with the S.EE equivalent:
 | SM.MS Endpoint | S.EE Endpoint | Description |
 |----------------|---------------|-------------|
 | `POST /api/v2/upload` | `POST /api/v1/file/upload` | Upload image |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Get upload history |
 
 ## Upload Image
 
@@ -64,92 +65,61 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 }
 ```
 
-## Code Examples
+## Upload History
 
-### Python (requests)
+### Request
 
-```python
-import requests
-
-# SM.MS original code
-# url = "https://sm.ms/api/v2/upload"
-
-# S.EE compatible endpoint
-url = "https://s.ee/api/v1/file/upload"
-
-headers = {
-    "Authorization": "your-api-key"
-}
-
-files = {
-    "smfile": open("image.png", "rb")
-}
-
-data = {
-    "domain": "fs.to",  # optional
-    "custom_slug": "my-image"  # optional
-}
-
-response = requests.post(url, headers=headers, files=files, data=data)
-print(response.json())
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
 ```
 
-### PHP (cURL)
+### Parameters
 
-```php
-<?php
-// SM.MS original endpoint
-// $url = "https://sm.ms/api/v2/upload";
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `page` | integer | No | Page number (default 1, 30 files per page) |
 
-// S.EE compatible endpoint
-$url = "https://s.ee/api/v1/file/upload";
+### Response
 
-$ch = curl_init();
-
-curl_setopt_array($ch, [
-    CURLOPT_URL => $url,
-    CURLOPT_POST => true,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTPHEADER => [
-        "Authorization: your-api-key"
-    ],
-    CURLOPT_POSTFIELDS => [
-        "smfile" => new CURLFile("/path/to/image.png"),
-        "domain" => "fs.to",  // optional
-        "custom_slug" => "my-image"  // optional
-    ]
-]);
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-echo $response;
-```
-
-### JavaScript (fetch)
-
-```javascript
-// SM.MS original endpoint
-// const url = "https://sm.ms/api/v2/upload";
-
-// S.EE compatible endpoint
-const url = "https://s.ee/api/v1/file/upload";
-
-const formData = new FormData();
-formData.append("smfile", fileInput.files[0]);
-formData.append("domain", "fs.to");  // optional
-formData.append("custom_slug", "my-image");  // optional
-
-const response = await fetch(url, {
-  method: "POST",
-  headers: {
-    "Authorization": "your-api-key"
-  },
-  body: formData
-});
-
-const data = await response.json();
-console.log(data);
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
 ```
 
 ## Differences from SM.MS

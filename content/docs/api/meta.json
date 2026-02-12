@@ -17,6 +17,7 @@
     "GetTextAvailableDomains",
     "---File Sharing---",
     "UploadFile",
+    "GetFileHistory",
     "DeleteFile",
     "GetFileAvailableDomains",
     "---General---",
