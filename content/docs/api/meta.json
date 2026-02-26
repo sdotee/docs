@@ -18,6 +18,7 @@
     "---File Sharing---",
     "UploadFile",
     "GetFileHistory",
+    "GetPrivateFileDownloadURL",
     "DeleteFile",
     "GetFileAvailableDomains",
     "---General---",

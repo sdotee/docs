@@ -462,6 +462,33 @@ components:
           description: Request status
           type: boolean
       type: object
+    val.GetPrivateFileURLRespData:
+      description: Private file download URL response data
+      properties:
+        file_id:
+          description: File ID
+          type: integer
+        url:
+          description: Temporary download URL (valid for a limited time)
+          type: string
+        expires_at:
+          description: URL expiration time (unix timestamp)
+          type: integer
+      type: object
+    val.GetPrivateFileURLRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        message:
+          description: Human-readable status message
+          type: string
+        data:
+          $ref: '#/components/schemas/val.GetPrivateFileURLRespData'
+        success:
+          description: Success flag
+          type: boolean
+      type: object
   securitySchemes:
     ApiKeyAuth:
       in: header
@@ -543,6 +570,33 @@ paths:
                 $ref: '#/components/schemas/val.GetAvailableDomainsRespV'
           description: OK
       summary: Get Available Domains for File Sharing
+      tags:
+        - File
+  /api/v1/file/private/download-url:
+    get:
+      description: This API allows you to get a temporary download URL for a private file using its file ID. The URL is cached for a period of time, so multiple requests for the same file will return the same URL. The URL is valid for 1 hour.
+      operationId: GetPrivateFileDownloadURL
+      parameters:
+        - description: File ID
+          in: query
+          name: file_id
+          required: true
+          schema:
+            type: integer
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetPrivateFileURLRespV'
+          description: OK
+      summary: Get Private File Download URL
       tags:
         - File
   /api/v1/file/upload:
@@ -959,3 +1013,4 @@ paths:
         - Short URLs
 servers:
   - url: https://s.ee
+
