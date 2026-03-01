@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Shorten URLs, share text, and host files directly from your WordPress dashboard
+icon: WordPress
+---
+
+The [S.EE WordPress plugin](https://wordpress.org/plugins/sdotee/) lets you shorten URLs, share text, and upload files without leaving WordPress. Publish a post and a short link is created automatically — no extra steps needed.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Source Code on GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| Short URLs | Auto-generate short links when you publish or update posts and pages |
+| Text Sharing | Share plain text, Markdown, and code snippets with a link |
+| File Hosting | Upload files from the Media Library and copy the link as URL, HTML, Markdown, or BBCode |
+| Automation | Auto-upload new media and auto-shorten links on publish — set it once and forget it |
+| Admin Integration | View and manage short URLs right from the post/page list |
+| Dashboard Panel | A dedicated S.EE panel for text and file sharing with full usage history |
+| 13 Languages | English, Chinese (Simplified/Traditional), Japanese, Korean, Indonesian, Vietnamese, German, French, Spanish, Portuguese (Brazil/Portugal), Russian |
+
+---
+
+## Requirements
+
+- PHP 8.2+
+- WordPress 6.0+
+- An S.EE account with an [API Token](https://s.ee/user/developers/)
+
+---
+
+## Installation
+
+### From WordPress Plugin Directory
+
+1. In your WordPress admin, go to **Plugins** > **Add New**
+2. Search for **S.EE**
+3. Click **Install Now**, then **Activate**
+
+### From GitHub
+
+1. Download the latest ZIP from [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Go to **Plugins** > **Add New** > **Upload Plugin**
+3. Upload the ZIP and click **Install Now**, then **Activate**
+
+---
+
+## Setup
+
+### 1. Get your API Token
+
+1. Log in to your S.EE account
+2. Go to **[Tools > API Token](https://s.ee/user/developers/)**
+3. Generate a new API Token
+
+<Callout type="warn">
+Don't share your API Token publicly or commit it to version control.
+</Callout>
+
+### 2. Configure the plugin
+
+1. Go to **Settings** > **S.EE**
+2. Paste your API Token and click **Verify**
+3. Pick your default domains for short URLs, text, and files
+4. Turn on auto-generation and auto-upload if you want hands-free operation
+
+<Callout type="info">
+You can also set your API Token in `wp-config.php` to keep it out of the database.
+</Callout>
+
+---
+
+## Usage
+
+### Short URLs
+
+With auto-generation on, every post and page gets a short link the moment you hit Publish. You can also create or view short URLs from the post/page list column in the admin panel.
+
+### Text Sharing
+
+Open the **S.EE** dashboard panel and paste your content. Supported formats:
+
+- Plain text
+- Markdown
+- Code snippets
+
+### File Hosting
+
+Upload files through the **S.EE** dashboard panel or the Media Library. After uploading, grab the link in your preferred format: URL, HTML, Markdown, or BBCode.
+
+---
+
+## Related
+
+- [Developer API](/docs/developers)
+- [File Sharing](/docs/file-sharing)
+- [Text Sharing](/docs/text-sharing)
+- [Image Hosting](/docs/image-hosting)
