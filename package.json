@@ -28,17 +28,17 @@
     "agentation": "^2.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "fumadocs-core": "^16.6.5",
+    "fumadocs-core": "^16.6.7",
     "fumadocs-mdx": "^14.2.8",
-    "fumadocs-openapi": "^10.3.11",
+    "fumadocs-openapi": "^10.3.13",
     "fumadocs-typescript": "^5.1.4",
-    "fumadocs-ui": "^16.6.5",
+    "fumadocs-ui": "^16.6.7",
     "lucide-react": "^0.575.0",
     "motion": "^12.34.3",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "shiki": "^3.23.0",
+    "shiki": "^4.0.0",
     "tailwind-merge": "^3.5.0"
   }
 }
