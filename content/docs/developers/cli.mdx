@@ -19,9 +19,40 @@ A command-line client for the S.EE platform, enabling you to create and manage s
 
 ## Installation
 
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# or pre-built binary
+yay -S see-cli-bin
+```
+
+### From Source
+
 ```bash
 go install github.com/sdotee/cli@latest
 ```
+
+Download pre-built binaries and packages from [GitHub Releases](https://github.com/sdotee/cli/releases).
 
 ## Configuration
 
