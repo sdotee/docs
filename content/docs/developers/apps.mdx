@@ -1,0 +1,125 @@
+---
+title: Mobile App
+description: Native mobile application for S.EE
+icon: Smartphone
+---
+
+Shorten links, share text, and upload files from your phone — with the full power of S.EE in a native app.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Download
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="/app-store-badge.svg" alt="Download on the App Store" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+  </a>
+</div>
+
+## Supported Platforms
+
+| Platform | Requirements | Technology |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Features
+
+### URL Shortening
+
+- Create short links with custom slug, title, password, and expiration
+- Choose from multiple domains
+- View link statistics — today, this month, and total visits
+- Search across slug, target URL, title, and domain
+- Edit or delete existing links
+
+### Text Sharing
+
+- Share plain text, source code, or Markdown
+- Monospaced editor for code
+- Custom slug, password, and expiration
+- Domain selection and tag assignment (up to 5 tags)
+
+### File Upload
+
+- Pick files, select from gallery, or capture with camera
+- Paste from clipboard with auto WebP conversion (iOS)
+- Real-time upload progress
+- 9 link formats — Direct Link, Share Page, BBCode, HTML, Markdown, and more
+- Batch copy and batch delete across all lists
+
+### Usage Dashboard
+
+- Storage usage with visual progress bar
+- Rate limits for API Calls, Links, Text Shares, Uploads, and QR Codes
+- Daily and monthly usage counts
+
+### Settings
+
+- Base URL configuration for self-hosted instances
+- API Key management with one-tap verify
+- Default domain selection per service (links, text, files)
+- Theme: System / Light / Dark
+- Dynamic Color / Material You (Android)
+
+## iOS
+
+Built with **SwiftUI** and **SwiftData** for a native iOS experience.
+
+- **Photo Picker** — select from Photos library
+- **Camera** — capture photos (JPG) or video (MOV to MP4)
+- Pull-to-refresh for tags and lists
+- Keychain-based secure API key storage
+
+## Android
+
+Built with **Jetpack Compose** and **Material 3** (Material You) for a native Android experience.
+
+- **Share Target** — receive shared text, URLs, and files from other apps
+- **App Shortcuts** — long-press the app icon for quick actions
+- **Predictive Back** gesture support (Android 14+)
+- **Adaptive Icon** with themed icon support
+- Room database for local history
+- EncryptedSharedPreferences for secure storage
+
+## Tech Stack
+
+### iOS
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+### Android
+
+| Layer | Technology |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architecture | MVVM + Repository |
+| Networking | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Local DB | Room |
+| Security | EncryptedSharedPreferences |
+| Image Loading | Coil 3 |
+
+## Source Code
+
+Both apps are open source under the MIT license:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Getting Started
+
+1. Download from the [App Store](https://s.ee/ios) or [Google Play](https://s.ee/android)
+2. Create an account at [s.ee](https://s.ee) if you don't have one
+3. [Generate an API key](https://s.ee/user/developers/) from your dashboard
+4. Open the app, go to **Settings**, enter your API key, and tap **Verify**

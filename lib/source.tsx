@@ -29,6 +29,7 @@ import { ImageUploadIcon } from '@/components/ui/image-upload-icon';
 import { LinkShareIcon } from '@/components/ui/link-share-icon';
 import { AwesomeFaceIcon } from '@/components/ui/awesome-face';
 import { WordPressIcon } from '@/components/ui/wordpress-icon';
+import { SmartphoneIcon } from '@/components/ui/smartphone';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -58,6 +59,7 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   LinkShare: LinkShareIcon,
   AwesomeFace: AwesomeFaceIcon,
   WordPress: WordPressIcon,
+  Smartphone: SmartphoneIcon,
 };
 
 function createLucideIconsPlugin(): LoaderPlugin {

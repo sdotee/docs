@@ -4,123 +4,110 @@ description: Native desktop application for S.EE
 icon: Monitor
 ---
 
-Native desktop application for S.EE with a modern UI, providing easy access to URL shortening, text sharing, and file hosting.
+Shorten links, share text, and upload files from your desktop — with native apps for macOS and Linux.
 
-- [sdotee/desktop](https://github.com/sdotee/desktop)
+- [sdotee/app](https://github.com/sdotee/app)
 
-## Features
+## Download
 
-- **URL Shortening**: Create shortened links with custom aliases
-- **Text Sharing**: Share code snippets, notes, and text content
-- **File Upload**: Drag-and-drop file uploads
-- **QR Code Generation**: Generate QR codes for any link
-- **History**: Local record of all created links, texts, and files
-- **Multi-Domain Support**: Choose from multiple domains for each service
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
 
 ## Supported Platforms
 
 | Platform | Status | Technology |
 |----------|--------|------------|
+| macOS | Available | SwiftUI |
 | Linux | Available | GTK4 + libadwaita + Rust |
-| macOS | In Development | - |
 | Windows | In Development | - |
 
-## Installation
+## Features
 
-### Linux
+- **URL Shortening** — Custom slug, title, password, and expiration
+- **Text Sharing** — Plain text, source code, or Markdown with monospaced editor
+- **File Upload** — Drag & drop, clipboard paste, or file picker
+- **QR Code Generation** — Export as PNG, SVG, or PDF
+- **History** — Local record of all created links, texts, and files
+- **Multi-Domain Support** — Choose from multiple domains per service
+- **Usage Dashboard** — Storage usage and rate limits at a glance
 
-**AUR (Arch Linux)**
+## macOS
 
-```bash
-yay -S see-desktop-bin
-```
+Built with **SwiftUI** and **SwiftData**. Full keyboard shortcut support and menu bar integration.
 
-**Debian/Ubuntu (amd64)**
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Requires macOS 14.0+
 
-```bash
-wget https://github.com/sdotee/desktop/releases/latest/download/see_0.1.0_amd64.deb
-sudo dpkg -i see_0.1.0_amd64.deb
-```
+### Highlights
 
-**Debian/Ubuntu (arm64)**
+- **Menu Bar** — Shorten URLs, paste & upload, and access recent items without opening the main window
+- **Drag & Drop** — Drop files anywhere in the upload area
+- **Paste from Clipboard** (Cmd+V) — Auto-converts images to WebP with PNG fallback
+- **Keychain** — Secure API key storage via macOS Security framework
 
-```bash
-wget https://github.com/sdotee/desktop/releases/latest/download/see_0.1.0_arm64.deb
-sudo dpkg -i see_0.1.0_arm64.deb
-```
+### Keyboard Shortcuts
 
-**Fedora/RHEL (x86_64)**
+| Shortcut | Action |
+|----------|--------|
+| Cmd+N | New Short Link |
+| Cmd+Shift+N | New Text Share |
+| Cmd+V | Paste & Upload from Clipboard |
+| Cmd+, | Settings |
+| Cmd+Q | Quit |
 
-```bash
-wget https://github.com/sdotee/desktop/releases/latest/download/see-0.1.0-1.x86_64.rpm
-sudo dnf install see-0.1.0-1.x86_64.rpm
-```
+### Tech Stack
 
-**Fedora/RHEL (aarch64)**
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
 
-```bash
-wget https://github.com/sdotee/desktop/releases/latest/download/see-0.1.0-1.aarch64.rpm
-sudo dnf install see-0.1.0-1.aarch64.rpm
-```
+## Linux
 
-**Flatpak**
+Built with **GTK4**, **libadwaita**, and **Rust**. Follows GNOME Human Interface Guidelines.
 
-```bash
-wget https://github.com/sdotee/desktop/releases/latest/download/see-0.1.0-x86_64.flatpak
-flatpak install see-0.1.0-x86_64.flatpak
-```
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Requires GTK 4.14+ and libadwaita 1.5+
 
-For other versions, check the [releases page](https://github.com/sdotee/desktop/releases).
+### Highlights
 
-**Build from Source**
+- **Native GNOME Experience** — Adaptive layout following GNOME HIG
+- **QR Code Export** — PNG, SVG, or PDF
+- **Config File** — `~/.config/see/config.toml` for API key, base URL, and default domains
+- **Environment Variables** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` override config file
 
-See the [Linux build guide](https://github.com/sdotee/desktop/tree/main/linux) for instructions on compiling from source.
+### Keyboard Shortcuts
 
-### macOS
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+1 | Switch to Links view |
+| Ctrl+2 | Switch to Texts view |
+| Ctrl+3 | Switch to Files view |
+| Ctrl+, | Open Preferences |
+| Ctrl+? | Show keyboard shortcuts |
+| Ctrl+Q | Quit |
 
-Coming soon.
+### Tech Stack
 
-### Windows
+| Layer | Technology |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Language | Rust (2024 edition) |
+| API Client | see-sdk |
+| QR Code | Built-in (PNG, SVG, PDF export) |
 
-Coming soon.
+### Data Storage
 
-## Configuration
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
 
-1. Create an account at [s.ee](https://s.ee)
-2. Go to your dashboard and generate an API key
-3. Open the desktop app
-4. Go to **Preferences** and enter your API key
+## Getting Started
 
-## Usage
-
-### URL Shortening
-
-1. Click the **URL** tab
-2. Paste your long URL
-3. Optionally set a custom slug, domain, or expiration
-4. Click **Shorten**
-5. Your short URL is copied to clipboard automatically
-
-### Text Sharing
-
-1. Click the **Text** tab
-2. Paste or type your content
-3. Set a title and optional password
-4. Click **Share**
-5. Share the generated link
-
-### File Upload
-
-1. Click the **File** tab
-2. Drag and drop a file, or click to browse
-3. Select your preferred domain
-4. Click **Upload**
-5. Get the direct link or share page URL
-
-### QR Code
-
-After creating any short URL, click the QR code icon to generate a scannable QR code.
-
-### History
-
-Access your creation history from the sidebar to quickly copy or manage previous links, texts, and files.
+1. Download for [macOS](https://s.ee/macos) or [Linux](https://s.ee/linux)
+2. Create an account at [s.ee](https://s.ee) if you don't have one
+3. [Generate an API key](https://s.ee/user/developers/) from your dashboard
+4. Open the app, go to **Preferences**, and enter your API key
