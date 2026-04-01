@@ -1,7 +1,7 @@
 import { getPageImage, source } from '@/lib/source';
 import { generate, getImageResponseOptions } from '@/lib/og/mono';
 import { notFound } from 'next/navigation';
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from '@takumi-rs/image-response';
 
 export const revalidate = false;
 
@@ -19,12 +19,7 @@ export async function GET(
       description: page.data.description,
       site: 'S.EE',
     }),
-    {
-      ...(await getImageResponseOptions()),
-      headers: {
-        'Content-Type': 'image/webp',
-      },
-    },
+    await getImageResponseOptions(),
   );
 }
 

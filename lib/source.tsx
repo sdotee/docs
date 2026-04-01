@@ -116,7 +116,7 @@ export function getPageImage(page: Page) {
   const segments = [...page.slugs, 'image.webp'];
   return {
     segments,
-    url: `/docs/og/${segments.join('/')}`,
+    url: `/og/${segments.join('/')}`,
   };
 }
 

@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import type { ImageResponseOptions } from 'next/server';
+import { readFile } from 'node:fs/promises';
+import type { ImageResponseOptions } from '@takumi-rs/image-response';
 
 export interface GenerateProps {
   title: ReactNode;
@@ -10,26 +9,23 @@ export interface GenerateProps {
   logo?: ReactNode;
 }
 
-const dir = path.join(process.cwd(), 'lib/og');
-const font = fs.readFile(path.join(dir, 'JetBrainsMono-Regular.ttf'));
-const fontBold = fs.readFile(path.join(dir, 'JetBrainsMono-Bold.ttf'));
+const font = readFile('./lib/og/JetBrainsMono-Regular.ttf').then((data) => ({
+  name: 'Mono' as const,
+  data,
+  weight: 400 as const,
+}));
+const fontBold = readFile('./lib/og/JetBrainsMono-Bold.ttf').then((data) => ({
+  name: 'Mono' as const,
+  data,
+  weight: 600 as const,
+}));
 
 export async function getImageResponseOptions(): Promise<ImageResponseOptions> {
   return {
     width: 1200,
     height: 630,
-    fonts: [
-      {
-        name: 'Mono',
-        data: await font,
-        weight: 400,
-      },
-      {
-        name: 'Mono',
-        data: await fontBold,
-        weight: 600,
-      },
-    ],
+    format: 'webp',
+    fonts: await Promise.all([font, fontBold]),
   };
 }
 
