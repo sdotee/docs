@@ -112,6 +112,14 @@ export const source = loader({
 
 export type Page = InferPageType<typeof source>;
 
+export function getPageImage(page: Page) {
+  const segments = [...page.slugs, 'image.webp'];
+  return {
+    segments,
+    url: `/docs/og/${segments.join('/')}`,
+  };
+}
+
 export async function getLLMText(page: Page) {
   const processed = await page.data.getText('processed');
 

@@ -1,4 +1,4 @@
-import { source } from '@/lib/source';
+import { source, getPageImage } from '@/lib/source';
 import {
   DocsBody,
   DocsPage,
@@ -71,6 +71,7 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
   const pageUrl = `${baseUrl}${page.url}`;
+  const markdownUrl = page.slugs.length > 0 ? `${page.url}.mdx` : '/docs/index.mdx';
 
   const breadcrumbSchema = generateBreadcrumbList(page.slugs, page.data.title, pageUrl);
   const articleSchema = generateTechArticle(page.data.title, page.data.description ?? '', pageUrl);
@@ -97,9 +98,9 @@ export default async function Page(props: {
         {page.data.description}
       </p>
       <div className="flex flex-row flex-wrap gap-2 items-center border-b pb-6">
-        <LLMCopyButton markdownUrl={`/docs/llms.mdx/${page.slugs.length > 0 ? page.slugs.join('/') : 'index'}`} />
+        <LLMCopyButton markdownUrl={markdownUrl} />
         <ViewOptions
-          markdownUrl={`/docs/llms.mdx/${page.slugs.length > 0 ? page.slugs.join('/') : 'index'}`}
+          markdownUrl={markdownUrl}
           githubUrl={`https://github.com/${owner}/${repo}/blob/main/content/docs/${page.path}`}
           pageUrl={page.url}
         />
@@ -116,8 +117,6 @@ export async function generateStaticParams() {
   return source.generateParams();
 }
 
-const ogImage = 'https://assets.seecdn.com/og-image.webp';
-
 export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata> {
@@ -126,6 +125,7 @@ export async function generateMetadata(props: {
   if (!page) notFound();
 
   const pageUrl = `${baseUrl}${page.url}`;
+  const ogImage = getPageImage(page).url;
 
   return {
     title: page.data.title,

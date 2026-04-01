@@ -17,6 +17,22 @@ const config = {
         source: '/docs/sitemap.xml',
         destination: '/sitemap.xml',
       },
+      {
+        source: '/docs/llms.txt',
+        destination: '/llms.txt',
+      },
+      {
+        source: '/docs/llms-full.txt',
+        destination: '/llms-full.txt',
+      },
+      {
+        source: '/docs/og/:path*',
+        destination: '/og/docs/:path*',
+      },
+      {
+        source: '/docs/:path*.mdx',
+        destination: '/docs/llms.mdx/:path*',
+      },
     ];
   },
   async redirects() {
