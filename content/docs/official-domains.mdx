@@ -28,6 +28,19 @@ Default domains for text and file sharing links. Available to all Lite, Pro, Pre
 
 ---
 
+## File Storage & CDN Domains
+
+Internal domains used by S.EE for file storage, user-uploaded content delivery, and CDN distribution. These domains serve static assets, cached resources, and user-generated content across the S.EE platform. They are not intended for direct use by end users but may appear in URLs when accessing hosted files or media.
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**see.you**](https://see.you) | Primary domain for user-facing file downloads and shared media links. | [.you](https://www.iana.org/domains/root/db/you.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/see.you) | ✓ |
+| [**seecdn.com**](https://seecdn.com) | Main CDN domain for accelerated content delivery of static assets and cached resources worldwide. | [.com](https://www.iana.org/domains/root/db/com.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/seecdn.com) | ✓ |
+| [**seecdn.net**](https://seecdn.net) | Secondary CDN domain providing redundant content delivery for high availability and failover. | [.net](https://www.iana.org/domains/root/db/net.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/seecdn.net) | ✓ |
+| [**seeusercontent.com**](https://seeusercontent.com) | Dedicated domain for serving user-uploaded content in a sandboxed context, isolating user files from the main application for security. | [.com](https://www.iana.org/domains/root/db/com.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/seeusercontent.com) | ✓ |
+
+---
+
 ## General Purpose Domains
 
 ### Lite, Pro, Premium, Lifetime & Enterprise
