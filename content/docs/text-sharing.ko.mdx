@@ -1,0 +1,80 @@
+---
+title: 텍스트 공유
+description: S.EE 로 텍스트, 코드 스니펫, Markdown 을 공유하는 방법
+icon: FileText
+---
+
+## 개요
+
+S.EE 텍스트 공유를 사용하면 일반 텍스트, 코드 스니펫, Markdown 문서를 짧고 공유하기 쉬운 링크로 배포할 수 있습니다. 설정 파일, 코드 예제, 메모, 문서를 공유할 때 적합합니다.
+
+---
+
+## 텍스트 공유 만들기
+
+1. [https://s.ee/user/dashboard](https://s.ee/user/dashboard) 에 로그인합니다
+2. 왼쪽 사이드바에서 **Sharing > Text** 를 클릭하거나 [https://s.ee/user/text/](https://s.ee/user/text/) 로 바로 이동합니다
+3. 다음 정보를 입력합니다
+   - **Title** (선택 사항) - 다운로드 시 파일명으로 사용됩니다
+   - **Short Link** - 원하는 도메인을 선택합니다
+   - **Text Type** - Plain Text, Code, Markdown 중에서 선택합니다
+4. **Edit** 상자에 내용을 입력합니다
+5. 필요한 선택 옵션을 설정합니다 (아래 참고)
+6. **Create Text** 를 클릭합니다
+
+---
+
+## 텍스트 유형
+
+| Type | Description |
+|------|-------------|
+| Plain Text | 서식 없는 일반 텍스트 |
+| Code | 구문 강조가 적용된 코드 스니펫 |
+| Markdown | 서식이 렌더링된 Markdown |
+
+---
+
+## 선택 옵션
+
+| Option | Description |
+|--------|-------------|
+| Password | 비밀번호로 텍스트를 보호합니다 |
+| Tags | 태그로 공유한 텍스트를 정리합니다 |
+| Expiration | 텍스트 공유 만료 시점을 설정합니다 |
+| Disable search engine indexing | 검색 엔진이 공유 텍스트를 색인하지 못하도록 합니다 |
+
+---
+
+## 공유한 텍스트 보기
+
+생성이 완료되면 `ba.sh/demo` 같은 단축 링크를 받게 됩니다.
+
+### 보기 모드
+
+| URL | Description |
+|-----|-------------|
+| `ba.sh/demo` | 구문 강조가 적용된 서식 있는 텍스트 페이지를 표시합니다 |
+| `ba.sh/demo/raw` | 원본 일반 텍스트를 직접 표시합니다 |
+
+`/raw` 엔드포인트는 다음 용도로 유용합니다.
+
+- `curl` 또는 `wget` 으로 스크립트를 직접 다운로드할 때
+- 다른 애플리케이션에 임베드할 때
+- 서식 없이 내용을 확인할 때
+
+---
+
+## 지원 도메인
+
+텍스트 공유는 모든 요금제에서 다음 도메인을 사용할 수 있습니다.
+
+| Domain | Best For |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash 및 셸 스크립트 |
+| [z.sh](https://z.sh) | 셸 스크립트 |
+| [fs.to](https://fs.to) | 일반 파일 공유 |
+| [files.to](https://files.to) | 일반 파일 공유 |
+| [fileshare.to](https://fileshare.to) | 일반 파일 공유 |
+| [filesharing.to](https://filesharing.to) | 일반 파일 공유 |
+
+Premium 및 Enterprise 고객은 [공식 도메인](https://s.ee/docs/ko/official-domains/#premium--enterprise)도 참고해 주세요.

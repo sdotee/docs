@@ -1,0 +1,154 @@
+---
+title: API compatibile con YOURLS
+description: Usa S.EE con qualsiasi client o integrazione compatibile con YOURLS
+icon: LinkShare
+---
+
+S.EE offre un endpoint API compatibile con YOURLS.
+
+Questo consente di usare S.EE con client e integrazioni esistenti che supportano l'API [YOURLS](https://yourls.org/).
+
+## Endpoint API
+
+```text
+https://s.ee/api/v1/yourls
+```
+
+---
+
+## Ambito di compatibilità
+
+Questo endpoint implementa un **livello di compatibilità parziale con l'API di YOURLS**.
+
+### Supportato
+
+- `action=shorturl`
+- Autenticazione `signature`
+- Formati di output: `json`, `jsonp`, `xml`, `simple`
+- Richieste GET e POST
+
+### Non supportato
+
+- Autenticazione `username` / `password`
+- Altre azioni YOURLS come `expand`, `stats` o `db-stats`
+- Operazioni amministrative o relative al database
+
+È disponibile solo la funzione di accorciamento URL.
+
+---
+
+## Autenticazione
+
+<Callout type="warn">
+È supportata solo l'autenticazione `signature`. L'autenticazione con username e password non è disponibile.
+</Callout>
+
+Il parametro `signature` corrisponde al tuo **API Token di S.EE**.
+
+Puoi generare e gestire il token qui:
+
+https://s.ee/user/developers/
+
+Il token API è associato all'utente autenticato ed eredita gli stessi permessi e limiti dell'account.
+
+---
+
+## Azioni supportate
+
+Attualmente è supportata solo la seguente azione:
+
+| Azione | Descrizione |
+|------|-------------|
+| `shorturl` | Crea un URL breve per un determinato link |
+
+---
+
+## Parametri
+
+| Parametro | Obbligatorio | Descrizione |
+|----------|----------|-------------|
+| `signature` | Sì | Il tuo API Token di S.EE |
+| `action` | Sì | L'azione da eseguire (attualmente solo `shorturl`) |
+| `url` | Sì | L'URL da accorciare |
+| `format` | No | Formato di output: `json`, `jsonp`, `xml` o `simple` |
+| `keyword` | No | Slug personalizzato per l'URL breve |
+| `title` | No | Titolo dell'URL breve |
+
+### Note
+
+- Se il `keyword` fornito è già in uso, l'API genera automaticamente un nuovo keyword disponibile invece di restituire un errore.
+- Le normali regole di validazione e prevenzione abusi di S.EE si applicano a tutte le richieste.
+
+---
+
+## Esempi
+
+### Richiesta POST
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+```
+
+**Risposta:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ aggiunto al database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Alcuni campi della risposta vengono mantenuti per compatibilità con YOURLS e possono risultare vuoti.
+</Callout>
+
+---
+
+### Richiesta GET
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Risposta:**
+
+```text
+https://s.ee/link
+```
+
+<Callout>
+Ricorda di codificare in URL i parametri quando usi richieste GET.  
+Per URL lunghi o parametri aggiuntivi, è consigliato usare POST per evitare limiti di lunghezza dell'URL.
+</Callout>
+
+---
+
+## Client di terze parti
+
+Questa API è compatibile con qualsiasi client che supporti l'accorciamento URL in stile YOURLS, inclusi:
+
+- estensioni del browser
+- applicazioni mobili
+- applicazioni desktop
+- strumenti di automazione (Shortcuts, Tasker, Zapier ecc.)
+
+Per la specifica originale dell'API YOURLS, consulta la documentazione ufficiale:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

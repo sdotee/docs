@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Skracaj URL-e, udostępniaj tekst i hostuj pliki bezpośrednio w panelu WordPressa
+icon: WordPress
+---
+
+[Wtyczka S.EE do WordPressa](https://wordpress.org/plugins/sdotee/) pozwala skracać URL-e, udostępniać tekst i przesyłać pliki bez opuszczania WordPressa. Publikujesz wpis, a krótki link powstaje automatycznie, bez dodatkowych kroków.
+
+- [Katalog wtyczek WordPress](https://wordpress.org/plugins/sdotee/)
+- [Kod źródłowy na GitHubie](https://github.com/sdotee/see-wordpress)
+- [Wydania na GitHubie](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Funkcje
+
+| Funkcja | Opis |
+|---------|-------------|
+| Krótkie URL-e | Automatyczne generowanie krótkich linków przy publikacji lub aktualizacji wpisów i stron |
+| Udostępnianie tekstu | Udostępnianie zwykłego tekstu, Markdown i fragmentów kodu |
+| Hosting plików | Przesyłanie plików z Biblioteki mediów i kopiowanie linku jako URL, HTML, Markdown lub BBCode |
+| Automatyzacja | Automatyczne przesyłanie nowych mediów i skracanie linków przy publikacji |
+| Integracja z panelem | Podgląd i zarządzanie krótkimi URL-ami bezpośrednio z listy wpisów i stron |
+| Panel w kokpicie | Dedykowany panel S.EE do tekstu i plików z pełną historią użycia |
+| 13 języków | Angielski, chiński uproszczony i tradycyjny, japoński, koreański, indonezyjski, wietnamski, niemiecki, francuski, hiszpański, portugalski brazylijski i europejski oraz rosyjski |
+
+---
+
+## Wymagania
+
+- PHP 8.2+
+- WordPress 6.0+
+- Konto S.EE z [tokenem API](https://s.ee/user/developers/)
+
+---
+
+## Instalacja
+
+### Z katalogu wtyczek WordPress
+
+1. W panelu WordPress przejdź do **Plugins** > **Add New**
+2. Wyszukaj **S.EE**
+3. Kliknij **Install Now**, a następnie **Activate**
+
+### Z GitHuba
+
+1. Pobierz najnowszy plik ZIP z [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Przejdź do **Plugins** > **Add New** > **Upload Plugin**
+3. Wgraj ZIP, kliknij **Install Now**, a potem **Activate**
+
+---
+
+## Konfiguracja
+
+### 1. Pobierz token API
+
+1. Zaloguj się do konta S.EE
+2. Przejdź do **[Tools > API Token](https://s.ee/user/developers/)**
+3. Wygeneruj nowy token API
+
+<Callout type="warn">
+Nie udostępniaj publicznie tokenu API i nie zapisuj go w systemie kontroli wersji.
+</Callout>
+
+### 2. Skonfiguruj wtyczkę
+
+1. Przejdź do **Settings** > **S.EE**
+2. Wklej token API i kliknij **Verify**
+3. Wybierz domyślne domeny dla krótkich URL-i, tekstu i plików
+4. Włącz automatyczne generowanie i automatyczne przesyłanie, jeśli chcesz działać bezobsługowo
+
+<Callout type="info">
+Możesz też ustawić token API w `wp-config.php`, aby nie przechowywać go w bazie danych.
+</Callout>
+
+---
+
+## Użycie
+
+### Krótkie URL-e
+
+Po włączeniu automatycznego generowania każdy wpis i każda strona otrzymują krótki link w momencie publikacji. Krótkie URL-e możesz też tworzyć i przeglądać z kolumny na liście wpisów i stron w panelu administracyjnym.
+
+### Udostępnianie tekstu
+
+Otwórz panel **S.EE** w kokpicie i wklej treść. Obsługiwane formaty:
+
+- Zwykły tekst
+- Markdown
+- Fragmenty kodu
+
+### Hosting plików
+
+Przesyłaj pliki przez panel **S.EE** albo Bibliotekę mediów. Po przesłaniu możesz skopiować link w preferowanym formacie: URL, HTML, Markdown lub BBCode.
+
+---
+
+## Powiązane
+
+- [API dla deweloperów](/docs/pl/developers)
+- [Udostępnianie plików](/docs/pl/file-sharing)
+- [Udostępnianie tekstu](/docs/pl/text-sharing)
+- [Hosting obrazów](/docs/pl/image-hosting)

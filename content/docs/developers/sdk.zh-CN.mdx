@@ -1,0 +1,113 @@
+---
+title: SDK
+description: 适用于多种编程语言的官方 S.EE SDK
+icon: Package
+---
+
+## 官方 SDK
+
+S.EE 提供官方 SDK，以确保类型安全并简化集成：
+
+| 语言 | 仓库 | 说明 |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | 面向 PHP 应用的开发工具包 |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | 为 JavaScript / TypeScript 项目提供类型安全集成 |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go 语言的短网址管理支持 |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | 基于 Python 的短网址和文件分享支持 |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | 企业级 Java 实现 |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | 系统编程语言支持 |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | 新兴语言支持（实验性） |
+
+---
+
+## MCP Server
+
+对于 AI / LLM 集成，您可以使用我们的 MCP（Model Context Protocol）服务器：
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### 功能
+
+- **URL 管理**：创建、更新、删除短网址，并列出可用域名
+- **内容分享**：分享带过期时间和密码保护的代码片段与文本
+- **文件操作**：上传和删除文件
+- **时间工具**：获取带时区支持的当前时间信息
+
+### 要求
+
+- Go 1.25+
+- 有效的 S.EE API Key
+
+### 构建
+
+```bash
+# 使用 Makefile（当前操作系统）
+make build
+
+# 为所有平台构建
+make build-all
+
+# 或直接使用 Go
+go build -o bin/cli-mcp-server .
+```
+
+### 运行
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+您也可以通过环境变量设置 API Key：
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+服务器默认监听 `30101` 端口，并通过 Server-Sent Events 处理 MCP 连接。请在您的 LLM 客户端设置中（例如 Cherry Studio）配置 MCP 服务器 URL 以完成集成。
+
+---
+
+## 安装
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+请查看 [sdk.java 仓库](https://github.com/sdotee/sdk.java) 获取安装说明。
+
+### Rust
+
+请查看 [sdk.rs 仓库](https://github.com/sdotee/sdk.rs) 获取安装说明。
+
+### Zig
+
+请查看 [sdk.zig 仓库](https://github.com/sdotee/sdk.zig) 获取安装说明。
+
+---
+
+## 使用方法
+
+请参阅各 SDK 仓库中的详细文档和示例。

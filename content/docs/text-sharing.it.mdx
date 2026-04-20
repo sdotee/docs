@@ -1,0 +1,80 @@
+---
+title: Condivisione di testo
+description: Come condividere testo, snippet di codice e Markdown con S.EE
+icon: FileText
+---
+
+## Panoramica
+
+S.EE Text Sharing ti permette di condividere testo semplice, snippet di codice e documenti Markdown tramite un link breve e facile da condividere. È perfetto per file di configurazione, esempi di codice, note e documentazione.
+
+---
+
+## Creare una condivisione di testo
+
+1. Accedi a [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Fai clic su **Sharing > Text** nella barra laterale sinistra oppure vai direttamente su [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Compila i dettagli:
+   - **Title** (facoltativo) - viene usato come nome file durante il download
+   - **Short Link** - seleziona il dominio che preferisci
+   - **Text Type** - scegli tra Plain Text, Code o Markdown
+4. Inserisci il contenuto nel campo **Edit**
+5. Configura le impostazioni facoltative (vedi sotto)
+6. Fai clic su **Create Text**
+
+---
+
+## Tipi di testo
+
+| Tipo | Descrizione |
+|------|-------------|
+| Plain Text | Testo semplice senza formattazione |
+| Code | Snippet di codice con evidenziazione della sintassi |
+| Markdown | Markdown renderizzato con la formattazione |
+
+---
+
+## Impostazioni facoltative
+
+| Opzione | Descrizione |
+|---------|-------------|
+| Password | Proteggi il testo con una password |
+| Tags | Organizza i testi condivisi con i tag |
+| Expiration | Imposta quando la condivisione scade |
+| Disable search engine indexing | Impedisce ai motori di ricerca di indicizzare il testo condiviso |
+
+---
+
+## Visualizzare il testo condiviso
+
+Una volta creato, riceverai un link breve come `ba.sh/demo`.
+
+### Modalità di visualizzazione
+
+| URL | Descrizione |
+|-----|-------------|
+| `ba.sh/demo` | Mostra la pagina del testo formattato con evidenziazione della sintassi |
+| `ba.sh/demo/raw` | Mostra direttamente il testo semplice originale |
+
+L'endpoint `/raw` è utile per:
+
+- Scaricare script direttamente con `curl` o `wget`
+- Incorporare il contenuto in altre applicazioni
+- Visualizzare il testo senza alcuna formattazione
+
+---
+
+## Domini supportati
+
+La condivisione di testo è disponibile su questi domini per tutti i piani:
+
+| Dominio | Ideale per |
+|---------|------------|
+| [ba.sh](https://ba.sh) | Script Bash e shell |
+| [z.sh](https://z.sh) | Script shell |
+| [fs.to](https://fs.to) | Condivisione file generica |
+| [files.to](https://files.to) | Condivisione file generica |
+| [fileshare.to](https://fileshare.to) | Condivisione file generica |
+| [filesharing.to](https://filesharing.to) | Condivisione file generica |
+
+Per i clienti Premium ed Enterprise, consulta i nostri [domini ufficiali](https://s.ee/docs/official-domains/#premium--enterprise).

@@ -1,0 +1,113 @@
+---
+title: SDK
+description: SDK chính thức của S.EE cho nhiều ngôn ngữ lập trình
+icon: Package
+---
+
+## SDK chính thức
+
+S.EE cung cấp SDK chính thức để đảm bảo type safety và dễ tích hợp:
+
+| Language | Repository | Description |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Bộ công cụ cho developer xây dựng ứng dụng PHP |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Tích hợp an toàn kiểu cho dự án JavaScript/TypeScript |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Hỗ trợ Go cho quản lý liên kết |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Rút gọn URL và chia sẻ tệp bằng Python |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | Triển khai Java cấp enterprise |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | Hỗ trợ cho ngôn ngữ lập trình hệ thống |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | Hỗ trợ cho ngôn ngữ mới nổi (thử nghiệm) |
+
+---
+
+## Máy chủ MCP
+
+Đối với tích hợp AI/LLM, hãy dùng máy chủ MCP (Model Context Protocol) của chúng tôi:
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### Tính năng
+
+- **URL Management**: Tạo, cập nhật, xóa và liệt kê tên miền cho URL ngắn
+- **Content Sharing**: Chia sẻ đoạn mã và văn bản với tùy chọn hết hạn và bảo vệ bằng mật khẩu
+- **File Operations**: Tải lên và xóa tệp
+- **Time Utilities**: Truy cập thông tin thời gian hiện tại với hỗ trợ múi giờ
+
+### Yêu cầu
+
+- Go 1.25+
+- API Key S.EE hợp lệ
+
+### Build
+
+```bash
+# Using Makefile (current OS)
+make build
+
+# Build for all platforms
+make build-all
+
+# Or using Go directly
+go build -o bin/cli-mcp-server .
+```
+
+### Chạy
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+Bạn cũng có thể đặt API key bằng environment variable:
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+Máy chủ mặc định chạy trên cổng 30101 và dùng Server-Sent Events cho kết nối MCP. Hãy cấu hình URL của máy chủ MCP trong phần cài đặt của ứng dụng LLM (ví dụ Cherry Studio) để tích hợp.
+
+---
+
+## Cài đặt
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+Xem [repository sdk.java](https://github.com/sdotee/sdk.java) để biết hướng dẫn cài đặt.
+
+### Rust
+
+Xem [repository sdk.rs](https://github.com/sdotee/sdk.rs) để biết hướng dẫn cài đặt.
+
+### Zig
+
+Xem [repository sdk.zig](https://github.com/sdotee/sdk.zig) để biết hướng dẫn cài đặt.
+
+---
+
+## Cách sử dụng
+
+Xem repository của từng SDK để có tài liệu và ví dụ chi tiết.

@@ -1,0 +1,146 @@
+---
+title: SM.MS uyumluluğu
+description: SM.MS'den S.EE'ye minimum kod değişikliği ile geçin
+icon: RefreshCw
+---
+
+S.EE, SM.MS ile uyumlu bir API katmanı sunar.
+
+## Hızlı geçiş
+
+SM.MS API temel URL'sini S.EE eşdeğeri ile değiştirin:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Desteklenen uç noktalar
+
+| SM.MS uç noktası | S.EE uç noktası | Açıklama |
+|------------------|-----------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Görsel yükleme |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Yükleme geçmişini alma |
+
+## Görsel yükleme
+
+### İstek
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Parametreler
+
+| Parametre | Tür | Gerekli | Açıklama |
+|-----------|------|----------|-------------|
+| `smfile` | file | Evet | Yüklenecek görsel dosyası (`file` takma adı da desteklenir) |
+| `domain` | string | Hayır | Kısa bağlantı için özel alan adı |
+| `custom_slug` | string | Hayır | URL için özel slug (verilmezse rastgele oluşturulur) |
+
+### Yanıt
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Yükleme geçmişi
+
+### İstek
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Parametreler
+
+| Parametre | Tür | Gerekli | Açıklama |
+|-----------|------|----------|-------------|
+| `page` | integer | Hayır | Sayfa numarası (varsayılan 1, sayfa başına 30 dosya) |
+
+### Yanıt
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## SM.MS ile farklar
+
+S.EE, SM.MS API ile uyumluluğu korurken bazı geliştirmeler de sunar:
+
+| Özellik | SM.MS | S.EE |
+|---------|-------|------|
+| Özel alan adı | Hayır | Evet |
+| Özel slug | Hayır | Evet |
+| Dosya boyutu sınırı | 5 MB | Plana göre değişir |
+| Desteklenen biçimler | Yalnızca görseller | Görseller, belgeler ve daha fazlası |
+
+## API anahtarınızı alın
+
+S.EE API'sini kullanmak için bir API anahtarına ihtiyacınız vardır:
+
+1. [s.ee](https://s.ee) üzerinden kayıt olun veya giriş yapın
+2. **[Araçlar > API Token](https://s.ee/user/developers/)** sayfasına gidin
+3. Yeni bir API anahtarı oluşturun
+
+## Yardım mı gerekiyor?
+
+Geçiş sırasında herhangi bir sorun yaşarsanız [destek ekibiyle iletişime geçin](https://s.ee/contact) veya [API belgelerimizi](/docs/tr/developers/api) inceleyin.

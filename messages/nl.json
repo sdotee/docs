@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Dashboard"
+  },
+  "cookieBar": {
+    "message": "We gebruiken cookies om je taalvoorkeur te onthouden en je ervaring te verbeteren.",
+    "accept": "Accepteren",
+    "decline": "Weigeren",
+    "privacyLink": "Privacybeleid"
+  },
+  "fumadocs": {
+    "search": "Zoeken",
+    "searchNoResult": "Geen resultaten",
+    "toc": "Op deze pagina",
+    "lastUpdate": "Laatst bijgewerkt",
+    "previousPage": "Vorige",
+    "nextPage": "Volgende",
+    "chooseTheme": "Thema kiezen",
+    "editOnGithub": "Bewerken op GitHub",
+    "chooseLanguage": "Taal kiezen"
+  }
+}

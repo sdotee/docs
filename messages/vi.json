@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Bảng điều khiển"
+  },
+  "cookieBar": {
+    "message": "Chúng tôi sử dụng cookie để ghi nhớ tuỳ chọn ngôn ngữ và cải thiện trải nghiệm của bạn.",
+    "accept": "Chấp nhận",
+    "decline": "Từ chối",
+    "privacyLink": "Chính sách quyền riêng tư"
+  },
+  "fumadocs": {
+    "search": "Tìm kiếm",
+    "searchNoResult": "Không có kết quả",
+    "toc": "Trong trang này",
+    "lastUpdate": "Cập nhật lần cuối",
+    "previousPage": "Trước",
+    "nextPage": "Tiếp",
+    "chooseTheme": "Chọn chủ đề",
+    "editOnGithub": "Chỉnh sửa trên GitHub",
+    "chooseLanguage": "Chọn ngôn ngữ"
+  }
+}

@@ -1,0 +1,113 @@
+---
+title: Työpöytäsovellus
+description: Natiivi työpöytäsovellus S.EE:lle
+icon: Monitor
+---
+
+Lyhennä linkkejä, jaa tekstiä ja lataa tiedostoja tietokoneeltasi macOS:n ja Linuxin natiivisovelluksilla.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Lataa
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Tuetut alustat
+
+| Alusta | Tila | Teknologia |
+|----------|--------|------------|
+| macOS | Saatavilla | SwiftUI |
+| Linux | Saatavilla | GTK4 + libadwaita + Rust |
+| Windows | Kehitteillä | - |
+
+## Ominaisuudet
+
+- **URL-lyhennys** — Mukautettu slug, otsikko, salasana ja vanhenemisaika
+- **Tekstin jakaminen** — Raakateksti, lähdekoodi tai Markdown tasalevyisellä editorilla
+- **Tiedostojen lataus** — Vedä ja pudota, liitä leikepöydältä tai käytä tiedostonvalitsinta
+- **QR-koodin luonti** — Vie PNG-, SVG- tai PDF-muodossa
+- **Historia** — Paikallinen loki kaikista luoduista linkeistä, teksteistä ja tiedostoista
+- **Moniverkkotunnustuki** — Valitse useista verkkotunnuksista palvelukohtaisesti
+- **Käyttöpaneeli** — Tallennustilan käyttö ja rajoitukset yhdellä silmäyksellä
+
+## macOS
+
+Rakennettu **SwiftUI**- ja **SwiftData**-tekniikoilla. Sisältää täyden pikanäppäintuennan ja valikkorivi-integraation.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Vaatii macOS 14.0+
+
+### Kohokohdat
+
+- **Valikkorivi** — lyhennä URL-osoitteita, liitä ja lataa tai avaa viimeisimmät kohteet ilman pääikkunaa
+- **Vedä ja pudota** — pudota tiedostoja minne tahansa latausalueella
+- **Liitä leikepöydältä** (`Cmd+V`) — muuntaa kuvat automaattisesti WebP-muotoon PNG-varalla
+- **Keychain** — turvallinen API-avaimen tallennus macOS:n turvakehyksen kautta
+
+### Pikanäppäimet
+
+| Pikanäppäin | Toiminto |
+|----------|--------|
+| Cmd+N | Uusi lyhytlinkki |
+| Cmd+Shift+N | Uusi tekstijako |
+| Cmd+V | Liitä ja lataa leikepöydältä |
+| Cmd+, | Asetukset |
+| Cmd+Q | Lopeta |
+
+### Teknologiapino
+
+| Kerros | Teknologia |
+|-------|-----------|
+| UI | SwiftUI |
+| Tallennus | SwiftData |
+| Verkkoyhteydet | URLSession (actor-pohjainen) |
+| Turvallisuus | Keychain |
+| Pikkukuvat | QuickLookThumbnailing |
+| Kuvankäsittely | Swift-WebP |
+
+## Linux
+
+Rakennettu **GTK4**-, **libadwaita**- ja **Rust**-teknologioilla. Noudattaa GNOME HIG -ohjeita.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Vaatii GTK 4.14+ ja libadwaita 1.5+
+
+### Kohokohdat
+
+- **Natiivi GNOME-kokemus** — mukautuva käyttöliittymä GNOME HIG -ohjeiden mukaan
+- **QR-koodin vienti** — PNG, SVG tai PDF
+- **Asetustiedosto** — `~/.config/see/config.toml` API-avaimelle, base URL:lle ja oletusverkkotunnuksille
+- **Ympäristömuuttujat** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` ohittavat asetustiedoston
+
+### Pikanäppäimet
+
+| Pikanäppäin | Toiminto |
+|----------|--------|
+| Ctrl+1 | Siirry linkkinäkymään |
+| Ctrl+2 | Siirry tekstinäkymään |
+| Ctrl+3 | Siirry tiedostonäkymään |
+| Ctrl+, | Avaa asetukset |
+| Ctrl+? | Näytä pikanäppäimet |
+| Ctrl+Q | Lopeta |
+
+### Teknologiapino
+
+| Kerros | Teknologia |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Kieli | Rust (2024 edition) |
+| API-asiakas | see-sdk |
+| QR-koodi | Sisäänrakennettu PNG-, SVG- ja PDF-vienti |
+
+### Tietojen tallennus
+
+- **Asetukset**: `~/.config/see/config.toml`
+- **Historia**: `~/.local/share/see/history.json`
+
+## Aloittaminen
+
+1. Lataa sovellus [macOS:lle](https://s.ee/macos) tai [Linuxille](https://s.ee/linux)
+2. Luo tili osoitteessa [s.ee](https://s.ee), jos sinulla ei vielä ole sitä
+3. [Luo API-avain](https://s.ee/user/developers/) hallintapaneelista
+4. Avaa sovellus, siirry **Preferences**-näkymään ja syötä API-avain

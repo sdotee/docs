@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---はじめに---",
+    "signup",
+    "login",
+    "dashboard",
+    "---機能---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---無料サービス---",
+    "free-url-shorteners",
+    "---ヘルプ---",
+    "troubleshooting",
+    "security",
+    "---連携---",
+    "developers",
+    "api",
+    "---サードパーティ連携---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---コミュニティ---",
+    "awesome"
+  ]
+}

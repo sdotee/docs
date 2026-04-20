@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Cliente de linha de comandos para a plataforma S.EE
+icon: Terminal
+---
+
+Um cliente de linha de comandos para a plataforma S.EE, que lhe permite criar e gerir URLs curtos, fragmentos de texto e ficheiros diretamente a partir do terminal.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Funcionalidades
+
+- **Gestão de URL curtos**: criar, atualizar e eliminar links encurtados com slugs personalizados, domínios e expiração
+- **Fragmentos de texto**: partilhar fragmentos de código e notas a partir de stdin ou ficheiros
+- **Carregamento de ficheiros**: carregar ficheiros diretamente ou via stdin
+- **Gestão de domínios e etiquetas**: listar domínios disponíveis e gerir etiquetas
+- **Proteção por palavra-passe**: proteger o seu conteúdo com palavras-passe
+- **Saída JSON**: saída legível por máquina para scripts
+
+## Instalação
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# or pre-built binary
+yay -S see-cli-bin
+```
+
+### A partir do código-fonte
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Transfira binários e pacotes pré-compilados em [GitHub Releases](https://github.com/sdotee/cli/releases).
+
+## Configuração
+
+Defina a sua chave de API através de variável de ambiente ou flag:
+
+```bash
+# Environment variable (recommended)
+export SEE_API_KEY="your-api-key"
+
+# Or use the flag
+see --api-key "your-api-key" <command>
+```
+
+### Opções de configuração
+
+| Opção | Variável de ambiente | Descrição |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | A sua chave de API S.EE (obrigatória) |
+| `--base-url` | `SEE_BASE_URL` | URL base personalizada da API |
+| `--timeout` | `SEE_TIMEOUT` | Tempo limite do pedido |
+| `--json` | - | Ativa o formato de saída JSON |
+
+## Comandos
+
+### Domínios e etiquetas
+
+```bash
+# List available domains for short URLs
+see domains
+
+# List available domains for file uploads
+see file domains
+
+# List your tags
+see tags
+```
+
+### URLs curtos
+
+```bash
+# Create a short URL
+see url create https://example.com
+
+# Create with custom options
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Update a short URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Delete a short URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Fragmentos de texto
+
+```bash
+# Create text from stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Create text from file
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Create with options
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Update text
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Delete text
+see text delete --domain fs.to --slug abc123
+```
+
+### Carregamento de ficheiros
+
+```bash
+# Upload a file
+see file upload ./image.png
+
+# Upload with custom domain
+see file upload ./document.pdf --domain fs.to
+
+# Upload from stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Delete a file
+see file delete <delete-hash>
+```
+
+## Saída JSON
+
+Use a flag `--json` para obter saída legível por máquina, útil para scripts:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Exemplos
+
+### Criar um URL curto e copiá-lo para a área de transferência (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Carregar uma captura de ecrã e obter o URL (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Criar URLs curtos em lote
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

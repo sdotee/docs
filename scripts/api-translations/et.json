@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Loo lühike URL",
+    "description": "Loob sihtlingi jaoks uue lühikese URL-i. Soovi korral saab määrata kohandatud lühikoodi, paroolikaitse, aegumisaja ja sildid sisu korrastamiseks."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Loo lühike URL (lihtrežiim)",
+    "description": "Loob lühikese URL-i kiiresti lihtsustatud parameetritega ning sobib nullseadistusega kasutusjuhtudeks."
+  },
+  "UpdateShortUrl": {
+    "title": "Uuenda lühikest URL-i",
+    "description": "Uuendab olemasoleva lühikese URL-i sihtaadressi, parooli, aegumisaega või silte."
+  },
+  "DeleteShortUrl": {
+    "title": "Kustuta lühike URL",
+    "description": "Kustutab määratud lühikese URL-i jäädavalt."
+  },
+  "GetAvailableDomains": {
+    "title": "Hangi saadaval domeenid",
+    "description": "Tagastab domeenide loendi, mida saab praeguse kontoga lühikeste URL-ide loomiseks kasutada."
+  },
+  "GetLinkVisitStat": {
+    "title": "Hangi külastusstatistika",
+    "description": "Tagastab määratud lühikese URL-i külastusandmed, sh klikkide arvu, allikad ja geograafilise jaotuse."
+  },
+  "CreateText": {
+    "title": "Loo tekstijagamine",
+    "description": "Loob tekstisisu, millele pääseb ligi lühikese URL-i kaudu, näiteks lihttekst, koodilõik või Markdown."
+  },
+  "UpdateText": {
+    "title": "Uuenda tekstijagamist",
+    "description": "Uuendab olemasoleva tekstijagamise sisu, parooli või aegumisaega."
+  },
+  "DeleteText": {
+    "title": "Kustuta tekstijagamine",
+    "description": "Kustutab määratud tekstijagamise jäädavalt."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Hangi tekstijagamise domeenid",
+    "description": "Tagastab domeenide loendi, mida saab tekstijagamise loomiseks kasutada."
+  },
+  "UploadFile": {
+    "title": "Laadi fail üles",
+    "description": "Laadib faili üles ja loob jagatava lühikese URL-i. Toetatud on parooli ja aegumisaja määramine."
+  },
+  "GetFileHistory": {
+    "title": "Hangi failiajalugu",
+    "description": "Tagastab praeguse konto üles laaditud failide loendi."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Hangi privaatse faili allalaadimis-URL",
+    "description": "Genereerib ajutise allalaadimis-URL-i parooliga kaitstud privaatse faili jaoks."
+  },
+  "DeleteFile": {
+    "title": "Kustuta fail",
+    "description": "Kustutab määratud faili jäädavalt."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Hangi failijagamise domeenid",
+    "description": "Tagastab domeenide loendi, mida saab failijagamiseks kasutada."
+  },
+  "GetTags": {
+    "title": "Hangi siltide loend",
+    "description": "Tagastab kõik praeguse konto sildid, mida kasutatakse sisu korrastamiseks."
+  },
+  "GetUsage": {
+    "title": "Hangi kasutusmaht",
+    "description": "Tagastab praeguse konto ressursikasutuse käimasolevas arveldustsüklis."
+  }
+}

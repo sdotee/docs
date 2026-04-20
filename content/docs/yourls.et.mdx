@@ -1,0 +1,156 @@
+---
+title: YOURLS-iga ühilduv API
+description: Kasuta S.EE-d iga YOURLS-iga ühilduva kliendi või integratsiooniga
+icon: LinkShare
+---
+
+S.EE pakub YOURLS-iga ühilduvat API lõpp-punkti, mis võimaldab kasutada S.EE-d olemasolevate kolmanda osapoole klientide ja integratsioonidega, mis toetavad [YOURLS](https://yourls.org/) API-t.
+
+See lõpp-punkt on mõeldud YOURLS-ist ülemineku lihtsustamiseks ning S.EE integreerimiseks automatiseerimistööriistadesse, brauserilaiendustesse ja rakendustesse, mis juba kasutavad YOURLS-i API protokolli.
+
+---
+
+## API lõpp-punkt
+
+```text
+https://s.ee/api/v1/yourls
+```
+
+---
+
+## Ühilduvuse ulatus
+
+See lõpp-punkt rakendab **osalist YOURLS-i API ühilduvuskihti**.
+
+### Toetatud
+
+- `action=shorturl`
+- `signature` autentimine
+- Väljundvormingud: `json`, `jsonp`, `xml`, `simple`
+- GET- ja POST-päringud
+
+### Mittetoetatud
+
+- `username` / `password` autentimine
+- Muud YOURLS-i toimingud nagu `expand`, `stats` või `db-stats`
+- Haldus- või andmebaasiga seotud toimingud
+
+Saadaval on ainult URL-ide lühendamise funktsionaalsus.
+
+---
+
+## Autentimine
+
+<Callout type="warn">
+Toetatud on ainult `signature` autentimine. Kasutajanime ja parooli autentimine **ei ole** saadaval.
+</Callout>
+
+Parameeter `signature` on sinu **S.EE API token**.
+
+API tokenit saad luua ja hallata siin:
+
+https://s.ee/user/developers/
+
+API token on seotud autentitud kasutajaga ning pärib kontolt samad õigused ja piirangud.
+
+---
+
+## Toetatud toimingud
+
+Praegu on toetatud ainult järgmine toiming:
+
+| Toiming | Kirjeldus |
+|------|-------------|
+| `shorturl` | Loo antud lingi jaoks lühike URL |
+
+---
+
+## Parameetrid
+
+| Parameeter | Kohustuslik | Kirjeldus |
+|----------|----------|-------------|
+| `signature` | Jah | Sinu S.EE API token |
+| `action` | Jah | Käivitatav toiming, praegu ainult `shorturl` |
+| `url` | Jah | Lühendatav URL |
+| `format` | Ei | Väljundvorming: `json`, `jsonp`, `xml` või `simple`, vaikimisi `simple` |
+| `keyword` | Ei | Lühikese URL-i kohandatud lühikood |
+| `title` | Ei | Lühikese URL-i pealkiri |
+
+### Märkused
+
+- Kui antud `keyword` on juba kasutusel, loob API veateate asemel automaatselt uue vaba lühikoodi.
+- Kõigile päringutele kehtivad standardsed S.EE väärkasutuse tõkestamise ja valideerimise reeglid.
+
+---
+
+## Näited
+
+### POST-päring
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+```
+
+**Vastus:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Mõned vastuseväljad säilitatakse YOURLS-i ühilduvuse pärast ja võivad olla tühjad.
+</Callout>
+
+---
+
+### GET-päring
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Vastus:**
+
+```text
+https://s.ee/link
+```
+
+<Callout>
+Pea meeles, et GET-päringute korral tuleb parameetrid URL-enkodeerida.  
+Pikkade URL-ide või lisaparameetrite korral on URL-i pikkuse piirangute vältimiseks soovitatav kasutada POST-päringuid.
+</Callout>
+
+---
+
+## Kolmanda osapoole kliendid
+
+See API ühildub iga kliendiga, mis toetab YOURLS-i stiilis URL-ide lühendamist, sealhulgas:
+
+* brauserilaiendused
+* mobiilirakendused
+* töölauarakendused
+* automatiseerimistööriistad nagu Shortcuts, Tasker ja Zapier
+
+Algse YOURLS-i API spetsifikatsiooni täielikud üksikasjad leiad ametlikust dokumentatsioonist:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

@@ -1,0 +1,80 @@
+---
+title: Tekstin jakaminen
+description: Näin jaat tekstiä, koodikatkelmia ja Markdownia S.EE:n avulla
+icon: FileText
+---
+
+## Yleiskuvaus
+
+S.EE Text Sharing mahdollistaa tavallisen tekstin, koodikatkelmien ja Markdown-asiakirjojen jakamisen lyhyellä ja helposti jaettavalla linkillä. Se sopii hyvin asetustiedostojen, esimerkkikoodin, muistiinpanojen ja dokumentaation jakamiseen.
+
+---
+
+## Luo tekstijako
+
+1. Kirjaudu sisään [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Napsauta vasemmasta sivupalkista **Sharing > Text** tai siirry suoraan osoitteeseen [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Täytä tiedot:
+   - **Title** (valinnainen) - Käytetään tiedostonimenä latauksessa
+   - **Short Link** - Valitse haluamasi verkkotunnus
+   - **Text Type** - Valitse Plain Text, Code tai Markdown
+4. Syötä sisältö **Edit**-kenttään
+5. Määritä valinnaiset asetukset (katso alla)
+6. Napsauta **Create Text**
+
+---
+
+## Tekstityypit
+
+| Tyyppi | Kuvaus |
+|--------|--------|
+| Plain Text | Yksinkertainen muotoilematon teksti |
+| Code | Koodikatkelmat syntaksikorostuksella |
+| Markdown | Renderöity Markdown muotoiluineen |
+
+---
+
+## Valinnaiset asetukset
+
+| Asetus | Kuvaus |
+|--------|--------|
+| Password | Suojaa tekstisi salasanalla |
+| Tags | Järjestä jaetut tekstit tunnisteilla |
+| Expiration | Määritä, milloin tekstijako vanhenee |
+| Disable search engine indexing | Estä hakukoneita indeksoimasta jaettua tekstiäsi |
+
+---
+
+## Jaetun tekstin katselu
+
+Kun sisältö on luotu, saat lyhyen linkin, esimerkiksi `ba.sh/demo`.
+
+### Katselutilat
+
+| URL | Kuvaus |
+|-----|--------|
+| `ba.sh/demo` | Näyttää muotoillun tekstisivun syntaksikorostuksella |
+| `ba.sh/demo/raw` | Näyttää raakan tekstin suoraan |
+
+`/raw`-pääte on hyödyllinen esimerkiksi:
+
+- Skriptien lataamiseen suoraan `curl`- tai `wget`-komennolla
+- Upottamiseen muihin sovelluksiin
+- Katseluun ilman muotoilua
+
+---
+
+## Tuetut verkkotunnukset
+
+Tekstin jakaminen on saatavilla näillä verkkotunnuksilla kaikissa suunnitelmissa:
+
+| Verkkotunnus | Paras käyttötarkoitus |
+|--------------|-----------------------|
+| [ba.sh](https://ba.sh) | Bash- ja shell-skriptit |
+| [z.sh](https://z.sh) | Shell-skriptit |
+| [fs.to](https://fs.to) | Yleinen tiedostojen jakaminen |
+| [files.to](https://files.to) | Yleinen tiedostojen jakaminen |
+| [fileshare.to](https://fileshare.to) | Yleinen tiedostojen jakaminen |
+| [filesharing.to](https://filesharing.to) | Yleinen tiedostojen jakaminen |
+
+Premium- ja Enterprise-asiakkaille katso [viralliset verkkotunnukset](/docs/fi/official-domains/#premium--enterprise).

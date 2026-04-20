@@ -1,0 +1,105 @@
+---
+title: Güvenlik ve kötüye kullanım önleme
+description: S.EE'nin kısa bağlantılar, metin paylaşımı ve dosya paylaşımında kimlik avını, zararlı yazılımları ve kötüye kullanımı nasıl önlediği.
+icon: ShieldCheck
+---
+
+S.EE büyük ölçekte bağlantı yönlendiren bir URL kısaltma hizmetidir. Bunu ciddiye alıyoruz. Burada açıklananların tamamı kısa bağlantılar, metin paylaşımı ve dosya paylaşımı için eşit şekilde geçerlidir.
+
+---
+
+## Kötüye kullanımı önleme
+
+### Engelleme listeleri
+
+Topluluk tarafından sürdürülen kaynaklardan günlük olarak güncellenen dahili bir engelleme listesi tutuyoruz:
+
+* Geçici ve tek kullanımlık e-posta alan adı veritabanları
+* Açık kimlik avı ve dolandırıcılık URL veri kümeleri
+* Yetişkin veya yüksek riskli içerikle ilişkilendirilen alan adı listeleri
+
+Bilinen zararlı içerikler daha oluşturulmadan engellenir.
+
+---
+
+### Ücretsiz hesap yok
+
+S.EE ücretsiz hesap veya deneme erişimi sunmaz. Ödeme zorunluluğu kötüye kullanım maliyetini artırır ve büyük ölçekli otomatik kötüye kullanımı pratik olmaktan çıkarır.
+
+---
+
+### Alan adı itibarı
+
+`s.ee` alan adı, büyük platformlarda ve güvenlik ekosistemlerinde resmî kısa bağlantı alan adı olarak kayıtlıdır. Bu, otomatik moderasyondaki yanlış pozitifleri azaltır ve içerik işaretlendiğinde çözüm sürecini hızlandırır.
+
+---
+
+## İçerik oluşturma denetimleri
+
+### Gerçek zamanlı URL taraması
+
+Bir kullanıcı kısa bağlantı oluşturduğunda hedef URL, kötüye kullanım ve kimlik avı tespit sistemlerimiz tarafından gerçek zamanlı olarak kontrol edilir. Bilinen zararlı kalıplarla eşleşen bağlantılar engellenir.
+
+---
+
+### Hız sınırlaması
+
+* İçerik oluşturma işlemlerinde hesap başına hız sınırı uygulanır
+* Olağandışı kalıplar, örneğin çok hızlı toplu slug oluşturma, manuel incelemeyi tetikleyebilir
+* Yüksek riskli bölgeler için ek korumalar uygulanır
+
+---
+
+## Metin ve dosya paylaşımı
+
+Metin ve dosya paylaşımı da kısa bağlantılarla aynı kurallara tabidir. Aşağıdaki durumlarda içerik kısıtlanabilir veya kaldırılabilir:
+
+* Zararlı yazılım dağıtıyorsa
+* Kimlik avı, dolandırıcılık veya sosyal mühendisliği kolaylaştırıyorsa
+* Yürürlükteki yasalara veya [Kabul Edilebilir Kullanım Politikamıza](https://s.ee/aup/) aykırıysa
+
+İhlallerle ilişkili hesaplar manuel incelemeden sonra askıya alınabilir.
+
+---
+
+## İzleme ve yaptırım
+
+### Sonradan devre dışı bırakma
+
+Bir bağlantı, metin ya da dosyanın daha sonra zararlı veya aldatıcı olduğu anlaşılırsa, oluşturulurken denetimleri geçmiş olsa bile içeriği devre dışı bırakırız.
+
+---
+
+### İnsan incelemesi
+
+Kullanıcı bildirimleri ve dahili uyarılar insan moderatörlere gider. Kötüye kullanım doğrulanırsa içeriği devre dışı bırakır, gerektiğinde hesabı askıya alır veya kapatırız.
+
+---
+
+## Kötüye kullanım bildirme
+
+S.EE üzerinde şüpheli bir içerik görürseniz bize bildirin:
+
+* E-posta: `abuse@s.ee`
+* İletişim formu: [https://s.ee/contact/](https://s.ee/contact/)
+
+Ayrıca bkz.: [Hizmet Şartları](https://s.ee/terms/) ve [Kabul Edilebilir Kullanım Politikası](https://s.ee/aup/)
+
+---
+
+## Gizlilik
+
+Kötüye kullanım veya güvenlik olaylarını incelerken sınırlı teknik bilgileri işleyebiliriz. Bu veriler **takip, profil oluşturma, analiz veya pazarlama** amacıyla kullanılmaz.
+
+Ayrıntılar için: [Gizlilik Politikası](https://s.ee/privacy/)
+
+---
+
+## Kaynaklar
+
+<Cards>
+  <Card title="Gizlilik Politikası" href="https://s.ee/privacy/">Verilerinizi nasıl işlediğimiz</Card>
+  <Card title="Hizmet Şartları" href="https://s.ee/terms/">Hizmet sözleşmemiz</Card>
+  <Card title="Kabul Edilebilir Kullanım Politikası" href="https://s.ee/aup/">S.EE üzerinde nelere izin verildiği</Card>
+  <Card title="Kötüye Kullanımı Bildir" href="https://s.ee/contact/">Şüpheli içeriği bildirin</Card>
+</Cards>

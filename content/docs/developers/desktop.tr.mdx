@@ -1,0 +1,113 @@
+---
+title: Masaüstü uygulaması
+description: S.EE için yerel masaüstü uygulaması
+icon: Monitor
+---
+
+Bağlantıları kısaltın, metin paylaşın ve dosyaları macOS ve Linux için yerel uygulamalarla bilgisayarınızdan yükleyin.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## İndir
+
+- macOS: [https://s.ee/macos](https://s.ee/macos)
+- Linux: [https://s.ee/linux](https://s.ee/linux)
+
+## Desteklenen platformlar
+
+| Platform | Durum | Teknoloji |
+|----------|--------|------------|
+| macOS | Kullanılabilir | SwiftUI |
+| Linux | Kullanılabilir | GTK4 + libadwaita + Rust |
+| Windows | Geliştirme aşamasında | - |
+
+## Özellikler
+
+- **URL kısaltma** — Özel slug, başlık, parola ve sona erme süresi
+- **Metin paylaşımı** — Tek aralıklı düzenleyiciyle düz metin, kaynak kodu veya Markdown
+- **Dosya yükleme** — Sürükle bırak, panodan yapıştırma veya dosya seçici
+- **QR kod oluşturma** — PNG, SVG veya PDF olarak dışa aktarma
+- **Geçmiş** — Oluşturulan bağlantı, metin ve dosyaların yerel kaydı
+- **Çoklu alan adı desteği** — Her hizmet için birden fazla alan adı seçimi
+- **Kullanım paneli** — Depolama kullanımı ve oran limitleri tek bakışta
+
+## macOS
+
+**SwiftUI** ve **SwiftData** ile geliştirilmiştir. Tam klavye kısayolu desteği ve menü çubuğu entegrasyonu sunar.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- macOS 14.0+ gerektirir
+
+### Öne çıkanlar
+
+- **Menü Çubuğu** — Ana pencereyi açmadan URL kısaltın, yapıştırıp yükleyin ve son öğelere erişin
+- **Sürükle bırak** — Dosyaları yükleme alanına istediğiniz yerden bırakın
+- **Panodan yapıştırma** (Cmd+V) — Görselleri otomatik olarak WebP'ye dönüştürür; gerekirse PNG kullanır
+- **Keychain** — API anahtarını macOS Security framework üzerinden güvenli biçimde saklar
+
+### Klavye kısayolları
+
+| Kısayol | İşlem |
+|----------|--------|
+| Cmd+N | Yeni kısa bağlantı |
+| Cmd+Shift+N | Yeni metin paylaşımı |
+| Cmd+V | Panodan yapıştır ve yükle |
+| Cmd+, | Ayarlar |
+| Cmd+Q | Çıkış |
+
+### Teknoloji yığını
+
+| Katman | Teknoloji |
+|-------|-----------|
+| Arayüz | SwiftUI |
+| Depolama | SwiftData |
+| Ağ | URLSession (actor tabanlı) |
+| Güvenlik | Keychain |
+| Küçük görseller | QuickLookThumbnailing |
+| Görsel işleme | Swift-WebP |
+
+## Linux
+
+**GTK4**, **libadwaita** ve **Rust** ile geliştirilmiştir. GNOME Human Interface Guidelines kurallarını izler.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- GTK 4.14+ ve libadwaita 1.5+ gerektirir
+
+### Öne çıkanlar
+
+- **Yerel GNOME deneyimi** — GNOME HIG kurallarına uygun uyarlanabilir düzen
+- **QR kod dışa aktarma** — PNG, SVG veya PDF
+- **Yapılandırma dosyası** — API anahtarı, temel URL ve varsayılan alan adları için `~/.config/see/config.toml`
+- **Ortam değişkenleri** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` yapılandırma dosyasını geçersiz kılar
+
+### Klavye kısayolları
+
+| Kısayol | İşlem |
+|----------|--------|
+| Ctrl+1 | Bağlantılar görünümüne geç |
+| Ctrl+2 | Metinler görünümüne geç |
+| Ctrl+3 | Dosyalar görünümüne geç |
+| Ctrl+, | Tercihleri aç |
+| Ctrl+? | Klavye kısayollarını göster |
+| Ctrl+Q | Çıkış |
+
+### Teknoloji yığını
+
+| Katman | Teknoloji |
+|-------|-----------|
+| Arayüz | GTK4 + libadwaita |
+| Dil | Rust (2024 edition) |
+| API istemcisi | see-sdk |
+| QR kod | Yerleşik (PNG, SVG, PDF dışa aktarma) |
+
+### Veri depolama
+
+- **Yapılandırma**: `~/.config/see/config.toml`
+- **Geçmiş**: `~/.local/share/see/history.json`
+
+## Başlarken
+
+1. [macOS](https://s.ee/macos) veya [Linux](https://s.ee/linux) için uygulamayı indirin
+2. Henüz hesabınız yoksa [s.ee](https://s.ee) üzerinden bir hesap oluşturun
+3. Panelinizden [API anahtarı oluşturun](https://s.ee/user/developers/)
+4. Uygulamayı açın, **Preferences** bölümüne gidin ve API anahtarınızı girin

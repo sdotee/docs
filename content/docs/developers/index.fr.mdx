@@ -1,0 +1,88 @@
+---
+title: Premiers pas
+description: API REST S.EE pour créer, gérer et suivre des URL courtes, le partage de texte et le partage de fichiers
+icon: Rocket
+---
+
+## Vue d’ensemble
+
+L’API S.EE vous permet de créer et gérer de façon programmatique des liens courts, du partage de texte et du partage de fichiers. Utilisez-la pour :
+
+- Créer des liens courts à grande échelle
+- Partager des extraits de texte et de code avec coloration syntaxique
+- Téléverser et partager des fichiers
+- Gérer des domaines personnalisés
+- Récupérer des données analytiques
+- Intégrer S.EE à vos applications
+
+---
+
+## Premiers pas
+
+### Prérequis
+
+1. Un compte S.EE avec une offre active
+2. Un jeton d’accès API
+
+### Authentification
+
+Toutes les requêtes API nécessitent un jeton d’accès dans l’en-tête `Authorization` :
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### URL de base
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Exemples de requêtes
+
+### Créer une URL courte
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Créer un partage de texte
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Téléverser un fichier
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Ressources
+
+<Cards>
+  <Card title="Référence API" href="/docs/fr/developers/api/">Voir tous les points de terminaison disponibles</Card>
+  <Card title="SDK" href="/docs/fr/developers/sdk/">SDK S.EE officiels pour différents langages de programmation</Card>
+</Cards>

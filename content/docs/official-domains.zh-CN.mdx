@@ -1,0 +1,187 @@
+---
+title: 官方域名
+description: 所有 S.EE 官方短网址域名列表
+icon: Server
+---
+
+## 主域名
+
+默认用于 URL 缩短的域名。所有 Lite、Pro、Premium、Lifetime 和 Enterprise 用户均可用。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**s.ee**](https://s.ee) | 适用于所有场景的官方可信域名。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/s.ee) | ✓ |
+
+---
+
+## 主分享域名
+
+文本分享和文件分享的默认域名。所有 Lite、Pro、Premium、Lifetime 和 Enterprise 用户均可用。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**sm.ms**](https://sm.ms) | 传统图床域名。最初是独立图床服务，现在已并入 S.EE 平台。 | [.ms](https://www.iana.org/domains/root/db/ms.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/sm.ms) | ✓ |
+| [**fs.to**](https://fs.to) | FS 代表 File Sharing。简洁且易识别，适合分享文件和下载内容。 | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/fs.to) | ✓ |
+| [**files.to**](https://files.to) | 一目了然的文件分享域名，适合直链和下载页面。 | [.to](https://www.iana.org/domains/root/db/to.html) | Bunny | Bunny | [查看](https://dnssec-analyzer.verisignlabs.com/files.to) | ✓ |
+| [**fileshare.to**](https://fileshare.to) | 语义明确的文件分享域名，适合云存储链接和共享文件夹。 | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/fileshare.to) | ✓ |
+| [**filesharing.to**](https://filesharing.to) | 全称文件分享域名，更适合专业和企业级文件分发。 | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/filesharing.to) | ✓ |
+
+---
+
+## 文件存储和 CDN 域名
+
+这些内部域名由 S.EE 用于文件存储、用户上传内容分发和 CDN 加速。它们为整个平台提供静态资源、缓存内容和用户生成内容，不面向终端用户直接使用，但在访问托管文件或媒体时，可能会出现在 URL 中。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**see.you**](https://see.you) | 面向用户的文件下载和共享媒体链接主域名。 | [.you](https://www.iana.org/domains/root/db/you.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/see.you) | ✓ |
+| [**seecdn.com**](https://seecdn.com) | 用于全球静态资源和缓存内容加速分发的主 CDN 域名。 | [.com](https://www.iana.org/domains/root/db/com.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/seecdn.com) | ✓ |
+| [**seecdn.net**](https://seecdn.net) | 次级 CDN 域名，用于高可用和故障切换的冗余内容分发。 | [.net](https://www.iana.org/domains/root/db/net.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/seecdn.net) | ✓ |
+| [**seeusercontent.com**](https://seeusercontent.com) | 用于在沙箱上下文中提供用户上传内容的专用域名，将用户文件与主应用隔离以增强安全性。 | [.com](https://www.iana.org/domains/root/db/com.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/seeusercontent.com) | ✓ |
+
+---
+
+## 通用域名
+
+### Lite、Pro、Premium、Lifetime 和 Enterprise
+
+这些域名对 Lite、Pro、Premium、Lifetime 和 Enterprise 用户开放。仅支持 URL 缩短。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**b.ls**](https://b.ls) | 偏商务、极简，适合内外部使用。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/b.ls) | ✓ |
+| [**g.ls**](https://g.ls) | 通用且灵活，适合活动、重定向和跟踪。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/g.ls) | ✓ |
+| [**j.ls**](https://j.ls) | 紧凑且专业，适合创作者和商务用户。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/j.ls) | ✓ |
+| [**q.gg**](https://q.gg) | 游戏风格的 .gg 域名，适合社区、技术用户和高互动活动。 | [.gg](https://www.iana.org/domains/root/db/gg.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/q.gg) | ✓ |
+| [**q.ls**](https://q.ls) | 有辨识度且易记，适合技术受众和产品发布。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/q.ls) | ✓ |
+| [**s.lu**](https://s.lu) | 简洁优雅，适合个人和商业品牌。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/s.lu) | ✓ |
+| [**u.ls**](https://u.ls) | 灵活且易识别，针对点击率和可分享性进行了优化。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/u.ls) | ✓ |
+| [**u.nu**](https://u.nu) | 高级且紧凑，专注于极致分享性。 | [.nu](https://www.iana.org/domains/root/db/nu.html) | ClouDNS | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/u.nu) | ✓ |
+| [**w.ls**](https://w.ls) | W 可表示 web 或 world，适合产品页、个人主页和专业分享。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/w.ls) | ✓ |
+| [**z.ls**](https://z.ls) | 稀有的末字母域名，适合效果导向活动和快速重定向。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/z.ls) | ✓ |
+
+> 想要更多品牌化选项？升级到 Pro 或更高套餐即可解锁数字域名和高级域名。
+
+---
+
+### Pro、Premium 和 Enterprise
+
+这些域名对 Pro、Premium 和 Enterprise 用户开放。仅支持 URL 缩短。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**0.sb**](https://0.sb) | 大胆的数字风格，适合 A/B 测试、跟踪链接和营销实验。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/0.sb) | ✓ |
+| [**0.tl**](https://0.tl) | 数字感强且有辨识度，适用于 A/B 测试和增长实验。 | [.tl](https://www.iana.org/domains/root/db/tl.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/0.tl) | ✓ |
+| [**2.pe**](https://2.pe) | 紧凑的数字域名，适合高流量活动和快速重定向。 | [.pe](https://www.iana.org/domains/root/db/pe.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/2.pe) | ✓ |
+| [**2.sb**](https://2.sb) | 简短、干净、专业，适合企业级链接。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/2.sb) | ✓ |
+| [**3.sb**](https://3.sb) | 适合注重效果的路由场景和产品公告。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/3.sb) | ✓ |
+| [**4.sb**](https://4.sb) | 适合快速跳转、技术内容和产品更新。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/4.sb) | ✓ |
+| [**5.st**](https://5.st) | 数字 .st 域名，适合增长实验和效果型活动。 | [.st](https://www.iana.org/domains/root/db/st.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/5.st) | ✓ |
+| [**6.vu**](https://6.vu) | 稀有 .vu 域名带有数字风格，适合病毒式传播和社交放大。 | [.vu](https://www.iana.org/domains/root/db/vu.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/6.vu) | ✓ |
+| [**7.ls**](https://7.ls) | 数字感强且有辨识度，推荐用于技术内容和产品发布。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/7.ls) | ✓ |
+| [**7.zip**](https://7.zip) | 技术感和开发者友好型域名，适合软件分发和文档。 | [.zip](https://www.iana.org/domains/root/db/zip.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/7.zip) | ✓ |
+| [**8.nf**](https://8.nf) | 具有辨识度的数字 .nf 域名，适合病毒内容和社区互动。 | [.nf](https://www.iana.org/domains/root/db/nf.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/8.nf) | ✓ |
+| [**9.ms**](https://9.ms) | 犀利且易记，适合教育、效率和知识分享类链接。 | [.ms](https://www.iana.org/domains/root/db/ms.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/9.ms) | ✓ |
+| [**ax.ax**](https://ax.ax) | 对称的双字母结构，适合技术内容和开发者工具。 | [.ax](https://www.iana.org/domains/root/db/ax.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/ax.ax) | ✓ |
+| [**d.tl**](https://d.tl) | 直接行动风格域名，适合强 CTA 和营销活动发布。 | [.tl](https://www.iana.org/domains/root/db/tl.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/d.tl) | ✓ |
+| [**do.ne**](https://do.ne) | 读起来像 “done”，适合确认页、流程步骤和完成页。 | [.ne](https://www.iana.org/domains/root/db/ne.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/do.ne) | ✓ |
+| [**e.gd**](https://e.gd) | 中性且专业，适合通用品牌场景和长期使用。 | [.gd](https://www.iana.org/domains/root/db/gd.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/e.gd) | ✓ |
+| [**f.tl**](https://f.tl) | 快速且有活力，适合促销和达人营销。 | [.tl](https://www.iana.org/domains/root/db/tl.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/f.tl) | ✓ |
+| [**go.ne**](https://go.ne) | 读起来像 “gone”，强调行动导向，适合 CTA 和快速重定向。 | [.ne](https://www.iana.org/domains/root/db/ne.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/go.ne) | ✓ |
+| [**h.fo**](https://h.fo) | 富有创意且活泼，适合社交分享和创作者内容。 | [.fo](https://www.iana.org/domains/root/db/fo.html) | ClouDNS | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/h.fo) | ✓ |
+| [**i.vg**](https://i.vg) | 游戏风格 .vg 域名，适合游戏社区和技术型用户。 | [.vg](https://www.iana.org/domains/root/db/vg.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/i.vg) | ✓ |
+| [**j.gt**](https://j.gt) | 干净现代，适合专业分享和产品链接。 | [.gt](https://www.iana.org/domains/root/db/gt.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/j.gt) | ✓ |
+| [**ke.ke**](https://ke.ke) | 重复式样时尚有趣，为品牌链接增添个性。 | [.ke](https://www.iana.org/domains/root/db/ke.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/ke.ke) | ✓ |
+| [**ki.ki**](https://ki.ki) | 节奏感强且有趣，适合创作者和意见领袖。 | [.ki](https://www.iana.org/domains/root/db/ki.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/ki.ki) | ✓ |
+| [**l.gt**](https://l.gt) | 轻巧且灵活，适合落地页、个人资料页和日常分享。 | [.gt](https://www.iana.org/domains/root/db/gt.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/l.gt) | ✓ |
+| [**l.nf**](https://l.nf) | 优雅轻量，适合落地页和新手引导流程。 | [.nf](https://www.iana.org/domains/root/db/nf.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/l.nf) | ✓ |
+| [**l.td**](https://l.td) | 简洁轻巧，适合个人主页和 link-in-bio 页面。 | [.td](https://www.iana.org/domains/root/db/td.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/l.td) | ✓ |
+| [**m.bo**](https://m.bo) | 高度品牌化。M 可表示 mobile，适合移动端链接和营销活动。 | [.bo](https://www.iana.org/domains/root/db/bo.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/m.bo) | ✓ |
+| [**n.ms**](https://n.ms) | 简洁聚焦，适合 newsletter 链接和教育内容。 | [.ms](https://www.iana.org/domains/root/db/ms.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/n.ms) | ✓ |
+| [**nih.ao**](https://nih.ao) | 灵感来自「你好」，亲切且易记，适合个人分享和社交内容。 | [.ao](https://www.iana.org/domains/root/db/ao.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/nih.ao) | ✓ |
+| [**oo.ps**](https://oo.ps) | 有趣且易记，适合营销活动和社交媒体。 | [.ps](https://www.iana.org/domains/root/db/ps.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/oo.ps) | ✓ |
+| [**p.sb**](https://p.sb) | 注重精确度，适合营销归因和重数据分析场景。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/p.sb) | ✓ |
+| [**q.cg**](https://q.cg) | 前沿且有辨识度，适合开发者工具和产品更新。 | [.cg](https://www.iana.org/domains/root/db/cg.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/q.cg) | ✓ |
+| [**r.gl**](https://r.gl) | 专业且可信，适合企业页面和产品文档。 | [.gl](https://www.iana.org/domains/root/db/gl.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/r.gl) | ✓ |
+| [**s.sb**](https://s.sb) | 干净可靠，适合专业链接和销售漏斗。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/s.sb) | ✓ |
+| [**s.td**](https://s.td) | 简单且灵活，适合营销活动和品牌重定向。 | [.td](https://www.iana.org/domains/root/db/td.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/s.td) | ✓ |
+| [**s.tt**](https://s.tt) | 低调且易记，专为营销和增长活动设计。 | [.tt](https://www.iana.org/domains/root/db/tt.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/s.tt) | ✓ |
+| [**sto.ne**](https://sto.ne) | 读起来像 “stone”，稳重经典，适合常青内容和长期 URL。 | [.ne](https://www.iana.org/domains/root/db/ne.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/sto.ne) | ✓ |
+| [**u.nf**](https://u.nf) | 现代且个人化，适合作品集和创作者身份展示。 | [.nf](https://www.iana.org/domains/root/db/nf.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/u.nf) | ✓ |
+| [**ul.lu**](https://ul.lu) | 回文式结构，适合 link-in-bio、创作者身份页和作品集。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Bunny | Bunny | [查看](https://dnssec-analyzer.verisignlabs.com/ul.lu) | ✓ |
+| [**www.ht**](https://www.ht) | 经典网页风格域名，适合产品和销售活动。 | [.ht](https://www.iana.org/domains/root/db/ht.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/www.ht) | ✓ |
+| [**www.ki**](https://www.ki) | 看起来像标准网址，可提升推广链接的信任感。 | [.ki](https://www.iana.org/domains/root/db/ki.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/www.ki) | ✓ |
+| [**www.re**](https://www.re) | 对读者友好且 SEO 安全，推荐用于编辑内容和博客相关链接。 | [.re](https://www.iana.org/domains/root/db/re.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/www.re) | ✓ |
+| [**www.sb**](https://www.sb) | 强烈的商业属性，适合企业级跟踪。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/www.sb) | ✓ |
+| [**www.tf**](https://www.tf) | 专业的网页风格域名，适合产品页和商务内容。 | [.tf](https://www.iana.org/domains/root/db/tf.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/www.tf) | ✓ |
+| [**www.tl**](https://www.tl) | 专业中性，适合企业链接和 newsletter 链接。 | [.tl](https://www.iana.org/domains/root/db/tl.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/www.tl) | ✓ |
+| [**z.nu**](https://z.nu) | 稀有且易记，专为快速分享和高互动设计。 | [.nu](https://www.iana.org/domains/root/db/nu.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/z.nu) | ✓ |
+
+> 偏好稀有国家代码域名和双字母域名？Premium 和 Enterprise 可解锁完整收藏。
+
+---
+
+### Premium 和 Enterprise
+
+这些域名对 Premium 和 Enterprise 用户开放，支持全部功能，包括 URL 缩短、文本分享和文件分享。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**a.ac**](https://a.ac) | 通用且极易记，适合社交分享、公告和落地页。 | [.ac](https://www.iana.org/domains/root/db/ac.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/a.ac) | ✓ |
+| [**a.tt**](https://a.tt) | 极简且朗朗上口，常用于 A/B 测试和跟踪链接。 | [.tt](https://www.iana.org/domains/root/db/tt.html) | xTom | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/a.tt) | ✓ |
+| [**b.ee**](https://b.ee) | 友好且易记，适合博客、个人网站和社区分享。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/b.ee) | ✓ |
+| [**b.lu**](https://b.lu) | 干净友好，适合博客、个人资料页和社区内容。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/b.lu) | ✓ |
+| [**c.sk**](https://c.sk) | 友好且协作感强，适合社区帖子和共享资源。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/c.sk) | ✓ |
+| [**d.ac**](https://d.ac) | 直接行动风格，适合 CTA 链接和效果导向活动。 | [.ac](https://www.iana.org/domains/root/db/ac.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/d.ac) | ✓ |
+| [**f.bi**](https://f.bi) | 有力且适合品牌化，适合节奏快的活动和社交分享。 | [.bi](https://www.iana.org/domains/root/db/bi.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/f.bi) | ✓ |
+| [**h.lu**](https://h.lu) | 强势且专业，适合商业页面和企业内容。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | AWS Route 53 | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/h.lu) | ✓ |
+| [**h.sk**](https://h.sk) | 专业且结构化，适合产品内容和文档。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/h.sk) | ✓ |
+| [**k.sk**](https://k.sk) | 有个性且时尚，面向创作者、意见领袖和社交平台。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/k.sk) | ✓ |
+| [**l.tt**](https://l.tt) | 容易记忆和输入，非常适合 link-in-bio 和落地页。 | [.tt](https://www.iana.org/domains/root/db/tt.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/l.tt) | ✓ |
+| [**n.ee**](https://n.ee) | 现代且具编辑感，适合 newsletter 和长文阅读互动。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/n.ee) | ✓ |
+| [**n.lu**](https://n.lu) | 偏编辑向，适合 newsletter、长文章和阅读型内容。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/n.lu) | ✓ |
+| [**q.lu**](https://q.lu) | 有辨识度且偏技术风，适合产品更新、SaaS 发布和开发者受众。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/q.lu) | ✓ |
+| [**t.ee**](https://t.ee) | 干净且通用，适合营销、产品公告和社交内容。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/t.ee) | ✓ |
+| [**t.lu**](https://t.lu) | 适合营销且通用，适用于活动、发布和社交推广。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/t.lu) | ✓ |
+| [**t.sc**](https://t.sc) | 中性通用，适合产品公告和文档。 | [.sc](https://www.iana.org/domains/root/db/sc.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/t.sc) | ✓ |
+| [**u.sc**](https://u.sc) | 轻量且专业，适合 onboarding 和团队沟通。 | [.sc](https://www.iana.org/domains/root/db/sc.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/u.sc) | ✓ |
+| [**u.sk**](https://u.sk) | 极简且灵活，针对日常分享和 onboarding 链接优化。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/u.sk) | ✓ |
+| [**v.sc**](https://v.sc) | 针对效果优化，适合增长洞察和活动跟踪。 | [.sc](https://www.iana.org/domains/root/db/sc.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/v.sc) | ✓ |
+| [**x.sh**](https://x.sh) | 技术型 .sh 域名，适合开源项目和 API 参考文档。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/x.sh) | ✓ |
+| [**z.ee**](https://z.ee) | 极简且高冲击力，面向直接转化和效果型活动优化。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/z.ee) | ✓ |
+
+> Premium 和 Enterprise 套餐包含最稀有的域名，可最大化品牌识别度和链接差异化。
+
+---
+
+## 开发者域名
+
+这些域名专为分享代码和脚本设计，支持 URL 缩短和文本分享。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**ba.sh**](https://ba.sh) | 分享 Bash 脚本的最简单方式，仅支持 GitHub 和 GitLab 链接。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/ba.sh) | ✓ |
+| [**z.sh**](https://z.sh) | 即刻分享您的 Shell 脚本，仅支持 GitHub 和 GitLab 链接。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/z.sh) | ✓ |
+
+---
+
+## 特殊品牌域名
+
+这些域名仅限特定内容类型或服务使用。仅支持 URL 缩短。
+
+| 域名 | 说明 | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**aff.af**](https://aff.af) | 一键将任意商品页变成您的专属联盟链接。 | [.af](https://www.iana.org/domains/root/db/af.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/aff.af) | ✓ |
+| [**arstechni.ca**](https://arstechni.ca) | 专用于 Ars Technica 文章和内容的短网址域名，仅接受 Ars Technica URL。 | [.ca](https://www.iana.org/domains/root/db/ca.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/arstechni.ca) | ✓ |
+| [**fileba.se**](https://fileba.se) | 专门面向 Firebase 内容，仅支持缩短 Firebase 网站 URL。 | [.se](https://www.iana.org/domains/root/db/se.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/fileba.se) | ✓ |
+| [**guc.ci**](https://guc.ci) | 专用于 Gucci 内容，仅支持缩短 Gucci 网站 URL。 | [.ci](https://www.iana.org/domains/root/db/ci.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/guc.ci) | ✓ |
+| [**kak.ao**](https://kak.ao) | 专为 Kakao URL 设计的短链域名，仅接受 Kakao 域名链接。 | [.ao](https://www.iana.org/domains/root/db/ao.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/kak.ao) | ✓ |
+| [**lamborghi.ni**](https://lamborghi.ni) | 专用于 Lamborghini 内容，仅支持缩短 Lamborghini 网站 URL。 | [.ni](https://www.iana.org/domains/root/db/ni.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/lamborghi.ni) | ✓ |
+| [**lowend.box**](https://lowend.box) | 仅适用于 LowEndBox 优惠和评测内容的短网址域名。 | [.box](https://www.iana.org/domains/root/db/box.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/lowend.box) | ✓ |
+| [**lowend.talk**](https://lowend.talk) | 专用于 LowEndTalk 帖子和主题的短网址域名，仅允许 LET 链接。 | [.talk](https://www.iana.org/domains/root/db/talk.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/lowend.talk) | ✓ |
+| [**milan.ac**](https://milan.ac) | 专用于 AC Milan 内容，仅支持缩短 AC Milan 网站 URL。 | [.ac](https://www.iana.org/domains/root/db/ac.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/milan.ac) | ✓ |
+| [**neverle.ss**](https://neverle.ss) | 专用于 Neverless 内容，仅支持缩短 Neverless 网站 URL。 | [.ss](https://www.iana.org/domains/root/db/ss.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/neverle.ss) | ✓ |
+| [**quai.ly**](https://quai.ly) | 仅面向 Quaily 的短网址服务，只能缩短 Quaily 页面和资源。 | [.ly](https://www.iana.org/domains/root/db/ly.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/quai.ly) | ✓ |
+| [**techrad.ar**](https://techrad.ar) | 仅限 TechRadar 内容的短网址域名，只支持 TechRadar 文章 URL。 | [.ar](https://www.iana.org/domains/root/db/ar.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/techrad.ar) | ✓ |
+| [**thever.ge**](https://thever.ge) | 专用于 The Verge 的短网址域名，仅允许缩短 The Verge 文章和页面。 | [.ge](https://www.iana.org/domains/root/db/ge.html) | Cloudflare | Cloudflare | [查看](https://dnssec-analyzer.verisignlabs.com/thever.ge) | ✓ |
+| [**zaob.ao**](https://zaob.ao) | 专用于 Zaobao 内容，仅支持缩短 Zaobao 网站 URL。 | [.ao](https://www.iana.org/domains/root/db/ao.html) | xTom | Google Cloud | [查看](https://dnssec-analyzer.verisignlabs.com/zaob.ao) | ✓ |

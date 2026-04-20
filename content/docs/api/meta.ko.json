@@ -1,0 +1,28 @@
+{
+  "title": "API 레퍼런스",
+  "description": "S.EE API 엔드포인트",
+  "defaultOpen": true,
+  "pages": [
+    "---단축 URL---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---텍스트 공유---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---파일 공유---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---일반---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

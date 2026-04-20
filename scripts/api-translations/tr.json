@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Kısa URL oluştur",
+    "description": "Hedef bağlantı için yeni bir kısa URL oluşturur. İsteğe bağlı olarak özel bir kısa kod, parola koruması, sona erme süresi ve düzenleme için etiketler ayarlanabilir."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Kısa URL oluştur (basit mod)",
+    "description": "Basitleştirilmiş parametrelerle hızlıca kısa URL oluşturur; yapılandırma gerektirmeyen senaryolar için uygundur."
+  },
+  "UpdateShortUrl": {
+    "title": "Kısa URL güncelle",
+    "description": "Mevcut bir kısa URL’nin hedef adresini, parolasını, sona erme süresini veya etiketlerini günceller."
+  },
+  "DeleteShortUrl": {
+    "title": "Kısa URL sil",
+    "description": "Belirtilen kısa URL’yi kalıcı olarak siler."
+  },
+  "GetAvailableDomains": {
+    "title": "Kullanılabilir alan adlarını getir",
+    "description": "Geçerli hesapta kısa URL oluşturmak için kullanılabilen alan adlarının listesini döndürür."
+  },
+  "GetLinkVisitStat": {
+    "title": "Ziyaret istatistiklerini getir",
+    "description": "Belirli bir kısa URL için tıklama sayısı, kaynaklar ve coğrafi dağılım dahil ziyaret verilerini döndürür."
+  },
+  "CreateText": {
+    "title": "Metin paylaşımı oluştur",
+    "description": "Düz metin, kod parçası veya Markdown gibi kısa URL üzerinden erişilebilen bir metin içeriği oluşturur."
+  },
+  "UpdateText": {
+    "title": "Metin paylaşımını güncelle",
+    "description": "Mevcut bir metin paylaşımının içeriğini, parolasını veya sona erme süresini günceller."
+  },
+  "DeleteText": {
+    "title": "Metin paylaşımını sil",
+    "description": "Belirtilen metin paylaşımını kalıcı olarak siler."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Metin paylaşımı için alan adlarını getir",
+    "description": "Metin paylaşımı oluşturmak için kullanılabilen alan adlarının listesini döndürür."
+  },
+  "UploadFile": {
+    "title": "Dosya yükle",
+    "description": "Bir dosya yükler ve paylaşılabilir kısa URL oluşturur; parola ve sona erme süresi desteği sunar."
+  },
+  "GetFileHistory": {
+    "title": "Dosya geçmişini getir",
+    "description": "Geçerli hesap tarafından yüklenen dosyaların listesini döndürür."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Özel dosya indirme URL’sini getir",
+    "description": "Parola korumalı özel bir dosya için geçici indirme URL’si oluşturur."
+  },
+  "DeleteFile": {
+    "title": "Dosyayı sil",
+    "description": "Belirtilen dosyayı kalıcı olarak siler."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Dosya paylaşımı için alan adlarını getir",
+    "description": "Dosya paylaşımı için kullanılabilen alan adlarının listesini döndürür."
+  },
+  "GetTags": {
+    "title": "Etiket listesini getir",
+    "description": "İçeriği düzenlemek için kullanılan mevcut hesaptaki tüm etiketleri döndürür."
+  },
+  "GetUsage": {
+    "title": "Kullanımı getir",
+    "description": "Geçerli hesabın mevcut faturalama dönemindeki kaynak kullanımını döndürür."
+  }
+}

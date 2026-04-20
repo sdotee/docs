@@ -1,0 +1,233 @@
+---
+title: Fildelning
+description: Så laddar du upp och delar filer med S.EE
+icon: Upload
+---
+
+## Översikt
+
+S.EE File Sharing låter dig ladda upp och dela filer via en kort och delbar länk. Det passar bra för bilder, dokument, ljud, video och andra filer.
+
+---
+
+## Ladda upp filer
+
+### Snabb uppladdning med dra och släpp
+
+1. Logga in på [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klicka på **Sharing > Files** i vänstra sidofältet eller gå direkt till [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Dra och släpp filer eller mappar i fönstret **Drag & Drop**
+   - Du kan också klicka i fönstret för att bläddra och välja filer
+   - Om du laddar upp en mapp laddas alla filer i mappen upp
+4. Filerna delas med standarddomänen och en slumpmässig slug
+
+### Avancerad uppladdning med Create File
+
+Om du vill ha mer kontroll över fildelningen:
+
+1. Klicka på **Create File**
+2. Konfigurera inställningarna:
+   - **Domain** - välj önskad domän för delningssidan
+   - **Custom Slug** - ange en egen URL-slug
+   - **Other options** - taggar, utgångstid med mera
+3. Välj filen och ladda upp den
+
+---
+
+## Fillänkar
+
+Varje uppladdad fil har två typer av länkar:
+
+| Länktyp | Format | Beskrivning |
+|-----------|--------|-------------|
+| Delningssida | `fs.to/[din_slug]` | Anpassningsbar domän och slug |
+| Direktlänk | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Direkt åtkomst till filen med originalfilnamn |
+
+**Obs:** Direktlänkar stöder för närvarande inte egna domäner.
+
+---
+
+## Filtyper som stöds
+
+S.EE stöder ett brett urval av filtyper:
+
+### Bilder
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| image/jpeg | JPEG-bilder (.jpg, .jpeg) |
+| image/png | PNG-bilder (.png) |
+| image/gif | GIF-bilder (.gif) |
+| image/webp | WebP-bilder (.webp) |
+| image/avif | AVIF-bilder (.avif) |
+| image/svg+xml | SVG-bilder (.svg) |
+| image/bmp | BMP-bilder (.bmp) |
+| image/tiff | TIFF-bilder (.tiff, .tif) |
+| image/heic | HEIC-bilder (.heic) |
+| image/heif | HEIF-bilder (.heif) |
+| image/jp2 | JPEG 2000-bilder (.jp2) |
+| image/jpx | JPEG 2000-bilder (.jpx) |
+| image/jxl | JPEG XL-bilder (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop-filer (.psd) |
+
+### Dokument
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| application/pdf | PDF-dokument (.pdf) |
+| application/msword | Word-dokument (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word-dokument (.docx) |
+| application/vnd.ms-excel | Excel-kalkylblad (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel-kalkylblad (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint-presentationer (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint-presentationer (.pptx) |
+| application/vnd.apple.pages | Pages-dokument (.pages) |
+| application/vnd.apple.numbers | Numbers-kalkylblad (.numbers) |
+| application/vnd.apple.keynote | Keynote-presentationer (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript-filer (.ps, .eps) |
+| application/epub+zip | EPUB-e-böcker (.epub) |
+
+### Text och data
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| text/plain | Vanliga textfiler (.txt) |
+| text/csv | CSV-filer (.csv) |
+| text/markdown | Markdown-filer (.md, .markdown, .mdx) |
+| application/json | JSON-filer (.json) |
+| application/yaml | YAML-filer (.yaml, .yml) |
+
+### Ljud
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| audio/mpeg | MP3-filer (.mp3) |
+| audio/wav | WAV-filer (.wav) |
+| audio/ogg | OGG-ljud (.ogg) |
+| audio/flac | FLAC-ljud (.flac) |
+| audio/aac | AAC-ljud (.aac) |
+| audio/mp4, audio/x-m4a | M4A-ljud (.m4a) |
+| audio/midi | MIDI-filer (.mid, .midi) |
+| audio/x-ms-wma | WMA-ljud (.wma) |
+
+### Video
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| video/mp4 | MP4-videor (.mp4) |
+| video/webm | WebM-videor (.webm) |
+| video/quicktime | QuickTime-videor (.mov) |
+| video/x-matroska | MKV-videor (.mkv) |
+| video/x-msvideo | AVI-videor (.avi) |
+| video/mpeg | MPEG-videor (.mpeg, .mpg) |
+| video/ogg | OGG-videor (.ogv) |
+| video/3gpp | 3GP-videor (.3gp) |
+| video/x-flv | FLV-videor (.flv) |
+| video/x-ms-wmv | WMV-videor (.wmv) |
+
+### Arkiv och skivavbilder
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| application/zip | ZIP-arkiv (.zip) |
+| application/x-zip-compressed | ZIP-arkiv (.zip) |
+| application/gzip | GZIP-arkiv (.gz) |
+| application/x-bzip2 | BZIP2-arkiv (.bz2) |
+| application/x-xz | XZ-arkiv (.xz) |
+| application/x-tar | TAR-arkiv (.tar) |
+| application/x-7z-compressed | 7-Zip-arkiv (.7z) |
+| application/x-rar-compressed | RAR-arkiv (.rar) |
+| application/x-apple-diskimage | DMG-skivavbilder (.dmg) |
+| application/x-iso9660-image | ISO-skivavbilder (.iso) |
+
+<Callout type="warn">
+Körbara filer (.exe, .msi, .bat, .app och liknande) är **inte tillåtna** av säkerhetsskäl.
+</Callout>
+
+<Callout type="info">
+För följande filtillägg kan vi tvinga svaret `Content-Type` till `text/plain` för att minska risken för skriptmissbruk: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+För okända eller tvetydiga filtyper tvingar vi `Content-Type` till `application/octet-stream`.
+</Callout>
+
+### Äldre format och kompatibilitet
+
+Dessa MIME-typer accepteras för kompatibilitet med äldre system.
+
+| MIME-typ | Beskrivning |
+|-----------|-------------|
+| application/excel | Excel-kalkylblad (.xls) |
+| application/x-excel | Excel-kalkylblad (.xls) |
+| application/x-msexcel | Excel-kalkylblad (.xls) |
+| application/mspowerpoint | PowerPoint-presentationer (.ppt) |
+| application/powerpoint | PowerPoint-presentationer (.ppt) |
+| application/x-mspowerpoint | PowerPoint-presentationer (.ppt) |
+
+---
+
+## Lagringsgränser
+
+Lagringsgränserna varierar per abonnemang:
+
+| Abonnemang | Max filstorlek | Total lagring |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Anpassad | Anpassad |
+
+Se [s.ee/pricing](https://s.ee/pricing) för fullständig information om abonnemangen.
+
+---
+
+## Fillagringstid
+
+- Filer lagras **permanent** så länge ditt abonnemang är aktivt
+- Om abonnemanget löper ut sparas filer i **7 dagar** innan de raderas
+
+---
+
+## Domäner som stöds
+
+Fildelning finns på följande domäner:
+
+| Domän | Passar bäst för |
+|--------|----------|
+| [fs.to](https://fs.to) | Allmän fildelning |
+| [files.to](https://files.to) | Allmän fildelning |
+| [fileshare.to](https://fileshare.to) | Allmän fildelning |
+| [filesharing.to](https://filesharing.to) | Allmän fildelning |
+
+För Premium- och Enterprise-kunder finns fler alternativ på sidan [officiella domäner](/docs/sv/official-domains/#premium--enterprise).
+
+---
+
+## API-åtkomst
+
+Fildelning finns också via API. Se vår [API-dokumentation](/docs/sv/developers/api/#fildelning) för information om programmatiska uppladdningar.
+
+---
+
+## Vanliga frågor
+
+### Vem kan ladda upp filer?
+
+Endast betalande prenumeranter kan ladda upp filer. Ett giltigt abonnemang krävs.
+
+### Finns det några nedladdningsgränser?
+
+Nej, det finns inga begränsningar för antal nedladdningar eller bandbredd för delade filer.
+
+### Kan jag anpassa URL:en till delningssidan?
+
+Ja, du kan ange egen domän och slug för delningssidan när du använder uppladdningsmetoden **Create File**.
+
+### Kan jag anpassa direktlänkens URL?
+
+För närvarande använder direktlänkar ett fast format och stöder inte egna domäner.

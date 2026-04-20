@@ -1,0 +1,113 @@
+---
+title: SDK'ler
+description: Çeşitli programlama dilleri için resmî S.EE SDK'leri
+icon: Package
+---
+
+## Resmî SDK'ler
+
+S.EE, tür güvenliği ve kolay entegrasyon sağlamak için resmî SDK'ler sunar:
+
+| Dil | Depo | Açıklama |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | PHP uygulamaları için geliştirici araç takımı |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | JavaScript/TypeScript projeleri için tür güvenli entegrasyon |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Bağlantı yönetimi için Go desteği |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Python tabanlı URL kısaltma ve dosya paylaşımı |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | Kurumsal Java uygulaması |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | Sistem programlama dili desteği |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | Gelişmekte olan dil desteği; deneyseldir |
+
+---
+
+## MCP sunucusu
+
+Yapay zeka/LLM entegrasyonları için MCP (Model Context Protocol) sunucumuzu kullanın:
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### Özellikler
+
+- **URL yönetimi**: Kısa URL'ler için oluşturma, güncelleme, silme ve alan adı listeleme
+- **İçerik paylaşımı**: Kod parçalarını ve metinleri sona erme/parola korumasıyla paylaşma
+- **Dosya işlemleri**: Dosya yükleme ve silme
+- **Zaman araçları**: Saat dilimi desteğiyle güncel zaman bilgisine erişme
+
+### Gereksinimler
+
+- Go 1.25+
+- Geçerli bir S.EE API anahtarı
+
+### Derleme
+
+```bash
+# Makefile kullanarak (mevcut işletim sistemi)
+make build
+
+# Tüm platformlar için derleme
+make build-all
+
+# Veya doğrudan Go ile
+go build -o bin/cli-mcp-server .
+```
+
+### Çalıştırma
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+API anahtarını ortam değişkeni ile de ayarlayabilirsiniz:
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+Sunucu varsayılan olarak 30101 portunu kullanır ve MCP bağlantıları için Server-Sent Events kullanır. Entegrasyon için LLM istemcinizin ayarlarında MCP sunucu URL'sini yapılandırın.
+
+---
+
+## Kurulum
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+Kurulum yönergeleri için [sdk.java deposuna](https://github.com/sdotee/sdk.java) bakın.
+
+### Rust
+
+Kurulum yönergeleri için [sdk.rs deposuna](https://github.com/sdotee/sdk.rs) bakın.
+
+### Zig
+
+Kurulum yönergeleri için [sdk.zig deposuna](https://github.com/sdotee/sdk.zig) bakın.
+
+---
+
+## Kullanım
+
+Ayrıntılı dokümantasyon ve örnekler için ilgili SDK deposuna bakın.

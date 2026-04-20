@@ -31,8 +31,18 @@ const config = {
         destination: '/og/docs/:path*',
       },
       {
+        source:
+          '/docs/:lang(en-US|zh-CN|zh-TW|ja|ko|id|vi|de|fr|es|pt-PT|pt-BR|ru|pl|et|nl|tr|sv|it|fi)/:path*.mdx',
+        destination: '/docs/:lang/llms.mdx/:path*',
+      },
+      {
+        source:
+          '/docs/:lang(en-US|zh-CN|zh-TW|ja|ko|id|vi|de|fr|es|pt-PT|pt-BR|ru|pl|et|nl|tr|sv|it|fi).mdx',
+        destination: '/docs/:lang/llms.mdx',
+      },
+      {
         source: '/docs/:path*.mdx',
-        destination: '/docs/llms.mdx/:path*',
+        destination: '/docs/en-US/llms.mdx/:path*',
       },
     ];
   },

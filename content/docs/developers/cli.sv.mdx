@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Kommandoradsklient för S.EE-plattformen
+icon: Terminal
+---
+
+En kommandoradsklient för S.EE-plattformen som gör att du kan skapa och hantera korta URL:er, textsnuttar och filer direkt från terminalen.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Funktioner
+
+- **Hantering av korta URL:er**: skapa, uppdatera och ta bort länkar med anpassade slugs, domäner och utgångstid
+- **Textsnuttar**: dela kodsnuttar och anteckningar från `stdin` eller filer
+- **Filuppladdning**: ladda upp filer direkt eller via `stdin`
+- **Hantering av domäner och taggar**: lista tillgängliga domäner och hantera taggar
+- **Lösenordsskydd**: skydda innehåll med lösenord
+- **JSON-utdata**: maskinläsbar utdata för skript
+
+## Installation
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# eller förbyggd binär
+yay -S see-cli-bin
+```
+
+### Från källkod
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Ladda ner färdigbyggda binärer och paket från [GitHub Releases](https://github.com/sdotee/cli/releases).
+
+## Konfiguration
+
+Ange API-nyckeln via miljövariabel eller flagga:
+
+```bash
+# Miljövariabel (rekommenderas)
+export SEE_API_KEY="your-api-key"
+
+# Eller använd flaggan
+see --api-key "your-api-key" <command>
+```
+
+### Konfigurationsalternativ
+
+| Alternativ | Miljövariabel | Beskrivning |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | Din S.EE API-nyckel (krävs) |
+| `--base-url` | `SEE_BASE_URL` | Anpassad API-bas-URL |
+| `--timeout` | `SEE_TIMEOUT` | Timeout för förfrågningar |
+| `--json` | - | Aktivera JSON-utdata |
+
+## Kommandon
+
+### Domäner och taggar
+
+```bash
+# Lista tillgängliga domäner för korta URL:er
+see domains
+
+# Lista tillgängliga domäner för filuppladdningar
+see file domains
+
+# Lista dina taggar
+see tags
+```
+
+### Korta URL:er
+
+```bash
+# Skapa en kort URL
+see url create https://example.com
+
+# Skapa med anpassade alternativ
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Uppdatera en kort URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Ta bort en kort URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Textsnuttar
+
+```bash
+# Skapa text från stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Skapa text från fil
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Skapa med alternativ
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Uppdatera text
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Ta bort text
+see text delete --domain fs.to --slug abc123
+```
+
+### Filuppladdning
+
+```bash
+# Ladda upp en fil
+see file upload ./image.png
+
+# Ladda upp med anpassad domän
+see file upload ./document.pdf --domain fs.to
+
+# Ladda upp från stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Ta bort en fil
+see file delete <delete-hash>
+```
+
+## JSON-utdata
+
+Använd flaggan `--json` för maskinläsbar utdata, vilket är användbart i skript:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Exempel
+
+### Skapa en kort URL och kopiera till urklipp (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Ladda upp skärmbild och hämta URL (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Skapa korta URL:er i batch
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: URL'leri kısaltın, metin paylaşın ve dosyaları doğrudan WordPress yönetim panelinizden barındırın
+icon: WordPress
+---
+
+[S.EE WordPress eklentisi](https://wordpress.org/plugins/sdotee/), WordPress'ten çıkmadan URL kısaltmanıza, metin paylaşmanıza ve dosya yüklemenize olanak tanır. Bir yazı yayımladığınızda kısa bağlantı otomatik olarak oluşturulur; ek adım gerekmez.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [GitHub üzerindeki kaynak kod](https://github.com/sdotee/see-wordpress)
+- [GitHub sürümleri](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Özellikler
+
+| Özellik | Açıklama |
+|---------|-------------|
+| Kısa URL'ler | Yazı ve sayfa yayımlandığında veya güncellendiğinde otomatik kısa bağlantı oluşturur |
+| Metin paylaşımı | Düz metin, Markdown ve kod parçalarını bağlantıyla paylaşır |
+| Dosya barındırma | Dosyaları Medya Kitaplığı'ndan yükler ve bağlantıyı URL, HTML, Markdown veya BBCode olarak kopyalamanızı sağlar |
+| Otomasyon | Yeni medyaları otomatik yükler ve yayımlamada bağlantıları otomatik kısaltır |
+| Yönetici entegrasyonu | Kısa URL'leri yazı/sayfa listesinden doğrudan görüntülemenizi ve yönetmenizi sağlar |
+| Kontrol paneli | Metin ve dosya paylaşımı için tam kullanım geçmişi içeren özel bir S.EE paneli sunar |
+| 13 dil | İngilizce, Çince (Basitleştirilmiş/Geleneksel), Japonca, Korece, Endonezce, Vietnamca, Almanca, Fransızca, İspanyolca, Portekizce (Brezilya/Portekiz), Rusça |
+
+---
+
+## Gereksinimler
+
+- PHP 8.2+
+- WordPress 6.0+
+- [API Token](https://s.ee/user/developers/) içeren bir S.EE hesabı
+
+---
+
+## Kurulum
+
+### WordPress eklenti dizininden
+
+1. WordPress yönetim panelinde **Plugins** > **Add New** bölümüne gidin
+2. **S.EE** için arama yapın
+3. **Install Now**, ardından **Activate** düğmesine tıklayın
+
+### GitHub üzerinden
+
+1. En son ZIP dosyasını [GitHub Releases](https://github.com/sdotee/see-wordpress/releases) sayfasından indirin
+2. **Plugins** > **Add New** > **Upload Plugin** yoluna gidin
+3. ZIP dosyasını yükleyin, ardından **Install Now** ve **Activate** düğmelerine tıklayın
+
+---
+
+## Kurulum ayarları
+
+### 1. API Token alın
+
+1. S.EE hesabınızda oturum açın
+2. **[Tools > API Token](https://s.ee/user/developers/)** sayfasına gidin
+3. Yeni bir API Token oluşturun
+
+<Callout type="warn">
+API Token'ınızı herkese açık olarak paylaşmayın ve sürüm kontrolüne eklemeyin.
+</Callout>
+
+### 2. Eklentiyi yapılandırın
+
+1. **Settings** > **S.EE** yoluna gidin
+2. API Token'ınızı yapıştırın ve **Verify** düğmesine tıklayın
+3. Kısa URL'ler, metin ve dosyalar için varsayılan alan adlarını seçin
+4. Tam otomatik kullanım istiyorsanız otomatik oluşturma ve otomatik yükleme seçeneklerini açın
+
+<Callout type="info">
+API Token'ı veritabanı dışında tutmak için `wp-config.php` içinde de tanımlayabilirsiniz.
+</Callout>
+
+---
+
+## Kullanım
+
+### Kısa URL'ler
+
+Otomatik oluşturma açıksa her yazı ve sayfa, **Publish** düğmesine bastığınız anda kısa bağlantı alır. Yönetim panelindeki yazı/sayfa listesi sütunundan da kısa URL oluşturabilir veya görüntüleyebilirsiniz.
+
+### Metin paylaşımı
+
+**S.EE** kontrol paneli bölümünü açın ve içeriğinizi yapıştırın. Desteklenen biçimler:
+
+- Düz metin
+- Markdown
+- Kod parçacıkları
+
+### Dosya barındırma
+
+Dosyaları **S.EE** panelinden veya Medya Kitaplığı'ndan yükleyin. Yükleme tamamlandıktan sonra bağlantıyı istediğiniz biçimde alın: URL, HTML, Markdown veya BBCode.
+
+---
+
+## İlgili sayfalar
+
+- [Geliştirici API'si](/docs/tr/developers)
+- [Dosya paylaşımı](/docs/tr/file-sharing)
+- [Metin paylaşımı](/docs/tr/text-sharing)
+- [Görsel barındırma](/docs/tr/image-hosting)

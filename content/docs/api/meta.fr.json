@@ -1,0 +1,28 @@
+{
+  "title": "Référence API",
+  "description": "Points de terminaison de l’API S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "---URL courtes---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Partage de texte---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Partage de fichiers---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Général---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

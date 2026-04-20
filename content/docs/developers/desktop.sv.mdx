@@ -1,0 +1,113 @@
+---
+title: Skrivbordsapp
+description: Inbyggd skrivbordsapp för S.EE
+icon: Monitor
+---
+
+Förkorta länkar, dela text och ladda upp filer från skrivbordet med inbyggda appar för macOS och Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Ladda ner
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Plattformar som stöds
+
+| Plattform | Status | Teknik |
+|----------|--------|------------|
+| macOS | Tillgänglig | SwiftUI |
+| Linux | Tillgänglig | GTK4 + libadwaita + Rust |
+| Windows | Under utveckling | - |
+
+## Funktioner
+
+- **URL-förkortning** - anpassad slug, titel, lösenord och utgångstid
+- **Textdelning** - vanlig text, källkod eller Markdown med editor i monospace
+- **Filuppladdning** - dra och släpp, klistra in från urklipp eller välj fil
+- **QR-kodsgenerering** - exportera som PNG, SVG eller PDF
+- **Historik** - lokal historik över alla skapade länkar, texter och filer
+- **Stöd för flera domäner** - välj mellan flera domäner per tjänst
+- **Användningsöversikt** - lagringsanvändning och hastighetsgränser i en snabb översikt
+
+## macOS
+
+Byggd med **SwiftUI** och **SwiftData**. Fullt stöd för tangentbordsgenvägar och menyradsintegration.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Kräver macOS 14.0+
+
+### Höjdpunkter
+
+- **Menyrad** - förkorta URL:er, klistra in och ladda upp, samt öppna senaste objekt utan att öppna huvudfönstret
+- **Dra och släpp** - släpp filer var som helst i uppladdningsytan
+- **Klistra in från urklipp** (`Cmd+V`) - konverterar bilder automatiskt till WebP med PNG som reserv
+- **Nyckelring** - säker lagring av API-nyckel via macOS Security framework
+
+### Tangentbordsgenvägar
+
+| Genväg | Åtgärd |
+|----------|--------|
+| Cmd+N | Ny kort länk |
+| Cmd+Shift+N | Ny textdelning |
+| Cmd+V | Klistra in och ladda upp från urklipp |
+| Cmd+, | Inställningar |
+| Cmd+Q | Avsluta |
+
+### Teknikstack
+
+| Lager | Teknik |
+|-------|-----------|
+| UI | SwiftUI |
+| Lagring | SwiftData |
+| Nätverk | URLSession (aktörsbaserad) |
+| Säkerhet | Keychain |
+| Miniatyrer | QuickLookThumbnailing |
+| Bildbehandling | Swift-WebP |
+
+## Linux
+
+Byggd med **GTK4**, **libadwaita** och **Rust**. Följer GNOME Human Interface Guidelines.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Kräver GTK 4.14+ och libadwaita 1.5+
+
+### Höjdpunkter
+
+- **Inbyggd GNOME-upplevelse** - adaptiv layout enligt GNOME HIG
+- **QR-kodsexport** - PNG, SVG eller PDF
+- **Konfigurationsfil** - `~/.config/see/config.toml` för API-nyckel, bas-URL och standarddomäner
+- **Miljövariabler** - `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` åsidosätter konfigurationsfilen
+
+### Tangentbordsgenvägar
+
+| Genväg | Åtgärd |
+|----------|--------|
+| Ctrl+1 | Växla till länkvyn |
+| Ctrl+2 | Växla till textvyn |
+| Ctrl+3 | Växla till filvyn |
+| Ctrl+, | Öppna inställningar |
+| Ctrl+? | Visa tangentbordsgenvägar |
+| Ctrl+Q | Avsluta |
+
+### Teknikstack
+
+| Lager | Teknik |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Språk | Rust (2024 edition) |
+| API-klient | see-sdk |
+| QR-kod | Inbyggd, med export till PNG, SVG och PDF |
+
+### Datalagring
+
+- **Konfiguration**: `~/.config/see/config.toml`
+- **Historik**: `~/.local/share/see/history.json`
+
+## Kom igång
+
+1. Ladda ner för [macOS](https://s.ee/macos) eller [Linux](https://s.ee/linux)
+2. Skapa ett konto på [s.ee](https://s.ee) om du inte redan har ett
+3. [Skapa en API-nyckel](https://s.ee/user/developers/) från instrumentpanelen
+4. Öppna appen, gå till **Preferences** och ange API-nyckeln

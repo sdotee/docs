@@ -1,0 +1,28 @@
+{
+  "title": "Справочник API",
+  "description": "Эндпоинты API S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "---Короткие ссылки---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Обмен текстом---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Обмен файлами---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Общее---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

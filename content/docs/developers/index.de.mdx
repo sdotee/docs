@@ -1,0 +1,88 @@
+---
+title: Erste Schritte
+description: S.EE REST API zum Erstellen, Verwalten und Nachverfolgen von Kurz-URLs, Textfreigaben und Dateifreigaben
+icon: Rocket
+---
+
+## Überblick
+
+Mit der S.EE API können Sie Kurzlinks, Textfreigaben und Dateifreigaben programmgesteuert erstellen und verwalten. Sie können sie verwenden, um:
+
+- Kurzlinks in großem Maßstab zu erstellen
+- Text-Snippets und Code mit Syntaxhervorhebung zu teilen
+- Dateien hochzuladen und zu teilen
+- Benutzerdefinierte Domains zu verwalten
+- Analysedaten abzurufen
+- S.EE in Ihre Anwendungen zu integrieren
+
+---
+
+## Erste Schritte
+
+### Voraussetzungen
+
+1. Ein S.EE-Konto mit aktivem Tarif
+2. Ein API-Zugriffstoken
+
+### Authentifizierung
+
+Alle API-Anfragen erfordern ein Zugriffstoken im Header `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Base URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Beispielanfragen
+
+### Kurz-URL erstellen
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Textfreigabe erstellen
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Datei hochladen
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Ressourcen
+
+<Cards>
+  <Card title="API-Referenz" href="/docs/de/developers/api/">Alle verfügbaren Endpunkte anzeigen</Card>
+  <Card title="SDKs" href="/docs/de/developers/sdk/">Offizielle S.EE-SDKs für verschiedene Programmiersprachen</Card>
+</Cards>

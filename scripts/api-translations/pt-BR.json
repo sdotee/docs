@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Criar URL curta",
+    "description": "Cria uma nova URL curta para o link de destino. Opcionalmente, você pode definir slug personalizado, proteção por senha, prazo de expiração e tags para organização."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Criar URL curta (modo simples)",
+    "description": "Cria rapidamente uma URL curta com parâmetros simplificados, ideal para cenários sem configuração."
+  },
+  "UpdateShortUrl": {
+    "title": "Atualizar URL curta",
+    "description": "Atualiza o endereço de destino, a senha, o prazo de expiração ou as tags de uma URL curta existente."
+  },
+  "DeleteShortUrl": {
+    "title": "Excluir URL curta",
+    "description": "Exclui permanentemente a URL curta especificada."
+  },
+  "GetAvailableDomains": {
+    "title": "Obter domínios disponíveis",
+    "description": "Retorna a lista de domínios disponíveis na conta atual para criar URLs curtas."
+  },
+  "GetLinkVisitStat": {
+    "title": "Obter estatísticas de visitas",
+    "description": "Retorna os dados de visitas de uma URL curta, incluindo cliques, origens e distribuição geográfica."
+  },
+  "CreateText": {
+    "title": "Criar compartilhamento de texto",
+    "description": "Cria um conteúdo de texto acessível por uma URL curta, como texto simples, trecho de código ou Markdown."
+  },
+  "UpdateText": {
+    "title": "Atualizar compartilhamento de texto",
+    "description": "Atualiza o conteúdo, a senha ou o prazo de expiração de um compartilhamento de texto existente."
+  },
+  "DeleteText": {
+    "title": "Excluir compartilhamento de texto",
+    "description": "Exclui permanentemente o compartilhamento de texto especificado."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Obter domínios para compartilhamento de texto",
+    "description": "Retorna a lista de domínios disponíveis para criar compartilhamentos de texto."
+  },
+  "UploadFile": {
+    "title": "Enviar arquivo",
+    "description": "Faz upload de um arquivo e gera uma URL curta compartilhável, com suporte a senha e prazo de expiração."
+  },
+  "GetFileHistory": {
+    "title": "Obter histórico de arquivos",
+    "description": "Retorna a lista de arquivos enviados pela conta atual."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Obter URL de download de arquivo privado",
+    "description": "Gera uma URL temporária de download para um arquivo privado protegido por senha."
+  },
+  "DeleteFile": {
+    "title": "Excluir arquivo",
+    "description": "Exclui permanentemente o arquivo especificado."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Obter domínios para compartilhamento de arquivos",
+    "description": "Retorna a lista de domínios disponíveis para compartilhamento de arquivos."
+  },
+  "GetTags": {
+    "title": "Obter lista de tags",
+    "description": "Retorna todas as tags da conta atual usadas para organizar o conteúdo."
+  },
+  "GetUsage": {
+    "title": "Obter uso",
+    "description": "Retorna o uso de recursos da conta atual no ciclo de cobrança em andamento."
+  }
+}

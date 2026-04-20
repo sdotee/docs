@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Korte URL maken",
+    "description": "Maakt een nieuwe korte URL voor de bestemmingslink. Optioneel kun je een aangepaste slug, wachtwoordbeveiliging, vervaltijd en tags voor ordening instellen."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Korte URL maken (eenvoudige modus)",
+    "description": "Maakt snel een korte URL met vereenvoudigde parameters, geschikt voor scenario’s zonder configuratie."
+  },
+  "UpdateShortUrl": {
+    "title": "Korte URL bijwerken",
+    "description": "Werkt het doeladres, wachtwoord, de vervaltijd of tags van een bestaande korte URL bij."
+  },
+  "DeleteShortUrl": {
+    "title": "Korte URL verwijderen",
+    "description": "Verwijdert de opgegeven korte URL permanent."
+  },
+  "GetAvailableDomains": {
+    "title": "Beschikbare domeinen ophalen",
+    "description": "Geeft de lijst terug van domeinen die in het huidige account beschikbaar zijn voor het maken van korte URL’s."
+  },
+  "GetLinkVisitStat": {
+    "title": "Bezoekstatistieken ophalen",
+    "description": "Geeft bezoekgegevens van een korte URL terug, inclusief kliks, bronnen en geografische verdeling."
+  },
+  "CreateText": {
+    "title": "Tekstdeel maken",
+    "description": "Maakt tekstinhoud aan die via een korte URL toegankelijk is, zoals platte tekst, codefragmenten of Markdown."
+  },
+  "UpdateText": {
+    "title": "Tekstdeel bijwerken",
+    "description": "Werkt de inhoud, het wachtwoord of de vervaltijd van een bestaand tekstdeel bij."
+  },
+  "DeleteText": {
+    "title": "Tekstdeel verwijderen",
+    "description": "Verwijdert het opgegeven tekstdeel permanent."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Beschikbare domeinen voor tekstdelen ophalen",
+    "description": "Geeft de lijst terug van domeinen die beschikbaar zijn voor het maken van tekstdelen."
+  },
+  "UploadFile": {
+    "title": "Bestand uploaden",
+    "description": "Uploadt een bestand en genereert een deelbare korte URL, met ondersteuning voor wachtwoord en vervaltijd."
+  },
+  "GetFileHistory": {
+    "title": "Bestandsgeschiedenis ophalen",
+    "description": "Geeft de lijst terug van bestanden die door het huidige account zijn geüpload."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Download-URL voor privébestand ophalen",
+    "description": "Genereert een tijdelijke download-URL voor een met wachtwoord beveiligd privébestand."
+  },
+  "DeleteFile": {
+    "title": "Bestand verwijderen",
+    "description": "Verwijdert het opgegeven bestand permanent."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Beschikbare domeinen voor bestandsdeling ophalen",
+    "description": "Geeft de lijst terug van domeinen die beschikbaar zijn voor bestandsdeling."
+  },
+  "GetTags": {
+    "title": "Taglijst ophalen",
+    "description": "Geeft alle tags terug die in het huidige account worden gebruikt om inhoud te organiseren."
+  },
+  "GetUsage": {
+    "title": "Gebruik ophalen",
+    "description": "Geeft het resourcegebruik van het huidige account in de lopende factureringsperiode terug."
+  }
+}

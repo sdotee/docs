@@ -1,0 +1,28 @@
+{
+  "title": "API リファレンス",
+  "description": "S.EE API のエンドポイント",
+  "defaultOpen": true,
+  "pages": [
+    "---短縮URL---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---テキスト共有---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---ファイル共有---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---共通---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

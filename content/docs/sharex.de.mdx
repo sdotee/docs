@@ -1,0 +1,96 @@
+---
+title: ShareX
+description: Laden Sie Screenshots, Dateien und Text aus ShareX zu S.EE hoch
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/) ist ein Open-Source-Tool für Bildschirmaufnahmen und Dateifreigabe unter Windows. S.EE stellt benutzerdefinierte Uploader-Konfigurationen für ShareX bereit, sodass Sie Screenshots, Dateien, Text und Code direkt zu S.EE hochladen und einen teilbaren Link zurückerhalten können.
+
+Siehe auch: [ShareX-Dokumentation für benutzerdefinierte Uploader](https://getsharex.com/docs/custom-uploader)
+
+---
+
+## Benutzerdefinierte Uploader
+
+S.EE bietet Konfigurationen für diese Upload-Typen:
+
+| Uploader | What it does |
+|----------|-------------|
+| URL Shortener | Kürzt URLs über S.EE |
+| Text Uploader | Lädt Text-Snippets hoch |
+| Code Uploader | Lädt Code mit Syntaxhervorhebung hoch |
+| Markdown Uploader | Lädt Markdown mit gerenderter Vorschau hoch |
+| Image & File Uploader | Lädt Bilder und Dateien hoch |
+
+---
+
+## Installation
+
+Laden Sie die `.sxcu`-Konfigurationsdateien unten herunter. Sie können sie herunterladen oder per URL in ShareX importieren.
+
+| Uploader | Download / Import Link |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### Import
+
+1. Öffnen Sie **ShareX**
+2. Gehen Sie zu **Destinations** > **Custom uploader settings**
+3. Klicken Sie auf **Import** und wählen Sie entweder:
+   - Die heruntergeladene `.sxcu`-Datei aus
+   - Oder fügen Sie die Download-URL direkt ein
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## API-Schlüssel einrichten
+
+1. Holen Sie sich Ihren API-Schlüssel unter **[Tools > API Token](https://s.ee/user/developers/)**
+2. Öffnen Sie in ShareX **Custom uploader settings** und wählen Sie den importierten S.EE-Uploader
+3. Setzen Sie im Abschnitt **Headers** den Wert von `Authorization` auf Ihren API-Schlüssel
+
+<Callout type="warn">
+Teilen Sie Ihren API-Schlüssel nicht öffentlich und committen Sie ihn nicht in die Versionskontrolle.
+</Callout>
+
+---
+
+## Verwendung
+
+### Uploader auswählen
+
+Gehen Sie in ShareX zu **Destinations** und weisen Sie die S.EE-Uploader zu:
+
+- URL shortener → S.EE URL Shortener
+- Text uploader → S.EE Text Uploader, Code Uploader oder Markdown Uploader
+- Image uploader → S.EE File Uploader
+- File uploader → S.EE File Uploader
+
+### Upload
+
+Verwenden Sie die ShareX-Hotkeys oder das Kontextmenü, um eine URL zu kürzen, einen Screenshot hochzuladen, ein Text-Snippet zu teilen usw. ShareX lädt zu S.EE hoch und kopiert den Link in Ihre Zwischenablage.
+
+---
+
+## Fehlerbehebung
+
+| Issue | Fix |
+|-------|-----|
+| 401 error | Prüfen Sie, ob Ihr API-Schlüssel korrekt im Authorization-Header gesetzt ist |
+| 403 error | Stellen Sie sicher, dass Ihr API-Schlüssel die richtigen Berechtigungen hat |
+| File rejected | Der Dateityp wird möglicherweise nicht unterstützt. Siehe [Dateifreigabe](/docs/de/file-sharing) für erlaubte Typen |
+
+Sie können in **Custom uploader settings** auf **Test** klicken, um zu prüfen, ob alles funktioniert.
+
+---
+
+## Verwandte Seiten
+
+- [Developer API](/docs/de/developers)
+- [Dateifreigabe](/docs/de/file-sharing)
+- [Textfreigabe](/docs/de/text-sharing)

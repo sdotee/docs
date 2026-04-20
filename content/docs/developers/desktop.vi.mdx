@@ -1,0 +1,113 @@
+---
+title: Ứng dụng desktop
+description: Ứng dụng desktop native cho S.EE
+icon: Monitor
+---
+
+Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ desktop của bạn — với ứng dụng native cho macOS và Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Tải xuống
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Nền tảng được hỗ trợ
+
+| Platform | Status | Technology |
+|----------|--------|------------|
+| macOS | Available | SwiftUI |
+| Linux | Available | GTK4 + libadwaita + Rust |
+| Windows | In Development | - |
+
+## Tính năng
+
+- **URL Shortening** — Slug tùy chỉnh, tiêu đề, mật khẩu và thời gian hết hạn
+- **Text Sharing** — Văn bản thuần, source code hoặc Markdown với trình soạn thảo monospaced
+- **File Upload** — Kéo thả, dán từ clipboard hoặc chọn tệp
+- **QR Code Generation** — Xuất dưới dạng PNG, SVG hoặc PDF
+- **History** — Lưu cục bộ mọi liên kết, văn bản và tệp đã tạo
+- **Multi-Domain Support** — Chọn từ nhiều tên miền cho từng dịch vụ
+- **Usage Dashboard** — Xem nhanh dung lượng lưu trữ và giới hạn tốc độ
+
+## macOS
+
+Được xây dựng bằng **SwiftUI** và **SwiftData**. Hỗ trợ đầy đủ keyboard shortcut và tích hợp menu bar.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Yêu cầu macOS 14.0+
+
+### Điểm nổi bật
+
+- **Menu Bar** — Rút gọn URL, dán & tải lên, và truy cập mục gần đây mà không cần mở cửa sổ chính
+- **Drag & Drop** — Thả tệp ở bất kỳ đâu trong vùng tải lên
+- **Paste from Clipboard** (Cmd+V) — Tự động chuyển ảnh sang WebP, fallback sang PNG khi cần
+- **Keychain** — Lưu API key an toàn qua macOS Security framework
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| Cmd+N | New Short Link |
+| Cmd+Shift+N | New Text Share |
+| Cmd+V | Paste & Upload from Clipboard |
+| Cmd+, | Settings |
+| Cmd+Q | Quit |
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+## Linux
+
+Được xây dựng bằng **GTK4**, **libadwaita** và **Rust**. Tuân theo GNOME Human Interface Guidelines.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Yêu cầu GTK 4.14+ và libadwaita 1.5+
+
+### Điểm nổi bật
+
+- **Native GNOME Experience** — Giao diện thích ứng tuân theo GNOME HIG
+- **QR Code Export** — PNG, SVG hoặc PDF
+- **Config File** — `~/.config/see/config.toml` cho API key, base URL và tên miền mặc định
+- **Environment Variables** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` sẽ ghi đè config file
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+1 | Switch to Links view |
+| Ctrl+2 | Switch to Texts view |
+| Ctrl+3 | Switch to Files view |
+| Ctrl+, | Open Preferences |
+| Ctrl+? | Show keyboard shortcuts |
+| Ctrl+Q | Quit |
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Language | Rust (2024 edition) |
+| API Client | see-sdk |
+| QR Code | Built-in (PNG, SVG, PDF export) |
+
+### Data Storage
+
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
+
+## Bắt đầu
+
+1. Tải phiên bản cho [macOS](https://s.ee/macos) hoặc [Linux](https://s.ee/linux)
+2. Tạo tài khoản tại [s.ee](https://s.ee) nếu bạn chưa có
+3. [Tạo API key](https://s.ee/user/developers/) từ bảng điều khiển của bạn
+4. Mở ứng dụng, vào **Preferences** và nhập API key

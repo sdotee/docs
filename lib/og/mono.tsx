@@ -20,12 +20,28 @@ const fontBold = readFile('./lib/og/JetBrainsMono-Bold.ttf').then((data) => ({
   weight: 600 as const,
 }));
 
+// CJK fallback fonts. When a glyph isn't in JetBrains Mono, the renderer falls
+// back to whichever font has it. Variable TTFs registered at weight 400; bold
+// CJK text degrades to regular weight rather than tofu.
+const cjkFonts = [
+  { file: 'NotoSerifSC-VF.ttf', name: 'CJK-SC' as const },
+  { file: 'NotoSerifTC-VF.ttf', name: 'CJK-TC' as const },
+  { file: 'NotoSerifJP-VF.ttf', name: 'CJK-JP' as const },
+  { file: 'NotoSerifKR-VF.ttf', name: 'CJK-KR' as const },
+].map(({ file, name }) =>
+  readFile(`./lib/og/${file}`).then((data) => ({
+    name,
+    data,
+    weight: 400 as const,
+  })),
+);
+
 export async function getImageResponseOptions(): Promise<ImageResponseOptions> {
   return {
     width: 1200,
     height: 630,
     format: 'webp',
-    fonts: await Promise.all([font, fontBold]),
+    fonts: await Promise.all([font, fontBold, ...cjkFonts]),
   };
 }
 

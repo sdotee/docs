@@ -1,0 +1,113 @@
+---
+title: SDK
+description: 各種プログラミング言語向けの公式 S.EE SDK
+icon: Package
+---
+
+## 公式 SDK
+
+S.EE では、型安全性を保ちながら簡単に統合できるよう、公式 SDK を提供しています。
+
+| 言語 | リポジトリ | 説明 |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | PHP アプリケーション向けの開発ツールキット |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | JavaScript / TypeScript プロジェクト向けの型安全な統合 |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go 向けの短縮URL管理サポート |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Python ベースの短縮URLおよびファイル共有サポート |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | エンタープライズ向け Java 実装 |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | システムプログラミング向けサポート |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | 新興言語向けサポート（実験的） |
+
+---
+
+## MCP Server
+
+AI / LLM 連携には、MCP（Model Context Protocol）サーバーもご利用いただけます。
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### 機能
+
+- **URL 管理**: 短縮URLの作成、更新、削除、および利用可能なドメイン一覧の取得
+- **コンテンツ共有**: 有効期限やパスワード保護付きのコードスニペット / テキスト共有
+- **ファイル操作**: ファイルのアップロードと削除
+- **時刻ユーティリティ**: タイムゾーン対応の現在時刻情報の取得
+
+### 要件
+
+- Go 1.25+
+- 有効な S.EE API Key
+
+### ビルド
+
+```bash
+# Makefile を利用（現在の OS 向け）
+make build
+
+# 全プラットフォーム向けにビルド
+make build-all
+
+# または Go を直接利用
+go build -o bin/cli-mcp-server .
+```
+
+### 実行
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+環境変数から API Key を渡すこともできます。
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+サーバーは既定で `30101` ポートを使用し、MCP 接続には Server-Sent Events を利用します。Cherry Studio などの LLM クライアント側で MCP サーバー URL を設定してください。
+
+---
+
+## インストール
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+[sdk.java リポジトリ](https://github.com/sdotee/sdk.java) をご参照ください。
+
+### Rust
+
+[sdk.rs リポジトリ](https://github.com/sdotee/sdk.rs) をご参照ください。
+
+### Zig
+
+[sdk.zig リポジトリ](https://github.com/sdotee/sdk.zig) をご参照ください。
+
+---
+
+## 使い方
+
+詳しい使い方やサンプルコードは、各 SDK リポジトリをご確認ください。

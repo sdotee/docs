@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "ダッシュボード"
+  },
+  "cookieBar": {
+    "message": "言語設定を記憶し、利用体験を向上させるために Cookie を使用しています。",
+    "accept": "同意する",
+    "decline": "拒否する",
+    "privacyLink": "プライバシーポリシー"
+  },
+  "fumadocs": {
+    "search": "検索",
+    "searchNoResult": "結果が見つかりません",
+    "toc": "このページ",
+    "lastUpdate": "最終更新",
+    "previousPage": "前のページ",
+    "nextPage": "次のページ",
+    "chooseTheme": "テーマを選択",
+    "editOnGithub": "GitHub で編集",
+    "chooseLanguage": "言語を選択"
+  }
+}

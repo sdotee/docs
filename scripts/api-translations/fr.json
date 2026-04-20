@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Créer une URL courte",
+    "description": "Crée une nouvelle URL courte pour le lien de destination. Vous pouvez définir un slug personnalisé, une protection par mot de passe, une date d’expiration et des étiquettes de classement."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Créer une URL courte (mode simple)",
+    "description": "Crée rapidement une URL courte avec des paramètres simplifiés, idéal pour les scénarios sans configuration."
+  },
+  "UpdateShortUrl": {
+    "title": "Mettre à jour une URL courte",
+    "description": "Met à jour l’adresse de destination, le mot de passe, la date d’expiration ou les étiquettes d’une URL courte existante."
+  },
+  "DeleteShortUrl": {
+    "title": "Supprimer une URL courte",
+    "description": "Supprime définitivement l’URL courte spécifiée."
+  },
+  "GetAvailableDomains": {
+    "title": "Obtenir les domaines disponibles",
+    "description": "Retourne la liste des domaines disponibles pour créer des URL courtes avec le compte actuel."
+  },
+  "GetLinkVisitStat": {
+    "title": "Obtenir les statistiques de visite",
+    "description": "Retourne les données de visite d’une URL courte, y compris le nombre de clics, les sources et la répartition géographique."
+  },
+  "CreateText": {
+    "title": "Créer un partage de texte",
+    "description": "Crée un contenu texte accessible via une URL courte, par exemple du texte brut, un extrait de code ou du Markdown."
+  },
+  "UpdateText": {
+    "title": "Mettre à jour un partage de texte",
+    "description": "Met à jour le contenu, le mot de passe ou la date d’expiration d’un partage de texte existant."
+  },
+  "DeleteText": {
+    "title": "Supprimer un partage de texte",
+    "description": "Supprime définitivement le partage de texte spécifié."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Obtenir les domaines disponibles pour le partage de texte",
+    "description": "Retourne la liste des domaines disponibles pour créer des partages de texte."
+  },
+  "UploadFile": {
+    "title": "Téléverser un fichier",
+    "description": "Téléverse un fichier et génère une URL courte partageable, avec prise en charge du mot de passe et de la date d’expiration."
+  },
+  "GetFileHistory": {
+    "title": "Obtenir l’historique des fichiers",
+    "description": "Retourne la liste des fichiers téléversés par le compte actuel."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Obtenir l’URL de téléchargement d’un fichier privé",
+    "description": "Génère une URL de téléchargement temporaire pour un fichier privé protégé par mot de passe."
+  },
+  "DeleteFile": {
+    "title": "Supprimer un fichier",
+    "description": "Supprime définitivement le fichier spécifié."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Obtenir les domaines disponibles pour le partage de fichiers",
+    "description": "Retourne la liste des domaines disponibles pour le partage de fichiers."
+  },
+  "GetTags": {
+    "title": "Obtenir la liste des étiquettes",
+    "description": "Retourne toutes les étiquettes du compte actuel utilisées pour organiser le contenu."
+  },
+  "GetUsage": {
+    "title": "Obtenir l’utilisation",
+    "description": "Retourne l’utilisation des ressources du compte actuel sur la période de facturation en cours."
+  }
+}

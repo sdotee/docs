@@ -1,0 +1,131 @@
+---
+title: SM.MS-yhteensopivuus
+description: Siirry SM.MS:stä S.EE:hen minimaalisin koodimuutoksin
+icon: RefreshCw
+---
+
+S.EE tarjoaa SM.MS-yhteensopivan API-kerroksen, jonka avulla voit siirtyä SM.MS:stä S.EE:hen pienillä koodimuutoksilla. Vaihda vain API-päätepiste ja voit jatkaa.
+
+## Nopea migraatio
+
+Korvaa SM.MS API:n perus-URL S.EE-vastineella:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Tuetut päätepisteet
+
+| SM.MS-päätepiste | S.EE-päätepiste | Kuvaus |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Lataa kuva |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Hae lataushistoria |
+
+## Kuvan lataus
+
+### Pyyntö
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Parametrit
+
+| Parametri | Tyyppi | Pakollinen | Kuvaus |
+|-----------|------|----------|-------------|
+| `smfile` | file | Kyllä | Ladattava kuvatiedosto (alias: `file`) |
+| `domain` | string | Ei | Mukautettu verkkotunnus lyhyelle linkille |
+| `custom_slug` | string | Ei | Mukautettu slug URL-osoitteelle |
+
+### Vastaus
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Lataushistoria
+
+### Pyyntö
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Parametrit
+
+| Parametri | Tyyppi | Pakollinen | Kuvaus |
+|-----------|------|----------|-------------|
+| `page` | integer | Ei | Sivunumero (oletus 1, 30 tiedostoa / sivu) |
+
+### Vastaus
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    }
+  ]
+}
+```
+
+## Erot verrattuna SM.MS:ään
+
+Vaikka S.EE säilyttää SM.MS API -yhteensopivuuden, mukana on myös parannuksia:
+
+| Ominaisuus | SM.MS | S.EE |
+|---------|-------|------|
+| Mukautettu verkkotunnus | Ei | Kyllä |
+| Mukautettu slug | Ei | Kyllä |
+| Tiedostokokoraja | 5 MB | Vaihtelee paketin mukaan |
+| Tuetut muodot | Vain kuvat | Kuvat, asiakirjat ja muuta |
+
+## Hae API-avaimesi
+
+S.EE API:n käyttöön tarvitset API-avaimen:
+
+1. Rekisteröidy tai kirjaudu sisään osoitteessa [s.ee](https://s.ee)
+2. Siirry kohtaan **[Tools > API Token](https://s.ee/user/developers/)**
+3. Luo uusi API-avain
+
+## Tarvitsetko apua?
+
+Jos kohtaat ongelmia migraatiossa, ota yhteyttä [tukeen](https://s.ee/contact) tai katso [API-dokumentaatio](/docs/fi/developers/api).

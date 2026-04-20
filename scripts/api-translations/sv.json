@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Skapa kort URL",
+    "description": "Skapar en ny kort URL för mållänken. Du kan valfritt ange en anpassad slug, lösenordsskydd, utgångstid och taggar för organisering."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Skapa kort URL (enkelt läge)",
+    "description": "Skapar snabbt en kort URL med förenklade parametrar och passar scenarier utan konfiguration."
+  },
+  "UpdateShortUrl": {
+    "title": "Uppdatera kort URL",
+    "description": "Uppdaterar måladdress, lösenord, utgångstid eller taggar för en befintlig kort URL."
+  },
+  "DeleteShortUrl": {
+    "title": "Ta bort kort URL",
+    "description": "Tar permanent bort den angivna korta URL:en."
+  },
+  "GetAvailableDomains": {
+    "title": "Hämta tillgängliga domäner",
+    "description": "Returnerar listan över domäner som är tillgängliga i det aktuella kontot för att skapa korta URL:er."
+  },
+  "GetLinkVisitStat": {
+    "title": "Hämta besöksstatistik",
+    "description": "Returnerar besöksdata för en kort URL, inklusive klick, källor och geografisk fördelning."
+  },
+  "CreateText": {
+    "title": "Skapa textdelning",
+    "description": "Skapar textinnehåll som kan nås via en kort URL, till exempel vanlig text, kodsnuttar eller Markdown."
+  },
+  "UpdateText": {
+    "title": "Uppdatera textdelning",
+    "description": "Uppdaterar innehåll, lösenord eller utgångstid för en befintlig textdelning."
+  },
+  "DeleteText": {
+    "title": "Ta bort textdelning",
+    "description": "Tar permanent bort den angivna textdelningen."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Hämta domäner för textdelning",
+    "description": "Returnerar listan över domäner som är tillgängliga för att skapa textdelningar."
+  },
+  "UploadFile": {
+    "title": "Ladda upp fil",
+    "description": "Laddar upp en fil och genererar en delbar kort URL, med stöd för lösenord och utgångstid."
+  },
+  "GetFileHistory": {
+    "title": "Hämta filhistorik",
+    "description": "Returnerar listan över filer som har laddats upp av det aktuella kontot."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Hämta nedladdnings-URL för privat fil",
+    "description": "Genererar en tillfällig nedladdnings-URL för en lösenordsskyddad privat fil."
+  },
+  "DeleteFile": {
+    "title": "Ta bort fil",
+    "description": "Tar permanent bort den angivna filen."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Hämta domäner för fildelning",
+    "description": "Returnerar listan över domäner som är tillgängliga för fildelning."
+  },
+  "GetTags": {
+    "title": "Hämta tagglista",
+    "description": "Returnerar alla taggar i det aktuella kontot som används för att organisera innehåll."
+  },
+  "GetUsage": {
+    "title": "Hämta användning",
+    "description": "Returnerar resursanvändningen för det aktuella kontot under den pågående faktureringsperioden."
+  }
+}

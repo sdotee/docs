@@ -1,0 +1,125 @@
+---
+title: Aplikasi Seluler
+description: Aplikasi seluler native untuk S.EE
+icon: Smartphone
+---
+
+Pendekkan tautan, bagikan teks, dan unggah file dari ponsel Anda dengan seluruh kekuatan S.EE dalam aplikasi native.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Unduh
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="/app-store-badge.svg" alt="Download on the App Store" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+  </a>
+</div>
+
+## Platform yang Didukung
+
+| Platform | Requirements | Technology |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Fitur
+
+### Pemendekan URL
+
+- Buat tautan pendek dengan slug kustom, judul, kata sandi, dan kedaluwarsa
+- Pilih dari beberapa domain
+- Lihat statistik tautan — hari ini, bulan ini, dan total kunjungan
+- Cari berdasarkan slug, URL tujuan, judul, dan domain
+- Edit atau hapus tautan yang sudah ada
+
+### Berbagi Teks
+
+- Bagikan teks biasa, source code, atau Markdown
+- Editor monospaced untuk kode
+- Slug kustom, kata sandi, dan kedaluwarsa
+- Pemilihan domain dan penetapan tag (hingga 5 tag)
+
+### Unggah File
+
+- Pilih file, pilih dari galeri, atau ambil dengan kamera
+- Paste dari clipboard dengan konversi otomatis ke WebP (iOS)
+- Progres unggah real-time
+- 9 format tautan — Direct Link, Share Page, BBCode, HTML, Markdown, dan lainnya
+- Salin batch dan hapus batch di semua daftar
+
+### Dasbor Penggunaan
+
+- Penggunaan penyimpanan dengan progress bar visual
+- Rate limit untuk API Calls, Links, Text Shares, Uploads, dan QR Codes
+- Jumlah penggunaan harian dan bulanan
+
+### Pengaturan
+
+- Konfigurasi Base URL untuk instance self-hosted
+- Manajemen API Key dengan verifikasi sekali ketuk
+- Pemilihan domain default per layanan (tautan, teks, file)
+- Tema: System / Light / Dark
+- Dynamic Color / Material You (Android)
+
+## iOS
+
+Dibangun dengan **SwiftUI** dan **SwiftData** untuk pengalaman iOS native.
+
+- **Photo Picker** — pilih dari Photos library
+- **Camera** — ambil foto (JPG) atau video (MOV ke MP4)
+- Pull-to-refresh untuk tag dan daftar
+- Penyimpanan API key yang aman berbasis Keychain
+
+## Android
+
+Dibangun dengan **Jetpack Compose** dan **Material 3** (Material You) untuk pengalaman Android native.
+
+- **Share Target** — menerima teks, URL, dan file yang dibagikan dari aplikasi lain
+- **App Shortcuts** — tekan lama ikon aplikasi untuk aksi cepat
+- Dukungan gesture **Predictive Back** (Android 14+)
+- **Adaptive Icon** dengan dukungan themed icon
+- Database Room untuk riwayat lokal
+- EncryptedSharedPreferences untuk penyimpanan aman
+
+## Tech Stack
+
+### iOS
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+### Android
+
+| Layer | Technology |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architecture | MVVM + Repository |
+| Networking | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Local DB | Room |
+| Security | EncryptedSharedPreferences |
+| Image Loading | Coil 3 |
+
+## Source Code
+
+Kedua aplikasi bersifat open source di bawah lisensi MIT:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Mulai
+
+1. Unduh dari [App Store](https://s.ee/ios) atau [Google Play](https://s.ee/android)
+2. Buat akun di [s.ee](https://s.ee) jika Anda belum memilikinya
+3. [Buat API key](https://s.ee/user/developers/) dari dasbor Anda
+4. Buka aplikasi, masuk ke **Settings**, masukkan API key Anda, lalu ketuk **Verify**

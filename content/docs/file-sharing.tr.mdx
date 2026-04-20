@@ -1,0 +1,233 @@
+---
+title: Dosya paylaşımı
+description: S.EE ile dosyaları nasıl yükler ve paylaşırsınız
+icon: Upload
+---
+
+## Genel bakış
+
+S.EE Dosya Paylaşımı, dosyaları kısa ve paylaşılabilir bir bağlantıyla yükleyip paylaşmanıza olanak tanır. Görseller, belgeler, ses dosyaları, videolar ve diğer dosya türlerini paylaşmak için uygundur.
+
+---
+
+## Dosya yükleme
+
+### Hızlı yükleme (sürükle ve bırak)
+
+1. [https://s.ee/user/dashboard](https://s.ee/user/dashboard) adresinde oturum açın
+2. Sol kenar çubuğunda **Sharing > Files** seçeneğine tıklayın veya doğrudan [https://s.ee/user/files/](https://s.ee/user/files/) sayfasına gidin
+3. Dosya veya klasörleri **Drag & Drop** penceresine sürükleyip bırakın
+   - İsterseniz pencereye tıklayarak dosya da seçebilirsiniz
+   - Klasör yüklerseniz içindeki tüm dosyalar yüklenir
+4. Dosyalar varsayılan alan adı ve rastgele bir slug ile paylaşılır
+
+### Gelişmiş yükleme (Create File)
+
+Dosya paylaşımı üzerinde daha fazla denetim istiyorsanız:
+
+1. **Create File** düğmesine tıklayın
+2. Ayarları yapılandırın:
+   - **Domain**: Paylaşım sayfası için alan adını seçin
+   - **Custom Slug**: Özel URL slug'ı belirleyin
+   - **Other options**: Etiketler, sona erme tarihi vb.
+3. Dosyanızı seçip yükleyin
+
+---
+
+## Dosya bağlantıları
+
+Yüklenen her dosyanın iki tür bağlantısı vardır:
+
+| Bağlantı türü | Biçim | Açıklama |
+|-----------|--------|-------------|
+| Paylaşım sayfası | `fs.to/[your_slug]` | Özelleştirilebilir alan adı ve slug |
+| Doğrudan bağlantı | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Dosyaya özgün dosya adıyla doğrudan erişim |
+
+**Not:** Doğrudan bağlantılar şu anda özel alan adlarını desteklemez.
+
+---
+
+## Desteklenen dosya türleri
+
+S.EE çok çeşitli dosya türlerini destekler:
+
+### Görseller
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| image/jpeg | JPEG görselleri (.jpg, .jpeg) |
+| image/png | PNG görselleri (.png) |
+| image/gif | GIF görselleri (.gif) |
+| image/webp | WebP görselleri (.webp) |
+| image/avif | AVIF görselleri (.avif) |
+| image/svg+xml | SVG görselleri (.svg) |
+| image/bmp | BMP görselleri (.bmp) |
+| image/tiff | TIFF görselleri (.tiff, .tif) |
+| image/heic | HEIC görselleri (.heic) |
+| image/heif | HEIF görselleri (.heif) |
+| image/jp2 | JPEG 2000 görselleri (.jp2) |
+| image/jpx | JPEG 2000 görselleri (.jpx) |
+| image/jxl | JPEG XL görselleri (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop dosyaları (.psd) |
+
+### Belgeler
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| application/pdf | PDF belgeleri (.pdf) |
+| application/msword | Word belgeleri (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word belgeleri (.docx) |
+| application/vnd.ms-excel | Excel tabloları (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel tabloları (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint sunumları (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint sunumları (.pptx) |
+| application/vnd.apple.pages | Pages belgeleri (.pages) |
+| application/vnd.apple.numbers | Numbers tabloları (.numbers) |
+| application/vnd.apple.keynote | Keynote sunumları (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript dosyaları (.ps, .eps) |
+| application/epub+zip | EPUB e-kitapları (.epub) |
+
+### Metin ve veri
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| text/plain | Düz metin dosyaları (.txt) |
+| text/csv | CSV dosyaları (.csv) |
+| text/markdown | Markdown dosyaları (.md, .markdown, .mdx) |
+| application/json | JSON dosyaları (.json) |
+| application/yaml | YAML dosyaları (.yaml, .yml) |
+
+### Ses
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| audio/mpeg | MP3 dosyaları (.mp3) |
+| audio/wav | WAV dosyaları (.wav) |
+| audio/ogg | OGG ses dosyaları (.ogg) |
+| audio/flac | FLAC ses dosyaları (.flac) |
+| audio/aac | AAC ses dosyaları (.aac) |
+| audio/mp4, audio/x-m4a | M4A ses dosyaları (.m4a) |
+| audio/midi | MIDI dosyaları (.mid, .midi) |
+| audio/x-ms-wma | WMA ses dosyaları (.wma) |
+
+### Video
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| video/mp4 | MP4 videoları (.mp4) |
+| video/webm | WebM videoları (.webm) |
+| video/quicktime | QuickTime videoları (.mov) |
+| video/x-matroska | MKV videoları (.mkv) |
+| video/x-msvideo | AVI videoları (.avi) |
+| video/mpeg | MPEG videoları (.mpeg, .mpg) |
+| video/ogg | OGG videoları (.ogv) |
+| video/3gpp | 3GP videoları (.3gp) |
+| video/x-flv | FLV videoları (.flv) |
+| video/x-ms-wmv | WMV videoları (.wmv) |
+
+### Arşivler ve disk kalıpları
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| application/zip | ZIP arşivleri (.zip) |
+| application/x-zip-compressed | ZIP arşivleri (.zip) |
+| application/gzip | GZIP arşivleri (.gz) |
+| application/x-bzip2 | BZIP2 arşivleri (.bz2) |
+| application/x-xz | XZ arşivleri (.xz) |
+| application/x-tar | TAR arşivleri (.tar) |
+| application/x-7z-compressed | 7-Zip arşivleri (.7z) |
+| application/x-rar-compressed | RAR arşivleri (.rar) |
+| application/x-apple-diskimage | DMG disk kalıpları (.dmg) |
+| application/x-iso9660-image | ISO disk kalıpları (.iso) |
+
+<Callout type="warn">
+Çalıştırılabilir dosyalara (.exe, .msi, .bat, .app vb.) güvenlik nedeniyle **izin verilmez**.
+</Callout>
+
+<Callout type="info">
+Aşağıdaki uzantılar için betik kötüye kullanımını azaltmak amacıyla yanıt `Content-Type` değeri zorla `text/plain` yapılabilir: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Bilinmeyen veya belirsiz dosya türlerinde yanıt `Content-Type` değeri zorla `application/octet-stream` yapılır.
+</Callout>
+
+### Eski/uyumluluk amaçlı türler
+
+Bu MIME türleri eski sistemlerle uyumluluk için kabul edilir.
+
+| MIME türü | Açıklama |
+|-----------|-------------|
+| application/excel | Excel tabloları (.xls) |
+| application/x-excel | Excel tabloları (.xls) |
+| application/x-msexcel | Excel tabloları (.xls) |
+| application/mspowerpoint | PowerPoint sunumları (.ppt) |
+| application/powerpoint | PowerPoint sunumları (.ppt) |
+| application/x-mspowerpoint | PowerPoint sunumları (.ppt) |
+
+---
+
+## Depolama sınırları
+
+Depolama sınırları pakete göre değişir:
+
+| Paket | Maksimum dosya boyutu | Toplam depolama |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Özel | Özel |
+
+Tüm paket ayrıntıları için [s.ee/pricing](https://s.ee/pricing) sayfasına bakın.
+
+---
+
+## Dosya saklama süresi
+
+- Aboneliğiniz aktif olduğu sürece dosyalar **kalıcı olarak saklanır**
+- Aboneliğiniz sona ererse dosyalar silinmeden önce **7 gün** tutulur
+
+---
+
+## Desteklenen alan adları
+
+Dosya paylaşımı şu alan adlarında kullanılabilir:
+
+| Alan adı | En uygun kullanım |
+|--------|----------|
+| [fs.to](https://fs.to) | Genel dosya paylaşımı |
+| [files.to](https://files.to) | Genel dosya paylaşımı |
+| [fileshare.to](https://fileshare.to) | Genel dosya paylaşımı |
+| [filesharing.to](https://filesharing.to) | Genel dosya paylaşımı |
+
+Premium ve Enterprise müşterileri için lütfen [resmî alan adları](/docs/tr/official-domains/#premium--enterprise) sayfasına bakın.
+
+---
+
+## API erişimi
+
+Dosya paylaşımı API üzerinden de kullanılabilir. Programatik yüklemeler için [API dokümantasyonunda](/docs/tr/developers/api/#dosya-paylasimi) ayrıntılara bakın.
+
+---
+
+## SSS
+
+### Dosya yükleyebilenler kimlerdir?
+
+Aktif ücretli paketi olan tüm S.EE hesapları dosya yükleyebilir.
+
+### İndirme sınırı var mı?
+
+Kötüye kullanımı önlemeye yönelik korumalar uygulanabilir; ancak genel kullanım için ayrı bir indirme kotası tanımlanmamıştır.
+
+### Paylaşım sayfası URL'sini özelleştirebilir miyim?
+
+Evet. Alan adını ve slug'ı, paketinizin desteklediği sınırlar içinde özelleştirebilirsiniz.
+
+### Doğrudan bağlantı URL'sini özelleştirebilir miyim?
+
+Hayır. Doğrudan bağlantılar sistem tarafından oluşturulur ve şu anda özel alan adlarını desteklemez.

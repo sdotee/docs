@@ -1,0 +1,233 @@
+---
+title: 파일 공유
+description: S.EE 로 파일을 업로드하고 공유하는 방법
+icon: Upload
+---
+
+## 개요
+
+S.EE 파일 공유를 사용하면 짧고 공유하기 쉬운 링크로 파일을 업로드하고 공유할 수 있습니다. 이미지, 문서, 오디오, 비디오 및 기타 파일을 공유할 때 적합합니다.
+
+---
+
+## 파일 업로드
+
+### 빠른 업로드 (드래그 앤 드롭)
+
+1. [https://s.ee/user/dashboard](https://s.ee/user/dashboard) 에 로그인합니다
+2. 왼쪽 사이드바에서 **Sharing > Files** 를 클릭하거나 [https://s.ee/user/files/](https://s.ee/user/files/) 로 바로 이동합니다
+3. **Drag & Drop** 창에 파일 또는 폴더를 끌어다 놓습니다
+   - 창을 클릭해서 파일을 찾아 선택할 수도 있습니다
+   - 폴더를 업로드하면 폴더 안의 모든 파일이 함께 업로드됩니다
+4. 파일은 기본 도메인과 임의 슬러그로 공유됩니다
+
+### 고급 업로드 (Create File)
+
+파일 공유를 더 세밀하게 설정하려면:
+
+1. **Create File** 버튼을 클릭합니다
+2. 설정을 구성합니다
+   - **Domain** - 공유 페이지에 사용할 도메인을 선택합니다
+   - **Custom Slug** - 사용자 정의 URL 슬러그를 설정합니다
+   - **Other options** - 태그, 만료 등
+3. 파일을 선택해 업로드합니다
+
+---
+
+## 파일 링크
+
+업로드된 각 파일에는 두 가지 링크가 있습니다.
+
+| Link Type | Format | Description |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | 도메인과 슬러그를 사용자 정의할 수 있습니다 |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | 원래 파일명으로 파일에 직접 접근할 수 있습니다 |
+
+**참고:** 현재 Direct Link 는 사용자 정의 도메인을 지원하지 않습니다.
+
+---
+
+## 지원 파일 형식
+
+S.EE 는 다양한 파일 형식을 지원합니다.
+
+### 이미지
+
+| MIME Type | Description |
+|-----------|-------------|
+| image/jpeg | JPEG 이미지 (.jpg, .jpeg) |
+| image/png | PNG 이미지 (.png) |
+| image/gif | GIF 이미지 (.gif) |
+| image/webp | WebP 이미지 (.webp) |
+| image/avif | AVIF 이미지 (.avif) |
+| image/svg+xml | SVG 이미지 (.svg) |
+| image/bmp | BMP 이미지 (.bmp) |
+| image/tiff | TIFF 이미지 (.tiff, .tif) |
+| image/heic | HEIC 이미지 (.heic) |
+| image/heif | HEIF 이미지 (.heif) |
+| image/jp2 | JPEG 2000 이미지 (.jp2) |
+| image/jpx | JPEG 2000 이미지 (.jpx) |
+| image/jxl | JPEG XL 이미지 (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop 파일 (.psd) |
+
+### 문서
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/pdf | PDF 문서 (.pdf) |
+| application/msword | Word 문서 (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word 문서 (.docx) |
+| application/vnd.ms-excel | Excel 스프레드시트 (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel 스프레드시트 (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint 프레젠테이션 (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint 프레젠테이션 (.pptx) |
+| application/vnd.apple.pages | Pages 문서 (.pages) |
+| application/vnd.apple.numbers | Numbers 스프레드시트 (.numbers) |
+| application/vnd.apple.keynote | Keynote 프레젠테이션 (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript 파일 (.ps, .eps) |
+| application/epub+zip | EPUB 전자책 (.epub) |
+
+### 텍스트 및 데이터
+
+| MIME Type | Description |
+|-----------|-------------|
+| text/plain | 일반 텍스트 파일 (.txt) |
+| text/csv | CSV 파일 (.csv) |
+| text/markdown | Markdown 파일 (.md, .markdown, .mdx) |
+| application/json | JSON 파일 (.json) |
+| application/yaml | YAML 파일 (.yaml, .yml) |
+
+### 오디오
+
+| MIME Type | Description |
+|-----------|-------------|
+| audio/mpeg | MP3 파일 (.mp3) |
+| audio/wav | WAV 파일 (.wav) |
+| audio/ogg | OGG 오디오 (.ogg) |
+| audio/flac | FLAC 오디오 (.flac) |
+| audio/aac | AAC 오디오 (.aac) |
+| audio/mp4, audio/x-m4a | M4A 오디오 (.m4a) |
+| audio/midi | MIDI 파일 (.mid, .midi) |
+| audio/x-ms-wma | WMA 오디오 (.wma) |
+
+### 비디오
+
+| MIME Type | Description |
+|-----------|-------------|
+| video/mp4 | MP4 비디오 (.mp4) |
+| video/webm | WebM 비디오 (.webm) |
+| video/quicktime | QuickTime 비디오 (.mov) |
+| video/x-matroska | MKV 비디오 (.mkv) |
+| video/x-msvideo | AVI 비디오 (.avi) |
+| video/mpeg | MPEG 비디오 (.mpeg, .mpg) |
+| video/ogg | OGG 비디오 (.ogv) |
+| video/3gpp | 3GP 비디오 (.3gp) |
+| video/x-flv | FLV 비디오 (.flv) |
+| video/x-ms-wmv | WMV 비디오 (.wmv) |
+
+### 압축 파일 및 디스크 이미지
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/zip | ZIP 압축 파일 (.zip) |
+| application/x-zip-compressed | ZIP 압축 파일 (.zip) |
+| application/gzip | GZIP 압축 파일 (.gz) |
+| application/x-bzip2 | BZIP2 압축 파일 (.bz2) |
+| application/x-xz | XZ 압축 파일 (.xz) |
+| application/x-tar | TAR 압축 파일 (.tar) |
+| application/x-7z-compressed | 7-Zip 압축 파일 (.7z) |
+| application/x-rar-compressed | RAR 압축 파일 (.rar) |
+| application/x-apple-diskimage | DMG 디스크 이미지 (.dmg) |
+| application/x-iso9660-image | ISO 디스크 이미지 (.iso) |
+
+<Callout type="warn">
+실행 파일 (.exe, .msi, .bat, .app 등) 은 보안상의 이유로 **허용되지 않습니다**.
+</Callout>
+
+<Callout type="info">
+다음 확장자에 대해서는 스크립트 악용을 줄이기 위해 응답 `Content-Type` 을 `text/plain` 으로 강제할 수 있습니다: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+알 수 없거나 모호한 파일 형식의 경우 응답 `Content-Type` 을 `application/octet-stream` 으로 강제합니다.
+</Callout>
+
+### 레거시 / 호환성
+
+다음 MIME Type 은 구형 시스템과의 호환성을 위해 허용됩니다.
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/excel | Excel 스프레드시트 (.xls) |
+| application/x-excel | Excel 스프레드시트 (.xls) |
+| application/x-msexcel | Excel 스프레드시트 (.xls) |
+| application/mspowerpoint | PowerPoint 프레젠테이션 (.ppt) |
+| application/powerpoint | PowerPoint 프레젠테이션 (.ppt) |
+| application/x-mspowerpoint | PowerPoint 프레젠테이션 (.ppt) |
+
+---
+
+## 저장 공간 한도
+
+저장 공간 한도는 요금제에 따라 다릅니다.
+
+| Plan | Max File Size | Total Storage |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Custom | Custom |
+
+자세한 내용은 [s.ee/pricing](https://s.ee/pricing) 을 참고하세요.
+
+---
+
+## 파일 보관 기간
+
+- 구독이 활성 상태인 동안 파일은 **영구 보관** 됩니다
+- 구독이 만료되면 파일은 삭제 전 **7 일간** 보관됩니다
+
+---
+
+## 지원 도메인
+
+파일 공유에는 다음 도메인을 사용할 수 있습니다.
+
+| Domain | Best For |
+|--------|----------|
+| [fs.to](https://fs.to) | 일반 파일 공유 |
+| [files.to](https://files.to) | 일반 파일 공유 |
+| [fileshare.to](https://fileshare.to) | 일반 파일 공유 |
+| [filesharing.to](https://filesharing.to) | 일반 파일 공유 |
+
+Premium 및 Enterprise 고객은 [공식 도메인](/docs/ko/official-domains/#premium--enterprise)도 참고해 주세요.
+
+---
+
+## API 접근
+
+파일 공유는 API 로도 사용할 수 있습니다. 프로그래밍 방식 업로드에 대한 자세한 내용은 [API 문서](/docs/ko/developers/api/#file-sharing) 를 확인하세요.
+
+---
+
+## FAQ
+
+### 누가 파일을 업로드할 수 있나요?
+
+유료 구독자만 파일을 업로드할 수 있습니다. 유효한 구독이 필요합니다.
+
+### 다운로드 제한이 있나요?
+
+아니요. 공유 파일에는 다운로드 횟수 제한이나 대역폭 제한이 없습니다.
+
+### 공유 페이지 URL 을 사용자 정의할 수 있나요?
+
+네. **Create File** 업로드 방식을 사용하면 공유 페이지에 대해 사용자 정의 도메인과 슬러그를 설정할 수 있습니다.
+
+### Direct Link URL 도 사용자 정의할 수 있나요?
+
+현재 Direct Link 는 고정 형식을 사용하며 사용자 정의 도메인을 지원하지 않습니다.

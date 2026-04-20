@@ -1,0 +1,181 @@
+---
+title: CLI
+description: S.EE 平台的命令行客户端
+icon: Terminal
+---
+
+这是一个用于 S.EE 平台的命令行客户端，让您可以直接在终端中创建和管理短网址、文本片段和文件。
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## 功能
+
+- **短网址管理**：创建、更新和删除带自定义短码、域名和过期时间的短网址
+- **文本片段**：从 stdin 或文件中分享代码片段和笔记
+- **文件上传**：直接上传文件，或通过 stdin 上传
+- **域名和标签管理**：列出可用域名并管理标签
+- **密码保护**：使用密码保护您的内容
+- **JSON 输出**：适用于脚本的机器可读输出
+
+## 安装
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# 或安装预构建二进制版本
+yay -S see-cli-bin
+```
+
+### 从源码安装
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+预构建二进制文件和安装包可从 [GitHub Releases](https://github.com/sdotee/cli/releases) 下载。
+
+## 配置
+
+通过环境变量或参数设置 API Key：
+
+```bash
+# 环境变量（推荐）
+export SEE_API_KEY="your-api-key"
+
+# 或通过参数使用
+see --api-key "your-api-key" <command>
+```
+
+### 配置选项
+
+| 选项 | 环境变量 | 说明 |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | 您的 S.EE API Key（必填） |
+| `--base-url` | `SEE_BASE_URL` | 自定义 API 基础 URL |
+| `--timeout` | `SEE_TIMEOUT` | 请求超时时间 |
+| `--json` | - | 启用 JSON 输出格式 |
+
+## 命令
+
+### 域名和标签
+
+```bash
+# 列出短网址可用域名
+see domains
+
+# 列出文件上传可用域名
+see file domains
+
+# 列出您的标签
+see tags
+```
+
+### 短网址
+
+```bash
+# 创建短网址
+see url create https://example.com
+
+# 使用自定义选项创建
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# 更新短网址
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# 删除短网址
+see url delete --domain s.ee --slug my-link
+```
+
+### 文本片段
+
+```bash
+# 从 stdin 创建文本
+echo "Hello World" | see text create --title "greeting"
+
+# 从文件创建文本
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# 使用选项创建
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# 更新文本
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# 删除文本
+see text delete --domain fs.to --slug abc123
+```
+
+### 文件上传
+
+```bash
+# 上传文件
+see file upload ./image.png
+
+# 使用自定义域名上传
+see file upload ./document.pdf --domain fs.to
+
+# 从 stdin 上传
+cat image.png | see file upload --stdin --filename image.png
+
+# 删除文件
+see file delete <delete-hash>
+```
+
+## JSON 输出
+
+使用 `--json` 参数获取机器可读输出，适合脚本使用：
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## 示例
+
+### 创建短网址并复制到剪贴板（macOS）
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### 上传截图并获取 URL（Linux）
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### 批量创建短网址
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

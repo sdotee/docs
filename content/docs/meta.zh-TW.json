@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---快速上手---",
+    "signup",
+    "login",
+    "dashboard",
+    "---功能---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---免費服務---",
+    "free-url-shorteners",
+    "---幫助---",
+    "troubleshooting",
+    "security",
+    "---整合---",
+    "developers",
+    "api",
+    "---第三方整合---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---社群---",
+    "awesome"
+  ]
+}

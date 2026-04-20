@@ -1,0 +1,146 @@
+---
+title: SM.MS-kompatibilitet
+description: Migrera från SM.MS till S.EE med minimala kodändringar
+icon: RefreshCw
+---
+
+S.EE erbjuder ett SM.MS-kompatibelt API-lager så att du kan migrera från SM.MS till S.EE med minimala kodändringar. Byt bara ut API-endpointen så är du igång.
+
+## Snabb migrering
+
+Byt ut SM.MS API-bas-URL mot motsvarande i S.EE:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Endpoint som stöds
+
+| SM.MS-endpoint | S.EE-endpoint | Beskrivning |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Ladda upp bild |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Hämta uppladdningshistorik |
+
+## Ladda upp bild
+
+### Förfrågan
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Parametrar
+
+| Parameter | Typ | Krävs | Beskrivning |
+|-----------|------|----------|-------------|
+| `smfile` | file | Ja | Bildfilen som ska laddas upp, alias: `file` |
+| `domain` | string | Nej | Anpassad domän för den korta länken |
+| `custom_slug` | string | Nej | Anpassad slug för URL:en, slumpmässig om inget anges |
+
+### Svar
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Uppladdningshistorik
+
+### Förfrågan
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Parametrar
+
+| Parameter | Typ | Krävs | Beskrivning |
+|-----------|------|----------|-------------|
+| `page` | integer | Nej | Sidnummer, standard 1, 30 filer per sida |
+
+### Svar
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## Skillnader jämfört med SM.MS
+
+Även om S.EE är kompatibelt med SM.MS API finns några förbättringar:
+
+| Funktion | SM.MS | S.EE |
+|---------|-------|------|
+| Egen domän | Nej | Ja |
+| Anpassad slug | Nej | Ja |
+| Filstorleksgräns | 5MB | Varierar per abonnemang |
+| Format som stöds | Endast bilder | Bilder, dokument och mer |
+
+## Hämta API-nyckel
+
+För att använda S.EE API behöver du en API-nyckel:
+
+1. Registrera dig eller logga in på [s.ee](https://s.ee)
+2. Gå till **[Tools > API Token](https://s.ee/user/developers/)**
+3. Generera en ny API-nyckel
+
+## Behöver du hjälp?
+
+Om du stöter på problem under migreringen kan du [kontakta supporten](https://s.ee/contact) eller läsa vår [API-dokumentation](/docs/sv/developers/api).

@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "创建短网址",
+    "description": "为目标链接创建一个新的短网址。可选设置自定义短码、密码保护、过期时间和用于归类的标签。"
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "创建短网址（简单模式）",
+    "description": "使用简化参数快速创建短网址，适合零配置场景。"
+  },
+  "UpdateShortUrl": {
+    "title": "更新短网址",
+    "description": "更新已有短网址的目标地址、密码、过期时间或标签。"
+  },
+  "DeleteShortUrl": {
+    "title": "删除短网址",
+    "description": "永久删除指定的短网址。"
+  },
+  "GetAvailableDomains": {
+    "title": "获取可用域名",
+    "description": "返回当前账号可用于创建短网址的域名列表。"
+  },
+  "GetLinkVisitStat": {
+    "title": "获取短网址访问统计",
+    "description": "返回指定短网址的访问数据，包括点击量、来源和地理分布等。"
+  },
+  "CreateText": {
+    "title": "创建文本分享",
+    "description": "创建一段可通过短网址访问的文本内容，例如纯文本、代码片段或 Markdown。"
+  },
+  "UpdateText": {
+    "title": "更新文本分享",
+    "description": "更新已有文本分享的内容、密码或过期时间。"
+  },
+  "DeleteText": {
+    "title": "删除文本分享",
+    "description": "永久删除指定的文本分享。"
+  },
+  "GetTextAvailableDomains": {
+    "title": "获取文本分享可用域名",
+    "description": "返回可用于创建文本分享的域名列表。"
+  },
+  "UploadFile": {
+    "title": "上传文件",
+    "description": "上传文件并生成可分享的短网址，支持设置密码和过期时间。"
+  },
+  "GetFileHistory": {
+    "title": "获取文件历史",
+    "description": "返回当前账号上传的文件列表。"
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "获取私有文件下载地址",
+    "description": "为受密码保护的私有文件生成临时下载链接。"
+  },
+  "DeleteFile": {
+    "title": "删除文件",
+    "description": "永久删除指定的文件。"
+  },
+  "GetFileAvailableDomains": {
+    "title": "获取文件可用域名",
+    "description": "返回可用于文件分享的域名列表。"
+  },
+  "GetTags": {
+    "title": "获取标签列表",
+    "description": "返回当前账号下所有用于组织内容的标签。"
+  },
+  "GetUsage": {
+    "title": "获取使用量",
+    "description": "返回当前账号在本计费周期内的资源使用情况。"
+  }
+}

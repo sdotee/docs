@@ -1,0 +1,70 @@
+---
+title: 自定义域名
+description: 如何为短网址设置自定义域名
+icon: Globe
+---
+
+## 什么是自定义域名？
+
+自定义域名让您在短网址中使用自己的品牌域名，而不是 `s.ee`。例如，您可以使用 `go.example.com/link`，而不是 `s.ee/link`。
+
+---
+
+## 为什么要使用自定义域名？
+
+- **品牌识别度** - 短网址展示您的品牌，而不是我们的品牌
+- **信任感** - 用户更愿意点击带品牌的链接
+- **更高的点击率** - 品牌化链接通常表现更好
+
+---
+
+## 添加自定义域名
+
+1. 前往 [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. 点击 **Add Domain**
+3. 输入您的域名
+4. 添加所需的 DNS 记录：
+   - **TXT record** - 用于域名验证
+   - **CNAME or Alias record** - 将您的域名指向 S.EE
+5. 等待 DNS 生效（通常只需几分钟）
+6. 点击 **Verify** 确认设置完成
+
+---
+
+## 要求
+
+- 域名必须与您的主站域名不同
+- 最长 63 个字符（包括点号）
+- 您必须能够访问该域名的 DNS 设置
+
+---
+
+## 重要说明
+
+### Cloudflare 用户
+
+如果您使用 Cloudflare 管理 DNS，请 **不要为 CNAME 记录启用 Proxy（橙色云图标）**。请保持为 DNS only 模式（灰色云）。启用 Cloudflare 代理可能导致 CDN 冲突和重定向问题。
+
+### 使用裸域名（根域名）
+
+如果您想使用裸域名（例如 `example.com`，而不是 `go.example.com`），您的 DNS 服务商必须支持 **ALIAS 记录** 或 **CNAME flattening**。常见支持此功能的服务商包括：
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/)（CNAME flattening）
+- [Hurricane Electric](https://dns.he.net/)（CNAME）
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/)（ALIAS）
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records)（ANAME）
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/)（ALIAS）
+
+如果您的 DNS 服务商不支持这些功能，请 [联系我们](https://s.ee/contact/)。我们可以帮助您手动验证并添加裸域名。
+
+---
+
+## 各套餐的域名数量限制
+
+| 套餐 | 自定义域名 |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | 无限 |

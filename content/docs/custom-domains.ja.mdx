@@ -1,0 +1,70 @@
+---
+title: カスタムドメイン
+description: 短縮URL用のカスタムドメインを設定する方法
+icon: Globe
+---
+
+## カスタムドメインとは？
+
+カスタムドメインを使うと、`s.ee` の代わりにご自身のブランドドメインを短縮URLに使用できます。たとえば `s.ee/link` ではなく、`go.example.com/link` のように運用できます。
+
+---
+
+## カスタムドメインを使う理由
+
+- **ブランド認知** - ご自身のブランド名をリンクに反映できます
+- **信頼性** - ブランド付きリンクの方がクリックされやすくなります
+- **クリック率の向上** - ブランド化されたリンクはより高い成果が期待できます
+
+---
+
+## カスタムドメインを追加する
+
+1. [https://s.ee/user/domains/](https://s.ee/user/domains/) にアクセスします
+2. **Add Domain** をクリックします
+3. ドメイン名を入力します
+4. 必要な DNS レコードを追加します
+   - **TXT record** - ドメイン確認用
+   - **CNAME or Alias record** - ドメインを S.EE に向けるための設定
+5. DNS の反映を待ちます（通常は数分です）
+6. **Verify** をクリックして設定を確認します
+
+---
+
+## 要件
+
+- メインサイトのドメインとは異なるドメインである必要があります
+- 最大 63 文字（ドットを含む）までです
+- 対象ドメインの DNS 設定にアクセスできる必要があります
+
+---
+
+## 重要事項
+
+### Cloudflare をご利用の場合
+
+Cloudflare で DNS を管理している場合、CNAME レコードでは **Proxy（オレンジ色の雲アイコン）を有効にしないでください**。DNS only モード（灰色の雲）のままご利用ください。Cloudflare のプロキシを有効にすると、CDN の競合やリダイレクトの問題が発生する場合があります。
+
+### ルートドメイン（ネイキッドドメイン）を使う場合
+
+`go.example.com` ではなく `example.com` のようなルートドメインを使用する場合、DNS プロバイダが **ALIAS レコード** または **CNAME flattening** に対応している必要があります。主な対応プロバイダは次のとおりです。
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/)（CNAME flattening）
+- [Hurricane Electric](https://dns.he.net/)（CNAME）
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/)（ALIAS）
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records)（ANAME）
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/)（ALIAS）
+
+ご利用中の DNS プロバイダがこれらの機能に対応していない場合は、[お問い合わせ](https://s.ee/contact/) ください。手動での確認と追加をお手伝いできます。
+
+---
+
+## プランごとの上限
+
+| プラン | カスタムドメイン |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | 無制限 |

@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo hat integrierte Unterstützung für S.EE, keine Plugins erforderlich
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) ist ein Open-Source-Tool zum Hochladen von Bildern und Dateien für Windows, macOS und Linux. Neuere Versionen bringen die S.EE-Unterstützung bereits mit, sodass Sie nur ein API Token benötigen, um loszulegen.
+
+- [PicGo herunterladen](https://github.com/Molunerfinn/PicGo/releases)
+- [Source Code](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Einrichtung
+
+### 1. Holen Sie sich Ihr API Token
+
+1. Melden Sie sich bei Ihrem S.EE-Konto an
+2. Gehen Sie zu **[Tools > API Token](https://s.ee/user/developers/)**
+3. Erstellen Sie ein neues API Token
+
+<Callout type="warn">
+Teilen Sie Ihr API Token nicht öffentlich und committen Sie es nicht in die Versionskontrolle.
+</Callout>
+
+### 2. PicGo konfigurieren
+
+1. Laden Sie [PicGo](https://github.com/Molunerfinn/PicGo/releases) herunter und installieren Sie es
+2. Öffnen Sie PicGo
+3. Gehen Sie zu **Picbeds Settings** > **SM.MS (S.EE)**
+4. Klicken Sie auf **+**, um eine neue Konfiguration hinzuzufügen
+5. Geben Sie unter **Configuration Name** einen Namen ein (z. B. `S.EE`)
+6. Fügen Sie Ihr API Token in **Set Token** ein
+7. Klicken Sie auf **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Verwendung
+
+Es gibt mehrere Möglichkeiten zum Hochladen:
+
+- Ziehen Sie Dateien per Drag-and-drop in den Upload-Bereich
+- Klicken Sie auf den Upload-Bereich, um Dateien von Ihrem Computer auszuwählen
+- Klicken Sie auf das schwebende Mini-Fenster, um direkt hochzuladen
+- Klicken Sie mit der rechten Maustaste auf das schwebende Mini-Fenster und wählen Sie **Upload by Clipboard**
+
+PicGo kopiert den resultierenden Link in Ihre Zwischenablage. Sie können das Format wählen: Markdown, HTML, rohe URL usw.
+
+---
+
+## Verwandte Seiten
+
+- [Developer API](/docs/de/developers)
+- [Dateifreigabe](/docs/de/file-sharing)
+- [SM.MS-Kompatibilität](/docs/de/developers/smms-compatibility)

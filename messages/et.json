@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Töölaud"
+  },
+  "cookieBar": {
+    "message": "Kasutame küpsiseid, et jätta meelde teie keele-eelistus ja parandada kasutuskogemust.",
+    "accept": "Nõustun",
+    "decline": "Keeldun",
+    "privacyLink": "Privaatsuspoliitika"
+  },
+  "fumadocs": {
+    "search": "Otsi",
+    "searchNoResult": "Tulemusi ei leitud",
+    "toc": "Sellel lehel",
+    "lastUpdate": "Viimati uuendatud",
+    "previousPage": "Eelmine",
+    "nextPage": "Järgmine",
+    "chooseTheme": "Vali teema",
+    "editOnGithub": "Muuda GitHubis",
+    "chooseLanguage": "Vali keel"
+  }
+}

@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Lyhennä URL-osoitteita, jaa tekstiä ja hostaa tiedostoja suoraan WordPress-hallintapaneelista
+icon: WordPress
+---
+
+[S.EE:n WordPress-lisäosa](https://wordpress.org/plugins/sdotee/) mahdollistaa URL-osoitteiden lyhentämisen, tekstin jakamisen ja tiedostojen lataamisen poistumatta WordPressistä. Kun julkaiset artikkelin, lyhyt linkki luodaan automaattisesti - ylimääräisiä vaiheita ei tarvita.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Lähdekoodi GitHubissa](https://github.com/sdotee/see-wordpress)
+- [GitHub-julkaisut](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Ominaisuudet
+
+| Ominaisuus | Kuvaus |
+|-----------|--------|
+| Lyhyet URL-osoitteet | Luo lyhyet linkit automaattisesti, kun julkaiset tai päivität artikkeleita ja sivuja |
+| Tekstin jakaminen | Jaa tavallista tekstiä, Markdownia ja koodikatkelmia linkillä |
+| Tiedostojen hosting | Lataa tiedostoja mediakirjastosta ja kopioi linkki URL-, HTML-, Markdown- tai BBCode-muodossa |
+| Automaatio | Lataa uudet mediat automaattisesti ja lyhennä linkit julkaisun yhteydessä - aseta kerran ja unohda |
+| Hallintapaneeli-integraatio | Tarkastele ja hallitse lyhyitä URL-osoitteita suoraan artikkeli- ja sivulistauksesta |
+| Hallintapaneelin näkymä | Erillinen S.EE-näkymä tekstin ja tiedostojen jakamiseen sekä täydelliseen käyttöhistoriaan |
+| 13 kieltä | Englanti, kiina (yksinkertaistettu/perinteinen), japani, korea, indonesia, vietnam, saksa, ranska, espanja, portugali (Brasilia/Portugali), venäjä |
+
+---
+
+## Vaatimukset
+
+- PHP 8.2+
+- WordPress 6.0+
+- S.EE-tili ja [API Token](https://s.ee/user/developers/)
+
+---
+
+## Asennus
+
+### WordPress Plugin Directorysta
+
+1. Avaa WordPressin hallinnassa **Plugins** > **Add New**
+2. Etsi **S.EE**
+3. Napsauta **Install Now** ja sitten **Activate**
+
+### GitHubista
+
+1. Lataa uusin ZIP-tiedosto [GitHub Releasesistä](https://github.com/sdotee/see-wordpress/releases)
+2. Avaa **Plugins** > **Add New** > **Upload Plugin**
+3. Lataa ZIP ja napsauta **Install Now**, sitten **Activate**
+
+---
+
+## Käyttöönotto
+
+### 1. Hanki API Token
+
+1. Kirjaudu S.EE-tilillesi
+2. Siirry kohtaan **[Tools > API Token](https://s.ee/user/developers/)**
+3. Luo uusi API Token
+
+<Callout type="warn">
+Älä jaa API Tokenia julkisesti äläkä lisää sitä versionhallintaan.
+</Callout>
+
+### 2. Määritä lisäosa
+
+1. Avaa **Settings** > **S.EE**
+2. Liitä API Token ja napsauta **Verify**
+3. Valitse oletusverkkotunnukset lyhyille URL-osoitteille, tekstille ja tiedostoille
+4. Ota käyttöön automaattinen luonti ja automaattinen lataus, jos haluat käyttää lisäosaa täysin ilman käsityötä
+
+<Callout type="info">
+Voit myös asettaa API Tokenin tiedostossa `wp-config.php`, jotta sitä ei tallenneta tietokantaan.
+</Callout>
+
+---
+
+## Käyttö
+
+### Lyhyet URL-osoitteet
+
+Kun automaattinen luonti on käytössä, jokaiselle artikkelille ja sivulle luodaan lyhyt linkki heti, kun painat Publish. Voit myös luoda tai tarkastella lyhyitä URL-osoitteita hallintapaneelin artikkeli- ja sivulistan sarakkeesta.
+
+### Tekstin jakaminen
+
+Avaa **S.EE**-hallintapaneelinäkymä ja liitä sisältösi. Tuetut muodot:
+
+- Plain text
+- Markdown
+- Koodikatkelmat
+
+### Tiedostojen hosting
+
+Lataa tiedostoja **S.EE**-hallintapaneelinäkymän tai mediakirjaston kautta. Latauksen jälkeen voit kopioida linkin haluamassasi muodossa: URL, HTML, Markdown tai BBCode.
+
+---
+
+## Aiheeseen liittyvää
+
+- [Kehittäjien API](/docs/fi/developers)
+- [Tiedostojen jakaminen](/docs/fi/file-sharing)
+- [Tekstin jakaminen](/docs/fi/text-sharing)
+- [Kuvien hosting](/docs/fi/image-hosting)

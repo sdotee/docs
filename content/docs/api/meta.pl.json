@@ -1,0 +1,28 @@
+{
+  "title": "Dokumentacja API",
+  "description": "Endpointy API S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "---Krótkie URL-e---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Udostępnianie tekstu---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Udostępnianie plików---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Ogólne---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

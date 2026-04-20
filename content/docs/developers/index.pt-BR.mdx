@@ -1,0 +1,88 @@
+---
+title: Primeiros passos
+description: API REST da S.EE para criar, gerenciar e acompanhar URLs curtas, compartilhamento de texto e compartilhamento de arquivos
+icon: Rocket
+---
+
+## Visão geral
+
+A API da S.EE permite criar e gerenciar programaticamente links curtos, compartilhamento de texto e compartilhamento de arquivos. Use-a para:
+
+- Criar links curtos em escala
+- Compartilhar trechos de texto e código com realce de sintaxe
+- Enviar e compartilhar arquivos
+- Gerenciar domínios personalizados
+- Obter dados analíticos
+- Integrar a S.EE com seus aplicativos
+
+---
+
+## Primeiros passos
+
+### Pré-requisitos
+
+1. Uma conta S.EE com um plano ativo
+2. Um token de acesso à API
+
+### Autenticação
+
+Todas as requisições da API exigem um token de acesso no cabeçalho `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### URL base
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Exemplos de requisição
+
+### Criar URL curta
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Criar compartilhamento de texto
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Enviar arquivo
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Recursos
+
+<Cards>
+  <Card title="Referência da API" href="/docs/pt-BR/developers/api/">Ver todos os endpoints disponíveis</Card>
+  <Card title="SDKs" href="/docs/pt-BR/developers/sdk/">SDKs oficiais da S.EE para várias linguagens de programação</Card>
+</Cards>

@@ -1,0 +1,88 @@
+---
+title: Pierwsze kroki
+description: REST API S.EE do tworzenia, zarządzania i śledzenia krótkich linków, udostępnień tekstu i plików
+icon: Rocket
+---
+
+## Przegląd
+
+API S.EE pozwala programowo tworzyć i zarządzać krótkimi linkami, udostępnieniami tekstu i plików. Możesz go używać do:
+
+- Tworzenia krótkich linków na dużą skalę
+- Udostępniania tekstu i fragmentów kodu z podświetlaniem składni
+- Przesyłania i udostępniania plików
+- Zarządzania własnymi domenami
+- Pobierania danych analitycznych
+- Integracji S.EE z własnymi aplikacjami
+
+---
+
+## Pierwsze kroki
+
+### Wymagania wstępne
+
+1. Konto S.EE z aktywnym planem
+2. Token dostępu do API
+
+### Uwierzytelnianie
+
+Wszystkie żądania API wymagają tokenu dostępu w nagłówku `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Bazowy URL
+
+```text
+https://s.ee/api/v1
+```
+
+---
+
+## Przykładowe żądania
+
+### Utwórz krótki URL
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Utwórz udostępnienie tekstu
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Moj fragment kodu",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Prześlij plik
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Zasoby
+
+<Cards>
+  <Card title="Dokumentacja API" href="/docs/pl/developers/api/">Zobacz wszystkie dostępne endpointy</Card>
+  <Card title="SDK" href="/docs/pl/developers/sdk/">Oficjalne SDK S.EE dla różnych języków programowania</Card>
+</Cards>

@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Aloittaminen---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Ominaisuudet---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Maksuttomat palvelut---",
+    "free-url-shorteners",
+    "---Ohje---",
+    "troubleshooting",
+    "security",
+    "---Integraatio---",
+    "developers",
+    "api",
+    "---Kolmannen osapuolen integraatiot---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Yhteisö---",
+    "awesome"
+  ]
+}

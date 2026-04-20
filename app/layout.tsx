@@ -1,10 +1,14 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Agentation } from 'agentation';
-import './global.css';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import Script from 'next/script';
+import { headers } from 'next/headers';
+import './global.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
+import { i18n, htmlLang } from '@/lib/i18n';
+import { i18nUI } from '@/lib/i18n-ui';
+import { CookieBar } from '@/components/cookie-bar';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,7 +27,8 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'S.EE Documentation',
-  description: 'Official documentation for S.EE - Link management and QR code platform',
+  description:
+    'Official documentation for S.EE - Link management and QR code platform',
   url: siteUrl,
   publisher: {
     '@type': 'Organization',
@@ -42,14 +47,16 @@ export const metadata: Metadata = {
     default: 'S.EE Documentation',
     template: '%s | S.EE Docs',
   },
-  description: 'Official documentation for S.EE - Link management and QR code platform',
+  description:
+    'Official documentation for S.EE - Link management and QR code platform',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
     siteName: 'S.EE Documentation',
     title: 'S.EE Documentation',
-    description: 'Official documentation for S.EE - Link management and QR code platform',
+    description:
+      'Official documentation for S.EE - Link management and QR code platform',
     images: [
       {
         url: ogImage,
@@ -62,15 +69,22 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'S.EE Documentation',
-    description: 'Official documentation for S.EE - Link management and QR code platform',
+    description:
+      'Official documentation for S.EE - Link management and QR code platform',
     images: [ogImage],
+  },
+  other: {
+    'fediverse:creator': '@see@c.im',
   },
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const h = await headers();
+  const lang = h.get('x-locale') ?? i18n.defaultLanguage;
+
   return (
     <html
-      lang="en"
+      lang={htmlLang(lang)}
       className={`${inter.className} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
@@ -89,6 +103,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </head>
       <body className="flex flex-col min-h-screen">
         <RootProvider
+          i18n={i18nUI.provider(lang)}
           search={{
             options: {
               api: '/docs/api-search',
@@ -96,6 +111,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           }}
         >
           {children}
+          <CookieBar />
         </RootProvider>
         {process.env.NODE_ENV === 'development' && <Agentation />}
       </body>

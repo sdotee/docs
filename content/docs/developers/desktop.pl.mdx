@@ -1,0 +1,113 @@
+---
+title: Aplikacja desktopowa
+description: Natywna aplikacja desktopowa dla S.EE
+icon: Monitor
+---
+
+Skracaj linki, udostępniaj tekst i przesyłaj pliki z komputera, korzystając z natywnych aplikacji dla macOS i Linuxa.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Pobierz
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Obsługiwane platformy
+
+| Platforma | Status | Technologia |
+|----------|--------|------------|
+| macOS | Dostępna | SwiftUI |
+| Linux | Dostępna | GTK4 + libadwaita + Rust |
+| Windows | W przygotowaniu | - |
+
+## Funkcje
+
+- **Skracanie URL-i** - własny slug, tytuł, hasło i data wygaśnięcia
+- **Udostępnianie tekstu** - zwykły tekst, kod źródłowy lub Markdown z edytorem monospace
+- **Przesyłanie plików** - przeciągnij i upuść, wklejanie ze schowka albo wybór z systemu plików
+- **Generowanie kodów QR** - eksport do PNG, SVG albo PDF
+- **Historia** - lokalny zapis wszystkich utworzonych linków, tekstów i plików
+- **Obsługa wielu domen** - wybór spośród wielu domen dla każdej usługi
+- **Panel użycia** - szybki podgląd limitów i wykorzystania miejsca
+
+## macOS
+
+Aplikacja jest zbudowana w **SwiftUI** i **SwiftData**. Oferuje pełną obsługę skrótów klawiaturowych i integrację z paskiem menu.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Wymaga macOS 14.0+
+
+### Najważniejsze elementy
+
+- **Menu Bar** - skracanie URL-i, wklejanie i przesyłanie oraz dostęp do ostatnich elementów bez otwierania głównego okna
+- **Drag & Drop** - upuszczanie plików w dowolnym miejscu strefy przesyłania
+- **Paste from Clipboard** (`Cmd+V`) - automatyczna konwersja obrazów do WebP z awaryjnym PNG
+- **Keychain** - bezpieczne przechowywanie klucza API przez framework bezpieczeństwa macOS
+
+### Skróty klawiaturowe
+
+| Skrót | Działanie |
+|----------|--------|
+| Cmd+N | Nowy krótki link |
+| Cmd+Shift+N | Nowe udostępnienie tekstu |
+| Cmd+V | Wklej i prześlij ze schowka |
+| Cmd+, | Ustawienia |
+| Cmd+Q | Zakończ |
+
+### Stos technologiczny
+
+| Warstwa | Technologia |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (oparte na actorach) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+## Linux
+
+Aplikacja jest zbudowana w **GTK4**, **libadwaita** i **Rust**. Stosuje wytyczne GNOME Human Interface Guidelines.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Wymaga GTK 4.14+ i libadwaita 1.5+
+
+### Najważniejsze elementy
+
+- **Natywne doświadczenie GNOME** - adaptacyjny układ zgodny z GNOME HIG
+- **Eksport kodów QR** - PNG, SVG albo PDF
+- **Plik konfiguracyjny** - `~/.config/see/config.toml` dla klucza API, bazowego URL-a i domyślnych domen
+- **Zmienne środowiskowe** - `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` nadpisują plik konfiguracyjny
+
+### Skróty klawiaturowe
+
+| Skrót | Działanie |
+|----------|--------|
+| Ctrl+1 | Przełącz do widoku linków |
+| Ctrl+2 | Przełącz do widoku tekstów |
+| Ctrl+3 | Przełącz do widoku plików |
+| Ctrl+, | Otwórz ustawienia |
+| Ctrl+? | Pokaż skróty klawiaturowe |
+| Ctrl+Q | Zakończ |
+
+### Stos technologiczny
+
+| Warstwa | Technologia |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Language | Rust (edycja 2024) |
+| API Client | see-sdk |
+| QR Code | Wbudowana obsługa eksportu PNG, SVG i PDF |
+
+### Przechowywanie danych
+
+- **Konfiguracja**: `~/.config/see/config.toml`
+- **Historia**: `~/.local/share/see/history.json`
+
+## Pierwsze kroki
+
+1. Pobierz aplikację dla [macOS](https://s.ee/macos) albo [Linuxa](https://s.ee/linux)
+2. Utwórz konto na [s.ee](https://s.ee), jeśli jeszcze go nie masz
+3. [Wygeneruj klucz API](https://s.ee/user/developers/) w panelu
+4. Otwórz aplikację, przejdź do **Preferences** i wpisz klucz API

@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "控制面板"
+  },
+  "cookieBar": {
+    "message": "我們使用 Cookie 來記住你的語言偏好，並提升你的使用體驗。",
+    "accept": "接受",
+    "decline": "拒絕",
+    "privacyLink": "隱私政策"
+  },
+  "fumadocs": {
+    "search": "搜尋",
+    "searchNoResult": "找不到結果",
+    "toc": "本頁內容",
+    "lastUpdate": "最近更新",
+    "previousPage": "上一頁",
+    "nextPage": "下一頁",
+    "chooseTheme": "選擇佈景主題",
+    "editOnGithub": "在 GitHub 上編輯",
+    "chooseLanguage": "選擇語言"
+  }
+}

@@ -1,0 +1,70 @@
+---
+title: Domínios personalizados
+description: Como configurar um domínio personalizado para os seus links curtos
+icon: Globe
+---
+
+## O que é um domínio personalizado?
+
+Um domínio personalizado permite-lhe usar a sua própria marca em links curtos em vez de `s.ee`. Por exemplo, em vez de `s.ee/link`, pode usar `go.example.com/link`.
+
+---
+
+## Por que usar um domínio personalizado?
+
+- **Reconhecimento de marca** - Os links mostram a sua marca, não a nossa
+- **Confiança** - Os utilizadores têm mais probabilidade de clicar em links com marca
+- **Taxas de cliques mais altas** - Os links com marca tendem a ter melhor desempenho
+
+---
+
+## Adicionar um domínio personalizado
+
+1. Aceda a [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Clique em **Add Domain**
+3. Introduza o nome do seu domínio
+4. Adicione os registos DNS necessários:
+   - **Registo TXT** - Para verificação do domínio
+   - **Registo CNAME ou Alias** - Para apontar o seu domínio para a S.EE
+5. Aguarde a propagação do DNS (normalmente alguns minutos)
+6. Clique em **Verify** para confirmar a configuração
+
+---
+
+## Requisitos
+
+- O domínio tem de ser diferente do domínio principal do seu website
+- Máximo de 63 caracteres (incluindo o ponto)
+- Tem de ter acesso às definições DNS do seu domínio
+
+---
+
+## Notas importantes
+
+### Utilizadores de Cloudflare
+
+Se utiliza Cloudflare para DNS, **não ative o Proxy (ícone de nuvem laranja)** no seu registo CNAME. Mantenha-o em modo DNS only (nuvem cinzenta). Ativar o proxy da Cloudflare pode causar conflitos de CDN e problemas de redirecionamento.
+
+### Usar um domínio raiz
+
+Se quiser usar um domínio raiz (por exemplo, `example.com` em vez de `go.example.com`), o seu fornecedor de DNS tem de suportar **registos ALIAS** ou **CNAME flattening**. Alguns fornecedores comuns com esta funcionalidade:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Se o seu fornecedor de DNS não suportar estas funcionalidades, [contacte-nos](https://s.ee/contact/) e podemos ajudar a verificar e adicionar o seu domínio raiz manualmente.
+
+---
+
+## Limites de domínio por plano
+
+| Plano | Domínios personalizados |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Ilimitado |

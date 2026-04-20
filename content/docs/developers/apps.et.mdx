@@ -1,0 +1,125 @@
+---
+title: Mobiilirakendus
+description: S.EE natiivne mobiilirakendus
+icon: Smartphone
+---
+
+Lühenda linke, jaga teksti ja laadi faile üles oma telefonist, kasutades S.EE täit võimekust natiivses rakenduses.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Allalaadimine
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/app-store-badge.svg" alt="Laadi alla App Store'ist" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/google-play-badge.svg" alt="Hangi Google Playst" height="40" />
+  </a>
+</div>
+
+## Toetatud platvormid
+
+| Platvorm | Nõuded | Tehnoloogia |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Funktsioonid
+
+### URL-ide lühendamine
+
+- Loo lühilinke kohandatud lühikoodi, pealkirja, parooli ja aegumisega
+- Vali mitme domeeni vahel
+- Vaata lingistatistikat: täna, sel kuul ja kokku
+- Otsi lühikoodi, siht-URL-i, pealkirja ja domeeni järgi
+- Muuda või kustuta olemasolevaid linke
+
+### Teksti jagamine
+
+- Jaga tavateksti, lähtekoodi või Markdowni
+- Monoruumiline redaktor koodi jaoks
+- Kohandatud lühikood, parool ja aegumine
+- Domeeni valik ja siltide määramine kuni viie sildini
+
+### Faili üleslaadimine
+
+- Vali faile, vali galeriist või pildista kaameraga
+- Kleebi lõikelaualt koos automaatse WebP teisendusega iOS-is
+- Reaalajas üleslaadimise edenemine
+- 9 lingivormingut, sh otselink, jagamisleht, BBCode, HTML, Markdown ja muud
+- Hulgikopeerimine ja hulgikustutamine kõigis loendites
+
+### Kasutuse juhtpaneel
+
+- Salvestusruumi kasutus visuaalse edenemisribaga
+- API-kutsete, linkide, teksti jagamiste, üleslaadimiste ja QR-koodide limiidid
+- Päevased ja kuised kasutusloendurid
+
+### Seaded
+
+- Baas-URL-i seadistamine isemajutatud instantside jaoks
+- API võtme haldus ühe puudutusega kinnitusega
+- Vaikedomeenide valik iga teenuse jaoks, lingid, tekst ja failid
+- Teema: süsteemne, hele või tume
+- Dynamic Color ehk Material You Androidis
+
+## iOS
+
+Ehitatud **SwiftUI** ja **SwiftData** abil tõelise natiivse iOS-i kogemuse jaoks.
+
+- **Photo Picker** - vali pilte rakendusest Photos
+- **Camera** - tee pilte või videoid, JPG või MOV kuni MP4
+- Tõmba värskendamiseks alla siltide ja loendite peal
+- Keychainil põhinev turvaline API võtme salvestus
+
+## Android
+
+Ehitatud **Jetpack Compose'i** ja **Material 3** ehk Material You abil natiivse Androidi kogemuse jaoks.
+
+- **Share Target** - võta teistest rakendustest vastu jagatud teksti, URL-e ja faile
+- **App Shortcuts** - kiirete toimingute jaoks tee rakenduse ikoonil pikk vajutus
+- **Predictive Back** žesti tugi Android 14+ puhul
+- **Adaptive Icon** koos teemastatud ikooni toega
+- Room-andmebaas kohaliku ajaloo jaoks
+- EncryptedSharedPreferences turvaliseks salvestuseks
+
+## Tehnoloogiakiht
+
+### iOS
+
+| Kiht | Tehnoloogia |
+|-------|-----------|
+| UI | SwiftUI |
+| Salvestus | SwiftData |
+| Võrk | URLSession, actor-põhine |
+| Turve | Keychain |
+| Pisipildid | QuickLookThumbnailing |
+| Pilditöötlus | Swift-WebP |
+
+### Android
+
+| Kiht | Tehnoloogia |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Arhitektuur | MVVM + Repository |
+| Võrk | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt, Dagger |
+| Kohalik andmebaas | Room |
+| Turve | EncryptedSharedPreferences |
+| Piltide laadimine | Coil 3 |
+
+## Lähtekood
+
+Mõlemad rakendused on MIT-litsentsiga avatud lähtekoodiga:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Alustamine
+
+1. Laadi rakendus alla [App Store'ist](https://s.ee/ios) või [Google Playst](https://s.ee/android)
+2. Loo konto aadressil [s.ee](https://s.ee), kui sul seda veel ei ole
+3. [Loo API võti](https://s.ee/user/developers/) oma juhtpaneelilt
+4. Ava rakendus, mine menüüsse **Settings**, sisesta oma API võti ja puuduta **Verify**

@@ -1,0 +1,88 @@
+---
+title: Başlarken
+description: Kısa bağlantılar, metin paylaşımı ve dosya paylaşımı oluşturmak, yönetmek ve takip etmek için S.EE REST API
+icon: Rocket
+---
+
+## Genel bakış
+
+S.EE API, kısa bağlantıları, metin paylaşımlarını ve dosya paylaşımlarını programatik olarak oluşturup yönetmenizi sağlar. Şunlar için kullanabilirsiniz:
+
+- Ölçekli biçimde kısa bağlantı oluşturma
+- Sözdizimi vurgulamalı metin ve kod parçaları paylaşma
+- Dosya yükleme ve paylaşma
+- Özel alan adlarını yönetme
+- Analitik verilerini alma
+- Uygulamalarınıza entegrasyon
+
+---
+
+## Başlangıç
+
+### Ön koşullar
+
+1. Etkin paketi olan bir S.EE hesabı
+2. Bir API erişim belirteci
+
+### Kimlik doğrulama
+
+Tüm API istekleri `Authorization` başlığında erişim belirteci gerektirir:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Temel URL
+
+```text
+https://s.ee/api/v1
+```
+
+---
+
+## Örnek istekler
+
+### Kısa URL oluştur
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Metin paylaşımı oluştur
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Dosya yükle
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Kaynaklar
+
+<Cards>
+  <Card title="API Referansı" href="/docs/tr/developers/api/">Kullanılabilir tüm uç noktaları görüntüleyin</Card>
+  <Card title="SDK'ler" href="/docs/tr/developers/sdk/">Farklı programlama dilleri için resmî S.EE SDK'leri</Card>
+</Cards>

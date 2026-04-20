@@ -1,0 +1,88 @@
+---
+title: 快速上手
+description: 用于创建、管理和跟踪短网址、文本分享和文件分享的 S.EE REST API
+icon: Rocket
+---
+
+## 概览
+
+S.EE API 允许您以编程方式创建和管理短网址、文本分享和文件分享。您可以用它来：
+
+- 大规模创建短网址
+- 分享带语法高亮的文本片段和代码
+- 上传和分享文件
+- 管理自定义域名
+- 获取数据分析数据
+- 集成到您的应用中
+
+---
+
+## 快速上手
+
+### 前提条件
+
+1. 一个拥有有效套餐的 S.EE 账号
+2. 一个 API 访问令牌
+
+### 身份验证
+
+所有 API 请求都需要在 `Authorization` 请求头中带上访问令牌：
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### 基础 URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## 示例请求
+
+### 创建短网址
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### 创建文本分享
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### 上传文件
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## 资源
+
+<Cards>
+  <Card title="API 参考" href="/docs/zh-CN/developers/api/">查看所有可用接口</Card>
+  <Card title="SDK" href="/docs/zh-CN/developers/sdk/">查看适用于多种编程语言的官方 S.EE SDK</Card>
+</Cards>

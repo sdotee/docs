@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Acorte URL, comparta texto y aloje archivos directamente desde su panel de WordPress
+icon: WordPress
+---
+
+El [plugin de WordPress de S.EE](https://wordpress.org/plugins/sdotee/) le permite acortar URL, compartir texto y subir archivos sin salir de WordPress. Publique una entrada y se creará automáticamente un enlace corto, sin pasos adicionales.
+
+- [Directorio de plugins de WordPress](https://wordpress.org/plugins/sdotee/)
+- [Código fuente en GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Funciones
+
+| Función | Descripción |
+|---------|-------------|
+| URL cortas | Genera automáticamente enlaces cortos cuando publica o actualiza entradas y páginas |
+| Compartir texto | Comparta texto sin formato, Markdown y fragmentos de código con un enlace |
+| Alojamiento de archivos | Suba archivos desde la biblioteca multimedia y copie el enlace como URL, HTML, Markdown o BBCode |
+| Automatización | Sube automáticamente nuevos medios y acorta enlaces al publicar: configúrelo una vez y olvídese |
+| Integración con el administrador | Vea y gestione URL cortas directamente desde la lista de entradas / páginas |
+| Panel del tablero | Un panel dedicado de S.EE para compartir texto y archivos con historial completo de uso |
+| 13 idiomas | Inglés, chino (simplificado / tradicional), japonés, coreano, indonesio, vietnamita, alemán, francés, español, portugués (Brasil / Portugal), ruso |
+
+---
+
+## Requisitos
+
+- PHP 8.2+
+- WordPress 6.0+
+- Una cuenta de S.EE con un [Token de API](https://s.ee/user/developers/)
+
+---
+
+## Instalación
+
+### Desde el directorio de plugins de WordPress
+
+1. En el panel de administración de WordPress, vaya a **Plugins** > **Add New**
+2. Busque **S.EE**
+3. Haga clic en **Install Now** y luego en **Activate**
+
+### Desde GitHub
+
+1. Descargue el ZIP más reciente desde [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Vaya a **Plugins** > **Add New** > **Upload Plugin**
+3. Suba el ZIP, haga clic en **Install Now** y luego en **Activate**
+
+---
+
+## Configuración
+
+### 1. Obtenga su Token de API
+
+1. Inicie sesión en su cuenta de S.EE
+2. Vaya a **[Tools > API Token](https://s.ee/user/developers/)**
+3. Genere un nuevo Token de API
+
+<Callout type="warn">
+No comparta su Token de API públicamente ni lo suba a su sistema de control de versiones.
+</Callout>
+
+### 2. Configure el plugin
+
+1. Vaya a **Settings** > **S.EE**
+2. Pegue su Token de API y haga clic en **Verify**
+3. Elija sus dominios predeterminados para URL cortas, texto y archivos
+4. Active la generación automática y la subida automática si quiere una experiencia sin intervención
+
+<Callout type="info">
+También puede definir su Token de API en `wp-config.php` para evitar guardarlo en la base de datos.
+</Callout>
+
+---
+
+## Uso
+
+### URL cortas
+
+Con la generación automática activada, cada entrada y página recibe un enlace corto en el momento en que pulsa Publish. También puede crear o ver URL cortas desde la columna de la lista de entradas / páginas en el panel de administración.
+
+### Compartir texto
+
+Abra el panel **S.EE** del tablero y pegue su contenido. Formatos compatibles:
+
+- Texto sin formato
+- Markdown
+- Fragmentos de código
+
+### Alojamiento de archivos
+
+Suba archivos a través del panel **S.EE** del tablero o desde la biblioteca multimedia. Después de subirlos, obtenga el enlace en el formato que prefiera: URL, HTML, Markdown o BBCode.
+
+---
+
+## Relacionado
+
+- [API para desarrolladores](/docs/es/developers)
+- [Compartir archivos](/docs/es/file-sharing)
+- [Compartir texto](/docs/es/text-sharing)
+- [Alojamiento de imágenes](/docs/es/image-hosting)

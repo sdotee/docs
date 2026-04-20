@@ -1,0 +1,181 @@
+---
+title: CLI
+description: S.EE platformu için komut satırı istemcisi
+icon: Terminal
+---
+
+S.EE platformu için, kısa bağlantıları, metin parçalarını ve dosyaları doğrudan terminalden oluşturup yönetmenizi sağlayan bir komut satırı istemcisi.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Özellikler
+
+- Kısa bağlantı oluşturma, güncelleme ve silme
+- Metin parçalarını stdin veya dosya üzerinden paylaşma
+- Dosya yükleme
+- Alan adlarını ve etiketleri listeleme
+- Parola koruması
+- Betikler için JSON çıktı
+
+## Kurulum
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# veya önceden derlenmiş ikili paket
+yay -S see-cli-bin
+```
+
+### Kaynaktan kurulum
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+[GitHub Releases](https://github.com/sdotee/cli/releases) sayfasından önceden derlenmiş ikili dosyaları ve paketleri indirebilirsiniz.
+
+## Yapılandırma
+
+API anahtarınızı ortam değişkeni veya bayrakla ayarlayın:
+
+```bash
+# Ortam değişkeni (önerilir)
+export SEE_API_KEY="your-api-key"
+
+# veya bayrak kullanın
+see --api-key "your-api-key" <command>
+```
+
+### Yapılandırma seçenekleri
+
+| Seçenek | Ortam değişkeni | Açıklama |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | S.EE API anahtarınız (gerekli) |
+| `--base-url` | `SEE_BASE_URL` | Özel API temel URL'si |
+| `--timeout` | `SEE_TIMEOUT` | İstek zaman aşımı |
+| `--json` | - | JSON çıktı biçimini etkinleştirir |
+
+## Komutlar
+
+### Alan adları ve etiketler
+
+```bash
+# Kısa bağlantılar için kullanılabilir alan adlarını listeleyin
+see domains
+
+# Dosya yüklemeleri için kullanılabilir alan adlarını listeleyin
+see file domains
+
+# Etiketlerinizi listeleyin
+see tags
+```
+
+### Kısa bağlantılar
+
+```bash
+# Kısa bağlantı oluşturun
+see url create https://example.com
+
+# Özel seçeneklerle oluşturun
+see url create https://example.com \
+  --slug benim-baglanti \
+  --domain s.ee \
+  --title "Benim Bağlantım" \
+  --password secret \
+  --expires 2024-12-31
+
+# Kısa bağlantıyı güncelleyin
+see url update --domain s.ee --slug benim-baglanti --title "Yeni Başlık"
+
+# Kısa bağlantıyı silin
+see url delete --domain s.ee --slug benim-baglanti
+```
+
+### Metin paylaşımları
+
+```bash
+# stdin üzerinden metin oluşturun
+echo "Merhaba Dünya" | see text create --title "selam"
+
+# Dosyadan metin oluşturun
+see text create --file ./snippet.txt --title "Kod Parçası"
+
+# Seçeneklerle oluşturun
+cat script.sh | see text create \
+  --title "Kabuk Betiği" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Metni güncelleyin
+see text update --domain fs.to --slug abc123 --title "Güncellenmiş Başlık"
+
+# Metni silin
+see text delete --domain fs.to --slug abc123
+```
+
+### Dosya yükleme
+
+```bash
+# Dosya yükleyin
+see file upload ./image.png
+
+# Özel alan adıyla yükleyin
+see file upload ./document.pdf --domain fs.to
+
+# stdin üzerinden yükleyin
+cat image.png | see file upload --stdin --filename image.png
+
+# Dosya silin
+see file delete <delete-hash>
+```
+
+## JSON çıktısı
+
+Betiklerde kullanmak için makine tarafından okunabilir çıktı almak üzere `--json` bayrağını kullanın:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Örnekler
+
+### Kısa bağlantı oluşturup panoya kopyalama (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Ekran görüntüsü yükleyip URL alma (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Toplu kısa bağlantı oluşturma
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

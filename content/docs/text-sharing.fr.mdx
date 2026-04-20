@@ -1,0 +1,80 @@
+---
+title: Partage de texte
+description: Comment partager du texte, des extraits de code et du Markdown avec S.EE
+icon: FileText
+---
+
+## Vue d’ensemble
+
+S.EE Text Sharing vous permet de partager du texte brut, des extraits de code et des documents Markdown avec un lien court et facile à partager. C’est idéal pour partager des fichiers de configuration, des exemples de code, des notes et de la documentation.
+
+---
+
+## Créer un partage de texte
+
+1. Connectez-vous sur [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Cliquez sur **Sharing > Text** dans la barre latérale gauche ou accédez directement à [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Renseignez les détails :
+   - **Title** (facultatif) - Utilisé comme nom de fichier lors du téléchargement
+   - **Short Link** - Sélectionnez votre domaine préféré
+   - **Text Type** - Choisissez entre Plain Text, Code ou Markdown
+4. Saisissez votre contenu dans la zone **Edit**
+5. Configurez les paramètres facultatifs (voir ci-dessous)
+6. Cliquez sur **Create Text**
+
+---
+
+## Types de texte
+
+| Type | Description |
+|------|-------------|
+| Texte brut | Texte simple sans mise en forme |
+| Code | Extraits de code avec coloration syntaxique |
+| Markdown | Markdown rendu avec mise en forme |
+
+---
+
+## Paramètres facultatifs
+
+| Option | Description |
+|--------|-------------|
+| Mot de passe | Protégez votre texte avec un mot de passe |
+| Tags | Organisez vos textes partagés avec des tags |
+| Expiration | Définissez la date d’expiration du partage de texte |
+| Désactiver l’indexation par les moteurs de recherche | Empêchez les moteurs de recherche d’indexer votre texte partagé |
+
+---
+
+## Afficher un texte partagé
+
+Une fois créé, vous recevrez un lien court comme `ba.sh/demo`.
+
+### Modes d’affichage
+
+| URL | Description |
+|-----|-------------|
+| `ba.sh/demo` | Affiche la page de texte formatée avec coloration syntaxique |
+| `ba.sh/demo/raw` | Affiche directement le texte brut |
+
+Le point de terminaison `/raw` est utile pour :
+
+- Télécharger directement des scripts avec `curl` ou `wget`
+- Intégrer le contenu dans d’autres applications
+- Afficher le contenu sans mise en forme
+
+---
+
+## Domaines pris en charge
+
+Le partage de texte est disponible sur ces domaines pour toutes les offres :
+
+| Domaine | Idéal pour |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Scripts Bash et shell |
+| [z.sh](https://z.sh) | Scripts shell |
+| [fs.to](https://fs.to) | Partage de fichiers général |
+| [files.to](https://files.to) | Partage de fichiers général |
+| [fileshare.to](https://fileshare.to) | Partage de fichiers général |
+| [filesharing.to](https://filesharing.to) | Partage de fichiers général |
+
+Pour les clients Premium et Enterprise, veuillez consulter nos [domaines officiels](https://s.ee/docs/fr/official-domains/#premium--enterprise).

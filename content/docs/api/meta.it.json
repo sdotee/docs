@@ -1,0 +1,28 @@
+{
+  "title": "Riferimento API",
+  "description": "Endpoint API di S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "---URL brevi---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Condivisione di testo---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Condivisione di file---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Generale---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

@@ -1,0 +1,80 @@
+---
+title: Udostępnianie tekstu
+description: Jak udostępniać tekst, fragmenty kodu i Markdown przez S.EE
+icon: FileText
+---
+
+## Przegląd
+
+S.EE Text Sharing pozwala udostępniać zwykły tekst, fragmenty kodu i dokumenty Markdown za pomocą krótkiego linku. To wygodne rozwiązanie do dzielenia się plikami konfiguracyjnymi, przykładami kodu, notatkami i dokumentacją.
+
+---
+
+## Utwórz udostępnienie tekstu
+
+1. Zaloguj się na [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Kliknij **Sharing > Text** w lewym pasku bocznym lub przejdź bezpośrednio do [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Uzupełnij szczegóły:
+   - **Title** (opcjonalnie) - używany jako nazwa pliku podczas pobierania
+   - **Short Link** - wybierz preferowaną domenę
+   - **Text Type** - wybierz Plain Text, Code lub Markdown
+4. Wprowadź treść w polu **Edit**
+5. Skonfiguruj opcjonalne ustawienia opisane poniżej
+6. Kliknij **Create Text**
+
+---
+
+## Typy treści
+
+| Typ | Opis |
+|------|-------------|
+| Plain Text | Prosty niesformatowany tekst |
+| Code | Fragment kodu z podświetlaniem składni |
+| Markdown | Wyrenderowany Markdown z formatowaniem |
+
+---
+
+## Ustawienia opcjonalne
+
+| Opcja | Opis |
+|--------|-------------|
+| Password | Chroń tekst hasłem |
+| Tags | Porządkuj udostępnione teksty za pomocą tagów |
+| Expiration | Ustaw moment wygaśnięcia udostępnienia |
+| Disable search engine indexing | Zablokuj indeksowanie przez wyszukiwarki |
+
+---
+
+## Wyświetlanie udostępnionego tekstu
+
+Po utworzeniu otrzymasz krótki link, np. `ba.sh/demo`.
+
+### Tryby widoku
+
+| URL | Opis |
+|-----|-------------|
+| `ba.sh/demo` | Wyświetla sformatowaną stronę tekstu z podświetlaniem składni |
+| `ba.sh/demo/raw` | Wyświetla bezpośrednio surowy zwykły tekst |
+
+Endpoint `/raw` jest przydatny do:
+
+- Pobierania skryptów bezpośrednio przez `curl` lub `wget`
+- Osadzania treści w innych aplikacjach
+- Podglądu bez dodatkowego formatowania
+
+---
+
+## Obsługiwane domeny
+
+Udostępnianie tekstu jest dostępne na tych domenach we wszystkich planach:
+
+| Domena | Najlepsza do |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Skryptów Bash i powłoki |
+| [z.sh](https://z.sh) | Skryptów powłoki |
+| [fs.to](https://fs.to) | Ogólnego udostępniania plików |
+| [files.to](https://files.to) | Ogólnego udostępniania plików |
+| [fileshare.to](https://fileshare.to) | Ogólnego udostępniania plików |
+| [filesharing.to](https://filesharing.to) | Ogólnego udostępniania plików |
+
+Dla klientów Premium i Enterprise zobacz [oficjalne domeny](/docs/pl/official-domains/).

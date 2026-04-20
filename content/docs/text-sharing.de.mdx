@@ -1,0 +1,80 @@
+---
+title: Textfreigabe
+description: So teilen Sie Text, Code-Snippets und Markdown mit S.EE
+icon: FileText
+---
+
+## Überblick
+
+Mit S.EE Text Sharing können Sie Klartext, Code-Snippets und Markdown-Dokumente über einen kurzen, leicht teilbaren Link bereitstellen. Ideal zum Teilen von Konfigurationsdateien, Code-Beispielen, Notizen und Dokumentation.
+
+---
+
+## Eine Textfreigabe erstellen
+
+1. Melden Sie sich bei [https://s.ee/user/dashboard](https://s.ee/user/dashboard) an
+2. Klicken Sie in der linken Seitenleiste auf **Sharing > Text** oder gehen Sie direkt zu [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Füllen Sie die Details aus:
+   - **Title** (optional) - Wird beim Download als Dateiname verwendet
+   - **Short Link** - Wählen Sie Ihre bevorzugte Domain
+   - **Text Type** - Wählen Sie zwischen Plain Text, Code oder Markdown
+4. Geben Sie Ihren Inhalt in das Feld **Edit** ein
+5. Konfigurieren Sie optionale Einstellungen (siehe unten)
+6. Klicken Sie auf **Create Text**
+
+---
+
+## Texttypen
+
+| Type | Description |
+|------|-------------|
+| Plain Text | Einfacher unformatierter Text |
+| Code | Code-Snippets mit Syntaxhervorhebung |
+| Markdown | Gerendertes Markdown mit Formatierung |
+
+---
+
+## Optionale Einstellungen
+
+| Option | Description |
+|--------|-------------|
+| Password | Schützen Sie Ihren Text mit einem Passwort |
+| Tags | Organisieren Sie Ihre geteilten Texte mit Tags |
+| Expiration | Legen Sie fest, wann die Textfreigabe abläuft |
+| Disable search engine indexing | Verhindern Sie, dass Suchmaschinen Ihren geteilten Text indexieren |
+
+---
+
+## Geteilten Text anzeigen
+
+Nach der Erstellung erhalten Sie einen Kurzlink wie `ba.sh/demo`.
+
+### Ansichtsmodi
+
+| URL | Description |
+|-----|-------------|
+| `ba.sh/demo` | Zeigt die formatierte Textseite mit Syntaxhervorhebung an |
+| `ba.sh/demo/raw` | Zeigt direkt den rohen Klartext an |
+
+Der Endpunkt `/raw` ist nützlich für:
+
+- Direktes Herunterladen von Skripten mit `curl` oder `wget`
+- Einbetten in andere Anwendungen
+- Anzeigen ohne Formatierung
+
+---
+
+## Unterstützte Domains
+
+Textfreigabe ist auf diesen Domains für alle Tarife verfügbar:
+
+| Domain | Best For |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash- und Shell-Skripte |
+| [z.sh](https://z.sh) | Shell-Skripte |
+| [fs.to](https://fs.to) | Allgemeine Dateifreigabe |
+| [files.to](https://files.to) | Allgemeine Dateifreigabe |
+| [fileshare.to](https://fileshare.to) | Allgemeine Dateifreigabe |
+| [filesharing.to](https://filesharing.to) | Allgemeine Dateifreigabe |
+
+Für Premium- und Enterprise-Kunden verweisen wir auf unsere [offiziellen Domains](https://s.ee/docs/de/official-domains/#premium--enterprise).

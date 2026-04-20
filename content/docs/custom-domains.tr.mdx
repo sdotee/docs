@@ -1,0 +1,70 @@
+---
+title: Özel alan adları
+description: Kısa bağlantılarınız için özel alan adını nasıl kurarsınız
+icon: Globe
+---
+
+## Özel alan adı nedir?
+
+Özel alan adı, kısa bağlantılarda `s.ee` yerine kendi markanızı kullanmanızı sağlar. Örneğin `s.ee/link` yerine `go.example.com/link` kullanabilirsiniz.
+
+---
+
+## Neden özel alan adı kullanmalısınız?
+
+- **Marka bilinirliği**: Bağlantılarda sizin markanız görünür
+- **Güven**: Kullanıcılar markalı bağlantılara daha çok tıklar
+- **Daha yüksek tıklanma oranı**: Markalı bağlantılar genelde daha iyi performans gösterir
+
+---
+
+## Özel alan adı ekleme
+
+1. [https://s.ee/user/domains/](https://s.ee/user/domains/) adresine gidin
+2. **Add Domain** düğmesine tıklayın
+3. Alan adınızı girin
+4. Gerekli DNS kayıtlarını ekleyin:
+   - **TXT kaydı**: Alan adını doğrulamak için
+   - **CNAME veya Alias kaydı**: Alan adınızı S.EE'ye yönlendirmek için
+5. DNS yayılımını bekleyin; bu işlem genelde birkaç dakika sürer
+6. Kurulumu onaylamak için **Verify** düğmesine tıklayın
+
+---
+
+## Gereksinimler
+
+- Alan adı, ana web sitenizin alan adından farklı olmalıdır
+- En fazla 63 karakter olabilir; nokta karakteri buna dahildir
+- Alan adınızın DNS ayarlarını yönetebiliyor olmanız gerekir
+
+---
+
+## Önemli notlar
+
+### Cloudflare kullanıcıları
+
+DNS için Cloudflare kullanıyorsanız CNAME kaydınızda **Proxy'yi (turuncu bulut simgesi)** açmayın. Kaydı yalnızca DNS modunda (gri bulut) bırakın. Cloudflare proxy etkin olduğunda CDN çakışmaları ve yönlendirme sorunları oluşabilir.
+
+### Kök alan adı kullanma
+
+Kök alan adı kullanmak istiyorsanız, örneğin `go.example.com` yerine `example.com`, DNS sağlayıcınızın **ALIAS kayıtlarını** veya **CNAME flattening** özelliğini desteklemesi gerekir. Bu özelliği sunan yaygın sağlayıcılar:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+DNS sağlayıcınız bu özellikleri desteklemiyorsa lütfen [bizimle iletişime geçin](https://s.ee/contact/). Kök alan adınızı doğrulayıp manuel olarak eklemenize yardımcı olabiliriz.
+
+---
+
+## Paketlere göre alan adı sınırları
+
+| Paket | Özel alan adı sayısı |
+|------|----------------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Sınırsız |

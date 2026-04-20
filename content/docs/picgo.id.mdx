@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo memiliki dukungan bawaan untuk S.EE, tanpa plugin tambahan
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) adalah alat unggah gambar dan file open source untuk Windows, macOS, dan Linux. Versi terbaru sudah menyertakan dukungan S.EE secara bawaan, jadi Anda hanya memerlukan API Token untuk mulai menggunakannya.
+
+- [Unduh PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Source Code](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Pengaturan
+
+### 1. Dapatkan API Token Anda
+
+1. Login ke akun S.EE Anda
+2. Buka **[Tools > API Token](https://s.ee/user/developers/)**
+3. Buat API Token baru
+
+<Callout type="warn">
+Jangan membagikan API Token Anda secara publik atau menyimpannya ke version control.
+</Callout>
+
+### 2. Konfigurasikan PicGo
+
+1. Unduh dan instal [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Buka PicGo
+3. Buka **Picbeds Settings** > **SM.MS (S.EE)**
+4. Klik **+** untuk menambahkan konfigurasi baru
+5. Isi nama di **Configuration Name** (misalnya `S.EE`)
+6. Tempelkan API Token Anda di **Set Token**
+7. Klik **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Penggunaan
+
+Ada beberapa cara untuk mengunggah:
+
+- Tarik dan lepas file ke Upload Area
+- Klik Upload Area untuk memilih file dari komputer Anda
+- Klik jendela mini mengambang untuk mengunggah langsung
+- Klik kanan jendela mini mengambang lalu pilih **Upload by Clipboard**
+
+PicGo akan menyalin tautan hasilnya ke clipboard Anda. Anda dapat memilih formatnya: Markdown, HTML, raw URL, dan lainnya.
+
+---
+
+## Terkait
+
+- [Developer API](/docs/id/developers)
+- [Berbagi File](/docs/id/file-sharing)
+- [Kompatibilitas SM.MS](/docs/id/developers/smms-compatibility)

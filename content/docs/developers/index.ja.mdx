@@ -1,0 +1,88 @@
+---
+title: はじめに
+description: 短縮URL、テキスト共有、ファイル共有を作成・管理・追跡するための S.EE REST API
+icon: Rocket
+---
+
+## 概要
+
+S.EE API を利用すると、短縮URL、テキスト共有、ファイル共有をプログラムから作成・管理できます。主な用途は次のとおりです。
+
+- 短縮URLを大量に作成する
+- シンタックスハイライト付きでテキストやコードを共有する
+- ファイルをアップロードして共有する
+- カスタムドメインを管理する
+- 分析データを取得する
+- ご自身のアプリケーションに統合する
+
+---
+
+## はじめに
+
+### 前提条件
+
+1. 有効なプランを契約中の S.EE アカウント
+2. API アクセストークン
+
+### 認証
+
+すべての API リクエストでは、`Authorization` ヘッダーにアクセストークンを含める必要があります。
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### ベース URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## リクエスト例
+
+### 短縮URLを作成
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### テキスト共有を作成
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### ファイルをアップロード
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## リソース
+
+<Cards>
+  <Card title="API リファレンス" href="/docs/ja/developers/api/">利用可能な API エンドポイントを確認する</Card>
+  <Card title="SDK" href="/docs/ja/developers/sdk/">各種言語向けの公式 S.EE SDK を確認する</Card>
+</Cards>

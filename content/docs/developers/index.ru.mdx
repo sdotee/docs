@@ -1,0 +1,92 @@
+---
+title: Начало работы
+description: REST API S.EE для создания, управления и отслеживания коротких ссылок, текстовых публикаций и обмена файлами
+icon: Rocket
+---
+
+## Обзор
+
+API S.EE позволяет программно создавать и управлять короткими ссылками, текстовыми публикациями и обменом файлами. Используйте его, чтобы:
+
+- Массово создавать короткие ссылки
+- Публиковать текст и фрагменты кода с подсветкой синтаксиса
+- Загружать и делиться файлами
+- Управлять пользовательскими доменами
+- Получать аналитические данные
+- Встраивать S.EE в свои приложения
+
+---
+
+## Начало работы
+
+### Что понадобится
+
+1. Аккаунт S.EE с активным тарифом
+2. Токен доступа к API
+
+---
+
+## Аутентификация
+
+Во всех API-запросах нужен токен доступа в заголовке `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+---
+
+## Базовый URL
+
+```text
+https://s.ee/api/v1
+```
+
+---
+
+## Быстрые примеры
+
+### Создать короткую ссылку
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Создать текстовую публикацию
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Загрузить файл
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Ресурсы
+
+<Cards>
+  <Card title="Справочник API" href="/docs/ru/developers/api/">Посмотреть все доступные эндпоинты</Card>
+  <Card title="SDK" href="/docs/ru/developers/sdk/">Официальные SDK S.EE для разных языков программирования</Card>
+</Cards>

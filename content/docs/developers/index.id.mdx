@@ -1,0 +1,88 @@
+---
+title: Mulai
+description: REST API S.EE untuk membuat, mengelola, dan melacak URL pendek, berbagi teks, dan berbagi file
+icon: Rocket
+---
+
+## Ikhtisar
+
+S.EE API memungkinkan Anda membuat dan mengelola tautan pendek, berbagi teks, dan berbagi file secara terprogram. Gunakan untuk:
+
+- Membuat tautan pendek dalam skala besar
+- Membagikan cuplikan teks dan kode dengan sorotan sintaks
+- Mengunggah dan membagikan file
+- Mengelola domain kustom
+- Mengambil data analitik
+- Mengintegrasikan ke aplikasi Anda
+
+---
+
+## Mulai
+
+### Prasyarat
+
+1. Akun S.EE dengan paket aktif
+2. Token akses API
+
+### Autentikasi
+
+Semua permintaan API memerlukan access token di header `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Base URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Contoh Permintaan
+
+### Buat URL Pendek
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Buat Berbagi Teks
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Unggah File
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Sumber Daya
+
+<Cards>
+  <Card title="Referensi API" href="/docs/id/developers/api/">Lihat semua endpoint yang tersedia</Card>
+  <Card title="SDK" href="/docs/id/developers/sdk/">SDK resmi S.EE untuk berbagai bahasa pemrograman</Card>
+</Cards>

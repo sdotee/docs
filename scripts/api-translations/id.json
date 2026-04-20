@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Buat URL pendek",
+    "description": "Membuat URL pendek baru untuk tautan tujuan. Anda dapat mengatur slug kustom, perlindungan kata sandi, waktu kedaluwarsa, dan tag untuk pengelompokan."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Buat URL pendek (mode sederhana)",
+    "description": "Membuat URL pendek dengan cepat menggunakan parameter yang disederhanakan, cocok untuk skenario tanpa konfigurasi."
+  },
+  "UpdateShortUrl": {
+    "title": "Perbarui URL pendek",
+    "description": "Memperbarui alamat tujuan, kata sandi, waktu kedaluwarsa, atau tag pada URL pendek yang sudah ada."
+  },
+  "DeleteShortUrl": {
+    "title": "Hapus URL pendek",
+    "description": "Menghapus URL pendek yang ditentukan secara permanen."
+  },
+  "GetAvailableDomains": {
+    "title": "Dapatkan domain yang tersedia",
+    "description": "Mengembalikan daftar domain yang tersedia di akun saat ini untuk membuat URL pendek."
+  },
+  "GetLinkVisitStat": {
+    "title": "Dapatkan statistik kunjungan",
+    "description": "Mengembalikan data kunjungan untuk URL pendek tertentu, termasuk jumlah klik, sumber, dan distribusi geografis."
+  },
+  "CreateText": {
+    "title": "Buat berbagi teks",
+    "description": "Membuat konten teks yang dapat diakses melalui URL pendek, seperti teks biasa, cuplikan kode, atau Markdown."
+  },
+  "UpdateText": {
+    "title": "Perbarui berbagi teks",
+    "description": "Memperbarui konten, kata sandi, atau waktu kedaluwarsa dari berbagi teks yang sudah ada."
+  },
+  "DeleteText": {
+    "title": "Hapus berbagi teks",
+    "description": "Menghapus berbagi teks yang ditentukan secara permanen."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Dapatkan domain untuk berbagi teks",
+    "description": "Mengembalikan daftar domain yang tersedia untuk membuat berbagi teks."
+  },
+  "UploadFile": {
+    "title": "Unggah file",
+    "description": "Mengunggah file dan membuat URL pendek yang dapat dibagikan, dengan dukungan pengaturan kata sandi dan waktu kedaluwarsa."
+  },
+  "GetFileHistory": {
+    "title": "Dapatkan riwayat file",
+    "description": "Mengembalikan daftar file yang diunggah oleh akun saat ini."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Dapatkan URL unduhan file privat",
+    "description": "Membuat URL unduhan sementara untuk file privat yang dilindungi kata sandi."
+  },
+  "DeleteFile": {
+    "title": "Hapus file",
+    "description": "Menghapus file yang ditentukan secara permanen."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Dapatkan domain untuk berbagi file",
+    "description": "Mengembalikan daftar domain yang tersedia untuk berbagi file."
+  },
+  "GetTags": {
+    "title": "Dapatkan daftar tag",
+    "description": "Mengembalikan semua tag di akun saat ini yang digunakan untuk mengatur konten."
+  },
+  "GetUsage": {
+    "title": "Dapatkan penggunaan",
+    "description": "Mengembalikan penggunaan sumber daya akun saat ini pada siklus penagihan berjalan."
+  }
+}

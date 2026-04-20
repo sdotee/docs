@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Mulai---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Fitur---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Layanan Gratis---",
+    "free-url-shorteners",
+    "---Bantuan---",
+    "troubleshooting",
+    "security",
+    "---Integrasi---",
+    "developers",
+    "api",
+    "---Integrasi Pihak Ketiga---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Komunitas---",
+    "awesome"
+  ]
+}

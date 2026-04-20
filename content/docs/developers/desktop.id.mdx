@@ -1,0 +1,113 @@
+---
+title: Aplikasi Desktop
+description: Aplikasi desktop native untuk S.EE
+icon: Monitor
+---
+
+Pendekkan tautan, bagikan teks, dan unggah file dari desktop Anda, dengan aplikasi native untuk macOS dan Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Unduh
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Platform yang Didukung
+
+| Platform | Status | Technology |
+|----------|--------|------------|
+| macOS | Available | SwiftUI |
+| Linux | Available | GTK4 + libadwaita + Rust |
+| Windows | In Development | - |
+
+## Fitur
+
+- **URL Shortening** — Slug kustom, judul, kata sandi, dan kedaluwarsa
+- **Text Sharing** — Teks biasa, source code, atau Markdown dengan editor monospaced
+- **File Upload** — Drag & drop, paste dari clipboard, atau file picker
+- **QR Code Generation** — Ekspor sebagai PNG, SVG, atau PDF
+- **History** — Catatan lokal untuk semua tautan, teks, dan file yang dibuat
+- **Multi-Domain Support** — Pilih dari beberapa domain per layanan
+- **Usage Dashboard** — Penggunaan penyimpanan dan rate limit dalam sekali lihat
+
+## macOS
+
+Dibangun dengan **SwiftUI** dan **SwiftData**. Mendukung penuh keyboard shortcut dan integrasi menu bar.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Memerlukan macOS 14.0+
+
+### Highlight
+
+- **Menu Bar** — Pendekkan URL, paste & upload, dan akses item terbaru tanpa membuka jendela utama
+- **Drag & Drop** — Letakkan file di mana saja pada area unggah
+- **Paste from Clipboard** (Cmd+V) — Otomatis mengonversi gambar ke WebP dengan fallback PNG
+- **Keychain** — Penyimpanan API key yang aman melalui macOS Security framework
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| Cmd+N | New Short Link |
+| Cmd+Shift+N | New Text Share |
+| Cmd+V | Paste & Upload from Clipboard |
+| Cmd+, | Settings |
+| Cmd+Q | Quit |
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+## Linux
+
+Dibangun dengan **GTK4**, **libadwaita**, dan **Rust**. Mengikuti GNOME Human Interface Guidelines.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Memerlukan GTK 4.14+ dan libadwaita 1.5+
+
+### Highlight
+
+- **Native GNOME Experience** — Tata letak adaptif yang mengikuti GNOME HIG
+- **QR Code Export** — PNG, SVG, atau PDF
+- **Config File** — `~/.config/see/config.toml` untuk API key, base URL, dan domain default
+- **Environment Variables** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` menimpa config file
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+1 | Switch to Links view |
+| Ctrl+2 | Switch to Texts view |
+| Ctrl+3 | Switch to Files view |
+| Ctrl+, | Open Preferences |
+| Ctrl+? | Show keyboard shortcuts |
+| Ctrl+Q | Quit |
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Language | Rust (2024 edition) |
+| API Client | see-sdk |
+| QR Code | Built-in (PNG, SVG, PDF export) |
+
+### Data Storage
+
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
+
+## Mulai
+
+1. Unduh untuk [macOS](https://s.ee/macos) atau [Linux](https://s.ee/linux)
+2. Buat akun di [s.ee](https://s.ee) jika Anda belum memilikinya
+3. [Buat API key](https://s.ee/user/developers/) dari dasbor Anda
+4. Buka aplikasi, masuk ke **Preferences**, lalu masukkan API key Anda

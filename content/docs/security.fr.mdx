@@ -1,0 +1,105 @@
+---
+title: Sécurité et lutte contre les abus
+description: Comment S.EE empêche le phishing, les malwares et les abus sur les liens courts, le partage de texte et le partage de fichiers.
+icon: ShieldCheck
+---
+
+S.EE est un raccourcisseur d’URL qui redirige des liens à grande échelle. Nous prenons cela au sérieux. Tout ce qui est décrit ici s’applique de la même manière aux liens courts, au partage de texte et au partage de fichiers.
+
+---
+
+## Prévention des abus
+
+### Listes de blocage
+
+Nous maintenons une liste de blocage interne, mise à jour quotidiennement à partir de sources maintenues par la communauté :
+
+* Bases de données de domaines d’e-mails jetables et temporaires
+* Jeux de données publics d’URL de phishing et d’arnaque
+* Listes de domaines associés à du contenu adulte ou à haut risque
+
+Le contenu malveillant connu est bloqué avant même de pouvoir être créé.
+
+---
+
+### Pas de comptes gratuits
+
+S.EE ne propose pas de comptes gratuits ni d’accès d’essai. L’exigence de paiement augmente le coût des abus et rend les usages automatisés à grande échelle peu pratiques.
+
+---
+
+### Réputation du domaine
+
+Le domaine `s.ee` est enregistré comme domaine officiel de liens courts sur les principales plateformes et dans les grands écosystèmes de sécurité. Cela réduit les faux positifs dans la modération automatisée et accélère la résolution lorsqu’un contenu est signalé.
+
+---
+
+## Vérifications lors de la création de contenu
+
+### Analyse des URL en temps réel
+
+Lorsqu’un lien court est créé, l’URL de destination est vérifiée en temps réel par nos systèmes de détection d’abus et de phishing. Les liens correspondant à des schémas malveillants connus sont bloqués.
+
+---
+
+### Limitation du débit
+
+* La création de contenu est soumise à des limites de débit par compte
+* Les schémas inhabituels (comme la création rapide de slugs en masse) peuvent déclencher une revue manuelle
+* Les régions à risque élevé bénéficient de protections supplémentaires
+
+---
+
+## Partage de texte et de fichiers
+
+Le partage de texte et de fichiers suit les mêmes règles que les liens courts. Le contenu peut être restreint ou supprimé s’il :
+
+* Distribue des malwares
+* Facilite le phishing, les arnaques ou l’ingénierie sociale
+* Enfreint les lois applicables ou notre [Politique d’utilisation acceptable](https://s.ee/aup/)
+
+Les comptes liés à des violations peuvent être suspendus après examen manuel.
+
+---
+
+## Surveillance et application
+
+### Désactivation rétroactive
+
+Si un lien, un texte ou un fichier est ensuite identifié comme malveillant ou trompeur, nous le désactivons, même s’il avait passé les vérifications lors de sa création.
+
+---
+
+### Revue humaine
+
+Les signalements utilisateurs et alertes internes sont examinés par un modérateur humain. Si un abus est confirmé, nous désactivons le contenu et pouvons suspendre ou résilier le compte.
+
+---
+
+## Signaler un abus
+
+Si vous repérez un contenu suspect sur S.EE, faites-le nous savoir :
+
+* E-mail: `abuse@s.ee`
+* Formulaire de contact: [https://s.ee/contact/](https://s.ee/contact/)
+
+Voir aussi : [Conditions d’utilisation](https://s.ee/terms/) et [Politique d’utilisation acceptable](https://s.ee/aup/)
+
+---
+
+## Confidentialité
+
+Nous pouvons traiter un volume limité d’informations techniques lors de l’enquête sur des abus ou des incidents de sécurité. Ces données ne sont **pas** utilisées pour le suivi, le profilage, les statistiques ou le marketing.
+
+Détails complets : [Politique de confidentialité](https://s.ee/privacy/)
+
+---
+
+## Ressources
+
+<Cards>
+  <Card title="Politique de confidentialité" href="https://s.ee/privacy/">Comment nous traitons vos données</Card>
+  <Card title="Conditions d’utilisation" href="https://s.ee/terms/">Notre contrat de service</Card>
+  <Card title="Politique d’utilisation acceptable" href="https://s.ee/aup/">Ce qui est autorisé sur S.EE</Card>
+  <Card title="Signaler un abus" href="https://s.ee/contact/">Signaler un contenu suspect</Card>
+</Cards>

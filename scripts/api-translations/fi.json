@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Luo lyhyt URL",
+    "description": "Luo uuden lyhyen URL-osoitteen kohdelinkille. Voit halutessasi määrittää mukautetun tunnisteen, salasanasuojauksen, vanhenemisajan ja tunnisteita organisointia varten."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Luo lyhyt URL (yksinkertainen tila)",
+    "description": "Luo lyhyen URL-osoitteen nopeasti yksinkertaistetuilla parametreilla. Sopii tilanteisiin, joissa asetuksia ei juuri tarvita."
+  },
+  "UpdateShortUrl": {
+    "title": "Päivitä lyhyt URL",
+    "description": "Päivittää olemassa olevan lyhyen URL-osoitteen kohdeosoitteen, salasanan, vanhenemisajan tai tunnisteet."
+  },
+  "DeleteShortUrl": {
+    "title": "Poista lyhyt URL",
+    "description": "Poistaa määritetyn lyhyen URL-osoitteen pysyvästi."
+  },
+  "GetAvailableDomains": {
+    "title": "Hae käytettävissä olevat verkkotunnukset",
+    "description": "Palauttaa luettelon verkkotunnuksista, joita nykyinen tili voi käyttää lyhyiden URL-osoitteiden luomiseen."
+  },
+  "GetLinkVisitStat": {
+    "title": "Hae käyntitilastot",
+    "description": "Palauttaa määritetyn lyhyen URL-osoitteen käyntitiedot, mukaan lukien klikkausmäärät, lähteet ja maantieteellisen jakauman."
+  },
+  "CreateText": {
+    "title": "Luo tekstijako",
+    "description": "Luo lyhyen URL-osoitteen kautta käytettävän tekstisisällön, kuten raakatekstin, koodikatkelman tai Markdownin."
+  },
+  "UpdateText": {
+    "title": "Päivitä tekstijako",
+    "description": "Päivittää olemassa olevan tekstijaon sisällön, salasanan tai vanhenemisajan."
+  },
+  "DeleteText": {
+    "title": "Poista tekstijako",
+    "description": "Poistaa määritetyn tekstijaon pysyvästi."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Hae tekstijaon verkkotunnukset",
+    "description": "Palauttaa luettelon verkkotunnuksista, joita voidaan käyttää tekstijaon luomiseen."
+  },
+  "UploadFile": {
+    "title": "Lataa tiedosto",
+    "description": "Lataa tiedoston ja luo jaettavan lyhyen URL-osoitteen. Salasana ja vanhenemisaika voidaan asettaa."
+  },
+  "GetFileHistory": {
+    "title": "Hae tiedostohistoria",
+    "description": "Palauttaa nykyisen tilin lataamien tiedostojen luettelon."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Hae yksityisen tiedoston lataus-URL",
+    "description": "Luo väliaikaisen lataus-URL-osoitteen salasanalla suojatulle yksityiselle tiedostolle."
+  },
+  "DeleteFile": {
+    "title": "Poista tiedosto",
+    "description": "Poistaa määritetyn tiedoston pysyvästi."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Hae tiedostonjaon verkkotunnukset",
+    "description": "Palauttaa luettelon verkkotunnuksista, joita voidaan käyttää tiedostonjakoon."
+  },
+  "GetTags": {
+    "title": "Hae tunnisteluettelo",
+    "description": "Palauttaa kaikki nykyisen tilin sisällön jäsentämiseen käyttämät tunnisteet."
+  },
+  "GetUsage": {
+    "title": "Hae käyttö",
+    "description": "Palauttaa nykyisen tilin resurssien käytön kuluvalla laskutuskaudella."
+  }
+}

@@ -1,0 +1,70 @@
+---
+title: 自訂網域
+description: 如何為短網址設定自訂網域
+icon: Globe
+---
+
+## 什麼是自訂網域？
+
+自訂網域讓您在短網址中使用自己的品牌網域，而不是 `s.ee`。例如，您可以使用 `go.example.com/link`，而不是 `s.ee/link`。
+
+---
+
+## 為什麼要使用自訂網域？
+
+- **品牌識別度** - 短網址展示您的品牌，而不是我們的品牌
+- **信任感** - 使用者更願意點擊帶品牌的連結
+- **更高的點擊率** - 品牌化連結通常表現更好
+
+---
+
+## 新增自訂網域
+
+1. 前往 [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. 點擊 **Add Domain**
+3. 輸入您的網域
+4. 新增所需的 DNS 記錄：
+   - **TXT record** - 用於網域驗證
+   - **CNAME or Alias record** - 將您的網域指向 S.EE
+5. 等待 DNS 生效（通常只需幾分鐘）
+6. 點擊 **Verify** 確認設定完成
+
+---
+
+## 要求
+
+- 網域必須與您的主站網域不同
+- 最長 63 個字元（包括點號）
+- 您必須能夠存取該網域的 DNS 設定
+
+---
+
+## 重要說明
+
+### Cloudflare 使用者
+
+如果您使用 Cloudflare 管理 DNS，請 **不要為 CNAME 記錄啟用 Proxy（橙色雲圖標）**。請保持為 DNS only 模式（灰色雲）。啟用 Cloudflare 代理可能導致 CDN 衝突和重定向問題。
+
+### 使用裸網域（根網域）
+
+如果您想使用裸網域（例如 `example.com`，而不是 `go.example.com`），您的 DNS 服務商必須支援 **ALIAS 記錄** 或 **CNAME flattening**。常見支援此功能的服務商包括：
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/)（CNAME flattening）
+- [Hurricane Electric](https://dns.he.net/)（CNAME）
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/)（ALIAS）
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records)（ANAME）
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/)（ALIAS）
+
+如果您的 DNS 服務商不支援這些功能，請 [聯絡我們](https://s.ee/contact/)。我們可以幫助您手動驗證並新增裸網域。
+
+---
+
+## 各套餐的網域數量限制
+
+| 套餐 | 自訂網域 |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | 無限 |

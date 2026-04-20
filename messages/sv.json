@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Dashboard"
+  },
+  "cookieBar": {
+    "message": "Vi använder cookies för att komma ihåg ditt språkval och förbättra din upplevelse.",
+    "accept": "Acceptera",
+    "decline": "Avvisa",
+    "privacyLink": "Integritetspolicy"
+  },
+  "fumadocs": {
+    "search": "Sök",
+    "searchNoResult": "Inga resultat",
+    "toc": "På denna sida",
+    "lastUpdate": "Senast uppdaterad",
+    "previousPage": "Föregående",
+    "nextPage": "Nästa",
+    "chooseTheme": "Välj tema",
+    "editOnGithub": "Redigera på GitHub",
+    "chooseLanguage": "Välj språk"
+  }
+}

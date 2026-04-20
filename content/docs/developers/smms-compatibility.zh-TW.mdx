@@ -1,0 +1,146 @@
+---
+title: SM.MS 相容性
+description: 以最少的程式碼改動從 SM.MS 遷移到 S.EE
+icon: RefreshCw
+---
+
+S.EE 提供相容 SM.MS 的 API 層，讓您可以以最少的程式碼改動從 SM.MS 遷移到 S.EE。只需替換 API 端點地址即可開始使用。
+
+## 快速遷移
+
+將 SM.MS 的 API 基礎 URL 替換為 S.EE 對應地址：
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## 支援的介面
+
+| SM.MS 介面 | S.EE 介面 | 說明 |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | 上傳圖片 |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | 取得上傳歷史 |
+
+## 上傳圖片
+
+### 請求
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### 參數
+
+| 參數 | 型別 | 必填 | 說明 |
+|-----------|------|----------|-------------|
+| `smfile` | file | 是 | 要上傳的圖片檔案（別名：`file`） |
+| `domain` | string | 否 | 短網址使用的自訂網域 |
+| `custom_slug` | string | 否 | URL 的自訂短碼（未提供時隨機生成） |
+
+### 回應
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## 上傳歷史
+
+### 請求
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### 參數
+
+| 參數 | 型別 | 必填 | 說明 |
+|-----------|------|----------|-------------|
+| `page` | integer | 否 | 頁碼（預設 1，每頁 30 個檔案） |
+
+### 回應
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## 與 SM.MS 的差異
+
+雖然 S.EE 保持了對 SM.MS API 的相容性，但也提供了一些增強能力：
+
+| 功能 | SM.MS | S.EE |
+|---------|-------|------|
+| 自訂網域 | 否 | 是 |
+| 自訂短碼 | 否 | 是 |
+| 檔案大小限制 | 5 MB | 隨套餐而變化 |
+| 支援的格式 | 僅圖片 | 圖片、檔案等更多型別 |
+
+## 取得您的 API Key
+
+要使用 S.EE API，您需要一個 API Key：
+
+1. 在 [s.ee](https://s.ee) 註冊或登入
+2. 前往 **[Tools > API Token](https://s.ee/user/developers/)**
+3. 生成新的 API Key
+
+## 需要幫助？
+
+如果您在遷移過程中遇到任何問題，請 [聯絡支援](https://s.ee/contact) 或檢視我們的 [API 文件](/docs/zh-TW/developers/api)。

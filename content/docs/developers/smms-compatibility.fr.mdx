@@ -1,0 +1,146 @@
+---
+title: Compatibilité SM.MS
+description: Migrez de SM.MS vers S.EE avec un minimum de modifications de code
+icon: RefreshCw
+---
+
+S.EE fournit une couche API compatible SM.MS, ce qui vous permet de migrer de SM.MS vers S.EE avec un minimum de modifications de code. Remplacez simplement le point de terminaison API et tout est prêt.
+
+## Migration rapide
+
+Remplacez l’URL de base de l’API SM.MS par l’équivalent S.EE :
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Point de terminaison pris en charge
+
+| Point de terminaison SM.MS | Point de terminaison S.EE | Description |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Téléverser une image |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Obtenir l’historique de téléversement |
+
+## Téléverser une image
+
+### Requête
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Paramètres
+
+| Paramètre | Type | Requis | Description |
+|-----------|------|----------|-------------|
+| `smfile` | file | Oui | Le fichier image à téléverser (alias : `file`) |
+| `domain` | string | Non | Domaine personnalisé pour le lien court |
+| `custom_slug` | string | Non | Slug personnalisé pour l’URL (aléatoire s’il n’est pas fourni) |
+
+### Réponse
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Historique des téléversements
+
+### Requête
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Paramètres
+
+| Paramètre | Type | Requis | Description |
+|-----------|------|----------|-------------|
+| `page` | integer | Non | Numéro de page (par défaut 1, 30 fichiers par page) |
+
+### Réponse
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## Différences par rapport à SM.MS
+
+Bien que S.EE maintienne la compatibilité avec l’API SM.MS, certaines améliorations sont apportées :
+
+| Fonctionnalité | SM.MS | S.EE |
+|---------|-------|------|
+| Domaine personnalisé | Non | Oui |
+| Slug personnalisé | Non | Oui |
+| Limite de taille de fichier | 5MB | Variable selon l’offre |
+| Formats pris en charge | Images uniquement | Images, documents, etc. |
+
+## Obtenir votre clé API
+
+Pour utiliser l’API S.EE, vous avez besoin d’une clé API :
+
+1. Inscrivez-vous ou connectez-vous sur [s.ee](https://s.ee)
+2. Accédez à **[Tools > API Token](https://s.ee/user/developers/)**
+3. Générez une nouvelle clé API
+
+## Besoin d’aide ?
+
+Si vous rencontrez des problèmes pendant la migration, veuillez [contacter l’assistance](https://s.ee/contact) ou consulter notre [documentation API](/docs/fr/developers/api).

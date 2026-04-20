@@ -1,0 +1,156 @@
+---
+title: YOURLS 互換 API
+description: YOURLS 互換のクライアントや連携機能から S.EE を利用する
+icon: LinkShare
+---
+
+S.EE では YOURLS 互換の API エンドポイントを提供しており、[YOURLS](https://yourls.org/) API に対応した既存のサードパーティークライアントや連携機能から S.EE をご利用いただけます。
+
+このエンドポイントは、YOURLS からの移行を容易にし、すでに YOURLS API プロトコルに対応している自動化ツール、ブラウザー拡張機能、アプリケーションへ S.EE を組み込めるようにすることを目的としています。
+
+---
+
+## API エンドポイント
+
+```
+https://s.ee/api/v1/yourls
+````
+
+---
+
+## 互換性の範囲
+
+このエンドポイントは、**YOURLS API の部分互換レイヤー** を実装しています。
+
+### 対応
+
+- `action=shorturl`
+- `signature` 認証
+- 出力形式: `json`、`jsonp`、`xml`、`simple`
+- GET および POST リクエスト
+
+### 非対応
+
+- `username` / `password` 認証
+- `expand`、`stats`、`db-stats` など、その他の YOURLS アクション
+- 管理系またはデータベース関連の操作
+
+提供しているのは URL 短縮機能のみです。
+
+---
+
+## 認証
+
+<Callout type="warn">
+対応しているのは `signature` 認証のみです。ユーザー名 / パスワード認証は **ご利用いただけません**。
+</Callout>
+
+`signature` パラメーターには、**S.EE API Token** を指定します。
+
+API Token の生成と管理は、次のページから行えます:
+
+https://s.ee/user/developers/
+
+API Token は認証済みユーザーに紐づいており、アカウントと同じ権限および制限が適用されます。
+
+---
+
+## 対応アクション
+
+現在対応しているアクションは、次の 1 つだけです:
+
+| Action | 説明 |
+|------|-------------|
+| `shorturl` | 指定したリンクの短縮 URL を作成します |
+
+---
+
+## パラメーター
+
+| Parameter | 必須 | 説明 |
+|----------|----------|-------------|
+| `signature` | はい | S.EE API Token |
+| `action` | はい | 実行するアクション (現在は `shorturl` のみ) |
+| `url` | はい | 短縮する URL |
+| `format` | いいえ | 出力形式: `json`、`jsonp`、`xml`、`simple` (既定値: `simple`) |
+| `keyword` | いいえ | 短縮 URL 用のカスタムスラッグ |
+| `title` | いいえ | 短縮 URL のタイトル |
+
+### 補足
+
+- 指定した `keyword` がすでに使用中の場合、エラーではなく、新たに使用可能なキーワードが自動生成されます。
+- S.EE の標準的な不正利用対策および検証ルールは、すべてのリクエストに適用されます。
+
+---
+
+## 例
+
+### POST リクエスト
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+````
+
+**レスポンス:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+一部のレスポンス項目は YOURLS 互換性のために保持されており、空の場合があります。
+</Callout>
+
+---
+
+### GET リクエスト
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**レスポンス:**
+
+```
+https://s.ee/link
+```
+
+<Callout>
+GET リクエストでは、パラメーターを URL エンコードすることをお忘れなく。  
+長い URL や追加パラメーターを扱う場合は、URL 長の制限を避けるため、POST リクエストを推奨します。
+</Callout>
+
+---
+
+## サードパーティークライアント
+
+この API は、YOURLS 形式の URL 短縮に対応している次のようなクライアントと互換性があります:
+
+* ブラウザー拡張機能
+* モバイルアプリケーション
+* デスクトップアプリケーション
+* 自動化ツール (Shortcuts、Tasker、Zapier など)
+
+元の YOURLS API 仕様の詳細については、公式ドキュメントをご参照ください:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

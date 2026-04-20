@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Client en ligne de commande pour la plateforme S.EE
+icon: Terminal
+---
+
+Un client en ligne de commande pour la plateforme S.EE, qui vous permet de créer et gérer des URL courtes, des extraits de texte et des fichiers directement depuis votre terminal.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Fonctionnalités
+
+- **Gestion des URL courtes**: créer, mettre à jour et supprimer des liens raccourcis avec slugs personnalisés, domaines et expiration
+- **Extraits de texte**: partager des extraits de code et des notes depuis stdin ou des fichiers
+- **Téléversement de fichiers**: téléverser des fichiers directement ou via stdin
+- **Gestion des domaines et tags**: lister les domaines disponibles et gérer les tags
+- **Protection par mot de passe**: sécuriser votre contenu avec des mots de passe
+- **Sortie JSON**: sortie lisible par machine pour les scripts
+
+## Installation
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# or pre-built binary
+yay -S see-cli-bin
+```
+
+### Depuis les sources
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Téléchargez les binaires et paquets précompilés depuis [GitHub Releases](https://github.com/sdotee/cli/releases).
+
+## Configuration
+
+Définissez votre clé API via une variable d’environnement ou un flag :
+
+```bash
+# Environment variable (recommended)
+export SEE_API_KEY="your-api-key"
+
+# Or use the flag
+see --api-key "your-api-key" <command>
+```
+
+### Options de configuration
+
+| Option | Variable d’environnement | Description |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | Votre clé API S.EE (requise) |
+| `--base-url` | `SEE_BASE_URL` | URL de base API personnalisée |
+| `--timeout` | `SEE_TIMEOUT` | Délai d’expiration de la requête |
+| `--json` | - | Active le format de sortie JSON |
+
+## Commandes
+
+### Domaines et tags
+
+```bash
+# List available domains for short URLs
+see domains
+
+# List available domains for file uploads
+see file domains
+
+# List your tags
+see tags
+```
+
+### URL courtes
+
+```bash
+# Create a short URL
+see url create https://example.com
+
+# Create with custom options
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Update a short URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Delete a short URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Extraits de texte
+
+```bash
+# Create text from stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Create text from file
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Create with options
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Update text
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Delete text
+see text delete --domain fs.to --slug abc123
+```
+
+### Téléversement de fichiers
+
+```bash
+# Upload a file
+see file upload ./image.png
+
+# Upload with custom domain
+see file upload ./document.pdf --domain fs.to
+
+# Upload from stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Delete a file
+see file delete <delete-hash>
+```
+
+## Sortie JSON
+
+Utilisez le flag `--json` pour obtenir une sortie lisible par machine, utile pour les scripts :
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Exemples
+
+### Créer une URL courte et la copier dans le presse-papiers (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Téléverser une capture d’écran et obtenir l’URL (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Créer des URL courtes par lot
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

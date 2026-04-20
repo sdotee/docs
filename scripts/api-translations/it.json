@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Crea URL breve",
+    "description": "Crea un nuovo URL breve per il link di destinazione. Facoltativamente puoi impostare uno slug personalizzato, la protezione con password, una scadenza e tag per l’organizzazione."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Crea URL breve (modalità semplice)",
+    "description": "Crea rapidamente un URL breve con parametri semplificati, ideale per scenari senza configurazione."
+  },
+  "UpdateShortUrl": {
+    "title": "Aggiorna URL breve",
+    "description": "Aggiorna l’indirizzo di destinazione, la password, la scadenza o i tag di un URL breve esistente."
+  },
+  "DeleteShortUrl": {
+    "title": "Elimina URL breve",
+    "description": "Elimina definitivamente l’URL breve specificato."
+  },
+  "GetAvailableDomains": {
+    "title": "Ottieni domini disponibili",
+    "description": "Restituisce l’elenco dei domini disponibili nell’account corrente per creare URL brevi."
+  },
+  "GetLinkVisitStat": {
+    "title": "Ottieni statistiche di visita",
+    "description": "Restituisce i dati di visita di un URL breve, inclusi clic, sorgenti e distribuzione geografica."
+  },
+  "CreateText": {
+    "title": "Crea condivisione di testo",
+    "description": "Crea un contenuto testuale accessibile tramite URL breve, ad esempio testo semplice, snippet di codice o Markdown."
+  },
+  "UpdateText": {
+    "title": "Aggiorna condivisione di testo",
+    "description": "Aggiorna il contenuto, la password o la scadenza di una condivisione di testo esistente."
+  },
+  "DeleteText": {
+    "title": "Elimina condivisione di testo",
+    "description": "Elimina definitivamente la condivisione di testo specificata."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Ottieni domini disponibili per la condivisione di testo",
+    "description": "Restituisce l’elenco dei domini disponibili per creare condivisioni di testo."
+  },
+  "UploadFile": {
+    "title": "Carica file",
+    "description": "Carica un file e genera un URL breve condivisibile, con supporto per password e scadenza."
+  },
+  "GetFileHistory": {
+    "title": "Ottieni cronologia file",
+    "description": "Restituisce l’elenco dei file caricati dall’account corrente."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Ottieni URL di download del file privato",
+    "description": "Genera un URL di download temporaneo per un file privato protetto da password."
+  },
+  "DeleteFile": {
+    "title": "Elimina file",
+    "description": "Elimina definitivamente il file specificato."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Ottieni domini disponibili per la condivisione file",
+    "description": "Restituisce l’elenco dei domini disponibili per la condivisione di file."
+  },
+  "GetTags": {
+    "title": "Ottieni elenco tag",
+    "description": "Restituisce tutti i tag dell’account corrente utilizzati per organizzare i contenuti."
+  },
+  "GetUsage": {
+    "title": "Ottieni utilizzo",
+    "description": "Restituisce l’utilizzo delle risorse dell’account corrente nel ciclo di fatturazione in corso."
+  }
+}

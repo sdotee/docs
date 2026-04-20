@@ -1,0 +1,96 @@
+---
+title: ShareX
+description: Laadi ShareX-ist ekraanipilte, faile ja teksti S.EE-sse
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/) on Windowsi avatud lähtekoodiga ekraanipildi- ja failijagamise tööriist. S.EE pakub ShareX-i jaoks kohandatud üleslaadija konfiguratsioone, nii et saad ekraanipilte, faile, teksti ja koodi otse S.EE-sse üles laadida ning vastu jagamislingi.
+
+Vaata ka: [ShareX custom uploader docs](https://getsharex.com/docs/custom-uploader)
+
+---
+
+## Kohandatud üleslaadijad
+
+S.EE-l on konfiguratsioonid järgmiste üleslaadimistüüpide jaoks:
+
+| Üleslaadija | Mida see teeb |
+|----------|-------------|
+| URL Shortener | Lühendab URL-e S.EE kaudu |
+| Text Uploader | Laadib üles tekstikatkeid |
+| Code Uploader | Laadib üles koodi koos süntaksi esiletõstmisega |
+| Markdown Uploader | Laadib üles Markdowni renderdatud eelvaatega |
+| Image & File Uploader | Laadib üles pilte ja faile |
+
+---
+
+## Paigaldamine
+
+Võta allolevad `.sxcu` konfiguratsioonifailid. Saad need alla laadida või ShareX-i URL-i kaudu importida.
+
+| Üleslaadija | Allalaadimis- või impordilink |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### Importimine
+
+1. Ava **ShareX**
+2. Vali **Destinations** > **Custom uploader settings**
+3. Klõpsa **Import** ja tee üks järgmistest:
+   - vali allalaaditud `.sxcu` fail
+   - kleebi otse allalaadimis-URL
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## Seadista oma API võti
+
+1. Hangi API võti menüüst **[Tools > API Token](https://s.ee/user/developers/)**
+2. Ava ShareX-is **Custom uploader settings** ja vali imporditud S.EE üleslaadija
+3. Määra jaotises **Headers** väärtuseks `Authorization` oma API võti
+
+<Callout type="warn">
+Ära jaga oma API võtit avalikult ega lisa seda versioonihaldusse.
+</Callout>
+
+---
+
+## Kasutamine
+
+### Vali üleslaadijad
+
+ShareX-is ava **Destinations** ja määra S.EE üleslaadijad:
+
+- URL shortener -> S.EE URL Shortener
+- Text uploader -> S.EE Text Uploader, Code Uploader või Markdown Uploader
+- Image uploader -> S.EE File Uploader
+- File uploader -> S.EE File Uploader
+
+### Laadi üles
+
+Kasuta URL-i lühendamiseks, ekraanipildi üleslaadimiseks või tekstikatke jagamiseks ShareX-i kiirklahve või paremklõpsumenüüd. ShareX laeb sisu S.EE-sse üles ja kopeerib lingi lõikelauale.
+
+---
+
+## Tõrkeotsing
+
+| Probleem | Lahendus |
+|-------|-----|
+| 401 error | Kontrolli, et API võti on `Authorization` päises õigesti seadistatud |
+| 403 error | Veendu, et API võtmel on õiged õigused |
+| File rejected | Failitüüp ei pruugi olla toetatud. Lubatud tüübid on kirjas lehel [Failide jagamine](/docs/et/file-sharing) |
+
+Töötamise kinnitamiseks saad **Custom uploader settings** all klõpsata **Test**.
+
+---
+
+## Seotud
+
+- [Arendajate API](/docs/et/developers)
+- [Failide jagamine](/docs/et/file-sharing)
+- [Teksti jagamine](/docs/et/text-sharing)

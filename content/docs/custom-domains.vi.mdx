@@ -1,0 +1,70 @@
+---
+title: Tên miền tùy chỉnh
+description: Cách thiết lập tên miền tùy chỉnh cho liên kết ngắn của bạn
+icon: Globe
+---
+
+## Tên miền tùy chỉnh là gì?
+
+Tên miền tùy chỉnh cho phép bạn dùng thương hiệu riêng của mình trong liên kết ngắn thay vì `s.ee`. Ví dụ, thay vì `s.ee/link`, bạn có thể dùng `go.example.com/link`.
+
+---
+
+## Vì sao nên dùng tên miền tùy chỉnh?
+
+- **Nhận diện thương hiệu** - Liên kết hiển thị thương hiệu của bạn, không phải của chúng tôi
+- **Độ tin cậy** - Người dùng có xu hướng nhấp vào liên kết mang thương hiệu hơn
+- **Tỷ lệ nhấp cao hơn** - Liên kết mang thương hiệu thường hoạt động tốt hơn
+
+---
+
+## Thêm tên miền tùy chỉnh
+
+1. Truy cập [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Nhấp vào **Add Domain**
+3. Nhập tên miền của bạn
+4. Thêm các bản ghi DNS cần thiết:
+   - **TXT record** - Dùng để xác minh tên miền
+   - **CNAME or Alias record** - Trỏ tên miền của bạn đến S.EE
+5. Chờ DNS propagation (thường mất vài phút)
+6. Nhấp vào **Verify** để xác nhận cấu hình
+
+---
+
+## Yêu cầu
+
+- Tên miền phải khác với tên miền website chính của bạn
+- Tối đa 63 ký tự (bao gồm dấu chấm)
+- Bạn phải có quyền truy cập vào cài đặt DNS của tên miền
+
+---
+
+## Lưu ý quan trọng
+
+### Người dùng Cloudflare
+
+Nếu bạn dùng Cloudflare cho DNS, **không bật Proxy (biểu tượng đám mây màu cam)** cho bản ghi CNAME. Hãy giữ ở chế độ DNS-only (đám mây xám). Bật proxy Cloudflare có thể gây xung đột CDN và lỗi chuyển hướng.
+
+### Dùng naked domain (root domain)
+
+Nếu bạn muốn dùng naked domain (ví dụ `example.com` thay vì `go.example.com`), nhà cung cấp DNS của bạn phải hỗ trợ **ALIAS records** hoặc **CNAME flattening**. Một số nhà cung cấp phổ biến có hỗ trợ:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Nếu nhà cung cấp DNS của bạn không hỗ trợ các tính năng này, hãy [liên hệ với chúng tôi](https://s.ee/contact/) - chúng tôi có thể hỗ trợ xác minh và thêm naked domain theo cách thủ công.
+
+---
+
+## Giới hạn tên miền theo gói
+
+| Plan | Custom Domains |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Unlimited |

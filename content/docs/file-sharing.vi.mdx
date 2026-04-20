@@ -1,0 +1,233 @@
+---
+title: Chia sẻ tệp
+description: Cách tải lên và chia sẻ tệp với S.EE
+icon: Upload
+---
+
+## Tổng quan
+
+S.EE File Sharing cho phép bạn tải lên và chia sẻ tệp bằng một liên kết ngắn, dễ chia sẻ. Phù hợp để chia sẻ hình ảnh, tài liệu, âm thanh, video và các loại tệp khác.
+
+---
+
+## Tải tệp lên
+
+### Tải lên nhanh (Drag & Drop)
+
+1. Đăng nhập vào [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Nhấp vào **Sharing > Files** ở thanh bên trái hoặc truy cập trực tiếp [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Kéo và thả tệp hoặc thư mục vào cửa sổ **Drag & Drop**
+   - Bạn cũng có thể nhấp vào cửa sổ để duyệt và chọn tệp
+   - Khi tải lên một thư mục, tất cả tệp bên trong thư mục đó sẽ được tải lên
+4. Tệp sẽ được chia sẻ bằng tên miền mặc định và slug ngẫu nhiên
+
+### Tải lên nâng cao (Create File)
+
+Để kiểm soát chi tiết hơn việc chia sẻ tệp:
+
+1. Nhấp vào nút **Create File**
+2. Cấu hình các tùy chọn:
+   - **Domain** - Chọn tên miền bạn muốn dùng cho trang chia sẻ
+   - **Custom Slug** - Đặt slug URL tùy chỉnh
+   - **Other options** - Tag, thời gian hết hạn, v.v.
+3. Chọn tệp và tải lên
+
+---
+
+## Liên kết tệp
+
+Mỗi tệp được tải lên sẽ có hai loại liên kết:
+
+| Link Type | Format | Description |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | Có thể tùy chỉnh tên miền và slug |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Truy cập trực tiếp vào tệp với tên tệp gốc |
+
+**Lưu ý:** Hiện tại direct link chưa hỗ trợ tên miền tùy chỉnh.
+
+---
+
+## Loại tệp được hỗ trợ
+
+S.EE hỗ trợ nhiều loại tệp khác nhau:
+
+### Hình ảnh
+
+| MIME Type | Description |
+|-----------|-------------|
+| image/jpeg | Ảnh JPEG (.jpg, .jpeg) |
+| image/png | Ảnh PNG (.png) |
+| image/gif | Ảnh GIF (.gif) |
+| image/webp | Ảnh WebP (.webp) |
+| image/avif | Ảnh AVIF (.avif) |
+| image/svg+xml | Ảnh SVG (.svg) |
+| image/bmp | Ảnh BMP (.bmp) |
+| image/tiff | Ảnh TIFF (.tiff, .tif) |
+| image/heic | Ảnh HEIC (.heic) |
+| image/heif | Ảnh HEIF (.heif) |
+| image/jp2 | Ảnh JPEG 2000 (.jp2) |
+| image/jpx | Ảnh JPEG 2000 (.jpx) |
+| image/jxl | Ảnh JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | Tệp Photoshop (.psd) |
+
+### Tài liệu
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/pdf | Tài liệu PDF (.pdf) |
+| application/msword | Tài liệu Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Tài liệu Word (.docx) |
+| application/vnd.ms-excel | Bảng tính Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Bảng tính Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Bản trình bày PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Bản trình bày PowerPoint (.pptx) |
+| application/vnd.apple.pages | Tài liệu Pages (.pages) |
+| application/vnd.apple.numbers | Bảng tính Numbers (.numbers) |
+| application/vnd.apple.keynote | Bản trình bày Keynote (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | Tệp PostScript (.ps, .eps) |
+| application/epub+zip | Sách điện tử EPUB (.epub) |
+
+### Văn bản & dữ liệu
+
+| MIME Type | Description |
+|-----------|-------------|
+| text/plain | Tệp văn bản thuần (.txt) |
+| text/csv | Tệp CSV (.csv) |
+| text/markdown | Tệp Markdown (.md, .markdown, .mdx) |
+| application/json | Tệp JSON (.json) |
+| application/yaml | Tệp YAML (.yaml, .yml) |
+
+### Âm thanh
+
+| MIME Type | Description |
+|-----------|-------------|
+| audio/mpeg | Tệp MP3 (.mp3) |
+| audio/wav | Tệp WAV (.wav) |
+| audio/ogg | Âm thanh OGG (.ogg) |
+| audio/flac | Âm thanh FLAC (.flac) |
+| audio/aac | Âm thanh AAC (.aac) |
+| audio/mp4, audio/x-m4a | Âm thanh M4A (.m4a) |
+| audio/midi | Tệp MIDI (.mid, .midi) |
+| audio/x-ms-wma | Âm thanh WMA (.wma) |
+
+### Video
+
+| MIME Type | Description |
+|-----------|-------------|
+| video/mp4 | Video MP4 (.mp4) |
+| video/webm | Video WebM (.webm) |
+| video/quicktime | Video QuickTime (.mov) |
+| video/x-matroska | Video MKV (.mkv) |
+| video/x-msvideo | Video AVI (.avi) |
+| video/mpeg | Video MPEG (.mpeg, .mpg) |
+| video/ogg | Video OGG (.ogv) |
+| video/3gpp | Video 3GP (.3gp) |
+| video/x-flv | Video FLV (.flv) |
+| video/x-ms-wmv | Video WMV (.wmv) |
+
+### Tệp nén & disk image
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/zip | Tệp ZIP (.zip) |
+| application/x-zip-compressed | Tệp ZIP (.zip) |
+| application/gzip | Tệp GZIP (.gz) |
+| application/x-bzip2 | Tệp BZIP2 (.bz2) |
+| application/x-xz | Tệp XZ (.xz) |
+| application/x-tar | Tệp TAR (.tar) |
+| application/x-7z-compressed | Tệp 7-Zip (.7z) |
+| application/x-rar-compressed | Tệp RAR (.rar) |
+| application/x-apple-diskimage | Disk image DMG (.dmg) |
+| application/x-iso9660-image | Disk image ISO (.iso) |
+
+<Callout type="warn">
+Các tệp thực thi (.exe, .msi, .bat, .app, v.v.) **không được phép** vì lý do bảo mật.
+</Callout>
+
+<Callout type="info">
+Đối với các phần mở rộng sau, chúng tôi có thể buộc `Content-Type` của phản hồi thành `text/plain` để giảm nguy cơ lạm dụng script: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Với loại tệp không rõ ràng hoặc mơ hồ, chúng tôi sẽ buộc `Content-Type` của phản hồi thành `application/octet-stream`.
+</Callout>
+
+### Legacy/Compatibility
+
+Các MIME Type sau được chấp nhận để tương thích với hệ thống cũ.
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/excel | Bảng tính Excel (.xls) |
+| application/x-excel | Bảng tính Excel (.xls) |
+| application/x-msexcel | Bảng tính Excel (.xls) |
+| application/mspowerpoint | Bản trình bày PowerPoint (.ppt) |
+| application/powerpoint | Bản trình bày PowerPoint (.ppt) |
+| application/x-mspowerpoint | Bản trình bày PowerPoint (.ppt) |
+
+---
+
+## Giới hạn lưu trữ
+
+Giới hạn lưu trữ phụ thuộc vào gói:
+
+| Plan | Max File Size | Total Storage |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Custom | Custom |
+
+Xem [s.ee/pricing](https://s.ee/pricing) để biết chi tiết đầy đủ.
+
+---
+
+## Thời gian lưu giữ tệp
+
+- Tệp được **lưu trữ vĩnh viễn** miễn là gói đăng ký của bạn còn hiệu lực
+- Nếu gói đăng ký hết hạn, tệp sẽ được giữ trong **7 ngày** trước khi bị xóa
+
+---
+
+## Tên miền được hỗ trợ
+
+Chia sẻ tệp hiện khả dụng trên các tên miền sau:
+
+| Domain | Best For |
+|--------|----------|
+| [fs.to](https://fs.to) | Chia sẻ tệp nói chung |
+| [files.to](https://files.to) | Chia sẻ tệp nói chung |
+| [fileshare.to](https://fileshare.to) | Chia sẻ tệp nói chung |
+| [filesharing.to](https://filesharing.to) | Chia sẻ tệp nói chung |
+
+Với khách hàng Premium và Enterprise, vui lòng tham khảo [các tên miền chính thức](/docs/vi/official-domains/#premium--enterprise).
+
+---
+
+## Truy cập API
+
+Chia sẻ tệp cũng khả dụng qua API. Xem [tài liệu API](/docs/vi/developers/api/#file-sharing) để biết chi tiết về tải lên theo cách lập trình.
+
+---
+
+## FAQ
+
+### Ai có thể tải tệp lên?
+
+Chỉ người dùng trả phí mới có thể tải tệp lên. Cần có gói đăng ký hợp lệ.
+
+### Có giới hạn tải xuống không?
+
+Không. Không có giới hạn về số lượt tải xuống hay băng thông cho các tệp được chia sẻ.
+
+### Tôi có thể tùy chỉnh URL của trang chia sẻ không?
+
+Có. Bạn có thể đặt tên miền và slug tùy chỉnh cho trang chia sẻ khi dùng phương thức tải lên **Create File**.
+
+### Tôi có thể tùy chỉnh URL direct link không?
+
+Hiện tại direct link dùng định dạng cố định và chưa hỗ trợ tên miền tùy chỉnh.

@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Alustamine---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Funktsioonid---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Tasuta teenused---",
+    "free-url-shorteners",
+    "---Abi---",
+    "troubleshooting",
+    "security",
+    "---Integratsioon---",
+    "developers",
+    "api",
+    "---Kolmanda osapoole integratsioonid---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Kogukond---",
+    "awesome"
+  ]
+}

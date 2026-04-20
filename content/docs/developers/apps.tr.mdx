@@ -1,0 +1,125 @@
+---
+title: Mobil uygulama
+description: S.EE için yerel mobil uygulama
+icon: Smartphone
+---
+
+Telefonunuzdan bağlantı kısaltın, metin paylaşın ve dosya yükleyin; S.EE'nin tüm gücü yerel bir uygulamada elinizin altında olsun.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## İndir
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/app-store-badge.svg" alt="App Store'dan indirin" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/google-play-badge.svg" alt="Google Play'den alın" height="40" />
+  </a>
+</div>
+
+## Desteklenen platformlar
+
+| Platform | Gereksinimler | Teknoloji |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Özellikler
+
+### URL kısaltma
+
+- Özel slug, başlık, parola ve sona erme süresi ile kısa bağlantı oluşturma
+- Birden fazla alan adı arasından seçim yapma
+- Bugün, bu ay ve toplam ziyaret istatistiklerini görüntüleme
+- Slug, hedef URL, başlık ve alan adına göre arama
+- Mevcut bağlantıları düzenleme veya silme
+
+### Metin paylaşımı
+
+- Düz metin, kaynak kodu veya Markdown paylaşma
+- Kod için tek aralıklı düzenleyici
+- Özel slug, parola ve sona erme süresi
+- Alan adı seçimi ve etiket atama (en fazla 5 etiket)
+
+### Dosya yükleme
+
+- Dosya seçme, galeriden alma veya kamerayla çekim yapma
+- Panodan yapıştırma ve otomatik WebP dönüştürme (iOS)
+- Gerçek zamanlı yükleme ilerleme durumu
+- Doğrudan bağlantı, paylaşım sayfası, BBCode, HTML, Markdown ve daha fazlası olmak üzere 9 bağlantı biçimi
+- Tüm listelerde toplu kopyalama ve toplu silme
+
+### Kullanım paneli
+
+- Görsel ilerleme çubuğuyla depolama kullanımı
+- API çağrıları, bağlantılar, metin paylaşımları, yüklemeler ve QR kodlar için oran limitleri
+- Günlük ve aylık kullanım sayıları
+
+### Ayarlar
+
+- Self-hosted kurulumlar için temel URL yapılandırması
+- Tek dokunuşla doğrulama yapan API anahtarı yönetimi
+- Her hizmet için varsayılan alan adı seçimi (bağlantı, metin, dosya)
+- Tema: Sistem / Açık / Koyu
+- Dynamic Color / Material You desteği (Android)
+
+## iOS
+
+Yerel iOS deneyimi için **SwiftUI** ve **SwiftData** ile geliştirilmiştir.
+
+- **Photo Picker** — Fotoğraflar arşivinden seçim yapma
+- **Camera** — Fotoğraf (JPG) veya video (MOV'dan MP4'e) çekme
+- Etiketler ve listeler için aşağı çekerek yenileme
+- Keychain tabanlı güvenli API anahtarı saklama
+
+## Android
+
+Yerel Android deneyimi için **Jetpack Compose** ve **Material 3** (Material You) ile geliştirilmiştir.
+
+- **Share Target** — Diğer uygulamalardan paylaşılan metin, URL ve dosyaları alma
+- **App Shortcuts** — Hızlı işlemler için uygulama simgesine uzun basma
+- **Predictive Back** hareket desteği (Android 14+)
+- Temalı simge destekli **Adaptive Icon**
+- Yerel geçmiş için Room veritabanı
+- Güvenli depolama için EncryptedSharedPreferences
+
+## Teknoloji yığını
+
+### iOS
+
+| Katman | Teknoloji |
+|-------|-----------|
+| Arayüz | SwiftUI |
+| Depolama | SwiftData |
+| Ağ | URLSession (actor tabanlı) |
+| Güvenlik | Keychain |
+| Küçük görseller | QuickLookThumbnailing |
+| Görsel işleme | Swift-WebP |
+
+### Android
+
+| Katman | Teknoloji |
+|-------|-----------|
+| Arayüz | Jetpack Compose + Material 3 |
+| Mimari | MVVM + Repository |
+| Ağ | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Yerel veritabanı | Room |
+| Güvenlik | EncryptedSharedPreferences |
+| Görsel yükleme | Coil 3 |
+
+## Kaynak kod
+
+Her iki uygulama da MIT lisansı ile açık kaynak olarak yayımlanır:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Başlarken
+
+1. [App Store](https://s.ee/ios) veya [Google Play](https://s.ee/android) üzerinden indirin
+2. Henüz hesabınız yoksa [s.ee](https://s.ee) üzerinden hesap oluşturun
+3. Panelinizden [API anahtarı oluşturun](https://s.ee/user/developers/)
+4. Uygulamayı açın, **Settings** bölümüne gidin, API anahtarınızı girin ve **Verify** düğmesine dokunun

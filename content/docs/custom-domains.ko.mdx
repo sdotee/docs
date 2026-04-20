@@ -1,0 +1,70 @@
+---
+title: 사용자 정의 도메인
+description: 단축 링크용 사용자 정의 도메인을 설정하는 방법
+icon: Globe
+---
+
+## 사용자 정의 도메인이란 무엇인가요?
+
+사용자 정의 도메인을 사용하면 `s.ee` 대신 직접 보유한 브랜드 도메인으로 단축 링크를 만들 수 있습니다. 예를 들어 `s.ee/link` 대신 `go.example.com/link` 를 사용할 수 있습니다.
+
+---
+
+## 왜 사용자 정의 도메인을 사용하나요?
+
+- **브랜드 인지도** - 링크에 S.EE 가 아니라 귀하의 브랜드가 표시됩니다
+- **신뢰도** - 사용자는 브랜드가 있는 링크를 더 쉽게 클릭합니다
+- **더 높은 클릭률** - 브랜드 링크가 더 좋은 성과를 내는 경우가 많습니다
+
+---
+
+## 사용자 정의 도메인 추가
+
+1. [https://s.ee/user/domains/](https://s.ee/user/domains/)로 이동합니다
+2. **Add Domain** 을 클릭합니다
+3. 도메인 이름을 입력합니다
+4. 필요한 DNS 레코드를 추가합니다
+   - **TXT record** - 도메인 소유권 확인용
+   - **CNAME or Alias record** - 도메인을 S.EE 로 연결
+5. DNS 전파가 완료될 때까지 기다립니다 (보통 몇 분)
+6. **Verify** 를 클릭해 설정을 확인합니다
+
+---
+
+## 요구 사항
+
+- 메인 웹사이트 도메인과 다른 도메인이어야 합니다
+- 최대 63 자까지 사용할 수 있습니다 (점 포함)
+- 도메인의 DNS 설정에 접근할 수 있어야 합니다
+
+---
+
+## 중요 안내
+
+### Cloudflare 사용자
+
+DNS 에 Cloudflare 를 사용 중이라면 CNAME 레코드에서 **Proxy (주황색 구름 아이콘)** 를 활성화하지 마세요. DNS only 모드 (회색 구름) 로 유지해야 합니다. Cloudflare 프록시를 활성화하면 CDN 충돌이나 리디렉션 문제가 발생할 수 있습니다.
+
+### 루트 도메인 사용
+
+`go.example.com` 대신 `example.com` 같은 루트 도메인을 사용하려면 DNS 제공업체가 **ALIAS 레코드** 또는 **CNAME flattening** 을 지원해야 합니다. 대표적인 제공업체는 다음과 같습니다.
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+DNS 제공업체가 이 기능을 지원하지 않는다면 [문의하기](https://s.ee/contact/) 를 통해 연락해 주세요. 수동으로 확인하고 추가하는 것을 도와드릴 수 있습니다.
+
+---
+
+## 요금제별 도메인 한도
+
+| Plan | Custom Domains |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Unlimited |

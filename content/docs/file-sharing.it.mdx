@@ -1,0 +1,233 @@
+---
+title: Condivisione di file
+description: Come caricare e condividere file con S.EE
+icon: Upload
+---
+
+## Panoramica
+
+La condivisione file di S.EE ti permette di caricare e condividere file tramite un link breve e facile da inviare. È adatta a immagini, documenti, audio, video e a molti altri tipi di file.
+
+---
+
+## Caricare file
+
+### Upload rapido (trascina e rilascia)
+
+1. Accedi su [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Nel menu laterale seleziona **Sharing > Files** oppure vai direttamente su [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Trascina file o cartelle nell'area **Drag & Drop**
+   - Puoi anche fare clic sull'area e scegliere i file dal browser
+   - Se carichi una cartella, verranno caricati tutti i file al suo interno
+4. I file verranno condivisi con il dominio predefinito e uno slug casuale
+
+### Upload avanzato (Create File)
+
+Se vuoi più controllo sulla condivisione:
+
+1. Fai clic su **Create File**
+2. Configura le impostazioni:
+   - **Domain** - scegli il dominio della pagina di condivisione
+   - **Custom Slug** - imposta uno slug URL personalizzato
+   - **Other options** - tag, scadenza e altre opzioni
+3. Seleziona il file e caricalo
+
+---
+
+## Link dei file
+
+Ogni file caricato ha due tipi di link:
+
+| Tipo di link | Formato | Descrizione |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | Dominio e slug personalizzabili |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Accesso diretto al file con il nome originale |
+
+**Nota:** i link diretti al momento non supportano domini personalizzati.
+
+---
+
+## Tipi di file supportati
+
+S.EE supporta un'ampia gamma di tipi di file:
+
+### Immagini
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| image/jpeg | Immagini JPEG (.jpg, .jpeg) |
+| image/png | Immagini PNG (.png) |
+| image/gif | Immagini GIF (.gif) |
+| image/webp | Immagini WebP (.webp) |
+| image/avif | Immagini AVIF (.avif) |
+| image/svg+xml | Immagini SVG (.svg) |
+| image/bmp | Immagini BMP (.bmp) |
+| image/tiff | Immagini TIFF (.tiff, .tif) |
+| image/heic | Immagini HEIC (.heic) |
+| image/heif | Immagini HEIF (.heif) |
+| image/jp2 | Immagini JPEG 2000 (.jp2) |
+| image/jpx | Immagini JPEG 2000 (.jpx) |
+| image/jxl | Immagini JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | File Photoshop (.psd) |
+
+### Documenti
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| application/pdf | Documenti PDF (.pdf) |
+| application/msword | Documenti Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documenti Word (.docx) |
+| application/vnd.ms-excel | Fogli Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Fogli Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Presentazioni PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Presentazioni PowerPoint (.pptx) |
+| application/vnd.apple.pages | Documenti Pages (.pages) |
+| application/vnd.apple.numbers | Fogli Numbers (.numbers) |
+| application/vnd.apple.keynote | Presentazioni Keynote (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | File PostScript (.ps, .eps) |
+| application/epub+zip | Ebook EPUB (.epub) |
+
+### Testo e dati
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| text/plain | File di testo (.txt) |
+| text/csv | File CSV (.csv) |
+| text/markdown | File Markdown (.md, .markdown, .mdx) |
+| application/json | File JSON (.json) |
+| application/yaml | File YAML (.yaml, .yml) |
+
+### Audio
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| audio/mpeg | File MP3 (.mp3) |
+| audio/wav | File WAV (.wav) |
+| audio/ogg | Audio OGG (.ogg) |
+| audio/flac | Audio FLAC (.flac) |
+| audio/aac | Audio AAC (.aac) |
+| audio/mp4, audio/x-m4a | Audio M4A (.m4a) |
+| audio/midi | File MIDI (.mid, .midi) |
+| audio/x-ms-wma | Audio WMA (.wma) |
+
+### Video
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| video/mp4 | Video MP4 (.mp4) |
+| video/webm | Video WebM (.webm) |
+| video/quicktime | Video QuickTime (.mov) |
+| video/x-matroska | Video MKV (.mkv) |
+| video/x-msvideo | Video AVI (.avi) |
+| video/mpeg | Video MPEG (.mpeg, .mpg) |
+| video/ogg | Video OGG (.ogv) |
+| video/3gpp | Video 3GP (.3gp) |
+| video/x-flv | Video FLV (.flv) |
+| video/x-ms-wmv | Video WMV (.wmv) |
+
+### Archivi e immagini disco
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| application/zip | Archivi ZIP (.zip) |
+| application/x-zip-compressed | Archivi ZIP (.zip) |
+| application/gzip | Archivi GZIP (.gz) |
+| application/x-bzip2 | Archivi BZIP2 (.bz2) |
+| application/x-xz | Archivi XZ (.xz) |
+| application/x-tar | Archivi TAR (.tar) |
+| application/x-7z-compressed | Archivi 7-Zip (.7z) |
+| application/x-rar-compressed | Archivi RAR (.rar) |
+| application/x-apple-diskimage | Immagini disco DMG (.dmg) |
+| application/x-iso9660-image | Immagini disco ISO (.iso) |
+
+<Callout type="warn">
+I file eseguibili (.exe, .msi, .bat, .app e simili) non sono consentiti per motivi di sicurezza.
+</Callout>
+
+<Callout type="info">
+Per le seguenti estensioni potremmo forzare `Content-Type` a `text/plain` per ridurre gli abusi via script: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Per tipi di file sconosciuti o ambigui, il `Content-Type` della risposta verrà impostato su `application/octet-stream`.
+</Callout>
+
+### Tipi legacy / compatibilità
+
+Questi MIME type sono accettati per compatibilità con sistemi meno recenti.
+
+| MIME Type | Descrizione |
+|-----------|-------------|
+| application/excel | Fogli Excel (.xls) |
+| application/x-excel | Fogli Excel (.xls) |
+| application/x-msexcel | Fogli Excel (.xls) |
+| application/mspowerpoint | Presentazioni PowerPoint (.ppt) |
+| application/powerpoint | Presentazioni PowerPoint (.ppt) |
+| application/x-mspowerpoint | Presentazioni PowerPoint (.ppt) |
+
+---
+
+## Limiti di storage
+
+I limiti variano in base al piano:
+
+| Piano | Dimensione massima file | Storage totale |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Personalizzato | Personalizzato |
+
+Consulta [s.ee/pricing](https://s.ee/pricing) per i dettagli completi sui piani.
+
+---
+
+## Conservazione dei file
+
+- I file vengono conservati in modo permanente finché il tuo abbonamento è attivo
+- Se l'abbonamento scade, i file vengono conservati per **7 giorni** prima dell'eliminazione
+
+---
+
+## Domini supportati
+
+La condivisione file è disponibile su questi domini:
+
+| Dominio | Ideale per |
+|--------|----------|
+| [fs.to](https://fs.to) | Condivisione file generica |
+| [files.to](https://files.to) | Condivisione file generica |
+| [fileshare.to](https://fileshare.to) | Condivisione file generica |
+| [filesharing.to](https://filesharing.to) | Condivisione file generica |
+
+Per i clienti Premium ed Enterprise, consulta anche [domini ufficiali](/docs/it/official-domains/#premium--enterprise).
+
+---
+
+## Accesso API
+
+La condivisione file è disponibile anche via API. Per i dettagli sugli upload programmatici, consulta la [documentazione API](/docs/it/developers/api/#file-sharing).
+
+---
+
+## FAQ
+
+### Chi può caricare file?
+
+Solo gli utenti con un abbonamento a pagamento possono caricare file. È necessario avere un piano attivo.
+
+### Ci sono limiti di download o di banda?
+
+No. I file condivisi non hanno limiti di numero di download né di larghezza di banda.
+
+### Posso personalizzare l'URL della pagina di condivisione?
+
+Sì. Con il metodo **Create File** puoi impostare un dominio personalizzato e uno slug personalizzato per la pagina.
+
+### Posso personalizzare l'URL del link diretto?
+
+Al momento i link diretti seguono un formato fisso e non supportano domini personalizzati.

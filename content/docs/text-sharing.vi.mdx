@@ -1,0 +1,80 @@
+---
+title: Chia sẻ văn bản
+description: Cách chia sẻ văn bản, đoạn mã và Markdown với S.EE
+icon: FileText
+---
+
+## Tổng quan
+
+S.EE Text Sharing cho phép bạn chia sẻ văn bản thuần, đoạn mã và tài liệu Markdown bằng một liên kết ngắn, dễ chia sẻ. Phù hợp để chia sẻ file cấu hình, ví dụ mã, ghi chú và tài liệu.
+
+---
+
+## Tạo một mục chia sẻ văn bản
+
+1. Đăng nhập vào [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Nhấp vào **Sharing > Text** trong thanh bên trái hoặc truy cập trực tiếp [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Điền các thông tin:
+   - **Title** (tùy chọn) - Dùng làm tên file khi tải xuống
+   - **Short Link** - Chọn tên miền mong muốn
+   - **Text Type** - Chọn Plain Text, Code hoặc Markdown
+4. Nhập nội dung vào ô **Edit**
+5. Cấu hình các tùy chọn bổ sung (xem bên dưới)
+6. Nhấp vào **Create Text**
+
+---
+
+## Loại văn bản
+
+| Type | Description |
+|------|-------------|
+| Plain Text | Văn bản đơn giản không có định dạng |
+| Code | Đoạn mã có tô sáng cú pháp |
+| Markdown | Markdown được render với định dạng đầy đủ |
+
+---
+
+## Cài đặt tùy chọn
+
+| Option | Description |
+|--------|-------------|
+| Password | Bảo vệ văn bản của bạn bằng mật khẩu |
+| Tags | Sắp xếp các mục chia sẻ bằng tag |
+| Expiration | Đặt thời điểm mục chia sẻ văn bản hết hạn |
+| Disable search engine indexing | Ngăn công cụ tìm kiếm lập chỉ mục văn bản được chia sẻ |
+
+---
+
+## Xem văn bản đã chia sẻ
+
+Sau khi tạo, bạn sẽ nhận được một liên kết ngắn như `ba.sh/demo`.
+
+### Chế độ xem
+
+| URL | Description |
+|-----|-------------|
+| `ba.sh/demo` | Xem trang văn bản đã định dạng với tô sáng cú pháp |
+| `ba.sh/demo/raw` | Xem trực tiếp văn bản thô |
+
+Endpoint `/raw` hữu ích cho:
+
+- Tải script trực tiếp bằng `curl` hoặc `wget`
+- Nhúng vào ứng dụng khác
+- Xem nội dung mà không có định dạng
+
+---
+
+## Tên miền được hỗ trợ
+
+Chia sẻ văn bản khả dụng trên các tên miền sau cho mọi gói:
+
+| Domain | Best For |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash và shell script |
+| [z.sh](https://z.sh) | Shell script |
+| [fs.to](https://fs.to) | Chia sẻ tệp nói chung |
+| [files.to](https://files.to) | Chia sẻ tệp nói chung |
+| [fileshare.to](https://fileshare.to) | Chia sẻ tệp nói chung |
+| [filesharing.to](https://filesharing.to) | Chia sẻ tệp nói chung |
+
+Với khách hàng Premium và Enterprise, vui lòng tham khảo [các tên miền chính thức](https://s.ee/docs/vi/official-domains/#premium--enterprise).

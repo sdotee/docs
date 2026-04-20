@@ -1,0 +1,233 @@
+---
+title: Dateifreigabe
+description: So laden Sie Dateien mit S.EE hoch und teilen sie
+icon: Upload
+---
+
+## Überblick
+
+Mit S.EE File Sharing können Sie Dateien über einen kurzen, leicht teilbaren Link hochladen und teilen. Ideal zum Teilen von Bildern, Dokumenten, Audio, Videos und anderen Dateien.
+
+---
+
+## Dateien hochladen
+
+### Schneller Upload (Drag & Drop)
+
+1. Melden Sie sich bei [https://s.ee/user/dashboard](https://s.ee/user/dashboard) an
+2. Klicken Sie in der linken Seitenleiste auf **Sharing > Files** oder gehen Sie direkt zu [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Ziehen Sie Dateien oder Ordner in das **Drag & Drop**-Fenster
+   - Sie können auch auf das Fenster klicken, um Dateien auszuwählen
+   - Beim Hochladen eines Ordners werden alle darin enthaltenen Dateien hochgeladen
+4. Dateien werden mit der Standard-Domain und einem zufälligen Slug geteilt
+
+### Erweiterter Upload (Create File)
+
+Für mehr Kontrolle über Ihre Dateifreigabe:
+
+1. Klicken Sie auf **Create File**
+2. Konfigurieren Sie Ihre Einstellungen:
+   - **Domain** - Wählen Sie Ihre bevorzugte Domain für die Freigabeseite
+   - **Custom Slug** - Legen Sie einen benutzerdefinierten URL-Slug fest
+   - **Other options** - Tags, Ablaufdatum usw.
+3. Wählen Sie Ihre Datei und laden Sie sie hoch
+
+---
+
+## Dateilinks
+
+Jede hochgeladene Datei hat zwei Arten von Links:
+
+| Link Type | Format | Description |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | Domain und Slug können angepasst werden |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Direkter Zugriff auf die Datei mit dem ursprünglichen Dateinamen |
+
+**Hinweis:** Direct Links unterstützen derzeit keine benutzerdefinierten Domains.
+
+---
+
+## Unterstützte Dateitypen
+
+S.EE unterstützt eine große Auswahl an Dateitypen:
+
+### Bilder
+
+| MIME Type | Description |
+|-----------|-------------|
+| image/jpeg | JPEG-Bilder (.jpg, .jpeg) |
+| image/png | PNG-Bilder (.png) |
+| image/gif | GIF-Bilder (.gif) |
+| image/webp | WebP-Bilder (.webp) |
+| image/avif | AVIF-Bilder (.avif) |
+| image/svg+xml | SVG-Bilder (.svg) |
+| image/bmp | BMP-Bilder (.bmp) |
+| image/tiff | TIFF-Bilder (.tiff, .tif) |
+| image/heic | HEIC-Bilder (.heic) |
+| image/heif | HEIF-Bilder (.heif) |
+| image/jp2 | JPEG-2000-Bilder (.jp2) |
+| image/jpx | JPEG-2000-Bilder (.jpx) |
+| image/jxl | JPEG-XL-Bilder (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop-Dateien (.psd) |
+
+### Dokumente
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/pdf | PDF-Dokumente (.pdf) |
+| application/msword | Word-Dokumente (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word-Dokumente (.docx) |
+| application/vnd.ms-excel | Excel-Tabellen (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel-Tabellen (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint-Präsentationen (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint-Präsentationen (.pptx) |
+| application/vnd.apple.pages | Pages-Dokumente (.pages) |
+| application/vnd.apple.numbers | Numbers-Tabellen (.numbers) |
+| application/vnd.apple.keynote | Keynote-Präsentationen (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript-Dateien (.ps, .eps) |
+| application/epub+zip | EPUB-E-Books (.epub) |
+
+### Text & Daten
+
+| MIME Type | Description |
+|-----------|-------------|
+| text/plain | Reine Textdateien (.txt) |
+| text/csv | CSV-Dateien (.csv) |
+| text/markdown | Markdown-Dateien (.md, .markdown, .mdx) |
+| application/json | JSON-Dateien (.json) |
+| application/yaml | YAML-Dateien (.yaml, .yml) |
+
+### Audio
+
+| MIME Type | Description |
+|-----------|-------------|
+| audio/mpeg | MP3-Dateien (.mp3) |
+| audio/wav | WAV-Dateien (.wav) |
+| audio/ogg | OGG-Audio (.ogg) |
+| audio/flac | FLAC-Audio (.flac) |
+| audio/aac | AAC-Audio (.aac) |
+| audio/mp4, audio/x-m4a | M4A-Audio (.m4a) |
+| audio/midi | MIDI-Dateien (.mid, .midi) |
+| audio/x-ms-wma | WMA-Audio (.wma) |
+
+### Video
+
+| MIME Type | Description |
+|-----------|-------------|
+| video/mp4 | MP4-Videos (.mp4) |
+| video/webm | WebM-Videos (.webm) |
+| video/quicktime | QuickTime-Videos (.mov) |
+| video/x-matroska | MKV-Videos (.mkv) |
+| video/x-msvideo | AVI-Videos (.avi) |
+| video/mpeg | MPEG-Videos (.mpeg, .mpg) |
+| video/ogg | OGG-Videos (.ogv) |
+| video/3gpp | 3GP-Videos (.3gp) |
+| video/x-flv | FLV-Videos (.flv) |
+| video/x-ms-wmv | WMV-Videos (.wmv) |
+
+### Archive & Disk-Images
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/zip | ZIP-Archive (.zip) |
+| application/x-zip-compressed | ZIP-Archive (.zip) |
+| application/gzip | GZIP-Archive (.gz) |
+| application/x-bzip2 | BZIP2-Archive (.bz2) |
+| application/x-xz | XZ-Archive (.xz) |
+| application/x-tar | TAR-Archive (.tar) |
+| application/x-7z-compressed | 7-Zip-Archive (.7z) |
+| application/x-rar-compressed | RAR-Archive (.rar) |
+| application/x-apple-diskimage | DMG-Disk-Images (.dmg) |
+| application/x-iso9660-image | ISO-Disk-Images (.iso) |
+
+<Callout type="warn">
+Ausführbare Dateien (.exe, .msi, .bat, .app usw.) sind aus Sicherheitsgründen **nicht erlaubt**.
+</Callout>
+
+<Callout type="info">
+Für die folgenden Dateiendungen können wir den Response-`Content-Type` auf `text/plain` erzwingen, um Skriptmissbrauch zu verringern: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Für unbekannte oder mehrdeutige Dateitypen erzwingen wir den Response-`Content-Type` `application/octet-stream`.
+</Callout>
+
+### Legacy/Kompatibilität
+
+Diese MIME Types werden aus Kompatibilitätsgründen mit älteren Systemen akzeptiert.
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/excel | Excel-Tabellen (.xls) |
+| application/x-excel | Excel-Tabellen (.xls) |
+| application/x-msexcel | Excel-Tabellen (.xls) |
+| application/mspowerpoint | PowerPoint-Präsentationen (.ppt) |
+| application/powerpoint | PowerPoint-Präsentationen (.ppt) |
+| application/x-mspowerpoint | PowerPoint-Präsentationen (.ppt) |
+
+---
+
+## Speicherlimits
+
+Die Speicherlimits variieren je nach Tarif:
+
+| Plan | Max File Size | Total Storage |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Custom | Custom |
+
+Vollständige Tarifdetails finden Sie unter [s.ee/pricing](https://s.ee/pricing).
+
+---
+
+## Dateiaufbewahrung
+
+- Dateien werden **dauerhaft gespeichert**, solange Ihr Abonnement aktiv ist
+- Wenn Ihr Abonnement endet, werden Dateien vor dem Löschen **7 Tage** lang aufbewahrt
+
+---
+
+## Unterstützte Domains
+
+Dateifreigabe ist auf diesen Domains verfügbar:
+
+| Domain | Best For |
+|--------|----------|
+| [fs.to](https://fs.to) | Allgemeine Dateifreigabe |
+| [files.to](https://files.to) | Allgemeine Dateifreigabe |
+| [fileshare.to](https://fileshare.to) | Allgemeine Dateifreigabe |
+| [filesharing.to](https://filesharing.to) | Allgemeine Dateifreigabe |
+
+Für Premium- und Enterprise-Kunden verweisen wir auf unsere [offiziellen Domains](/docs/de/official-domains/#premium--enterprise).
+
+---
+
+## API-Zugriff
+
+Dateifreigabe ist auch per API verfügbar. Details zu programmatischen Uploads finden Sie in unserer [API-Dokumentation](/docs/de/developers/api/#file-sharing).
+
+---
+
+## FAQ
+
+### Wer kann Dateien hochladen?
+
+Nur zahlende Abonnenten können Dateien hochladen. Ein aktives Abonnement ist erforderlich.
+
+### Gibt es Download-Limits?
+
+Nein, es gibt weder Limits für die Anzahl der Downloads noch für die Bandbreite geteilter Dateien.
+
+### Kann ich die URL der Freigabeseite anpassen?
+
+Ja, Sie können eine benutzerdefinierte Domain und einen Slug für die Freigabeseite festlegen, wenn Sie die Upload-Methode **Create File** verwenden.
+
+### Kann ich die URL des Direct Links anpassen?
+
+Derzeit verwenden Direct Links ein festes Format und unterstützen keine benutzerdefinierten Domains.

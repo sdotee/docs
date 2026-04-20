@@ -1,0 +1,233 @@
+---
+title: Failide jagamine
+description: Kuidas faile S.EE kaudu üles laadida ja jagada
+icon: Upload
+---
+
+## Ülevaade
+
+S.EE File Sharing võimaldab faile üles laadida ja jagada lühikese jagatava lingi kaudu. See sobib hästi piltide, dokumentide, heli, video ja muude failide jagamiseks.
+
+---
+
+## Laadi failid üles
+
+### Kiire üleslaadimine (lohista ja aseta)
+
+1. Logi sisse aadressil [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klõpsa vasakul külgribal **Sharing > Files** või ava otse [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Lohista failid või kaustad aknasse **Drag & Drop**
+   - Samuti võid failide valimiseks aknal klõpsata
+   - Kausta üleslaadimisel laaditakse üles kõik selles olevad failid
+4. Faile jagatakse vaikimisi domeeni ja juhusliku lühikoodiga
+
+### Täpsem üleslaadimine (Create File)
+
+Kui tahad failijagamise üle rohkem kontrolli:
+
+1. Klõpsa nuppu **Create File**
+2. Määra seaded:
+   - **Domain** - vali jagamislehe eelistatud domeen
+   - **Custom Slug** - määra kohandatud URL-i lühikood
+   - **Other options** - sildid, aegumine jne
+3. Vali fail ja laadi see üles
+
+---
+
+## Faililingid
+
+Igal üles laaditud failil on kahte tüüpi lingid:
+
+| Lingi tüüp | Vorming | Kirjeldus |
+|-----------|--------|-------------|
+| Jagamisleht | `fs.to/[sinu_lühikood]` | Kohandatav domeen ja lühikood |
+| Otselink | `i.see.you/[yyyy]/[mm]/[dd]/[juhuslik_lühikood]/[failinimi].[laiend]` | Otseligipääs failile algse failinimega |
+
+**Märkus:** otselingid ei toeta praegu kohandatud domeene.
+
+---
+
+## Toetatud failitüübid
+
+S.EE toetab väga erinevaid failitüüpe:
+
+### Pildid
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| image/jpeg | JPEG-pildid (.jpg, .jpeg) |
+| image/png | PNG-pildid (.png) |
+| image/gif | GIF-pildid (.gif) |
+| image/webp | WebP-pildid (.webp) |
+| image/avif | AVIF-pildid (.avif) |
+| image/svg+xml | SVG-pildid (.svg) |
+| image/bmp | BMP-pildid (.bmp) |
+| image/tiff | TIFF-pildid (.tiff, .tif) |
+| image/heic | HEIC-pildid (.heic) |
+| image/heif | HEIF-pildid (.heif) |
+| image/jp2 | JPEG 2000 pildid (.jp2) |
+| image/jpx | JPEG 2000 pildid (.jpx) |
+| image/jxl | JPEG XL pildid (.jxl) |
+| image/vnd.adobe.photoshop | Photoshopi failid (.psd) |
+
+### Dokumendid
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| application/pdf | PDF-dokumendid (.pdf) |
+| application/msword | Wordi dokumendid (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Wordi dokumendid (.docx) |
+| application/vnd.ms-excel | Exceli tabelid (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Exceli tabelid (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPointi esitlused (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPointi esitlused (.pptx) |
+| application/vnd.apple.pages | Pagesi dokumendid (.pages) |
+| application/vnd.apple.numbers | Numbersi tabelid (.numbers) |
+| application/vnd.apple.keynote | Keynote'i esitlused (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScripti failid (.ps, .eps) |
+| application/epub+zip | EPUB e-raamatud (.epub) |
+
+### Tekst ja andmed
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| text/plain | Tavatekstifailid (.txt) |
+| text/csv | CSV-failid (.csv) |
+| text/markdown | Markdown-failid (.md, .markdown, .mdx) |
+| application/json | JSON-failid (.json) |
+| application/yaml | YAML-failid (.yaml, .yml) |
+
+### Heli
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| audio/mpeg | MP3-failid (.mp3) |
+| audio/wav | WAV-failid (.wav) |
+| audio/ogg | OGG-heli (.ogg) |
+| audio/flac | FLAC-heli (.flac) |
+| audio/aac | AAC-heli (.aac) |
+| audio/mp4, audio/x-m4a | M4A-heli (.m4a) |
+| audio/midi | MIDI-failid (.mid, .midi) |
+| audio/x-ms-wma | WMA-heli (.wma) |
+
+### Video
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| video/mp4 | MP4-videod (.mp4) |
+| video/webm | WebM-videod (.webm) |
+| video/quicktime | QuickTime'i videod (.mov) |
+| video/x-matroska | MKV-videod (.mkv) |
+| video/x-msvideo | AVI-videod (.avi) |
+| video/mpeg | MPEG-videod (.mpeg, .mpg) |
+| video/ogg | OGG-videod (.ogv) |
+| video/3gpp | 3GP-videod (.3gp) |
+| video/x-flv | FLV-videod (.flv) |
+| video/x-ms-wmv | WMV-videod (.wmv) |
+
+### Arhiivid ja kettapildid
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| application/zip | ZIP-arhiivid (.zip) |
+| application/x-zip-compressed | ZIP-arhiivid (.zip) |
+| application/gzip | GZIP-arhiivid (.gz) |
+| application/x-bzip2 | BZIP2-arhiivid (.bz2) |
+| application/x-xz | XZ-arhiivid (.xz) |
+| application/x-tar | TAR-arhiivid (.tar) |
+| application/x-7z-compressed | 7-Zip arhiivid (.7z) |
+| application/x-rar-compressed | RAR-arhiivid (.rar) |
+| application/x-apple-diskimage | DMG-kettapildid (.dmg) |
+| application/x-iso9660-image | ISO-kettapildid (.iso) |
+
+<Callout type="warn">
+Turvakaalutlustel ei ole käivitatavad failid (.exe, .msi, .bat, .app jne) **lubatud**.
+</Callout>
+
+<Callout type="info">
+Järgmiste faililaiendite puhul võime skriptide väärkasutuse vähendamiseks sundida vastuse `Content-Type` väärtuseks `text/plain`: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Tundmatute või mitmeti tõlgendatavate failitüüpide korral sunnime vastuse `Content-Type` väärtuseks `application/octet-stream`.
+</Callout>
+
+### Pärand ja ühilduvus
+
+Need MIME tüübid on vanemate süsteemidega ühilduvuse jaoks samuti lubatud.
+
+| MIME tüüp | Kirjeldus |
+|-----------|-------------|
+| application/excel | Exceli tabelid (.xls) |
+| application/x-excel | Exceli tabelid (.xls) |
+| application/x-msexcel | Exceli tabelid (.xls) |
+| application/mspowerpoint | PowerPointi esitlused (.ppt) |
+| application/powerpoint | PowerPointi esitlused (.ppt) |
+| application/x-mspowerpoint | PowerPointi esitlused (.ppt) |
+
+---
+
+## Salvestuspiirangud
+
+Salvestuspiirangud sõltuvad paketist:
+
+| Pakett | Maksimaalne faili suurus | Salvestusruum kokku |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Kohandatud | Kohandatud |
+
+Täielikud paketiandmed leiad aadressilt [s.ee/pricing](https://s.ee/pricing).
+
+---
+
+## Failide säilitamine
+
+- Failid säilitatakse **püsivalt** seni, kuni tellimus on aktiivne
+- Kui tellimus aegub, hoitakse faile enne kustutamist alles **7 päeva**
+
+---
+
+## Toetatud domeenid
+
+Failide jagamine on saadaval järgmistes domeenides:
+
+| Domeen | Sobib kõige paremini |
+|--------|----------|
+| [fs.to](https://fs.to) | Üldine failide jagamine |
+| [files.to](https://files.to) | Üldine failide jagamine |
+| [fileshare.to](https://fileshare.to) | Üldine failide jagamine |
+| [filesharing.to](https://filesharing.to) | Üldine failide jagamine |
+
+Premium- ja Enterprise-paketi klientidele on lisadomeenid kirjas [ametlike domeenide lehel](/docs/et/official-domains/#premium-ja-enterprise).
+
+---
+
+## API ligipääs
+
+Failide jagamine on saadaval ka API kaudu. Programmiliste üleslaadimiste kohta loe [API dokumentatsioonist](/docs/et/developers/api/#failide-jagamine).
+
+---
+
+## KKK
+
+### Kes saavad faile üles laadida?
+
+Ainult tasulised tellijad saavad faile üles laadida. Vajalik on kehtiv tellimus.
+
+### Kas allalaadimisel on piiranguid?
+
+Ei, jagatud failidele ei ole allalaadimiskordade ega ribalaiuse piiranguid.
+
+### Kas jagamislehe URL-i saab kohandada?
+
+Jah, üleslaadimisviisi **Create File** kasutamisel saab määrata kohandatud domeeni ja lühikoodi.
+
+### Kas otselingi URL-i saab kohandada?
+
+Praegu kasutavad otselingid fikseeritud vormingut ega toeta kohandatud domeene.

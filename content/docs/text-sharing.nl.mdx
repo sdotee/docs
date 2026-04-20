@@ -1,0 +1,80 @@
+---
+title: Tekst delen
+description: Hoe u tekst, codefragmenten en Markdown deelt met S.EE
+icon: FileText
+---
+
+## Overzicht
+
+Met S.EE Text Sharing deelt u platte tekst, codefragmenten en Markdown-documenten via een korte, deelbare link. Ideaal voor configuratiebestanden, codevoorbeelden, notities en documentatie.
+
+---
+
+## Een tekstshare maken
+
+1. Log in op [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klik in de linkerzijbalk op **Sharing > Text** of ga direct naar [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Vul de gegevens in:
+   - **Title** (optioneel) - Wordt gebruikt als bestandsnaam bij downloaden
+   - **Short Link** - Kies het gewenste domein
+   - **Text Type** - Kies uit Plain Text, Code of Markdown
+4. Voer uw inhoud in het vak **Edit** in
+5. Stel optionele instellingen in, zie hieronder
+6. Klik op **Create Text**
+
+---
+
+## Teksttypen
+
+| Type | Beschrijving |
+|------|-------------|
+| Plain Text | Eenvoudige ongeformatteerde tekst |
+| Code | Codefragmenten met syntax highlighting |
+| Markdown | Gerenderde Markdown met opmaak |
+
+---
+
+## Optionele instellingen
+
+| Optie | Beschrijving |
+|--------|-------------|
+| Password | Beveilig uw tekst met een wachtwoord |
+| Tags | Organiseer gedeelde teksten met tags |
+| Expiration | Stel in wanneer de tekstshare verloopt |
+| Disable search engine indexing | Voorkom dat zoekmachines uw gedeelde tekst indexeren |
+
+---
+
+## Gedeelde tekst bekijken
+
+Na het aanmaken krijgt u een korte link zoals `ba.sh/demo`.
+
+### Weergavemodi
+
+| URL | Beschrijving |
+|-----|-------------|
+| `ba.sh/demo` | Toon de opgemaakte tekstpagina met syntax highlighting |
+| `ba.sh/demo/raw` | Toon de ruwe platte tekst direct |
+
+Het endpoint `/raw` is nuttig voor:
+
+- Scripts direct downloaden met `curl` of `wget`
+- Insluiten in andere applicaties
+- Bekijken zonder opmaak
+
+---
+
+## Ondersteunde domeinen
+
+Tekst delen is voor alle abonnementen beschikbaar op de volgende domeinen:
+
+| Domein | Beste voor |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash- en shellscripts |
+| [z.sh](https://z.sh) | Shellscripts |
+| [fs.to](https://fs.to) | Algemene bestandsdeling |
+| [files.to](https://files.to) | Algemene bestandsdeling |
+| [fileshare.to](https://fileshare.to) | Algemene bestandsdeling |
+| [filesharing.to](https://filesharing.to) | Algemene bestandsdeling |
+
+Voor Premium- en Enterprise-klanten: zie onze [officiele domeinen](/docs/nl/official-domains/#premium--enterprise).

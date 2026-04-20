@@ -1,0 +1,96 @@
+---
+title: ShareX
+description: Téléversez des captures d’écran, des fichiers et du texte vers S.EE depuis ShareX
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/) est un outil open source de capture d’écran et de partage de fichiers pour Windows. S.EE fournit des configurations d’uploaders personnalisés pour ShareX, ce qui vous permet de téléverser directement des captures d’écran, des fichiers, du texte et du code vers S.EE et d’obtenir ensuite un lien partageable.
+
+Voir aussi : [Documentation des uploaders personnalisés ShareX](https://getsharex.com/docs/custom-uploader)
+
+---
+
+## Uploaders personnalisés
+
+S.EE propose des configurations pour ces types de téléversement :
+
+| Uploader | Fonction |
+|----------|-------------|
+| URL Shortener | Raccourcit les URL via S.EE |
+| Text Uploader | Téléverse des extraits de texte |
+| Code Uploader | Téléverse du code avec coloration syntaxique |
+| Markdown Uploader | Téléverse du Markdown avec aperçu rendu |
+| Image & File Uploader | Téléverse des images et des fichiers |
+
+---
+
+## Installation
+
+Récupérez les fichiers de configuration `.sxcu` ci-dessous. Vous pouvez les télécharger ou les importer par URL dans ShareX.
+
+| Uploader | Lien de téléchargement / import |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### Importation
+
+1. Ouvrez **ShareX**
+2. Accédez à **Destinations** > **Custom uploader settings**
+3. Cliquez sur **Import**, puis :
+   - Sélectionnez le fichier `.sxcu` téléchargé
+   - Ou collez directement l’URL de téléchargement
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## Configurer votre clé API
+
+1. Obtenez votre clé API depuis **[Tools > API Token](https://s.ee/user/developers/)**
+2. Dans ShareX, ouvrez **Custom uploader settings** et sélectionnez l’uploader S.EE importé
+3. Dans la section **Headers**, définissez la valeur `Authorization` avec votre clé API
+
+<Callout type="warn">
+Ne partagez pas votre clé API publiquement et ne la validez pas dans votre système de gestion de versions.
+</Callout>
+
+---
+
+## Utilisation
+
+### Choisir vos uploaders
+
+Dans ShareX, accédez à **Destinations** et assignez les uploaders S.EE :
+
+- URL shortener → S.EE URL Shortener
+- Text uploader → S.EE Text Uploader, Code Uploader ou Markdown Uploader
+- Image uploader → S.EE File Uploader
+- File uploader → S.EE File Uploader
+
+### Téléverser
+
+Utilisez les raccourcis clavier ou le menu contextuel de ShareX pour raccourcir une URL, téléverser une capture d’écran, partager un extrait de texte, etc. ShareX téléverse le contenu vers S.EE et copie le lien dans votre presse-papiers.
+
+---
+
+## Résolution des problèmes
+
+| Problème | Correctif |
+|-------|-----|
+| Erreur 401 | Vérifiez que votre clé API est correctement définie dans l’en-tête Authorization |
+| Erreur 403 | Assurez-vous que votre clé API dispose des permissions nécessaires |
+| Fichier refusé | Le type de fichier n’est peut-être pas pris en charge. Consultez [Partage de fichiers](/docs/fr/file-sharing) pour les types autorisés |
+
+Vous pouvez cliquer sur **Test** dans **Custom uploader settings** pour vérifier que tout fonctionne.
+
+---
+
+## Voir aussi
+
+- [API développeur](/docs/fr/developers)
+- [Partage de fichiers](/docs/fr/file-sharing)
+- [Partage de texte](/docs/fr/text-sharing)

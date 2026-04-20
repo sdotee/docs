@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Primeros pasos---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Funciones---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Servicios gratuitos---",
+    "free-url-shorteners",
+    "---Ayuda---",
+    "troubleshooting",
+    "security",
+    "---Integración---",
+    "developers",
+    "api",
+    "---Integraciones de terceros---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Comunidad---",
+    "awesome"
+  ]
+}

@@ -1,0 +1,113 @@
+---
+title: 데스크톱 앱
+description: S.EE 의 네이티브 데스크톱 애플리케이션
+icon: Monitor
+---
+
+데스크톱에서 링크를 단축하고, 텍스트를 공유하고, 파일을 업로드할 수 있습니다. S.EE 는 macOS 와 Linux 용 네이티브 앱을 제공합니다.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## 다운로드
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## 지원 플랫폼
+
+| Platform | Status | Technology |
+|----------|--------|------------|
+| macOS | 제공 중 | SwiftUI |
+| Linux | 제공 중 | GTK4 + libadwaita + Rust |
+| Windows | 개발 중 | - |
+
+## 기능
+
+- **URL 단축** - 사용자 정의 슬러그, 제목, 비밀번호, 만료일 지원
+- **텍스트 공유** - 고정폭 편집기로 일반 텍스트, 소스 코드, Markdown 공유
+- **파일 업로드** - 드래그 앤 드롭, 클립보드 붙여넣기, 파일 선택기 지원
+- **QR 코드 생성** - PNG, SVG, PDF 로 내보내기
+- **기록** - 생성한 링크, 텍스트, 파일을 로컬에 저장
+- **다중 도메인 지원** - 서비스별로 여러 도메인 중 선택 가능
+- **사용량 대시보드** - 저장 공간과 속도 제한을 한눈에 확인
+
+## macOS
+
+**SwiftUI** 와 **SwiftData** 로 제작되었습니다. 키보드 단축키와 메뉴 막대 연동을 완벽히 지원합니다.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- macOS 14.0+ 필요
+
+### 주요 특징
+
+- **Menu Bar** - 메인 창을 열지 않고 URL 단축, 붙여넣기 업로드, 최근 항목 접근 가능
+- **Drag & Drop** - 업로드 영역 어디에나 파일 드롭 가능
+- **Paste from Clipboard** (Cmd+V) - 이미지를 자동으로 WebP 로 변환하고, 미지원 시 PNG 로 대체
+- **Keychain** - macOS Security framework 를 통한 안전한 API Key 저장
+
+### 키보드 단축키
+
+| Shortcut | Action |
+|----------|--------|
+| Cmd+N | 새 단축 링크 |
+| Cmd+Shift+N | 새 텍스트 공유 |
+| Cmd+V | 클립보드에서 붙여넣어 업로드 |
+| Cmd+, | 설정 |
+| Cmd+Q | 종료 |
+
+### 기술 스택
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+## Linux
+
+**GTK4**, **libadwaita**, **Rust** 로 제작되었으며 GNOME Human Interface Guidelines 를 따릅니다.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- GTK 4.14+ 및 libadwaita 1.5+ 필요
+
+### 주요 특징
+
+- **Native GNOME Experience** - GNOME HIG 를 따르는 적응형 레이아웃
+- **QR Code Export** - PNG, SVG, PDF 지원
+- **Config File** - API 키, 기본 URL, 기본 도메인을 `~/.config/see/config.toml` 에 저장
+- **Environment Variables** - `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` 으로 설정 파일 덮어쓰기
+
+### 키보드 단축키
+
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+1 | Links 보기로 전환 |
+| Ctrl+2 | Texts 보기로 전환 |
+| Ctrl+3 | Files 보기로 전환 |
+| Ctrl+, | Preferences 열기 |
+| Ctrl+? | 키보드 단축키 표시 |
+| Ctrl+Q | 종료 |
+
+### 기술 스택
+
+| Layer | Technology |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Language | Rust (2024 edition) |
+| API Client | see-sdk |
+| QR Code | Built-in (PNG, SVG, PDF 내보내기 지원) |
+
+### 데이터 저장 위치
+
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
+
+## 시작하기
+
+1. [macOS](https://s.ee/macos) 또는 [Linux](https://s.ee/linux) 버전을 다운로드합니다
+2. 계정이 없다면 [s.ee](https://s.ee) 에서 계정을 만듭니다
+3. 대시보드에서 [API Key 를 생성](https://s.ee/user/developers/)합니다
+4. 앱을 열고 **Preferences** 로 이동해 API Key 를 입력합니다

@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGossa on jo sisäänrakennettu tuki S.EE:lle, eikä lisäosia tarvita
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) on avoimen lähdekoodin työkalu kuvien ja tiedostojen lataamiseen Windowsissa, macOS:ssä ja Linuxissa. Uudemmissa versioissa S.EE-tuki on sisäänrakennettu, joten pääset alkuun vain API Tokenilla.
+
+- [Lataa PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Lähdekoodi](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Käyttöönotto
+
+### 1. Hanki API Token
+
+1. Kirjaudu S.EE-tilillesi
+2. Avaa **[Tools > API Token](https://s.ee/user/developers/)**
+3. Luo uusi API Token
+
+<Callout type="warn">
+Älä jaa API Tokenia julkisesti äläkä lisää sitä versionhallintaan.
+</Callout>
+
+### 2. Määritä PicGo
+
+1. Lataa ja asenna [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Avaa PicGo
+3. Siirry kohtaan **Picbeds Settings** > **SM.MS (S.EE)**
+4. Napsauta **+** lisätäksesi uuden asetuksen
+5. Anna nimi kohtaan **Configuration Name** (esim. `S.EE`)
+6. Liitä API Token kenttään **Set Token**
+7. Napsauta **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Käyttö
+
+Kuvien lataamiseen on useita tapoja:
+
+- Vedä ja pudota tiedostoja Upload Area -alueelle
+- Napsauta Upload Area -aluetta valitaksesi tiedostoja tietokoneeltasi
+- Lataa suoraan klikkaamalla kelluvaa mini-ikkunaa
+- Napsauta kelluvaa mini-ikkunaa hiiren kakkospainikkeella ja valitse **Upload by Clipboard**
+
+PicGo kopioi tuloksena syntyvän linkin leikepöydälle. Voit valita muodon: Markdown, HTML, raaka URL jne.
+
+---
+
+## Aiheeseen liittyvää
+
+- [Kehittäjien API](/docs/fi/developers)
+- [Tiedostojen jakaminen](/docs/fi/file-sharing)
+- [SM.MS-yhteensopivuus](/docs/fi/developers/smms-compatibility)

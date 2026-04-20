@@ -1,0 +1,28 @@
+{
+  "title": "API Referansı",
+  "description": "S.EE API uç noktaları dokümantasyonu",
+  "defaultOpen": true,
+  "pages": [
+    "---Kısa URL'ler---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Metin Paylaşımı---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Dosya Paylaşımı---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Genel---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

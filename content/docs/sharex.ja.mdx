@@ -1,0 +1,96 @@
+---
+title: ShareX
+description: ShareX からスクリーンショット、ファイル、テキストを S.EE にアップロードする
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/) は、Windows 向けのオープンソースの画面キャプチャおよびファイル共有ツールです。S.EE では ShareX 用のカスタムアップローダー設定を提供しており、スクリーンショット、ファイル、テキスト、コードを直接 S.EE にアップロードし、共有用リンクを取得できます。
+
+あわせて [ShareX custom uploader docs](https://getsharex.com/docs/custom-uploader) もご確認ください。
+
+---
+
+## カスタムアップローダー
+
+S.EE では、次のアップロード種別向けの設定をご用意しています:
+
+| アップローダー | 内容 |
+|----------|-------------|
+| URL Shortener | S.EE で URL を短縮します |
+| Text Uploader | テキストスニペットをアップロードします |
+| Code Uploader | シンタックスハイライト付きでコードをアップロードします |
+| Markdown Uploader | レンダリングプレビュー付きで Markdown をアップロードします |
+| Image & File Uploader | 画像やファイルをアップロードします |
+
+---
+
+## インストール
+
+以下の `.sxcu` 設定ファイルをご利用ください。ダウンロードするか、URL で ShareX にインポートできます。
+
+| アップローダー | ダウンロード / インポート用リンク |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### インポート
+
+1. **ShareX** を開きます
+2. **Destinations** > **Custom uploader settings** に移動します
+3. **Import** をクリックし、次のいずれかを行います:
+   - ダウンロードした `.sxcu` ファイルを選択します
+   - ダウンロード URL をそのまま貼り付けます
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## API キーを設定する
+
+1. **[Tools > API Token](https://s.ee/user/developers/)** で API キーを取得します
+2. ShareX で **Custom uploader settings** を開き、インポートした S.EE アップローダーを選択します
+3. **Headers** セクションで、`Authorization` の値に API キーを設定します
+
+<Callout type="warn">
+API キーを公開したり、バージョン管理にコミットしたりしないでください。
+</Callout>
+
+---
+
+## 使い方
+
+### アップローダーを選ぶ
+
+ShareX の **Destinations** で、S.EE のアップローダーを割り当てます:
+
+- URL shortener → S.EE URL Shortener
+- Text uploader → S.EE Text Uploader、Code Uploader、または Markdown Uploader
+- Image uploader → S.EE File Uploader
+- File uploader → S.EE File Uploader
+
+### アップロード
+
+ShareX のホットキーまたは右クリックメニューを使って、URL の短縮、スクリーンショットのアップロード、テキストスニペットの共有などを行えます。ShareX が S.EE にアップロードし、リンクをクリップボードにコピーします。
+
+---
+
+## トラブルシューティング
+
+| 問題 | 対処方法 |
+|-------|-----|
+| 401 エラー | Authorization ヘッダーに API キーが正しく設定されているかご確認ください |
+| 403 エラー | API キーに必要な権限があるかご確認ください |
+| ファイルが拒否される | 対応していないファイル形式の可能性があります。許可されている形式は [ファイル共有](/docs/ja/file-sharing) をご確認ください |
+
+**Custom uploader settings** の **Test** をクリックすると、設定が正しく動作するか確認できます。
+
+---
+
+## 関連情報
+
+- [Developer API](/docs/ja/developers)
+- [ファイル共有](/docs/ja/file-sharing)
+- [テキスト共有](/docs/ja/text-sharing)

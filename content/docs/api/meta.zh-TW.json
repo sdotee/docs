@@ -1,0 +1,28 @@
+{
+  "title": "API 參考",
+  "description": "S.EE API 端點",
+  "defaultOpen": true,
+  "pages": [
+    "---短網址---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---文字分享---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---檔案分享---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---通用---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

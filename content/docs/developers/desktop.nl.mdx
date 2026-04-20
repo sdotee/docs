@@ -1,0 +1,113 @@
+---
+title: Desktop-app
+description: Native desktopapplicatie voor S.EE
+icon: Monitor
+---
+
+Verkort links, deel tekst en upload bestanden vanaf uw desktop met native apps voor macOS en Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Downloaden
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Ondersteunde platforms
+
+| Platform | Status | Technologie |
+|----------|--------|------------|
+| macOS | Beschikbaar | SwiftUI |
+| Linux | Beschikbaar | GTK4 + libadwaita + Rust |
+| Windows | In ontwikkeling | - |
+
+## Functies
+
+- **URL-verkorting** - Aangepaste slug, titel, wachtwoord en vervaldatum
+- **Tekst delen** - Platte tekst, broncode of Markdown met editor in vast lettertype
+- **Bestandsupload** - Slepen en neerzetten, plakken vanuit klembord of bestandskiezer
+- **QR-codegeneratie** - Export als PNG, SVG of PDF
+- **Geschiedenis** - Lokale registratie van alle gemaakte links, teksten en bestanden
+- **Ondersteuning voor meerdere domeinen** - Kies per dienst uit meerdere domeinen
+- **Gebruiksdashboard** - Opslaggebruik en rate limits in een oogopslag
+
+## macOS
+
+Gebouwd met **SwiftUI** en **SwiftData**. Volledige ondersteuning voor sneltoetsen en integratie met de menubalk.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Vereist macOS 14.0+
+
+### Hoogtepunten
+
+- **Menubalk** - Verkort URL's, plak en upload en open recente items zonder het hoofdvenster te openen
+- **Slepen en neerzetten** - Zet bestanden overal in het uploadgebied neer
+- **Plakken vanuit het klembord** (`Cmd+V`) - Converteert afbeeldingen automatisch naar WebP met PNG als fallback
+- **Keychain** - Veilige opslag van API-sleutels via het macOS Security-framework
+
+### Sneltoetsen
+
+| Sneltoets | Actie |
+|----------|--------|
+| Cmd+N | Nieuwe korte link |
+| Cmd+Shift+N | Nieuwe tekstdeling |
+| Cmd+V | Plakken en uploaden vanuit klembord |
+| Cmd+, | Instellingen |
+| Cmd+Q | Afsluiten |
+
+### Techstack
+
+| Laag | Technologie |
+|-------|-----------|
+| UI | SwiftUI |
+| Opslag | SwiftData |
+| Netwerk | URLSession, actor-based |
+| Beveiliging | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Beeldverwerking | Swift-WebP |
+
+## Linux
+
+Gebouwd met **GTK4**, **libadwaita** en **Rust**. Volgt de GNOME Human Interface Guidelines.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Vereist GTK 4.14+ en libadwaita 1.5+
+
+### Hoogtepunten
+
+- **Native GNOME-ervaring** - Adaptieve layout volgens GNOME HIG
+- **QR-code-export** - PNG, SVG of PDF
+- **Configuratiebestand** - `~/.config/see/config.toml` voor API-sleutel, basis-URL en standaarddomeinen
+- **Omgevingsvariabelen** - `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` overschrijven het configuratiebestand
+
+### Sneltoetsen
+
+| Sneltoets | Actie |
+|----------|--------|
+| Ctrl+1 | Wissel naar linksweergave |
+| Ctrl+2 | Wissel naar tekstweergave |
+| Ctrl+3 | Wissel naar bestandsweergave |
+| Ctrl+, | Voorkeuren openen |
+| Ctrl+? | Toetscombinaties tonen |
+| Ctrl+Q | Afsluiten |
+
+### Techstack
+
+| Laag | Technologie |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Taal | Rust, 2024 edition |
+| API-client | see-sdk |
+| QR-code | Ingebouwd, PNG-, SVG- en PDF-export |
+
+### Dataopslag
+
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
+
+## Aan de slag
+
+1. Download voor [macOS](https://s.ee/macos) of [Linux](https://s.ee/linux)
+2. Maak een account aan op [s.ee](https://s.ee) als u er nog geen hebt
+3. [Genereer een API-sleutel](https://s.ee/user/developers/) vanuit uw dashboard
+4. Open de app, ga naar **Preferences** en voer uw API-sleutel in

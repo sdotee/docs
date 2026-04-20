@@ -1,0 +1,233 @@
+---
+title: Tiedostojen jakaminen
+description: Näin lataat ja jaat tiedostoja S.EE:llä
+icon: Upload
+---
+
+## Yleiskatsaus
+
+S.EE:n tiedostojen jakamisen avulla voit ladata ja jakaa tiedostoja lyhyellä, helposti jaettavalla linkillä. Se sopii kuville, asiakirjoille, äänelle, videolle ja monille muille tiedostotyypeille.
+
+---
+
+## Lataa tiedostoja
+
+### Pikainen lataus (vedä ja pudota)
+
+1. Kirjaudu sisään osoitteessa [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Valitse vasemmasta sivupalkista **Sharing > Files** tai siirry suoraan osoitteeseen [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Vedä tiedostot tai kansiot **Drag & Drop** -alueelle
+   - Voit myös napsauttaa aluetta ja valita tiedostot selaimesta
+   - Jos lataat kansion, kaikki sen sisältämät tiedostot ladataan
+4. Tiedostot jaetaan oletusverkkotunnuksella ja satunnaisella slugilla
+
+### Tarkempi lataus (Create File)
+
+Jos tarvitset enemmän hallintaa:
+
+1. Napsauta **Create File**
+2. Määritä asetukset:
+   - **Domain** - valitse jaettavan sivun verkkotunnus
+   - **Custom Slug** - määritä oma URL-slug
+   - **Other options** - tunnisteet, vanheneminen ja muut asetukset
+3. Valitse tiedosto ja lataa se
+
+---
+
+## Tiedostolinkit
+
+Jokaisella ladatulla tiedostolla on kaksi linkkityyppiä:
+
+| Linkkityyppi | Muoto | Kuvaus |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | Mukautettava verkkotunnus ja slug |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Suora pääsy tiedostoon alkuperäisellä tiedostonimellä |
+
+**Huomautus:** Suorat linkit eivät tällä hetkellä tue mukautettuja verkkotunnuksia.
+
+---
+
+## Tuetut tiedostotyypit
+
+S.EE tukee laajaa valikoimaa tiedostotyyppejä:
+
+### Kuvat
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| image/jpeg | JPEG-kuvat (.jpg, .jpeg) |
+| image/png | PNG-kuvat (.png) |
+| image/gif | GIF-kuvat (.gif) |
+| image/webp | WebP-kuvat (.webp) |
+| image/avif | AVIF-kuvat (.avif) |
+| image/svg+xml | SVG-kuvat (.svg) |
+| image/bmp | BMP-kuvat (.bmp) |
+| image/tiff | TIFF-kuvat (.tiff, .tif) |
+| image/heic | HEIC-kuvat (.heic) |
+| image/heif | HEIF-kuvat (.heif) |
+| image/jp2 | JPEG 2000 -kuvat (.jp2) |
+| image/jpx | JPEG 2000 -kuvat (.jpx) |
+| image/jxl | JPEG XL -kuvat (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop-tiedostot (.psd) |
+
+### Asiakirjat
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| application/pdf | PDF-asiakirjat (.pdf) |
+| application/msword | Word-asiakirjat (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word-asiakirjat (.docx) |
+| application/vnd.ms-excel | Excel-taulukot (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel-taulukot (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint-esitykset (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint-esitykset (.pptx) |
+| application/vnd.apple.pages | Pages-asiakirjat (.pages) |
+| application/vnd.apple.numbers | Numbers-taulukot (.numbers) |
+| application/vnd.apple.keynote | Keynote-esitykset (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript-tiedostot (.ps, .eps) |
+| application/epub+zip | EPUB-e-kirjat (.epub) |
+
+### Teksti ja data
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| text/plain | Tekstitiedostot (.txt) |
+| text/csv | CSV-tiedostot (.csv) |
+| text/markdown | Markdown-tiedostot (.md, .markdown, .mdx) |
+| application/json | JSON-tiedostot (.json) |
+| application/yaml | YAML-tiedostot (.yaml, .yml) |
+
+### Ääni
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| audio/mpeg | MP3-tiedostot (.mp3) |
+| audio/wav | WAV-tiedostot (.wav) |
+| audio/ogg | OGG-äänitiedostot (.ogg) |
+| audio/flac | FLAC-äänitiedostot (.flac) |
+| audio/aac | AAC-äänitiedostot (.aac) |
+| audio/mp4, audio/x-m4a | M4A-äänitiedostot (.m4a) |
+| audio/midi | MIDI-tiedostot (.mid, .midi) |
+| audio/x-ms-wma | WMA-äänitiedostot (.wma) |
+
+### Video
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| video/mp4 | MP4-videot (.mp4) |
+| video/webm | WebM-videot (.webm) |
+| video/quicktime | QuickTime-videot (.mov) |
+| video/x-matroska | MKV-videot (.mkv) |
+| video/x-msvideo | AVI-videot (.avi) |
+| video/mpeg | MPEG-videot (.mpeg, .mpg) |
+| video/ogg | OGG-videot (.ogv) |
+| video/3gpp | 3GP-videot (.3gp) |
+| video/x-flv | FLV-videot (.flv) |
+| video/x-ms-wmv | WMV-videot (.wmv) |
+
+### Arkistot ja levykuvat
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| application/zip | ZIP-arkistot (.zip) |
+| application/x-zip-compressed | ZIP-arkistot (.zip) |
+| application/gzip | GZIP-arkistot (.gz) |
+| application/x-bzip2 | BZIP2-arkistot (.bz2) |
+| application/x-xz | XZ-arkistot (.xz) |
+| application/x-tar | TAR-arkistot (.tar) |
+| application/x-7z-compressed | 7-Zip-arkistot (.7z) |
+| application/x-rar-compressed | RAR-arkistot (.rar) |
+| application/x-apple-diskimage | DMG-levykuvat (.dmg) |
+| application/x-iso9660-image | ISO-levykuvat (.iso) |
+
+<Callout type="warn">
+Suoritettavia tiedostoja (.exe, .msi, .bat, .app jne.) ei sallita turvallisuussyistä.
+</Callout>
+
+<Callout type="info">
+Seuraaville tiedostopäätteille voimme pakottaa `Content-Type`-arvoksi `text/plain` vähentääksemme skriptien väärinkäyttöä: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Tuntemattomille tai epäselville tiedostotyypeille vastausotsikon `Content-Type` arvoksi asetetaan `application/octet-stream`.
+</Callout>
+
+### Vanhat / yhteensopivuustyypit
+
+Näitä MIME-tyyppejä hyväksytään yhteensopivuuden vuoksi vanhempien järjestelmien kanssa.
+
+| MIME-tyyppi | Kuvaus |
+|-----------|-------------|
+| application/excel | Excel-taulukot (.xls) |
+| application/x-excel | Excel-taulukot (.xls) |
+| application/x-msexcel | Excel-taulukot (.xls) |
+| application/mspowerpoint | PowerPoint-esitykset (.ppt) |
+| application/powerpoint | PowerPoint-esitykset (.ppt) |
+| application/x-mspowerpoint | PowerPoint-esitykset (.ppt) |
+
+---
+
+## Tallennusrajat
+
+Tallennusrajat vaihtelevat paketin mukaan:
+
+| Paketti | Tiedoston enimmäiskoko | Kokonaistallennus |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Mukautettu | Mukautettu |
+
+Katso täydet pakettitiedot osoitteesta [s.ee/pricing](https://s.ee/pricing).
+
+---
+
+## Tiedostojen säilytys
+
+- Tiedostot säilytetään pysyvästi niin kauan kuin tilauksesi on voimassa
+- Jos tilauksesi päättyy, tiedostot säilytetään **7 päivää** ennen poistamista
+
+---
+
+## Tuetut verkkotunnukset
+
+Tiedostojen jakaminen on saatavilla näillä verkkotunnuksilla:
+
+| Verkkotunnus | Sopii parhaiten |
+|--------|----------|
+| [fs.to](https://fs.to) | Yleinen tiedostojen jakaminen |
+| [files.to](https://files.to) | Yleinen tiedostojen jakaminen |
+| [fileshare.to](https://fileshare.to) | Yleinen tiedostojen jakaminen |
+| [filesharing.to](https://filesharing.to) | Yleinen tiedostojen jakaminen |
+
+Premium- ja Enterprise-asiakkaat voivat katsoa lisätietoja sivulta [viralliset verkkotunnukset](/docs/fi/official-domains/#premium--enterprise).
+
+---
+
+## API-käyttö
+
+Tiedostojen jakaminen on käytettävissä myös API:n kautta. Ohjelmallisia latauksia koskevat tiedot löytyvät [API-dokumentaatiosta](/docs/fi/developers/api/#file-sharing).
+
+---
+
+## UKK
+
+### Kuka voi ladata tiedostoja?
+
+Vain maksulliset tilaajat voivat ladata tiedostoja. Voimassa oleva tilaus on pakollinen.
+
+### Onko latauksille tai kaistanleveydelle rajoja?
+
+Ei. Jaetuille tiedostoille ei ole latausmäärä- eikä kaistanleveysrajoituksia.
+
+### Voinko mukauttaa jakosivun URL-osoitetta?
+
+Kyllä. **Create File** -lataustavassa voit määrittää mukautetun verkkotunnuksen ja slugin.
+
+### Voinko mukauttaa suoran linkin URL-osoitetta?
+
+Tällä hetkellä suorat linkit käyttävät kiinteää rakennetta eivätkä tue mukautettuja verkkotunnuksia.

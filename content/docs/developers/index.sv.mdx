@@ -1,0 +1,88 @@
+---
+title: För utvecklare
+description: S.EE REST API för att skapa, hantera och följa korta länkar, textdelning och fildelning
+icon: CodeXml
+---
+
+## Översikt
+
+S.EE API låter dig skapa och hantera korta länkar, textdelning och fildelning programmatiskt. Du kan använda det för att:
+
+- Skapa korta länkar i stor skala
+- Dela textsnuttar och kod med syntaxmarkering
+- Ladda upp och dela filer
+- Hantera egna domäner
+- Hämta analysdata
+- Integrera S.EE i dina applikationer
+
+---
+
+## Kom igång
+
+### Förutsättningar
+
+1. Ett S.EE-konto med ett aktivt abonnemang
+2. En API-åtkomsttoken
+
+### Autentisering
+
+Alla API-anrop kräver en åtkomsttoken i headern `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Bas-URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Exempel på förfrågningar
+
+### Skapa kort URL
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Skapa textdelning
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Ladda upp fil
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Resurser
+
+<Cards>
+  <Card title="API-referens" href="/docs/sv/developers/api/">Visa alla tillgängliga endpoints</Card>
+  <Card title="SDK:er" href="/docs/sv/developers/sdk/">Officiella S.EE-SDK:er för olika programmeringsspråk</Card>
+</Cards>

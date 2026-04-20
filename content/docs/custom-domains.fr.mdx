@@ -1,0 +1,70 @@
+---
+title: Domaines personnalisés
+description: Comment configurer un domaine personnalisé pour vos liens courts
+icon: Globe
+---
+
+## Qu’est-ce qu’un domaine personnalisé ?
+
+Un domaine personnalisé vous permet d’utiliser votre propre marque dans les liens courts à la place de `s.ee`. Par exemple, au lieu de `s.ee/link`, vous pouvez utiliser `go.example.com/link`.
+
+---
+
+## Pourquoi utiliser un domaine personnalisé ?
+
+- **Reconnaissance de marque** - Les liens affichent votre marque, pas la nôtre
+- **Confiance** - Les utilisateurs sont plus enclins à cliquer sur des liens de marque
+- **Taux de clics plus élevés** - Les liens de marque obtiennent de meilleures performances
+
+---
+
+## Ajouter un domaine personnalisé
+
+1. Accédez à [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Cliquez sur **Add Domain**
+3. Saisissez votre nom de domaine
+4. Ajoutez les enregistrements DNS requis :
+   - **Enregistrement TXT** - Pour la vérification du domaine
+   - **Enregistrement CNAME ou Alias** - Pour faire pointer votre domaine vers S.EE
+5. Attendez la propagation DNS (généralement quelques minutes)
+6. Cliquez sur **Verify** pour confirmer la configuration
+
+---
+
+## Exigences
+
+- Le domaine doit être différent du domaine principal de votre site web
+- Maximum 63 caractères (point compris)
+- Vous devez avoir accès aux paramètres DNS de votre domaine
+
+---
+
+## Remarques importantes
+
+### Utilisateurs Cloudflare
+
+Si vous utilisez Cloudflare pour votre DNS, **n’activez pas le proxy (icône de nuage orange)** pour votre enregistrement CNAME. Laissez-le en mode DNS only (nuage gris). L’activation du proxy Cloudflare peut provoquer des conflits CDN et des problèmes de redirection.
+
+### Utiliser un domaine apex (domaine racine)
+
+Si vous souhaitez utiliser un domaine apex (par exemple `example.com` au lieu de `go.example.com`), votre fournisseur DNS doit prendre en charge les **enregistrements ALIAS** ou le **CNAME flattening**. Fournisseurs courants proposant cette fonction :
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Si votre fournisseur DNS ne prend pas en charge ces fonctions, veuillez [nous contacter](https://s.ee/contact/) - nous pouvons vous aider à vérifier et ajouter manuellement votre domaine apex.
+
+---
+
+## Limites de domaines par offre
+
+| Offre | Domaines personnalisés |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Illimité |

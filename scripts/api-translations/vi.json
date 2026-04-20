@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Tạo URL rút gọn",
+    "description": "Tạo URL rút gọn mới cho liên kết đích. Bạn có thể tùy chọn đặt slug tùy chỉnh, bảo vệ bằng mật khẩu, thời gian hết hạn và thẻ để phân loại."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Tạo URL rút gọn (chế độ đơn giản)",
+    "description": "Nhanh chóng tạo URL rút gọn bằng các tham số đơn giản hóa, phù hợp với các tình huống không cần cấu hình."
+  },
+  "UpdateShortUrl": {
+    "title": "Cập nhật URL rút gọn",
+    "description": "Cập nhật địa chỉ đích, mật khẩu, thời gian hết hạn hoặc thẻ của URL rút gọn hiện có."
+  },
+  "DeleteShortUrl": {
+    "title": "Xóa URL rút gọn",
+    "description": "Xóa vĩnh viễn URL rút gọn được chỉ định."
+  },
+  "GetAvailableDomains": {
+    "title": "Lấy danh sách tên miền khả dụng",
+    "description": "Trả về danh sách tên miền hiện có thể dùng trong tài khoản để tạo URL rút gọn."
+  },
+  "GetLinkVisitStat": {
+    "title": "Lấy thống kê truy cập",
+    "description": "Trả về dữ liệu truy cập của một URL rút gọn, bao gồm số lượt nhấp, nguồn truy cập và phân bố địa lý."
+  },
+  "CreateText": {
+    "title": "Tạo chia sẻ văn bản",
+    "description": "Tạo nội dung văn bản có thể truy cập qua URL rút gọn, chẳng hạn văn bản thuần, đoạn mã hoặc Markdown."
+  },
+  "UpdateText": {
+    "title": "Cập nhật chia sẻ văn bản",
+    "description": "Cập nhật nội dung, mật khẩu hoặc thời gian hết hạn của chia sẻ văn bản hiện có."
+  },
+  "DeleteText": {
+    "title": "Xóa chia sẻ văn bản",
+    "description": "Xóa vĩnh viễn chia sẻ văn bản được chỉ định."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Lấy tên miền cho chia sẻ văn bản",
+    "description": "Trả về danh sách tên miền khả dụng để tạo chia sẻ văn bản."
+  },
+  "UploadFile": {
+    "title": "Tải tệp lên",
+    "description": "Tải tệp lên và tạo URL rút gọn có thể chia sẻ, hỗ trợ đặt mật khẩu và thời gian hết hạn."
+  },
+  "GetFileHistory": {
+    "title": "Lấy lịch sử tệp",
+    "description": "Trả về danh sách các tệp đã được tải lên bởi tài khoản hiện tại."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Lấy URL tải xuống tệp riêng tư",
+    "description": "Tạo URL tải xuống tạm thời cho tệp riêng tư được bảo vệ bằng mật khẩu."
+  },
+  "DeleteFile": {
+    "title": "Xóa tệp",
+    "description": "Xóa vĩnh viễn tệp được chỉ định."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Lấy tên miền cho chia sẻ tệp",
+    "description": "Trả về danh sách tên miền khả dụng để chia sẻ tệp."
+  },
+  "GetTags": {
+    "title": "Lấy danh sách thẻ",
+    "description": "Trả về tất cả thẻ trong tài khoản hiện tại dùng để tổ chức nội dung."
+  },
+  "GetUsage": {
+    "title": "Lấy mức sử dụng",
+    "description": "Trả về mức sử dụng tài nguyên của tài khoản hiện tại trong chu kỳ thanh toán đang diễn ra."
+  }
+}

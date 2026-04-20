@@ -1,0 +1,113 @@
+---
+title: 桌面应用
+description: S.EE 的原生桌面应用
+icon: Monitor
+---
+
+在桌面端缩短网址、分享文本和上传文件。S.EE 提供 macOS 和 Linux 原生应用。
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## 下载
+
+- **macOS**：[https://s.ee/macos](https://s.ee/macos)
+- **Linux**：[https://s.ee/linux](https://s.ee/linux)
+
+## 支持的平台
+
+| 平台 | 状态 | 技术栈 |
+|----------|--------|------------|
+| macOS | 已提供 | SwiftUI |
+| Linux | 已提供 | GTK4 + libadwaita + Rust |
+| Windows | 开发中 | - |
+
+## 功能
+
+- **URL 缩短** —— 支持自定义短码、标题、密码和过期时间
+- **文本分享** —— 使用等宽编辑器分享纯文本、源代码或 Markdown
+- **文件上传** —— 支持拖拽、剪贴板粘贴或文件选择器
+- **二维码生成** —— 可导出为 PNG、SVG 或 PDF
+- **历史记录** —— 本地记录所有已创建的链接、文本和文件
+- **多域名支持** —— 每项服务均可从多个域名中选择
+- **用量控制台** —— 一眼查看存储空间使用情况和频率限制
+
+## macOS
+
+使用 **SwiftUI** 和 **SwiftData** 构建。完整支持键盘快捷键和菜单栏集成。
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- 需要 macOS 14.0+
+
+### 亮点
+
+- **菜单栏** —— 无需打开主窗口即可创建短网址、粘贴并上传，以及访问最近项目
+- **拖拽** —— 可在上传区域任意位置拖放文件
+- **从剪贴板粘贴**（Cmd+V）—— 自动将图片转换为 WebP，不支持时回退到 PNG
+- **Keychain** —— 通过 macOS Security framework 安全存储 API Key
+
+### 键盘快捷键
+
+| 快捷键 | 操作 |
+|----------|--------|
+| Cmd+N | 新建短网址 |
+| Cmd+Shift+N | 新建文本分享 |
+| Cmd+V | 从剪贴板粘贴并上传 |
+| Cmd+, | 打开设置 |
+| Cmd+Q | 退出 |
+
+### 技术栈
+
+| 层 | 技术 |
+|-------|-----------|
+| UI | SwiftUI |
+| 存储 | SwiftData |
+| 网络 | URLSession（基于 actor） |
+| 安全 | Keychain |
+| 缩略图 | QuickLookThumbnailing |
+| 图像处理 | Swift-WebP |
+
+## Linux
+
+使用 **GTK4**、**libadwaita** 和 **Rust** 构建，遵循 GNOME Human Interface Guidelines。
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- 需要 GTK 4.14+ 和 libadwaita 1.5+
+
+### 亮点
+
+- **原生 GNOME 体验** —— 自适应布局，遵循 GNOME HIG
+- **二维码导出** —— 支持 PNG、SVG 或 PDF
+- **配置文件** —— `~/.config/see/config.toml` 用于配置 API Key、基础 URL 和默认域名
+- **环境变量** —— `SEE_API_KEY`、`SEE_BASE_URL`、`SEE_TIMEOUT` 会覆盖配置文件
+
+### 键盘快捷键
+
+| 快捷键 | 操作 |
+|----------|--------|
+| Ctrl+1 | 切换到短网址视图 |
+| Ctrl+2 | 切换到文本视图 |
+| Ctrl+3 | 切换到文件视图 |
+| Ctrl+, | 打开偏好设置 |
+| Ctrl+? | 显示键盘快捷键 |
+| Ctrl+Q | 退出 |
+
+### 技术栈
+
+| 层 | 技术 |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| 语言 | Rust（2024 edition） |
+| API 客户端 | see-sdk |
+| 二维码 | 内置（支持 PNG、SVG、PDF 导出） |
+
+### 数据存储
+
+- **配置**：`~/.config/see/config.toml`
+- **历史记录**：`~/.local/share/see/history.json`
+
+## 快速上手
+
+1. 下载 [macOS](https://s.ee/macos) 或 [Linux](https://s.ee/linux) 版本
+2. 如果您还没有账号，请前往 [s.ee](https://s.ee) 创建账号
+3. 在控制台中 [生成 API Key](https://s.ee/user/developers/)
+4. 打开应用，前往 **Preferences** 并输入您的 API Key

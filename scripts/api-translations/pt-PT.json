@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Criar URL curta",
+    "description": "Cria um novo URL curto para a ligação de destino. Opcionalmente, pode definir um slug personalizado, proteção por palavra-passe, prazo de expiração e etiquetas para organização."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Criar URL curta (modo simples)",
+    "description": "Cria rapidamente um URL curto com parâmetros simplificados, ideal para cenários sem configuração."
+  },
+  "UpdateShortUrl": {
+    "title": "Atualizar URL curta",
+    "description": "Atualiza o endereço de destino, a palavra-passe, o prazo de expiração ou as etiquetas de um URL curto existente."
+  },
+  "DeleteShortUrl": {
+    "title": "Eliminar URL curta",
+    "description": "Elimina permanentemente o URL curto especificado."
+  },
+  "GetAvailableDomains": {
+    "title": "Obter domínios disponíveis",
+    "description": "Devolve a lista de domínios disponíveis na conta atual para criar URLs curtos."
+  },
+  "GetLinkVisitStat": {
+    "title": "Obter estatísticas de visitas",
+    "description": "Devolve os dados de visitas de um URL curto, incluindo cliques, origens e distribuição geográfica."
+  },
+  "CreateText": {
+    "title": "Criar partilha de texto",
+    "description": "Cria conteúdo de texto acessível através de um URL curto, como texto simples, excertos de código ou Markdown."
+  },
+  "UpdateText": {
+    "title": "Atualizar partilha de texto",
+    "description": "Atualiza o conteúdo, a palavra-passe ou o prazo de expiração de uma partilha de texto existente."
+  },
+  "DeleteText": {
+    "title": "Eliminar partilha de texto",
+    "description": "Elimina permanentemente a partilha de texto especificada."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Obter domínios para partilha de texto",
+    "description": "Devolve a lista de domínios disponíveis para criar partilhas de texto."
+  },
+  "UploadFile": {
+    "title": "Carregar ficheiro",
+    "description": "Carrega um ficheiro e gera um URL curto partilhável, com suporte para palavra-passe e prazo de expiração."
+  },
+  "GetFileHistory": {
+    "title": "Obter histórico de ficheiros",
+    "description": "Devolve a lista de ficheiros carregados pela conta atual."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Obter URL de descarga de ficheiro privado",
+    "description": "Gera um URL temporário de descarga para um ficheiro privado protegido por palavra-passe."
+  },
+  "DeleteFile": {
+    "title": "Eliminar ficheiro",
+    "description": "Elimina permanentemente o ficheiro especificado."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Obter domínios para partilha de ficheiros",
+    "description": "Devolve a lista de domínios disponíveis para partilha de ficheiros."
+  },
+  "GetTags": {
+    "title": "Obter lista de etiquetas",
+    "description": "Devolve todas as etiquetas da conta atual utilizadas para organizar o conteúdo."
+  },
+  "GetUsage": {
+    "title": "Obter utilização",
+    "description": "Devolve a utilização de recursos da conta atual no ciclo de faturação em curso."
+  }
+}

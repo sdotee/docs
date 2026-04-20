@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "短縮URLを作成",
+    "description": "リンク先URLに対する新しい短縮URLを作成します。カスタムスラッグ、パスワード保護、有効期限、整理用タグを任意で設定できます。"
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "短縮URLを作成（シンプルモード）",
+    "description": "簡略化されたパラメータで短縮URLをすばやく作成します。設定を最小限にしたい場合に適しています。"
+  },
+  "UpdateShortUrl": {
+    "title": "短縮URLを更新",
+    "description": "既存の短縮URLのリンク先URL、パスワード、有効期限、タグを更新します。"
+  },
+  "DeleteShortUrl": {
+    "title": "短縮URLを削除",
+    "description": "指定した短縮URLを完全に削除します。"
+  },
+  "GetAvailableDomains": {
+    "title": "利用可能なドメインを取得",
+    "description": "現在のアカウントで短縮URLの作成に利用できるドメイン一覧を返します。"
+  },
+  "GetLinkVisitStat": {
+    "title": "短縮URLのアクセス統計を取得",
+    "description": "指定した短縮URLのアクセスデータを返します。クリック数、参照元、地域分布などを含みます。"
+  },
+  "CreateText": {
+    "title": "テキスト共有を作成",
+    "description": "プレーンテキスト、コードスニペット、Markdown などのテキスト共有を作成し、短縮URL経由でアクセスできるようにします。"
+  },
+  "UpdateText": {
+    "title": "テキスト共有を更新",
+    "description": "既存のテキスト共有の内容、パスワード、有効期限を更新します。"
+  },
+  "DeleteText": {
+    "title": "テキスト共有を削除",
+    "description": "指定したテキスト共有を完全に削除します。"
+  },
+  "GetTextAvailableDomains": {
+    "title": "テキスト共有用の利用可能ドメインを取得",
+    "description": "テキスト共有の作成に利用できるドメイン一覧を返します。"
+  },
+  "UploadFile": {
+    "title": "ファイルをアップロード",
+    "description": "ファイルをアップロードし、共有用の短縮URLを生成します。パスワードと有効期限も設定できます。"
+  },
+  "GetFileHistory": {
+    "title": "ファイル履歴を取得",
+    "description": "現在のアカウントがアップロードしたファイル一覧を返します。"
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "非公開ファイルのダウンロードURLを取得",
+    "description": "パスワード保護された非公開ファイル用の一時ダウンロードURLを生成します。"
+  },
+  "DeleteFile": {
+    "title": "ファイルを削除",
+    "description": "指定したファイルを完全に削除します。"
+  },
+  "GetFileAvailableDomains": {
+    "title": "ファイル共有用の利用可能ドメインを取得",
+    "description": "ファイル共有に利用できるドメイン一覧を返します。"
+  },
+  "GetTags": {
+    "title": "タグ一覧を取得",
+    "description": "現在のアカウントでコンテンツ整理に使用しているすべてのタグを返します。"
+  },
+  "GetUsage": {
+    "title": "使用量を取得",
+    "description": "現在のアカウントの当月課金期間におけるリソース使用状況を返します。"
+  }
+}

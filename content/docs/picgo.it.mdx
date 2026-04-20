@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo include già il supporto per S.EE, senza bisogno di plugin aggiuntivi
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) è uno strumento open source per il caricamento di immagini e file su Windows, macOS e Linux. Le versioni recenti includono il supporto per S.EE già pronto all'uso, quindi ti basta un API Token per iniziare.
+
+- [Scarica PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Codice sorgente](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Configurazione
+
+### 1. Ottieni il tuo API Token
+
+1. Accedi al tuo account S.EE
+2. Vai su **[Tools > API Token](https://s.ee/user/developers/)**
+3. Genera un nuovo API Token
+
+<Callout type="warn">
+Non condividere pubblicamente il tuo API Token e non commitarlo nel controllo versione.
+</Callout>
+
+### 2. Configura PicGo
+
+1. Scarica e installa [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Apri PicGo
+3. Vai su **Picbeds Settings** > **SM.MS (S.EE)**
+4. Fai clic su **+** per aggiungere una nuova configurazione
+5. Inserisci un nome in **Configuration Name** (ad esempio `S.EE`)
+6. Incolla il tuo API Token in **Set Token**
+7. Fai clic su **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Utilizzo
+
+Ci sono diversi modi per caricare:
+
+- Trascina i file nell'area di upload
+- Fai clic sull'area di upload per scegliere file dal computer
+- Fai clic sulla mini finestra flottante per caricare direttamente
+- Fai clic con il tasto destro sulla mini finestra flottante e seleziona **Upload by Clipboard**
+
+PicGo copia il link risultante negli appunti. Puoi scegliere il formato: Markdown, HTML, URL grezzo e altro.
+
+---
+
+## Correlati
+
+- [API per sviluppatori](/docs/it/developers)
+- [Condivisione file](/docs/it/file-sharing)
+- [Compatibilità SM.MS](/docs/it/developers/smms-compatibility)

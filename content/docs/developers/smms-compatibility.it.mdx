@@ -1,0 +1,131 @@
+---
+title: Compatibilità SM.MS
+description: Migra da SM.MS a S.EE con modifiche minime al codice
+icon: RefreshCw
+---
+
+S.EE fornisce un layer API compatibile con SM.MS che ti permette di migrare da SM.MS a S.EE con modifiche minime al codice. Ti basta sostituire l'endpoint API di base.
+
+## Migrazione rapida
+
+Sostituisci la base URL dell'API SM.MS con l'equivalente S.EE:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Endpoint supportati
+
+| Endpoint SM.MS | Endpoint S.EE | Descrizione |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Carica immagine |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Recupera cronologia upload |
+
+## Caricamento immagine
+
+### Richiesta
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Parametri
+
+| Parametro | Tipo | Obbligatorio | Descrizione |
+|-----------|------|----------|-------------|
+| `smfile` | file | Sì | File immagine da caricare (alias: `file`) |
+| `domain` | string | No | Dominio personalizzato per il link breve |
+| `custom_slug` | string | No | Slug personalizzato per l'URL |
+
+### Risposta
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Cronologia upload
+
+### Richiesta
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Parametri
+
+| Parametro | Tipo | Obbligatorio | Descrizione |
+|-----------|------|----------|-------------|
+| `page` | integer | No | Numero pagina (default 1, 30 file per pagina) |
+
+### Risposta
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    }
+  ]
+}
+```
+
+## Differenze rispetto a SM.MS
+
+S.EE mantiene la compatibilità con l'API SM.MS ma introduce anche alcuni miglioramenti:
+
+| Funzionalità | SM.MS | S.EE |
+|---------|-------|------|
+| Dominio personalizzato | No | Sì |
+| Slug personalizzato | No | Sì |
+| Limite dimensione file | 5 MB | Variabile in base al piano |
+| Formati supportati | Solo immagini | Immagini, documenti e altro |
+
+## Ottieni la tua API key
+
+Per usare l'API S.EE hai bisogno di una API key:
+
+1. Registrati o accedi su [s.ee](https://s.ee)
+2. Vai su **[Tools > API Token](https://s.ee/user/developers/)**
+3. Genera una nuova API key
+
+## Hai bisogno di aiuto?
+
+Se riscontri problemi durante la migrazione, contatta il [supporto](https://s.ee/contact) oppure consulta la [documentazione API](/docs/it/developers/api).

@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "대시보드"
+  },
+  "cookieBar": {
+    "message": "언어 설정을 기억하고 사용 경험을 개선하기 위해 쿠키를 사용합니다.",
+    "accept": "동의",
+    "decline": "거부",
+    "privacyLink": "개인정보 처리방침"
+  },
+  "fumadocs": {
+    "search": "검색",
+    "searchNoResult": "결과가 없습니다",
+    "toc": "이 페이지",
+    "lastUpdate": "최근 업데이트",
+    "previousPage": "이전",
+    "nextPage": "다음",
+    "chooseTheme": "테마 선택",
+    "editOnGithub": "GitHub에서 편집",
+    "chooseLanguage": "언어 선택"
+  }
+}

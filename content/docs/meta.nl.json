@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Aan de slag---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Functies---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Gratis diensten---",
+    "free-url-shorteners",
+    "---Hulp---",
+    "troubleshooting",
+    "security",
+    "---Integratie---",
+    "developers",
+    "api",
+    "---Integraties van derden---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Community---",
+    "awesome"
+  ]
+}

@@ -1,0 +1,233 @@
+---
+title: Partage de fichiers
+description: Comment téléverser et partager des fichiers avec S.EE
+icon: Upload
+---
+
+## Vue d’ensemble
+
+S.EE File Sharing vous permet de téléverser et partager des fichiers avec un lien court et facile à partager. Idéal pour partager des images, des documents, de l’audio, de la vidéo et d’autres types de fichiers.
+
+---
+
+## Téléverser des fichiers
+
+### Téléversement rapide (glisser-déposer)
+
+1. Connectez-vous sur [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Cliquez sur **Sharing > Files** dans la barre latérale gauche ou accédez directement à [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Glissez-déposez des fichiers ou des dossiers dans la fenêtre **Drag & Drop**
+   - Vous pouvez aussi cliquer sur la fenêtre pour parcourir et sélectionner des fichiers
+   - Le téléversement d’un dossier enverra tous les fichiers qu’il contient
+4. Les fichiers seront partagés avec le domaine par défaut et un slug aléatoire
+
+### Téléversement avancé (Create File)
+
+Pour mieux contrôler votre partage de fichiers :
+
+1. Cliquez sur le bouton **Create File**
+2. Configurez vos paramètres :
+   - **Domain** - Sélectionnez le domaine souhaité pour la page de partage
+   - **Custom Slug** - Définissez un slug d’URL personnalisé
+   - **Other options** - Tags, expiration, etc.
+3. Sélectionnez votre fichier puis téléversez-le
+
+---
+
+## Liens de fichier
+
+Chaque fichier téléversé possède deux types de liens :
+
+| Type de lien | Format | Description |
+|-----------|--------|-------------|
+| Page de partage | `fs.to/[your_slug]` | Domaine et slug personnalisables |
+| Lien direct | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Accès direct au fichier avec son nom d’origine |
+
+**Remarque :** les liens directs ne prennent actuellement pas en charge les domaines personnalisés.
+
+---
+
+## Types de fichiers pris en charge
+
+S.EE prend en charge une large variété de types de fichiers :
+
+### Images
+
+| Type MIME | Description |
+|-----------|-------------|
+| image/jpeg | Images JPEG (.jpg, .jpeg) |
+| image/png | Images PNG (.png) |
+| image/gif | Images GIF (.gif) |
+| image/webp | Images WebP (.webp) |
+| image/avif | Images AVIF (.avif) |
+| image/svg+xml | Images SVG (.svg) |
+| image/bmp | Images BMP (.bmp) |
+| image/tiff | Images TIFF (.tiff, .tif) |
+| image/heic | Images HEIC (.heic) |
+| image/heif | Images HEIF (.heif) |
+| image/jp2 | Images JPEG 2000 (.jp2) |
+| image/jpx | Images JPEG 2000 (.jpx) |
+| image/jxl | Images JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | Fichiers Photoshop (.psd) |
+
+### Documents
+
+| Type MIME | Description |
+|-----------|-------------|
+| application/pdf | Documents PDF (.pdf) |
+| application/msword | Documents Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documents Word (.docx) |
+| application/vnd.ms-excel | Feuilles de calcul Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Feuilles de calcul Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Présentations PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Présentations PowerPoint (.pptx) |
+| application/vnd.apple.pages | Documents Pages (.pages) |
+| application/vnd.apple.numbers | Feuilles de calcul Numbers (.numbers) |
+| application/vnd.apple.keynote | Présentations Keynote (.key) |
+| application/vnd.oasis.opendocument.text | Documents OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | Feuilles de calcul OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | Présentations OpenDocument Presentation (.odp) |
+| application/rtf | Documents Rich Text Format (.rtf) |
+| application/postscript | Fichiers PostScript (.ps, .eps) |
+| application/epub+zip | E-books EPUB (.epub) |
+
+### Texte et données
+
+| Type MIME | Description |
+|-----------|-------------|
+| text/plain | Fichiers texte brut (.txt) |
+| text/csv | Fichiers CSV (.csv) |
+| text/markdown | Fichiers Markdown (.md, .markdown, .mdx) |
+| application/json | Fichiers JSON (.json) |
+| application/yaml | Fichiers YAML (.yaml, .yml) |
+
+### Audio
+
+| Type MIME | Description |
+|-----------|-------------|
+| audio/mpeg | Fichiers MP3 (.mp3) |
+| audio/wav | Fichiers WAV (.wav) |
+| audio/ogg | Audio OGG (.ogg) |
+| audio/flac | Audio FLAC (.flac) |
+| audio/aac | Audio AAC (.aac) |
+| audio/mp4, audio/x-m4a | Audio M4A (.m4a) |
+| audio/midi | Fichiers MIDI (.mid, .midi) |
+| audio/x-ms-wma | Audio WMA (.wma) |
+
+### Vidéo
+
+| Type MIME | Description |
+|-----------|-------------|
+| video/mp4 | Vidéos MP4 (.mp4) |
+| video/webm | Vidéos WebM (.webm) |
+| video/quicktime | Vidéos QuickTime (.mov) |
+| video/x-matroska | Vidéos MKV (.mkv) |
+| video/x-msvideo | Vidéos AVI (.avi) |
+| video/mpeg | Vidéos MPEG (.mpeg, .mpg) |
+| video/ogg | Vidéos OGG (.ogv) |
+| video/3gpp | Vidéos 3GP (.3gp) |
+| video/x-flv | Vidéos FLV (.flv) |
+| video/x-ms-wmv | Vidéos WMV (.wmv) |
+
+### Archives et images disque
+
+| Type MIME | Description |
+|-----------|-------------|
+| application/zip | Archives ZIP (.zip) |
+| application/x-zip-compressed | Archives ZIP (.zip) |
+| application/gzip | Archives GZIP (.gz) |
+| application/x-bzip2 | Archives BZIP2 (.bz2) |
+| application/x-xz | Archives XZ (.xz) |
+| application/x-tar | Archives TAR (.tar) |
+| application/x-7z-compressed | Archives 7-Zip (.7z) |
+| application/x-rar-compressed | Archives RAR (.rar) |
+| application/x-apple-diskimage | Images disque DMG (.dmg) |
+| application/x-iso9660-image | Images disque ISO (.iso) |
+
+<Callout type="warn">
+Les fichiers exécutables (.exe, .msi, .bat, .app, etc.) ne sont **pas autorisés** pour des raisons de sécurité.
+</Callout>
+
+<Callout type="info">
+Pour les extensions de fichier suivantes, nous pouvons forcer `Content-Type` à `text/plain` afin de limiter les abus liés aux scripts : `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Pour les types de fichiers inconnus ou ambigus, nous forçons `Content-Type` à `application/octet-stream`.
+</Callout>
+
+### Ancien / Compatibilité
+
+Ces types MIME sont acceptés pour la compatibilité avec les anciens systèmes.
+
+| Type MIME | Description |
+|-----------|-------------|
+| application/excel | Feuilles de calcul Excel (.xls) |
+| application/x-excel | Feuilles de calcul Excel (.xls) |
+| application/x-msexcel | Feuilles de calcul Excel (.xls) |
+| application/mspowerpoint | Présentations PowerPoint (.ppt) |
+| application/powerpoint | Présentations PowerPoint (.ppt) |
+| application/x-mspowerpoint | Présentations PowerPoint (.ppt) |
+
+---
+
+## Limites de stockage
+
+Les limites de stockage varient selon l’offre :
+
+| Offre | Taille maximale du fichier | Stockage total |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Personnalisé | Personnalisé |
+
+Consultez [s.ee/pricing](https://s.ee/pricing) pour tous les détails des offres.
+
+---
+
+## Rétention des fichiers
+
+- Les fichiers sont **stockés de manière permanente** tant que votre abonnement reste actif
+- Si votre abonnement expire, les fichiers sont conservés pendant **7 jours** avant suppression
+
+---
+
+## Domaines pris en charge
+
+Le partage de fichiers est disponible sur ces domaines :
+
+| Domaine | Idéal pour |
+|--------|----------|
+| [fs.to](https://fs.to) | Partage de fichiers général |
+| [files.to](https://files.to) | Partage de fichiers général |
+| [fileshare.to](https://fileshare.to) | Partage de fichiers général |
+| [filesharing.to](https://filesharing.to) | Partage de fichiers général |
+
+Pour les clients Premium et Enterprise, veuillez consulter nos [domaines officiels](/docs/fr/official-domains/#premium--enterprise).
+
+---
+
+## Accès API
+
+Le partage de fichiers est également disponible via l’API. Consultez notre [documentation API](/docs/fr/developers/api/#partage-de-fichiers) pour les détails sur les téléversements programmatiques.
+
+---
+
+## FAQ
+
+### Qui peut téléverser des fichiers ?
+
+Seuls les abonnés payants peuvent téléverser des fichiers. Un abonnement valide est requis.
+
+### Y a-t-il des limites de téléchargement ?
+
+Non, il n’y a aucune limite sur le nombre de téléchargements ni sur la bande passante des fichiers partagés.
+
+### Puis-je personnaliser l’URL de la page de partage ?
+
+Oui, vous pouvez définir un domaine personnalisé et un slug pour la page de partage lorsque vous utilisez la méthode de téléversement **Create File**.
+
+### Puis-je personnaliser l’URL du lien direct ?
+
+Actuellement, les liens directs utilisent un format fixe et ne prennent pas en charge les domaines personnalisés.

@@ -1,0 +1,146 @@
+---
+title: SM.MS 호환
+description: 최소한의 코드 변경으로 SM.MS 에서 S.EE 로 마이그레이션하기
+icon: RefreshCw
+---
+
+S.EE 는 SM.MS 호환 API 레이어를 제공하므로, 최소한의 코드 변경으로 SM.MS 에서 S.EE 로 이전할 수 있습니다. API 엔드포인트만 교체하면 바로 사용할 수 있습니다.
+
+## 빠른 마이그레이션
+
+SM.MS API 기본 URL 을 S.EE 대응 URL 로 바꾸세요.
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## 지원 엔드포인트
+
+| SM.MS Endpoint | S.EE Endpoint | Description |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | 이미지 업로드 |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | 업로드 기록 조회 |
+
+## 이미지 업로드
+
+### 요청
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### 파라미터
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `smfile` | file | Yes | 업로드할 이미지 파일 (`file` 별칭 지원) |
+| `domain` | string | No | 단축 링크에 사용할 사용자 정의 도메인 |
+| `custom_slug` | string | No | URL 용 사용자 정의 슬러그 (미입력 시 랜덤 생성) |
+
+### 응답
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## 업로드 기록
+
+### 요청
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### 파라미터
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `page` | integer | No | 페이지 번호 (기본값 1, 페이지당 30 개 파일) |
+
+### 응답
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## SM.MS 와의 차이점
+
+S.EE 는 SM.MS API 와의 호환성을 유지하면서 몇 가지 개선점도 제공합니다.
+
+| Feature | SM.MS | S.EE |
+|---------|-------|------|
+| Custom domain | No | Yes |
+| Custom slug | No | Yes |
+| File size limit | 5MB | Varies by plan |
+| Supported formats | Images only | Images, documents, and more |
+
+## API Key 받기
+
+S.EE API 를 사용하려면 API Key 가 필요합니다.
+
+1. [s.ee](https://s.ee) 에서 회원가입하거나 로그인합니다
+2. **[Tools > API Token](https://s.ee/user/developers/)** 으로 이동합니다
+3. 새 API Key 를 생성합니다
+
+## 도움이 필요하신가요?
+
+마이그레이션 중 문제가 발생하면 [지원팀에 문의](https://s.ee/contact) 하거나 [API 문서](/docs/ko/developers/api) 를 확인해 주세요.

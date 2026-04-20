@@ -1,0 +1,233 @@
+---
+title: Udostępnianie plików
+description: Jak przesyłać i udostępniać pliki przez S.EE
+icon: Upload
+---
+
+## Przegląd
+
+Udostępnianie plików w S.EE pozwala przesyłać i udostępniać pliki za pomocą krótkiego linku. To dobre rozwiązanie do obrazów, dokumentów, audio, wideo i innych plików.
+
+---
+
+## Przesyłanie plików
+
+### Szybkie przesyłanie (przeciągnij i upuść)
+
+1. Zaloguj się na [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Kliknij **Sharing > Files** w lewym panelu albo otwórz bezpośrednio [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Przeciągnij pliki lub foldery do okna **Drag & Drop**
+   - Możesz też kliknąć okno, aby wyszukać i wybrać pliki
+   - Przesłanie folderu wysyła wszystkie pliki znajdujące się w środku
+4. Pliki zostaną opublikowane z domyślną domeną i losowym slugiem
+
+### Zaawansowane przesyłanie (Create File)
+
+Aby mieć większą kontrolę nad udostępnianiem plików:
+
+1. Kliknij przycisk **Create File**
+2. Skonfiguruj ustawienia:
+   - **Domain** - wybierz domenę dla strony udostępniania
+   - **Custom Slug** - ustaw własny slug URL-a
+   - **Other options** - tagi, wygaśnięcie itd.
+3. Wybierz plik i prześlij go
+
+---
+
+## Linki do plików
+
+Każdy przesłany plik ma dwa rodzaje linków:
+
+| Typ linku | Format | Opis |
+|-----------|--------|-------------|
+| Strona udostępniania | `fs.to/[your_slug]` | Konfigurowalne domena i slug |
+| Link bezpośredni | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Bezpośredni dostęp do pliku z oryginalną nazwą |
+
+**Uwaga:** linki bezpośrednie nie obsługują obecnie własnych domen.
+
+---
+
+## Obsługiwane typy plików
+
+S.EE obsługuje szeroki zakres typów plików:
+
+### Obrazy
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| image/jpeg | Obrazy JPEG (.jpg, .jpeg) |
+| image/png | Obrazy PNG (.png) |
+| image/gif | Obrazy GIF (.gif) |
+| image/webp | Obrazy WebP (.webp) |
+| image/avif | Obrazy AVIF (.avif) |
+| image/svg+xml | Obrazy SVG (.svg) |
+| image/bmp | Obrazy BMP (.bmp) |
+| image/tiff | Obrazy TIFF (.tiff, .tif) |
+| image/heic | Obrazy HEIC (.heic) |
+| image/heif | Obrazy HEIF (.heif) |
+| image/jp2 | Obrazy JPEG 2000 (.jp2) |
+| image/jpx | Obrazy JPEG 2000 (.jpx) |
+| image/jxl | Obrazy JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | Pliki Photoshop (.psd) |
+
+### Dokumenty
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| application/pdf | Dokumenty PDF (.pdf) |
+| application/msword | Dokumenty Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Dokumenty Word (.docx) |
+| application/vnd.ms-excel | Arkusze Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Arkusze Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Prezentacje PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Prezentacje PowerPoint (.pptx) |
+| application/vnd.apple.pages | Dokumenty Pages (.pages) |
+| application/vnd.apple.numbers | Arkusze Numbers (.numbers) |
+| application/vnd.apple.keynote | Prezentacje Keynote (.key) |
+| application/vnd.oasis.opendocument.text | Dokumenty tekstowe OpenDocument (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | Arkusze OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | Prezentacje OpenDocument Presentation (.odp) |
+| application/rtf | Dokumenty RTF (.rtf) |
+| application/postscript | Pliki PostScript (.ps, .eps) |
+| application/epub+zip | E-booki EPUB (.epub) |
+
+### Tekst i dane
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| text/plain | Zwykłe pliki tekstowe (.txt) |
+| text/csv | Pliki CSV (.csv) |
+| text/markdown | Pliki Markdown (.md, .markdown, .mdx) |
+| application/json | Pliki JSON (.json) |
+| application/yaml | Pliki YAML (.yaml, .yml) |
+
+### Audio
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| audio/mpeg | Pliki MP3 (.mp3) |
+| audio/wav | Pliki WAV (.wav) |
+| audio/ogg | Audio OGG (.ogg) |
+| audio/flac | Audio FLAC (.flac) |
+| audio/aac | Audio AAC (.aac) |
+| audio/mp4, audio/x-m4a | Audio M4A (.m4a) |
+| audio/midi | Pliki MIDI (.mid, .midi) |
+| audio/x-ms-wma | Audio WMA (.wma) |
+
+### Wideo
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| video/mp4 | Wideo MP4 (.mp4) |
+| video/webm | Wideo WebM (.webm) |
+| video/quicktime | Wideo QuickTime (.mov) |
+| video/x-matroska | Wideo MKV (.mkv) |
+| video/x-msvideo | Wideo AVI (.avi) |
+| video/mpeg | Wideo MPEG (.mpeg, .mpg) |
+| video/ogg | Wideo OGG (.ogv) |
+| video/3gpp | Wideo 3GP (.3gp) |
+| video/x-flv | Wideo FLV (.flv) |
+| video/x-ms-wmv | Wideo WMV (.wmv) |
+
+### Archiwa i obrazy dysków
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| application/zip | Archiwa ZIP (.zip) |
+| application/x-zip-compressed | Archiwa ZIP (.zip) |
+| application/gzip | Archiwa GZIP (.gz) |
+| application/x-bzip2 | Archiwa BZIP2 (.bz2) |
+| application/x-xz | Archiwa XZ (.xz) |
+| application/x-tar | Archiwa TAR (.tar) |
+| application/x-7z-compressed | Archiwa 7-Zip (.7z) |
+| application/x-rar-compressed | Archiwa RAR (.rar) |
+| application/x-apple-diskimage | Obrazy dysków DMG (.dmg) |
+| application/x-iso9660-image | Obrazy dysków ISO (.iso) |
+
+<Callout type="warn">
+Pliki wykonywalne (.exe, .msi, .bat, .app itd.) **nie są dozwolone** ze względów bezpieczeństwa.
+</Callout>
+
+<Callout type="info">
+Dla następujących rozszerzeń plików możemy wymusić `Content-Type` odpowiedzi na `text/plain`, aby ograniczyć nadużycia związane ze skryptami: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Dla nieznanych lub niejednoznacznych typów plików wymuszamy `Content-Type` odpowiedzi na `application/octet-stream`.
+</Callout>
+
+### Starsze / zgodność
+
+Te typy MIME są akceptowane ze względu na zgodność ze starszymi systemami.
+
+| Typ MIME | Opis |
+|-----------|-------------|
+| application/excel | Arkusze Excel (.xls) |
+| application/x-excel | Arkusze Excel (.xls) |
+| application/x-msexcel | Arkusze Excel (.xls) |
+| application/mspowerpoint | Prezentacje PowerPoint (.ppt) |
+| application/powerpoint | Prezentacje PowerPoint (.ppt) |
+| application/x-mspowerpoint | Prezentacje PowerPoint (.ppt) |
+
+---
+
+## Limity miejsca
+
+Limity zależą od planu:
+
+| Plan | Maksymalny rozmiar pliku | Łączna przestrzeń |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Niestandardowy | Niestandardowe |
+
+Zobacz [s.ee/pricing](https://s.ee/pricing), aby sprawdzić szczegóły planów.
+
+---
+
+## Retencja plików
+
+- Pliki są **przechowywane na stałe**, dopóki Twoja subskrypcja jest aktywna
+- Jeśli subskrypcja wygaśnie, pliki będą przechowywane przez **7 dni** przed usunięciem
+
+---
+
+## Obsługiwane domeny
+
+Udostępnianie plików jest dostępne w następujących domenach:
+
+| Domena | Najlepsza dla |
+|--------|----------|
+| [fs.to](https://fs.to) | Ogólnego udostępniania plików |
+| [files.to](https://files.to) | Ogólnego udostępniania plików |
+| [fileshare.to](https://fileshare.to) | Ogólnego udostępniania plików |
+| [filesharing.to](https://filesharing.to) | Ogólnego udostępniania plików |
+
+Dla klientów Premium i Enterprise zobacz [oficjalne domeny](/docs/pl/official-domains/).
+
+---
+
+## Dostęp do API
+
+Udostępnianie plików jest również dostępne przez API. Szczegóły programowego przesyłania znajdziesz w naszej [dokumentacji API](/docs/pl/developers/api/).
+
+---
+
+## FAQ
+
+### Kto może przesyłać pliki?
+
+Tylko płatni subskrybenci mogą przesyłać pliki. Wymagana jest aktywna subskrypcja.
+
+### Czy obowiązują limity pobierania?
+
+Nie, udostępnione pliki nie mają limitów liczby pobrań ani transferu.
+
+### Czy mogę dostosować URL strony udostępniania?
+
+Tak, przy przesyłaniu metodą **Create File** możesz ustawić własną domenę i slug dla strony udostępniania.
+
+### Czy mogę dostosować URL linku bezpośredniego?
+
+Obecnie linki bezpośrednie mają stały format i nie obsługują własnych domen.

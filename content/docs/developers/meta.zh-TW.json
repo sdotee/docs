@@ -1,0 +1,14 @@
+{
+  "title": "開發者",
+  "description": "S.EE API 與 SDK 文件",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "api",
+    "sdk",
+    "cli",
+    "desktop",
+    "apps",
+    "smms-compatibility"
+  ]
+}

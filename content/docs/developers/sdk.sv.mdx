@@ -1,0 +1,113 @@
+---
+title: SDK
+description: S.EE SDK:er, bibliotek och community-verktyg
+icon: Package
+---
+
+## Officiella SDK:er
+
+S.EE erbjuder officiella SDK:er för typkontroll och enkel integration:
+
+| Språk | Repository | Beskrivning |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Verktygslåda för PHP-applikationer |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Typsäker integration för JavaScript/TypeScript-projekt |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go-stöd för länkhantering |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Python-baserad URL-förkortning och fildelning |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | Java-implementation för företag |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | Stöd för systemprogrammering |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | Stöd för ett framväxande språk (experimentellt) |
+
+---
+
+## MCP-server
+
+För AI- och LLM-integrationer kan du använda vår MCP-server (Model Context Protocol):
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### Funktioner
+
+- **URL-hantering**: skapa, uppdatera, ta bort och lista domäner för korta URL:er
+- **Innehållsdelning**: dela kodsnuttar och text med utgångstid och lösenordsskydd
+- **Filåtgärder**: ladda upp och ta bort filer
+- **Tidsverktyg**: hämta aktuell tid med stöd för tidszoner
+
+### Krav
+
+- Go 1.25+
+- Giltig S.EE API-nyckel
+
+### Bygg
+
+```bash
+# Med Makefile (aktuellt operativsystem)
+make build
+
+# Bygg för alla plattformar
+make build-all
+
+# Eller direkt med Go
+go build -o bin/cli-mcp-server .
+```
+
+### Kör
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+Du kan också ange API-nyckeln med en miljövariabel:
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+Servern använder som standard port 30101 och Server-Sent Events för MCP-anslutningar. Konfigurera MCP-serverns URL i inställningarna för din LLM-klient, till exempel Cherry Studio.
+
+---
+
+## Installation
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+Se [sdk.java-repositoryt](https://github.com/sdotee/sdk.java) för installationsanvisningar.
+
+### Rust
+
+Se [sdk.rs-repositoryt](https://github.com/sdotee/sdk.rs) för installationsanvisningar.
+
+### Zig
+
+Se [sdk.zig-repositoryt](https://github.com/sdotee/sdk.zig) för installationsanvisningar.
+
+---
+
+## Användning
+
+Se respektive SDK-repository för detaljerad dokumentation och exempel.

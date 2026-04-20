@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGol on sisseehitatud S.EE tugi, pluginaid pole vaja
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) on Windowsi, macOS-i ja Linuxi jaoks mõeldud avatud lähtekoodiga pildi- ja failide üleslaadimise tööriist. Uuemad versioonid sisaldavad S.EE tuge vaikimisi, nii et alustamiseks on vaja ainult API tokenit.
+
+- [Laadi PicGo alla](https://github.com/Molunerfinn/PicGo/releases)
+- [Lähtekood](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Seadistamine
+
+### 1. Hangi API token
+
+1. Logi oma S.EE kontole sisse
+2. Ava **[Tools > API Token](https://s.ee/user/developers/)**
+3. Loo uus API token
+
+<Callout type="warn">
+Ära jaga oma API tokenit avalikult ega lisa seda versioonihaldusse.
+</Callout>
+
+### 2. Seadista PicGo
+
+1. Laadi [PicGo](https://github.com/Molunerfinn/PicGo/releases) alla ja paigalda see
+2. Ava PicGo
+3. Mine **Picbeds Settings** > **SM.MS (S.EE)**
+4. Klõpsa **+**, et lisada uus konfiguratsioon
+5. Sisesta väljale **Configuration Name** nimi, näiteks `S.EE`
+6. Kleebi oma API token väljale **Set Token**
+7. Klõpsa **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Kasutamine
+
+Üleslaadimiseks on mitu võimalust:
+
+- lohista failid Upload Area peale
+- klõpsa Upload Area'l, et valida failid arvutist
+- klõpsa ujuval miniaknal, et laadida kohe üles
+- tee ujuval miniaknal paremklõps ja vali **Upload by Clipboard**
+
+PicGo kopeerib tulemuseks saadud lingi lõikelauale. Saad valida väljundvorminguks Markdowni, HTML-i, toore URL-i ja muu.
+
+---
+
+## Seotud
+
+- [Arendajate API](/docs/et/developers)
+- [Failide jagamine](/docs/et/file-sharing)
+- [SM.MS ühilduvus](/docs/et/developers/smms-compatibility)

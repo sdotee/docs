@@ -1,0 +1,88 @@
+---
+title: 시작하기
+description: 단축 URL, 텍스트 공유, 파일 공유를 생성, 관리, 추적하기 위한 S.EE REST API
+icon: Rocket
+---
+
+## 개요
+
+S.EE API 를 사용하면 단축 링크, 텍스트 공유, 파일 공유를 프로그래밍 방식으로 생성하고 관리할 수 있습니다. 다음과 같은 작업에 활용할 수 있습니다.
+
+- 대량 단축 링크 생성
+- 구문 강조가 포함된 텍스트 및 코드 스니펫 공유
+- 파일 업로드 및 공유
+- 사용자 정의 도메인 관리
+- 분석 데이터 조회
+- 애플리케이션에 S.EE 기능 연동
+
+---
+
+## 시작하기
+
+### 사전 준비
+
+1. 활성화된 요금제를 사용하는 S.EE 계정
+2. API 액세스 토큰
+
+### 인증
+
+모든 API 요청에는 `Authorization` 헤더에 액세스 토큰이 필요합니다.
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Base URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## 예시 요청
+
+### 단축 URL 만들기
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### 텍스트 공유 만들기
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### 파일 업로드
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## 리소스
+
+<Cards>
+  <Card title="API 레퍼런스" href="/docs/ko/developers/api/">사용 가능한 모든 엔드포인트 보기</Card>
+  <Card title="SDK" href="/docs/ko/developers/sdk/">다양한 프로그래밍 언어용 공식 S.EE SDK</Card>
+</Cards>

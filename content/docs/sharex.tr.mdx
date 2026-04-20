@@ -1,0 +1,96 @@
+---
+title: ShareX
+description: Ekran görüntülerini, dosyaları ve metinleri ShareX üzerinden S.EE'ye yükleyin
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/), Windows için açık kaynaklı bir ekran yakalama ve dosya paylaşım aracıdır. S.EE, ShareX için özel uploader yapılandırmaları sunar; böylece ekran görüntülerini, dosyaları, metinleri ve kodları doğrudan S.EE'ye yükleyip paylaşılabilir bağlantıyı geri alabilirsiniz.
+
+Ayrıca bkz.: [ShareX özel uploader dokümantasyonu](https://getsharex.com/docs/custom-uploader)
+
+---
+
+## Özel uploader'lar
+
+S.EE şu yükleme türleri için yapılandırma sunar:
+
+| Uploader | İşlevi |
+|----------|-------------|
+| URL Shortener | URL'leri S.EE üzerinden kısaltır |
+| Text Uploader | Metin parçaları yükler |
+| Code Uploader | Sözdizimi vurgulamalı kod yükler |
+| Markdown Uploader | Render edilmiş önizlemeyle Markdown yükler |
+| Image & File Uploader | Görselleri ve dosyaları yükler |
+
+---
+
+## Kurulum
+
+Aşağıdaki `.sxcu` yapılandırma dosyalarını alın. Dosyaları indirebilir veya ShareX içine URL ile içe aktarabilirsiniz.
+
+| Uploader | İndirme / içe aktarma bağlantısı |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### İçe aktarma
+
+1. **ShareX** uygulamasını açın
+2. **Destinations** > **Custom uploader settings** yoluna gidin
+3. **Import** düğmesine tıklayın ve ardından:
+   - İndirdiğiniz `.sxcu` dosyasını seçin veya
+   - İndirme URL'sini doğrudan yapıştırın
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## API anahtarını ayarlama
+
+1. API anahtarınızı **[Tools > API Token](https://s.ee/user/developers/)** sayfasından alın
+2. ShareX içinde **Custom uploader settings** bölümünü açın ve içe aktardığınız S.EE uploader'ını seçin
+3. **Headers** bölümünde `Authorization` değerini API anahtarınız olarak ayarlayın
+
+<Callout type="warn">
+API anahtarınızı herkese açık şekilde paylaşmayın ve sürüm kontrolüne eklemeyin.
+</Callout>
+
+---
+
+## Kullanım
+
+### Uploader atama
+
+ShareX içinde **Destinations** bölümüne gidin ve S.EE uploader'larını atayın:
+
+- URL shortener -> S.EE URL Shortener
+- Text uploader -> S.EE Text Uploader, Code Uploader veya Markdown Uploader
+- Image uploader -> S.EE File Uploader
+- File uploader -> S.EE File Uploader
+
+### Yükleme
+
+ShareX kısayollarını veya sağ tık menüsünü kullanarak URL kısaltabilir, ekran görüntüsü yükleyebilir, metin paylaşabilir ve daha fazlasını yapabilirsiniz. ShareX içeriği S.EE'ye yükler ve bağlantıyı panonuza kopyalar.
+
+---
+
+## Sorun giderme
+
+| Sorun | Çözüm |
+|-------|-----|
+| 401 hatası | `Authorization` başlığında API anahtarının doğru ayarlandığını kontrol edin |
+| 403 hatası | API anahtarınızın gerekli izinlere sahip olduğundan emin olun |
+| Dosya reddedildi | Dosya türü desteklenmiyor olabilir; izin verilen türler için [Dosya paylaşımı](/docs/tr/file-sharing) sayfasına bakın |
+
+Her şeyin çalıştığını doğrulamak için **Custom uploader settings** içinde **Test** düğmesine tıklayabilirsiniz.
+
+---
+
+## İlgili sayfalar
+
+- [Geliştirici API'si](/docs/tr/developers)
+- [Dosya paylaşımı](/docs/tr/file-sharing)
+- [Metin paylaşımı](/docs/tr/text-sharing)

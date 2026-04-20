@@ -1,0 +1,114 @@
+---
+title: 故障排查
+description: 常见问题及其解决方法
+icon: CircleQuestionMark
+---
+
+## 账号和登录问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "Invalid email or password. Please check your credentials and try again." | 邮箱或密码错误 | 请再次确认您的邮箱和密码。请注意，密码区分大小写。 |
+| "We couldn't find an account with this email." | 邮箱未注册 | 请确认邮箱地址是否正确，或重新创建新账号。 |
+| "Your account has been suspended. Please contact support for assistance." | 账号已被暂停 | 请发送邮件至 [hi@s.ee](mailto:hi@s.ee) 联系支持团队。 |
+| "This login link has expired or is invalid. Please request a new one." | 登录链接已过期 | 请在登录页面重新申请新的登录链接。 |
+| "This verification code has expired or is invalid. Please request a new one." | 验证码已过期或无效 | 请重新申请新的验证码。 |
+| "This email is already registered." | 邮箱已被使用 | 请使用其他邮箱地址，或直接用该邮箱登录。 |
+| "The current password you entered is incorrect." | 修改密码时当前密码错误 | 请确认当前密码后重试。 |
+
+**注意：** 只有您的主邮箱可用于登录。账号中其他已验证邮箱不能用于身份验证。密码重置邮件也只会发送到主邮箱。
+
+---
+
+## 用户名问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "This username is already taken. Please choose a different one." | 用户名已被使用 | 请选择其他用户名。 |
+| "Username can only be changed once." | 已达到用户名修改次数限制 | 很遗憾，每个账号的用户名只能修改 1 次，且该更改不可撤销。 |
+
+---
+
+## 短网址问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "This slug is already taken. Please choose a different one." | 自定义短码已被使用 | 请为短网址尝试其他自定义短码。 |
+| "This slug cannot be used. Please choose a different one." | 短码被系统保留 | 该短码已被保留，请选择其他短码。 |
+| "This short link does not exist or is no longer available." | 短网址不存在或已删除 | 请确认链接 URL 是否正确。该短网址可能已被删除。 |
+| "The domain linked to this short URL is unavailable or no longer exists." | 域名不可用 | 请联系支持，或尝试使用其他域名。 |
+| "Please enter a valid destination URL starting with http:// or https://" | URL 格式无效 | 请确保目标 URL 以 `http://` 或 `https://` 开头。 |
+| "This destination URL is not allowed. Please use a different link." | 目标 URL 被拦截 | 该 URL 位于我们的封禁列表中，请使用其他目标 URL。 |
+| "Incorrect password. Please try again." | 访问受密码保护的链接时密码错误 | 请输入正确密码以访问该链接。 |
+| "URL has already been shortened." | URL 已被缩短 | 此 URL 已关联一个现有短网址。 |
+
+---
+
+## 订阅和套餐问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "You already have an active subscription plan." | 已有有效订阅 | 如果您想更换套餐，请先取消当前订阅。 |
+| "You don't have an active subscription to cancel." | 没有有效订阅 | 您当前没有可取消的有效订阅。 |
+| "This feature requires a premium subscription. Please upgrade your plan to access it." | 功能需要更高套餐 | 请升级订阅套餐以使用此功能。 |
+| "Unable to find your subscription plan. Please contact support if this issue persists." | 未找到套餐 | 如果问题持续存在，请发送邮件至 [hi@s.ee](mailto:hi@s.ee) 联系支持团队。 |
+| "The selected pricing option is no longer available." | 价格选项已过期 | 请刷新页面并重新选择当前可用的价格选项。 |
+
+---
+
+## 文件上传问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "File size exceeds limit" | 文件过大 | 请压缩文件，或升级套餐以支持更大的文件上传。 |
+| "Storage limit exceeded" | 已达到存储空间配额 | 请删除部分文件以释放空间，或升级套餐以获得更多存储空间。 |
+| "Unsupported file type" / "File type not allowed" | 文件格式不受支持 | 请使用支持的文件格式。 |
+| "Maximum concurrent uploads exceeded" | 同时上传数量过多 | 请等待当前上传完成后再开始新的上传。 |
+| "This file format is not supported. Allowed formats: JPG, JPEG, PNG, GIF, WEBP, AVIF." | 头像格式不受支持 | 请使用 JPG、JPEG、PNG、GIF、WEBP 或 AVIF 之一上传头像。 |
+
+---
+
+## 团队问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "This feature is not available on your current plan." | 当前套餐不包含团队功能 | 请升级到包含团队功能的套餐。 |
+| "You have already created a team." | 团队已存在 | 每位用户只能创建 1 个团队。您可以在控制台中管理现有团队。 |
+| "You don't have permission to manage this team." | 权限不足 | 请联系团队所有者获取帮助。 |
+| "The invitation has already been processed." | 邀请已处理 | 此邀请已被接受或拒绝。 |
+| "Please wait at least 24 hours before resending." | 重发邀请过于频繁 | 请等待至少 24 小时后再向该用户发送新邀请。 |
+
+---
+
+## 标签问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "This tag is currently in use and cannot be deleted." | 标签已分配给短网址 | 请先从所有短网址中移除该标签，再删除它。 |
+
+---
+
+## 删除账号问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "Your team has other members, please delete the team first." | 团队中仍有其他成员 | 删除账号前，请先移除所有团队成员或删除团队。 |
+| "Too many deletion requests, please try again later." | 请求次数过多 | 请稍后再试。 |
+| "Invalid or expired verification code." | 验证码无效或已过期 | 请重新申请新的验证码。 |
+
+---
+
+## 邮箱管理问题
+
+| 错误消息 | 原因 | 解决方法 |
+|---------------|-------|----------|
+| "Email already exists." | 邮箱已被使用 | 请使用其他邮箱地址。 |
+| "Main email cannot be deleted." | 不能删除主邮箱 | 请先将其他已验证邮箱设为主邮箱，再删除该邮箱。 |
+| "You need to close two factor verification first." | 必须先关闭 2FA | 修改主邮箱前，请先禁用双重验证。 |
+| "This email has not been verified." | 邮箱未验证 | 请先验证该邮箱地址。 |
+
+---
+
+## 还需要更多帮助？
+
+如果您遇到的问题未在此列出，或需要进一步协助，请发送邮件至 [hi@s.ee](mailto:hi@s.ee) 联系我们，或访问我们的 [联系页面](https://s.ee/contact/)。我们很乐意为您提供帮助。

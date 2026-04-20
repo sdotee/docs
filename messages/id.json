@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Dasbor"
+  },
+  "cookieBar": {
+    "message": "Kami menggunakan cookie untuk mengingat preferensi bahasa Anda dan meningkatkan pengalaman Anda.",
+    "accept": "Terima",
+    "decline": "Tolak",
+    "privacyLink": "Kebijakan Privasi"
+  },
+  "fumadocs": {
+    "search": "Cari",
+    "searchNoResult": "Tidak ada hasil",
+    "toc": "Di halaman ini",
+    "lastUpdate": "Terakhir diperbarui",
+    "previousPage": "Sebelumnya",
+    "nextPage": "Berikutnya",
+    "chooseTheme": "Pilih tema",
+    "editOnGithub": "Edit di GitHub",
+    "chooseLanguage": "Pilih bahasa"
+  }
+}

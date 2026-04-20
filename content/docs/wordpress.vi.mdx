@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Rút gọn URL, chia sẻ văn bản và lưu trữ tệp trực tiếp từ bảng điều khiển WordPress của bạn
+icon: WordPress
+---
+
+[Plugin WordPress của S.EE](https://wordpress.org/plugins/sdotee/) cho phép bạn rút gọn URL, chia sẻ văn bản và tải tệp lên mà không cần rời khỏi WordPress. Khi bạn publish một bài viết, một liên kết ngắn sẽ được tạo tự động — không cần thêm bước nào.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Source Code on GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Tính năng
+
+| Feature | Description |
+|---------|-------------|
+| Short URLs | Tự động tạo liên kết ngắn khi bạn publish hoặc cập nhật bài viết và trang |
+| Text Sharing | Chia sẻ văn bản thuần, Markdown và đoạn mã bằng liên kết |
+| File Hosting | Tải tệp lên từ Media Library và sao chép liên kết dưới dạng URL, HTML, Markdown hoặc BBCode |
+| Automation | Tự động tải media mới lên và tự động rút gọn liên kết khi publish — chỉ cần thiết lập một lần |
+| Admin Integration | Xem và quản lý URL ngắn ngay từ danh sách bài viết/trang |
+| Dashboard Panel | Bảng điều khiển S.EE riêng cho chia sẻ văn bản và tệp với lịch sử sử dụng đầy đủ |
+| 13 Languages | English, Chinese (Simplified/Traditional), Japanese, Korean, Indonesian, Vietnamese, German, French, Spanish, Portuguese (Brazil/Portugal), Russian |
+
+---
+
+## Yêu cầu
+
+- PHP 8.2+
+- WordPress 6.0+
+- Tài khoản S.EE có [API Token](https://s.ee/user/developers/)
+
+---
+
+## Cài đặt
+
+### Từ WordPress Plugin Directory
+
+1. Trong trang quản trị WordPress, truy cập **Plugins** > **Add New**
+2. Tìm **S.EE**
+3. Nhấp vào **Install Now**, sau đó **Activate**
+
+### Từ GitHub
+
+1. Tải file ZIP mới nhất từ [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Truy cập **Plugins** > **Add New** > **Upload Plugin**
+3. Tải ZIP lên rồi nhấp **Install Now**, sau đó **Activate**
+
+---
+
+## Thiết lập
+
+### 1. Lấy API Token của bạn
+
+1. Đăng nhập vào tài khoản S.EE của bạn
+2. Truy cập **[Tools > API Token](https://s.ee/user/developers/)**
+3. Tạo một API Token mới
+
+<Callout type="warn">
+Không chia sẻ API Token công khai hoặc commit nó vào version control.
+</Callout>
+
+### 2. Cấu hình plugin
+
+1. Truy cập **Settings** > **S.EE**
+2. Dán API Token của bạn rồi nhấp **Verify**
+3. Chọn tên miền mặc định cho URL ngắn, văn bản và tệp
+4. Bật auto-generation và auto-upload nếu bạn muốn mọi thứ chạy tự động
+
+<Callout type="info">
+Bạn cũng có thể đặt API Token trong `wp-config.php` để tránh lưu nó trong database.
+</Callout>
+
+---
+
+## Cách sử dụng
+
+### URL ngắn
+
+Khi bật auto-generation, mỗi bài viết và trang sẽ có một liên kết ngắn ngay khi bạn nhấn Publish. Bạn cũng có thể tạo hoặc xem URL ngắn từ cột trong danh sách bài viết/trang ở trang quản trị.
+
+### Chia sẻ văn bản
+
+Mở bảng điều khiển **S.EE** rồi dán nội dung của bạn. Các định dạng được hỗ trợ:
+
+- Văn bản thuần
+- Markdown
+- Đoạn mã
+
+### Lưu trữ tệp
+
+Tải tệp lên thông qua bảng điều khiển **S.EE** hoặc Media Library. Sau khi tải lên, bạn có thể lấy liên kết ở định dạng mong muốn: URL, HTML, Markdown hoặc BBCode.
+
+---
+
+## Liên quan
+
+- [Developer API](/docs/vi/developers)
+- [Chia sẻ tệp](/docs/vi/file-sharing)
+- [Chia sẻ văn bản](/docs/vi/text-sharing)
+- [Lưu trữ hình ảnh](/docs/vi/image-hosting)

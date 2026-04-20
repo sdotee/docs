@@ -1,0 +1,125 @@
+---
+title: App mobile
+description: App mobile nativa per S.EE
+icon: Smartphone
+---
+
+Accorcia link, condividi testo e carica file dal telefono con un'app nativa che include tutta la potenza di S.EE.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Download
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/app-store-badge.svg" alt="Download on the App Store" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+  </a>
+</div>
+
+## Piattaforme supportate
+
+| Piattaforma | Requisiti | Tecnologia |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Funzionalità
+
+### Accorciamento URL
+
+- Crea link brevi con slug personalizzato, titolo, password e scadenza
+- Scegli tra più domini
+- Visualizza le statistiche dei link: oggi, questo mese e totale
+- Cerca per slug, URL di destinazione, titolo e dominio
+- Modifica o elimina i link esistenti
+
+### Condivisione di testo
+
+- Condividi testo semplice, codice sorgente o Markdown
+- Editor monospaziato per il codice
+- Slug personalizzato, password e scadenza
+- Selezione del dominio e assegnazione di tag (fino a 5)
+
+### Upload file
+
+- Seleziona file, scegli dalla galleria o acquisisci con la fotocamera
+- Incolla dagli appunti con conversione automatica in WebP (iOS)
+- Avanzamento upload in tempo reale
+- 9 formati di link: link diretto, share page, BBCode, HTML, Markdown e altro
+- Copia ed eliminazione batch in tutte le liste
+
+### Dashboard di utilizzo
+
+- Utilizzo dello storage con barra di avanzamento visiva
+- Limiti per chiamate API, link, condivisioni testo, upload e QR code
+- Conteggi giornalieri e mensili
+
+### Impostazioni
+
+- Configurazione della base URL per istanze self-hosted
+- Gestione della API key con verifica in un tocco
+- Scelta del dominio predefinito per ciascun servizio (link, testo, file)
+- Tema: Sistema / Chiaro / Scuro
+- Dynamic Color / Material You (Android)
+
+## iOS
+
+Sviluppata con **SwiftUI** e **SwiftData** per offrire un'esperienza iOS nativa.
+
+- **Photo Picker** — seleziona immagini dalla libreria Foto
+- **Camera** — scatta foto (JPG) o video (MOV -> MP4)
+- Pull-to-refresh per tag e liste
+- Archiviazione sicura della API key tramite Keychain
+
+## Android
+
+Sviluppata con **Jetpack Compose** e **Material 3** per offrire un'esperienza Android nativa.
+
+- **Share Target** — ricevi testo, URL e file condivisi da altre app
+- **App Shortcuts** — azioni rapide con pressione prolungata sull'icona
+- Supporto a **Predictive Back** (Android 14+)
+- **Adaptive Icon** con supporto alle icone a tema
+- Database Room per la cronologia locale
+- EncryptedSharedPreferences per l'archiviazione sicura
+
+## Stack tecnologico
+
+### iOS
+
+| Layer | Tecnologia |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (basato su actor) |
+| Sicurezza | Keychain |
+| Thumbnail | QuickLookThumbnailing |
+| Elaborazione immagini | Swift-WebP |
+
+### Android
+
+| Layer | Tecnologia |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architettura | MVVM + Repository |
+| Networking | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| DB locale | Room |
+| Sicurezza | EncryptedSharedPreferences |
+| Caricamento immagini | Coil 3 |
+
+## Codice sorgente
+
+Entrambe le app sono open source con licenza MIT:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Per iniziare
+
+1. Scarica l'app da [App Store](https://s.ee/ios) o [Google Play](https://s.ee/android)
+2. Crea un account su [s.ee](https://s.ee) se non ne hai già uno
+3. [Genera una API key](https://s.ee/user/developers/) dal pannello
+4. Apri l'app, vai in **Impostazioni**, inserisci la API key e tocca **Verify**

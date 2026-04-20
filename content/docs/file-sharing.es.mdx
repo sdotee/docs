@@ -1,0 +1,233 @@
+---
+title: Compartir archivos
+description: Cómo subir y compartir archivos con S.EE
+icon: Upload
+---
+
+## Descripción general
+
+S.EE File Sharing le permite subir y compartir archivos con un enlace corto y fácil de compartir. Es ideal para compartir imágenes, documentos, audio, vídeo y otros archivos.
+
+---
+
+## Subir archivos
+
+### Subida rápida (arrastrar y soltar)
+
+1. Inicie sesión en [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Haga clic en **Sharing > Files** en la barra lateral izquierda o vaya directamente a [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Arrastre y suelte archivos o carpetas en la ventana **Drag & Drop**
+   - También puede hacer clic en la ventana para buscar y seleccionar archivos
+   - Si sube una carpeta, se subirán todos los archivos que contenga
+4. Los archivos se compartirán con el dominio predeterminado y un slug aleatorio
+
+### Subida avanzada (Create File)
+
+Si necesita más control sobre el archivo compartido:
+
+1. Haga clic en el botón **Create File**
+2. Configure sus opciones:
+   - **Domain** - Seleccione el dominio que prefiera para la página de uso compartido
+   - **Custom Slug** - Defina un slug de URL personalizado
+   - **Other options** - Etiquetas, vencimiento, etc.
+3. Seleccione su archivo y súbalo
+
+---
+
+## Enlaces de archivo
+
+Cada archivo subido tiene dos tipos de enlaces:
+
+| Tipo de enlace | Formato | Descripción |
+|-----------|--------|-------------|
+| Página de uso compartido | `fs.to/[your_slug]` | Dominio y slug personalizables |
+| Enlace directo | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Acceso directo al archivo con su nombre original |
+
+**Nota:** actualmente los enlaces directos no admiten dominios personalizados.
+
+---
+
+## Tipos de archivo compatibles
+
+S.EE admite una amplia variedad de tipos de archivo:
+
+### Imágenes
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| image/jpeg | Imágenes JPEG (.jpg, .jpeg) |
+| image/png | Imágenes PNG (.png) |
+| image/gif | Imágenes GIF (.gif) |
+| image/webp | Imágenes WebP (.webp) |
+| image/avif | Imágenes AVIF (.avif) |
+| image/svg+xml | Imágenes SVG (.svg) |
+| image/bmp | Imágenes BMP (.bmp) |
+| image/tiff | Imágenes TIFF (.tiff, .tif) |
+| image/heic | Imágenes HEIC (.heic) |
+| image/heif | Imágenes HEIF (.heif) |
+| image/jp2 | Imágenes JPEG 2000 (.jp2) |
+| image/jpx | Imágenes JPEG 2000 (.jpx) |
+| image/jxl | Imágenes JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | Archivos de Photoshop (.psd) |
+
+### Documentos
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| application/pdf | Documentos PDF (.pdf) |
+| application/msword | Documentos Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documentos Word (.docx) |
+| application/vnd.ms-excel | Hojas de cálculo de Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Hojas de cálculo de Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Presentaciones PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Presentaciones PowerPoint (.pptx) |
+| application/vnd.apple.pages | Documentos Pages (.pages) |
+| application/vnd.apple.numbers | Hojas de cálculo Numbers (.numbers) |
+| application/vnd.apple.keynote | Presentaciones Keynote (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | Archivos PostScript (.ps, .eps) |
+| application/epub+zip | Libros electrónicos EPUB (.epub) |
+
+### Texto y datos
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| text/plain | Archivos de texto sin formato (.txt) |
+| text/csv | Archivos CSV (.csv) |
+| text/markdown | Archivos Markdown (.md, .markdown, .mdx) |
+| application/json | Archivos JSON (.json) |
+| application/yaml | Archivos YAML (.yaml, .yml) |
+
+### Audio
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| audio/mpeg | Archivos MP3 (.mp3) |
+| audio/wav | Archivos WAV (.wav) |
+| audio/ogg | Audio OGG (.ogg) |
+| audio/flac | Audio FLAC (.flac) |
+| audio/aac | Audio AAC (.aac) |
+| audio/mp4, audio/x-m4a | Audio M4A (.m4a) |
+| audio/midi | Archivos MIDI (.mid, .midi) |
+| audio/x-ms-wma | Audio WMA (.wma) |
+
+### Vídeo
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| video/mp4 | Vídeos MP4 (.mp4) |
+| video/webm | Vídeos WebM (.webm) |
+| video/quicktime | Vídeos QuickTime (.mov) |
+| video/x-matroska | Vídeos MKV (.mkv) |
+| video/x-msvideo | Vídeos AVI (.avi) |
+| video/mpeg | Vídeos MPEG (.mpeg, .mpg) |
+| video/ogg | Vídeos OGG (.ogv) |
+| video/3gpp | Vídeos 3GP (.3gp) |
+| video/x-flv | Vídeos FLV (.flv) |
+| video/x-ms-wmv | Vídeos WMV (.wmv) |
+
+### Archivos comprimidos e imágenes de disco
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| application/zip | Archivos ZIP (.zip) |
+| application/x-zip-compressed | Archivos ZIP (.zip) |
+| application/gzip | Archivos GZIP (.gz) |
+| application/x-bzip2 | Archivos BZIP2 (.bz2) |
+| application/x-xz | Archivos XZ (.xz) |
+| application/x-tar | Archivos TAR (.tar) |
+| application/x-7z-compressed | Archivos 7-Zip (.7z) |
+| application/x-rar-compressed | Archivos RAR (.rar) |
+| application/x-apple-diskimage | Imágenes de disco DMG (.dmg) |
+| application/x-iso9660-image | Imágenes de disco ISO (.iso) |
+
+<Callout type="warn">
+Los archivos ejecutables (.exe, .msi, .bat, .app, etc.) **no están permitidos** por motivos de seguridad.
+</Callout>
+
+<Callout type="info">
+Para las siguientes extensiones de archivo, podemos forzar la respuesta `Content-Type` a `text/plain` para reducir el abuso de scripts: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+En el caso de tipos de archivo desconocidos o ambiguos, forzaremos la respuesta `Content-Type` a `application/octet-stream`.
+</Callout>
+
+### Heredado / Compatibilidad
+
+Estos tipos MIME se aceptan por compatibilidad con sistemas antiguos.
+
+| Tipo MIME | Descripción |
+|-----------|-------------|
+| application/excel | Hojas de cálculo de Excel (.xls) |
+| application/x-excel | Hojas de cálculo de Excel (.xls) |
+| application/x-msexcel | Hojas de cálculo de Excel (.xls) |
+| application/mspowerpoint | Presentaciones PowerPoint (.ppt) |
+| application/powerpoint | Presentaciones PowerPoint (.ppt) |
+| application/x-mspowerpoint | Presentaciones PowerPoint (.ppt) |
+
+---
+
+## Límites de almacenamiento
+
+Los límites de almacenamiento varían según el plan:
+
+| Plan | Tamaño máximo de archivo | Almacenamiento total |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Personalizado | Personalizado |
+
+Consulte [s.ee/pricing](https://s.ee/pricing) para ver todos los detalles de los planes.
+
+---
+
+## Retención de archivos
+
+- Los archivos se almacenan **de forma permanente** mientras su suscripción esté activa
+- Si su suscripción vence, los archivos se conservan durante **7 días** antes de ser eliminados
+
+---
+
+## Dominios compatibles
+
+El uso compartido de archivos está disponible en estos dominios:
+
+| Dominio | Ideal para |
+|--------|----------|
+| [fs.to](https://fs.to) | Compartir archivos en general |
+| [files.to](https://files.to) | Compartir archivos en general |
+| [fileshare.to](https://fileshare.to) | Compartir archivos en general |
+| [filesharing.to](https://filesharing.to) | Compartir archivos en general |
+
+Para clientes Premium y Enterprise, consulte nuestros [dominios oficiales](/docs/es/official-domains/#premium--enterprise).
+
+---
+
+## Acceso a la API
+
+El uso compartido de archivos también está disponible mediante API. Consulte nuestra [documentación de la API](/docs/es/developers/api/#compartir-archivos) para obtener detalles sobre subidas programáticas.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Quién puede subir archivos?
+
+Solo los suscriptores de pago pueden subir archivos. Se requiere una suscripción válida.
+
+### ¿Hay límites de descarga?
+
+No, no hay límites de cantidad de descargas ni de ancho de banda para los archivos compartidos.
+
+### ¿Puedo personalizar la URL de la página de uso compartido?
+
+Sí. Puede definir un dominio personalizado y un slug para la página de uso compartido cuando usa el método de subida **Create File**.
+
+### ¿Puedo personalizar la URL del enlace directo?
+
+Actualmente, los enlaces directos usan un formato fijo y no admiten dominios personalizados.

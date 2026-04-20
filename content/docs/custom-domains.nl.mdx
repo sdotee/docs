@@ -1,0 +1,70 @@
+---
+title: Aangepaste domeinen
+description: Hoe u een aangepast domein instelt voor uw korte links
+icon: Globe
+---
+
+## Wat is een aangepast domein?
+
+Met een aangepast domein gebruikt u uw eigen merk in korte links in plaats van `s.ee`. In plaats van `s.ee/link` kunt u bijvoorbeeld `go.example.com/link` gebruiken.
+
+---
+
+## Waarom een aangepast domein gebruiken?
+
+- **Merkherkenning** - Links tonen uw merk, niet het onze
+- **Vertrouwen** - Gebruikers klikken eerder op merkgebonden links
+- **Hogere klikratio** - Merklinks presteren doorgaans beter
+
+---
+
+## Een aangepast domein toevoegen
+
+1. Ga naar [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Klik op **Add Domain**
+3. Voer uw domeinnaam in
+4. Voeg de vereiste DNS-records toe:
+   - **TXT-record** - Voor domeinverificatie
+   - **CNAME- of ALIAS-record** - Om uw domein naar S.EE te laten wijzen
+5. Wacht op DNS-propagatie, meestal enkele minuten
+6. Klik op **Verify** om de configuratie te bevestigen
+
+---
+
+## Vereisten
+
+- Het domein moet verschillen van het hoofddomein van uw website
+- Maximaal 63 tekens, inclusief de punt
+- U moet toegang hebben tot de DNS-instellingen van uw domein
+
+---
+
+## Belangrijke opmerkingen
+
+### Voor Cloudflare-gebruikers
+
+Als u Cloudflare voor DNS gebruikt, **schakel de Proxy (oranje wolkpictogram) niet in** voor uw CNAME-record. Laat deze in DNS-only-modus staan, met het grijze wolkpictogram. Een geproxiede Cloudflare-configuratie kan CDN-conflicten en redirectproblemen veroorzaken.
+
+### Een hoofddomein gebruiken
+
+Als u een hoofddomein wilt gebruiken, bijvoorbeeld `example.com` in plaats van `go.example.com`, moet uw DNS-provider **ALIAS-records** of **CNAME flattening** ondersteunen. Veelgebruikte providers met deze functie:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Als uw DNS-provider dit niet ondersteunt, neem dan [contact met ons op](https://s.ee/contact/) zodat we handmatig kunnen helpen met verificatie en het toevoegen van uw hoofddomein.
+
+---
+
+## Domeinlimieten per abonnement
+
+| Abonnement | Aangepaste domeinen |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Onbeperkt |

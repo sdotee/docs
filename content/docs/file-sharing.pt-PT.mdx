@@ -1,0 +1,233 @@
+---
+title: Partilha de ficheiros
+description: Como carregar e partilhar ficheiros com a S.EE
+icon: Upload
+---
+
+## Visão geral
+
+A funcionalidade S.EE File Sharing permite-lhe carregar e partilhar ficheiros com um link curto e fácil de partilhar. É ideal para partilhar imagens, documentos, áudio, vídeo e outros ficheiros.
+
+---
+
+## Carregar ficheiros
+
+### Carregamento rápido (arrastar e largar)
+
+1. Inicie sessão em [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Clique em **Sharing > Files** na barra lateral esquerda ou aceda diretamente a [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Arraste e largue ficheiros ou pastas na janela **Drag & Drop**
+   - Também pode clicar na janela para procurar e selecionar ficheiros
+   - Carregar uma pasta envia todos os ficheiros nela contidos
+4. Os ficheiros serão partilhados com o domínio predefinido e um slug aleatório
+
+### Carregamento avançado (Create File)
+
+Para ter mais controlo sobre a partilha de ficheiros:
+
+1. Clique no botão **Create File**
+2. Configure as suas definições:
+   - **Domain** - Selecione o domínio que prefere para a página de partilha
+   - **Custom Slug** - Defina um slug de URL personalizado
+   - **Other options** - Etiquetas, expiração, etc.
+3. Selecione o seu ficheiro e carregue-o
+
+---
+
+## Links de ficheiro
+
+Cada ficheiro carregado tem dois tipos de links:
+
+| Tipo de link | Formato | Descrição |
+|-----------|--------|-------------|
+| Página de partilha | `fs.to/[your_slug]` | Domínio e slug personalizáveis |
+| Link direto | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Acesso direto ao ficheiro com o nome original |
+
+**Nota:** os links diretos não suportam atualmente domínios personalizados.
+
+---
+
+## Tipos de ficheiro suportados
+
+A S.EE suporta uma grande variedade de tipos de ficheiro:
+
+### Imagens
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| image/jpeg | Imagens JPEG (.jpg, .jpeg) |
+| image/png | Imagens PNG (.png) |
+| image/gif | Imagens GIF (.gif) |
+| image/webp | Imagens WebP (.webp) |
+| image/avif | Imagens AVIF (.avif) |
+| image/svg+xml | Imagens SVG (.svg) |
+| image/bmp | Imagens BMP (.bmp) |
+| image/tiff | Imagens TIFF (.tiff, .tif) |
+| image/heic | Imagens HEIC (.heic) |
+| image/heif | Imagens HEIF (.heif) |
+| image/jp2 | Imagens JPEG 2000 (.jp2) |
+| image/jpx | Imagens JPEG 2000 (.jpx) |
+| image/jxl | Imagens JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | Ficheiros Photoshop (.psd) |
+
+### Documentos
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| application/pdf | Documentos PDF (.pdf) |
+| application/msword | Documentos Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documentos Word (.docx) |
+| application/vnd.ms-excel | Folhas de cálculo Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Folhas de cálculo Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Apresentações PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Apresentações PowerPoint (.pptx) |
+| application/vnd.apple.pages | Documentos Pages (.pages) |
+| application/vnd.apple.numbers | Folhas de cálculo Numbers (.numbers) |
+| application/vnd.apple.keynote | Apresentações Keynote (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | Ficheiros PostScript (.ps, .eps) |
+| application/epub+zip | Ebooks EPUB (.epub) |
+
+### Texto e dados
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| text/plain | Ficheiros de texto simples (.txt) |
+| text/csv | Ficheiros CSV (.csv) |
+| text/markdown | Ficheiros Markdown (.md, .markdown, .mdx) |
+| application/json | Ficheiros JSON (.json) |
+| application/yaml | Ficheiros YAML (.yaml, .yml) |
+
+### Áudio
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| audio/mpeg | Ficheiros MP3 (.mp3) |
+| audio/wav | Ficheiros WAV (.wav) |
+| audio/ogg | Áudio OGG (.ogg) |
+| audio/flac | Áudio FLAC (.flac) |
+| audio/aac | Áudio AAC (.aac) |
+| audio/mp4, audio/x-m4a | Áudio M4A (.m4a) |
+| audio/midi | Ficheiros MIDI (.mid, .midi) |
+| audio/x-ms-wma | Áudio WMA (.wma) |
+
+### Vídeo
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| video/mp4 | Vídeos MP4 (.mp4) |
+| video/webm | Vídeos WebM (.webm) |
+| video/quicktime | Vídeos QuickTime (.mov) |
+| video/x-matroska | Vídeos MKV (.mkv) |
+| video/x-msvideo | Vídeos AVI (.avi) |
+| video/mpeg | Vídeos MPEG (.mpeg, .mpg) |
+| video/ogg | Vídeos OGG (.ogv) |
+| video/3gpp | Vídeos 3GP (.3gp) |
+| video/x-flv | Vídeos FLV (.flv) |
+| video/x-ms-wmv | Vídeos WMV (.wmv) |
+
+### Arquivos comprimidos e imagens de disco
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| application/zip | Arquivos ZIP (.zip) |
+| application/x-zip-compressed | Arquivos ZIP (.zip) |
+| application/gzip | Arquivos GZIP (.gz) |
+| application/x-bzip2 | Arquivos BZIP2 (.bz2) |
+| application/x-xz | Arquivos XZ (.xz) |
+| application/x-tar | Arquivos TAR (.tar) |
+| application/x-7z-compressed | Arquivos 7-Zip (.7z) |
+| application/x-rar-compressed | Arquivos RAR (.rar) |
+| application/x-apple-diskimage | Imagens de disco DMG (.dmg) |
+| application/x-iso9660-image | Imagens de disco ISO (.iso) |
+
+<Callout type="warn">
+Ficheiros executáveis (.exe, .msi, .bat, .app, etc.) **não são permitidos** por razões de segurança.
+</Callout>
+
+<Callout type="info">
+Para as seguintes extensões de ficheiro, podemos forçar o `Content-Type` da resposta para `text/plain` para reduzir abuso de scripts: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Para tipos de ficheiro desconhecidos ou ambíguos, forçamos o `Content-Type` da resposta para `application/octet-stream`.
+</Callout>
+
+### Legado / compatibilidade
+
+Estes tipos MIME são aceites por compatibilidade com sistemas mais antigos.
+
+| Tipo MIME | Descrição |
+|-----------|-------------|
+| application/excel | Folhas de cálculo Excel (.xls) |
+| application/x-excel | Folhas de cálculo Excel (.xls) |
+| application/x-msexcel | Folhas de cálculo Excel (.xls) |
+| application/mspowerpoint | Apresentações PowerPoint (.ppt) |
+| application/powerpoint | Apresentações PowerPoint (.ppt) |
+| application/x-mspowerpoint | Apresentações PowerPoint (.ppt) |
+
+---
+
+## Limites de armazenamento
+
+Os limites de armazenamento variam consoante o plano:
+
+| Plano | Tamanho máximo do ficheiro | Armazenamento total |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Personalizado | Personalizado |
+
+Consulte [s.ee/pricing](https://s.ee/pricing) para ver todos os detalhes dos planos.
+
+---
+
+## Retenção de ficheiros
+
+- Os ficheiros são **armazenados permanentemente** enquanto a sua subscrição estiver ativa
+- Se a sua subscrição expirar, os ficheiros são mantidos durante **7 dias** antes de serem eliminados
+
+---
+
+## Domínios suportados
+
+A partilha de ficheiros está disponível nestes domínios:
+
+| Domínio | Melhor para |
+|--------|----------|
+| [fs.to](https://fs.to) | Partilha geral de ficheiros |
+| [files.to](https://files.to) | Partilha geral de ficheiros |
+| [fileshare.to](https://fileshare.to) | Partilha geral de ficheiros |
+| [filesharing.to](https://filesharing.to) | Partilha geral de ficheiros |
+
+Para clientes Premium e Enterprise, consulte os nossos [domínios oficiais](/docs/pt-PT/official-domains/#premium--enterprise).
+
+---
+
+## Acesso à API
+
+A partilha de ficheiros também está disponível via API. Consulte a nossa [documentação da API](/docs/pt-PT/developers/api/#partilha-de-ficheiros) para detalhes sobre carregamentos programáticos.
+
+---
+
+## FAQ
+
+### Quem pode carregar ficheiros?
+
+Só os subscritores pagos podem carregar ficheiros. É necessária uma subscrição válida.
+
+### Existem limites de transferência?
+
+Não, não existem limites de número de transferências nem de largura de banda para ficheiros partilhados.
+
+### Posso personalizar o URL da página de partilha?
+
+Sim. Pode definir um domínio e um slug personalizados para a página de partilha ao usar o método de carregamento **Create File**.
+
+### Posso personalizar o URL do link direto?
+
+Atualmente, os links diretos usam um formato fixo e não suportam domínios personalizados.

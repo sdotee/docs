@@ -1,0 +1,28 @@
+{
+  "title": "API viide",
+  "description": "S.EE API lõpp-punktid",
+  "defaultOpen": true,
+  "pages": [
+    "---Lühikesed URL-id---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Teksti jagamine---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Failide jagamine---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Üldine---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

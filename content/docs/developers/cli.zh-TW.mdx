@@ -1,0 +1,181 @@
+---
+title: CLI
+description: S.EE 平台的命令列客戶端
+icon: Terminal
+---
+
+這是一個用於 S.EE 平台的命令列客戶端，讓您可以直接在終端中建立和管理短網址、文字片段和檔案。
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## 功能
+
+- **短網址管理**：建立、更新和刪除帶自訂短碼、網域和過期時間的短網址
+- **文字片段**：從 stdin 或檔案中分享程式碼片段和筆記
+- **檔案上傳**：直接上傳檔案，或透過 stdin 上傳
+- **網域和標籤管理**：列出可用網域並管理標籤
+- **密碼保護**：使用密碼保護您的內容
+- **JSON 輸出**：適用於指令碼的機器可讀輸出
+
+## 安裝
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# 或安裝預構建二進位制版本
+yay -S see-cli-bin
+```
+
+### 從原始碼安裝
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+預構建二進位制檔案和安裝包可從 [GitHub Releases](https://github.com/sdotee/cli/releases) 下載。
+
+## 設定
+
+透過環境變數或參數設定 API Key：
+
+```bash
+# 環境變數（推薦）
+export SEE_API_KEY="your-api-key"
+
+# 或透過參數使用
+see --api-key "your-api-key" <command>
+```
+
+### 設定選項
+
+| 選項 | 環境變數 | 說明 |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | 您的 S.EE API Key（必填） |
+| `--base-url` | `SEE_BASE_URL` | 自訂 API 基礎 URL |
+| `--timeout` | `SEE_TIMEOUT` | 請求超時時間 |
+| `--json` | - | 啟用 JSON 輸出格式 |
+
+## 命令
+
+### 網域和標籤
+
+```bash
+# 列出短網址可用網域
+see domains
+
+# 列出檔案上傳可用網域
+see file domains
+
+# 列出您的標籤
+see tags
+```
+
+### 短網址
+
+```bash
+# 建立短網址
+see url create https://example.com
+
+# 使用自訂選項建立
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# 更新短網址
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# 刪除短網址
+see url delete --domain s.ee --slug my-link
+```
+
+### 文字片段
+
+```bash
+# 從 stdin 建立文字
+echo "Hello World" | see text create --title "greeting"
+
+# 從檔案建立文字
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# 使用選項建立
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# 更新文字
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# 刪除文字
+see text delete --domain fs.to --slug abc123
+```
+
+### 檔案上傳
+
+```bash
+# 上傳檔案
+see file upload ./image.png
+
+# 使用自訂網域上傳
+see file upload ./document.pdf --domain fs.to
+
+# 從 stdin 上傳
+cat image.png | see file upload --stdin --filename image.png
+
+# 刪除檔案
+see file delete <delete-hash>
+```
+
+## JSON 輸出
+
+使用 `--json` 參數取得機器可讀輸出，適合指令碼使用：
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## 範例
+
+### 建立短網址並複製到剪貼簿（macOS）
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### 上傳截圖並取得 URL（Linux）
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### 批次建立短網址
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

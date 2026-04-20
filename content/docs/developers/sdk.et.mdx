@@ -1,0 +1,113 @@
+---
+title: SDK-d
+description: Ametlikud S.EE SDK-d eri programmeerimiskeelte jaoks
+icon: Package
+---
+
+## Ametlikud SDK-d
+
+S.EE pakub ametlikke SDK-sid, et tagada tüübiturvalisus ja lihtne integreerimine:
+
+| Keel | Repositoorium | Kirjeldus |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Arendajatööriistakomplekt PHP-rakendustele |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Tüübiturvaline integratsioon JavaScripti ja TypeScripti projektidele |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go-keele tugi linkide haldamiseks |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Pythonipõhine URL-ide lühendamine ja failide jagamine |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | Enterprise-taseme Java teostus |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | Süsteemiprogrammeerimise keele tugi |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | Uuema keele tugi, eksperimentaalne |
+
+---
+
+## MCP-server
+
+AI- ja LLM-integratsioonide jaoks kasuta meie MCP-serverit ehk Model Context Protocol serverit:
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### Funktsioonid
+
+- **URL-ide haldamine**: loo, uuenda, kustuta ja kuva lühikeste URL-ide domeene
+- **Sisu jagamine**: jaga tekstikatkeid ja koodi koos aegumise ning paroolikaitsega
+- **Failitoimingud**: laadi faile üles ja kustuta neid
+- **Aja utiliidid**: küsi praegust aega koos ajavööndi toega
+
+### Nõuded
+
+- Go 1.25+
+- Kehtiv S.EE API võti
+
+### Ehitamine
+
+```bash
+# Makefile abil praegusele opsüsteemile
+make build
+
+# Ehita kõigile platvormidele
+make build-all
+
+# Või otse Go-ga
+go build -o bin/cli-mcp-server .
+```
+
+### Käivitamine
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+API võtme saab määrata ka keskkonnamuutujaga:
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+Server kasutab vaikimisi porti 30101 ja MCP-ühenduste jaoks Server-Sent Events'i. Integreerimiseks seadista MCP-serveri URL oma LLM-kliendi seadetes, näiteks Cherry Studios.
+
+---
+
+## Paigaldamine
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+Paigaldusjuhised leiad [sdk.java repositooriumist](https://github.com/sdotee/sdk.java).
+
+### Rust
+
+Paigaldusjuhised leiad [sdk.rs repositooriumist](https://github.com/sdotee/sdk.rs).
+
+### Zig
+
+Paigaldusjuhised leiad [sdk.zig repositooriumist](https://github.com/sdotee/sdk.zig).
+
+---
+
+## Kasutamine
+
+Üksikasjaliku dokumentatsiooni ja näited leiad iga SDK enda repositooriumist.

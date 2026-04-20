@@ -1,0 +1,105 @@
+---
+title: Keamanan & Anti-Penyalahgunaan
+description: Cara S.EE mencegah phishing, malware, dan penyalahgunaan di seluruh tautan pendek, berbagi teks, dan berbagi file.
+icon: ShieldCheck
+---
+
+S.EE adalah layanan pemendek URL yang mengalihkan tautan dalam skala besar. Kami menanggapi hal ini dengan serius. Semua yang dijelaskan di sini berlaku sama untuk tautan pendek, berbagi teks, dan berbagi file.
+
+---
+
+## Pencegahan Penyalahgunaan
+
+### Blocklist
+
+Kami memelihara blocklist internal yang diperbarui setiap hari dari sumber yang dikelola komunitas:
+
+* Database domain email sekali pakai dan sementara
+* Dataset URL phishing dan penipuan publik
+* Daftar domain yang terkait dengan konten dewasa atau berisiko tinggi
+
+Konten berbahaya yang sudah diketahui akan diblokir sebelum dapat dibuat.
+
+---
+
+### Tanpa akun gratis
+
+S.EE tidak menawarkan akun gratis atau akses percobaan. Kewajiban pembayaran meningkatkan biaya penyalahgunaan dan membuat penyalahgunaan otomatis dalam skala besar menjadi tidak praktis.
+
+---
+
+### Reputasi domain
+
+Domain `s.ee` terdaftar sebagai domain tautan pendek resmi di berbagai platform besar dan ekosistem keamanan. Ini mengurangi false positive dalam moderasi otomatis dan mempercepat penyelesaian ketika konten ditandai.
+
+---
+
+## Pemeriksaan saat pembuatan konten
+
+### Pemindaian URL real-time
+
+Saat seseorang membuat tautan pendek, URL tujuan diperiksa secara real-time terhadap sistem deteksi penyalahgunaan dan phishing kami. Tautan yang cocok dengan pola berbahaya yang sudah diketahui akan diblokir.
+
+---
+
+### Rate limiting
+
+* Pembuatan konten memiliki batas laju per akun
+* Pola yang tidak biasa (misalnya pembuatan slug massal secara cepat) dapat memicu peninjauan manual
+* Wilayah berisiko tinggi memiliki perlindungan tambahan
+
+---
+
+## Berbagi teks dan file
+
+Berbagi teks dan berbagi file mengikuti aturan yang sama seperti tautan pendek. Konten dapat dibatasi atau dihapus jika:
+
+* Menyebarkan malware
+* Memfasilitasi phishing, penipuan, atau rekayasa sosial
+* Melanggar hukum yang berlaku atau [Acceptable Use Policy](https://s.ee/aup/) kami
+
+Akun yang terkait dengan pelanggaran dapat ditangguhkan setelah peninjauan manual.
+
+---
+
+## Pemantauan dan penegakan
+
+### Penonaktifan retroaktif
+
+Jika tautan, teks, atau file kemudian diketahui bersifat berbahaya atau menipu, kami akan menonaktifkannya, meskipun konten tersebut lolos pemeriksaan saat dibuat.
+
+---
+
+### Peninjauan manusia
+
+Laporan pengguna dan peringatan internal akan diteruskan ke moderator manusia. Jika penyalahgunaan dikonfirmasi, kami akan menonaktifkan konten tersebut dan dapat menangguhkan atau menghentikan akun.
+
+---
+
+## Melaporkan penyalahgunaan
+
+Jika Anda menemukan sesuatu yang mencurigakan di S.EE, beri tahu kami:
+
+* Email: `abuse@s.ee`
+* Formulir kontak: [https://s.ee/contact/](https://s.ee/contact/)
+
+Lihat juga: [Terms of Service](https://s.ee/terms/) dan [Acceptable Use Policy](https://s.ee/aup/)
+
+---
+
+## Privasi
+
+Kami dapat memproses informasi teknis terbatas saat menyelidiki penyalahgunaan atau insiden keamanan. Data ini **tidak** digunakan untuk pelacakan, profiling, analitik, atau pemasaran.
+
+Detail lengkap: [Privacy Policy](https://s.ee/privacy/)
+
+---
+
+## Sumber Daya
+
+<Cards>
+  <Card title="Privacy Policy" href="https://s.ee/privacy/">Cara kami menangani data Anda</Card>
+  <Card title="Terms of Service" href="https://s.ee/terms/">Perjanjian layanan kami</Card>
+  <Card title="Acceptable Use Policy" href="https://s.ee/aup/">Yang diperbolehkan di S.EE</Card>
+  <Card title="Report Abuse" href="https://s.ee/contact/">Laporkan konten mencurigakan</Card>
+</Cards>

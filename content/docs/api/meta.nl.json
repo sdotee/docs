@@ -1,0 +1,28 @@
+{
+  "title": "API-referentie",
+  "description": "S.EE API-endpoints",
+  "defaultOpen": true,
+  "pages": [
+    "---Korte URL's---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Tekst delen---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Bestanden delen---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Algemeen---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

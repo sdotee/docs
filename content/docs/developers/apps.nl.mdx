@@ -1,0 +1,125 @@
+---
+title: Mobiele app
+description: Native mobiele applicatie voor S.EE
+icon: Smartphone
+---
+
+Verkort links, deel tekst en upload bestanden vanaf uw telefoon, met de volledige kracht van S.EE in een native app.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Downloaden
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/app-store-badge.svg" alt="Download on the App Store" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+  </a>
+</div>
+
+## Ondersteunde platforms
+
+| Platform | Vereisten | Technologie |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Functies
+
+### URL-verkorting
+
+- Maak korte links met aangepaste slug, titel, wachtwoord en vervaldatum
+- Kies uit meerdere domeinen
+- Bekijk linkstatistieken van vandaag, deze maand en totaal
+- Zoek op slug, doel-URL, titel en domein
+- Bewerk of verwijder bestaande links
+
+### Tekst delen
+
+- Deel platte tekst, broncode of Markdown
+- Editor met vastlettertype voor code
+- Aangepaste slug, wachtwoord en vervaldatum
+- Domeinkeuze en tagtoewijzing, maximaal 5 tags
+
+### Bestanden uploaden
+
+- Kies bestanden, selecteer uit de galerij of maak een opname met de camera
+- Plak vanuit het klembord met automatische WebP-conversie op iOS
+- Realtime uploadvoortgang
+- 9 linkformaten, waaronder Direct Link, Share Page, BBCode, HTML en Markdown
+- Batches kopieren en verwijderen in alle lijsten
+
+### Gebruiksdashboard
+
+- Opslaggebruik met visuele voortgangsbalk
+- Rate limits voor API Calls, Links, Text Shares, Uploads en QR Codes
+- Dagelijkse en maandelijkse gebruiksaantallen
+
+### Instellingen
+
+- Basis-URL-configuratie voor self-hosted instanties
+- Beheer van API-sleutels met verificatie in een tik
+- Standaarddomeinkeuze per dienst, links, tekst en bestanden
+- Thema: System / Light / Dark
+- Dynamic Color / Material You op Android
+
+## iOS
+
+Gebouwd met **SwiftUI** en **SwiftData** voor een native iOS-ervaring.
+
+- **Photo Picker** - selecteer uit de fotobibliotheek
+- **Camera** - maak foto's, JPG, of video, MOV naar MP4
+- Pull-to-refresh voor tags en lijsten
+- Veilige opslag van API-sleutels via Keychain
+
+## Android
+
+Gebouwd met **Jetpack Compose** en **Material 3** voor een native Android-ervaring.
+
+- **Share Target** - ontvang gedeelde tekst, URL's en bestanden vanuit andere apps
+- **App Shortcuts** - houd het app-icoon ingedrukt voor snelle acties
+- Ondersteuning voor **Predictive Back** op Android 14+
+- **Adaptive Icon** met ondersteuning voor thematische iconen
+- Room-database voor lokale geschiedenis
+- EncryptedSharedPreferences voor veilige opslag
+
+## Techstack
+
+### iOS
+
+| Laag | Technologie |
+|-------|-----------|
+| UI | SwiftUI |
+| Opslag | SwiftData |
+| Netwerk | URLSession, actor-based |
+| Beveiliging | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Beeldverwerking | Swift-WebP |
+
+### Android
+
+| Laag | Technologie |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architectuur | MVVM + Repository |
+| Netwerk | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt, Dagger |
+| Lokale DB | Room |
+| Beveiliging | EncryptedSharedPreferences |
+| Afbeeldingen | Coil 3 |
+
+## Broncode
+
+Beide apps zijn open source onder de MIT-licentie:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Aan de slag
+
+1. Download via de [App Store](https://s.ee/ios) of [Google Play](https://s.ee/android)
+2. Maak een account op [s.ee](https://s.ee) als u er nog geen hebt
+3. [Genereer een API-sleutel](https://s.ee/user/developers/) vanuit uw dashboard
+4. Open de app, ga naar **Settings**, voer uw API-sleutel in en tik op **Verify**

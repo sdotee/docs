@@ -1,0 +1,70 @@
+---
+title: Egna domäner
+description: Så ställer du in en egen domän för dina korta länkar
+icon: Globe
+---
+
+## Vad är en egen domän?
+
+Med en egen domän kan du använda ditt eget varumärke i korta länkar i stället för `s.ee`. I stället för `s.ee/link` kan du till exempel använda `go.example.com/link`.
+
+---
+
+## Varför använda en egen domän?
+
+- **Varumärkeskännedom** - Länkarna visar ditt varumärke, inte vårt
+- **Förtroende** - Användare klickar oftare på varumärkta länkar
+- **Högre klickfrekvens** - Varumärkta länkar brukar prestera bättre
+
+---
+
+## Lägg till en egen domän
+
+1. Gå till [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Klicka på **Add Domain**
+3. Ange ditt domännamn
+4. Lägg till de DNS-poster som krävs:
+   - **TXT-post** - För domänverifiering
+   - **CNAME- eller Alias-post** - För att peka domänen till S.EE
+5. Vänta på DNS-propagation (vanligtvis några minuter)
+6. Klicka på **Verify** för att bekräfta inställningen
+
+---
+
+## Krav
+
+- Domänen måste skilja sig från din huvudsakliga webbplatsdomän
+- Högst 63 tecken inklusive punkt
+- Du måste ha tillgång till domänens DNS-inställningar
+
+---
+
+## Viktigt att känna till
+
+### För Cloudflare-användare
+
+Om du använder Cloudflare för DNS ska du **inte aktivera Proxy (orange moln)** för din CNAME-post. Låt den vara i DNS-only-läge (grått moln). Aktiverad Cloudflare-proxy kan orsaka CDN-konflikter och omdirigeringsproblem.
+
+### Om du vill använda rotdomänen
+
+Om du vill använda en rotdomän, till exempel `example.com` i stället för `go.example.com`, måste din DNS-leverantör stödja **ALIAS-poster** eller **CNAME flattening**. Vanliga leverantörer med det stödet är:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Om din DNS-leverantör inte stöder detta kan du [kontakta oss](https://s.ee/contact/) så hjälper vi till att verifiera och lägga till rotdomänen manuellt.
+
+---
+
+## Domängränser per abonnemang
+
+| Abonnemang | Egna domäner |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Obegränsat |

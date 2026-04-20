@@ -3,6 +3,7 @@ import { openapiPlugin } from 'fumadocs-openapi/server';
 import { icons } from 'lucide-react';
 import { createElement } from 'react';
 import { docs } from 'fumadocs-mdx:collections/server';
+import { i18n } from '@/lib/i18n';
 import { LinkIcon } from '@/components/ui/link';
 import { EarthIcon } from '@/components/ui/earth';
 import { LayoutPanelTopIcon } from '@/components/ui/layout-panel-top';
@@ -106,14 +107,23 @@ function createLucideIconsPlugin(): LoaderPlugin {
 
 export const source = loader({
   baseUrl: '/docs',
+  i18n,
+  url(slugs, locale) {
+    const localeSegment =
+      locale && locale !== i18n.defaultLanguage ? `/${locale}` : '';
+    const slugPath = slugs.length > 0 ? `/${slugs.join('/')}` : '';
+    return `/docs${localeSegment}${slugPath}`;
+  },
   source: docs.toFumadocsSource(),
   plugins: [createLucideIconsPlugin(), openapiPlugin()],
 });
 
 export type Page = InferPageType<typeof source>;
 
-export function getPageImage(page: Page) {
-  const segments = [...page.slugs, 'image.webp'];
+export function getPageImage(page: Page, lang?: string) {
+  const localePrefix =
+    lang && lang !== i18n.defaultLanguage ? [lang] : [];
+  const segments = [...localePrefix, ...page.slugs, 'image.webp'];
   return {
     segments,
     url: `/og/${segments.join('/')}`,

@@ -1,0 +1,80 @@
+---
+title: Metin paylaşımı
+description: S.EE ile metin, kod parçaları ve Markdown nasıl paylaşılır
+icon: FileText
+---
+
+## Genel bakış
+
+S.EE Metin Paylaşımı, düz metinleri, kod parçalarını ve Markdown belgelerini kısa, paylaşılabilir bir bağlantıyla paylaşmanıza olanak tanır. Yapılandırma dosyalarını, kod örneklerini, notları ve dokümantasyonu paylaşmak için uygundur.
+
+---
+
+## Metin paylaşımı oluşturma
+
+1. [https://s.ee/user/dashboard](https://s.ee/user/dashboard) adresinde oturum açın
+2. Sol kenar çubuğunda **Sharing > Text** seçeneğine tıklayın veya doğrudan [https://s.ee/user/text/](https://s.ee/user/text/) sayfasına gidin
+3. Ayrıntıları doldurun:
+   - **Title**: İsteğe bağlıdır; indirme sırasında dosya adı olarak kullanılır
+   - **Short Link**: Tercih ettiğiniz alan adını seçin
+   - **Text Type**: Plain Text, Code veya Markdown seçeneklerinden birini seçin
+4. İçeriğinizi **Edit** kutusuna girin
+5. İsteğe bağlı ayarları yapılandırın
+6. **Create Text** düğmesine tıklayın
+
+---
+
+## Metin türleri
+
+| Tür | Açıklama |
+|------|-------------|
+| Düz metin | Biçimlendirilmemiş basit metin |
+| Kod | Sözdizimi vurgulamalı kod parçaları |
+| Markdown | Biçimlendirmeyle render edilen Markdown |
+
+---
+
+## İsteğe bağlı ayarlar
+
+| Seçenek | Açıklama |
+|--------|-------------|
+| Parola | Metninizi parola ile korur |
+| Etiketler | Paylaşılan metinleri etiketlerle düzenler |
+| Sona erme | Metin paylaşımının ne zaman sona ereceğini belirler |
+| Arama motoru indekslemeyi kapat | Arama motorlarının paylaşımınızı dizine eklemesini engeller |
+
+---
+
+## Paylaşılan metni görüntüleme
+
+Oluşturulduktan sonra `ba.sh/demo` gibi kısa bir bağlantı alırsınız.
+
+### Görüntüleme modları
+
+| URL | Açıklama |
+|-----|-------------|
+| `ba.sh/demo` | Sözdizimi vurgulamalı biçimlendirilmiş metin sayfasını gösterir |
+| `ba.sh/demo/raw` | Ham düz metni doğrudan gösterir |
+
+`/raw` uç noktası şu durumlarda yararlıdır:
+
+- Betikleri `curl` veya `wget` ile doğrudan indirmek
+- Diğer uygulamalara gömmek
+- Biçimlendirme olmadan görüntülemek
+
+---
+
+## Desteklenen alan adları
+
+Metin paylaşımı, tüm paketlerde şu alan adlarında kullanılabilir:
+
+| Alan adı | En uygun kullanım |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash ve shell betikleri |
+| [z.sh](https://z.sh) | Shell betikleri |
+| [fs.to](https://fs.to) | Genel dosya paylaşımı |
+| [files.to](https://files.to) | Genel dosya paylaşımı |
+| [fileshare.to](https://fileshare.to) | Genel dosya paylaşımı |
+| [filesharing.to](https://filesharing.to) | Genel dosya paylaşımı |
+
+Premium ve Enterprise müşterileri için lütfen [resmî alan adları](/docs/tr/official-domains/#premium--enterprise) sayfasına bakın.

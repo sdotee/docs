@@ -1,0 +1,80 @@
+---
+title: Textdelning
+description: Så delar du text, kodsnuttar och Markdown med S.EE
+icon: FileText
+---
+
+## Översikt
+
+S.EE Text Sharing gör det möjligt att dela vanlig text, kodsnuttar och Markdown-dokument via en kort och delbar länk. Det passar bra för konfigurationsfiler, kodexempel, anteckningar och dokumentation.
+
+---
+
+## Skapa en textdelning
+
+1. Logga in på [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klicka på **Sharing > Text** i vänstra sidofältet eller gå direkt till [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Fyll i uppgifterna:
+   - **Title** (valfritt) - används som filnamn vid nedladdning
+   - **Short Link** - välj önskad domän
+   - **Text Type** - välj mellan vanlig text, kod eller Markdown
+4. Ange innehållet i rutan **Edit**
+5. Konfigurera valfria inställningar enligt nedan
+6. Klicka på **Create Text**
+
+---
+
+## Texttyper
+
+| Typ | Beskrivning |
+|------|-------------|
+| Vanlig text | Enkel text utan formatering |
+| Kod | Kodsnuttar med syntaxmarkering |
+| Markdown | Renderad Markdown med formatering |
+
+---
+
+## Valfria inställningar
+
+| Alternativ | Beskrivning |
+|--------|-------------|
+| Lösenord | Skydda texten med ett lösenord |
+| Taggar | Organisera delad text med taggar |
+| Utgångstid | Ange när textdelningen ska upphöra |
+| Inaktivera indexering av sökmotorer | Förhindra att sökmotorer indexerar texten |
+
+---
+
+## Visa delad text
+
+När texten har skapats får du en kort länk som `ba.sh/demo`.
+
+### Visningslägen
+
+| URL | Beskrivning |
+|-----|-------------|
+| `ba.sh/demo` | Visa den formaterade textsidan med syntaxmarkering |
+| `ba.sh/demo/raw` | Visa den råa texten direkt |
+
+Slutpunkten `/raw` är användbar för att:
+
+- Ladda ner skript direkt med `curl` eller `wget`
+- Bädda in text i andra applikationer
+- Visa innehållet utan formatering
+
+---
+
+## Domäner som stöds
+
+Textdelning är tillgänglig på följande domäner för alla abonnemang:
+
+| Domän | Passar bäst för |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash- och shellskript |
+| [z.sh](https://z.sh) | Shellskript |
+| [fs.to](https://fs.to) | Allmän fildelning |
+| [files.to](https://files.to) | Allmän fildelning |
+| [fileshare.to](https://fileshare.to) | Allmän fildelning |
+| [filesharing.to](https://filesharing.to) | Allmän fildelning |
+
+För Premium- och Enterprise-kunder finns fler domäner på sidan [officiella domäner](/docs/sv/official-domains/#premium--enterprise).

@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Förkorta URL:er, dela text och hosta filer direkt från din WordPress-panel
+icon: WordPress
+---
+
+[S.EE:s WordPress-tillägg](https://wordpress.org/plugins/sdotee/) låter dig förkorta URL:er, dela text och ladda upp filer utan att lämna WordPress. När du publicerar ett inlägg skapas en kort länk automatiskt.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Källkod på GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Funktioner
+
+| Funktion | Beskrivning |
+|---------|-------------|
+| Korta URL:er | Skapa automatiskt korta länkar när du publicerar eller uppdaterar inlägg och sidor |
+| Textdelning | Dela vanlig text, Markdown och kodsnuttar med en länk |
+| Filhosting | Ladda upp filer från mediabiblioteket och kopiera länken som URL, HTML, Markdown eller BBCode |
+| Automatisering | Automatisk mediauppladdning och automatisk länkförkortning vid publicering |
+| Adminintegration | Visa och hantera korta URL:er direkt från listan över inlägg och sidor |
+| Panel i instrumentpanelen | En särskild S.EE-panel för text- och fildelning med full användningshistorik |
+| 13 språk | Engelska, kinesiska (förenklad/traditionell), japanska, koreanska, indonesiska, vietnamesiska, tyska, franska, spanska, portugisiska (Brasilien/Portugal) och ryska |
+
+---
+
+## Krav
+
+- PHP 8.2+
+- WordPress 6.0+
+- Ett S.EE-konto med en [API-token](https://s.ee/user/developers/)
+
+---
+
+## Installation
+
+### Från WordPress Plugin Directory
+
+1. Gå till **Plugins** > **Add New** i WordPress-admin
+2. Sök efter **S.EE**
+3. Klicka på **Install Now** och sedan **Activate**
+
+### Från GitHub
+
+1. Ladda ner den senaste ZIP-filen från [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Gå till **Plugins** > **Add New** > **Upload Plugin**
+3. Ladda upp ZIP-filen och klicka på **Install Now**, sedan **Activate**
+
+---
+
+## Konfiguration
+
+### 1. Hämta din API-token
+
+1. Logga in på ditt S.EE-konto
+2. Gå till **[Tools > API Token](https://s.ee/user/developers/)**
+3. Generera en ny API-token
+
+<Callout type="warn">
+Dela inte din API-token offentligt och checka inte in den i versionshantering.
+</Callout>
+
+### 2. Konfigurera tillägget
+
+1. Gå till **Settings** > **S.EE**
+2. Klistra in API-token och klicka på **Verify**
+3. Välj standarddomäner för korta URL:er, text och filer
+4. Aktivera automatisk generering och automatisk uppladdning om du vill arbeta helt handsfree
+
+<Callout type="info">
+Du kan också ange din API-token i `wp-config.php` för att hålla den utanför databasen.
+</Callout>
+
+---
+
+## Användning
+
+### Korta URL:er
+
+När automatisk generering är aktiverad får varje inlägg och sida en kort länk när du klickar på Publish. Du kan också skapa eller visa korta URL:er från kolumnen i adminlistan.
+
+### Textdelning
+
+Öppna instrumentpanelens **S.EE**-panel och klistra in innehållet. Följande format stöds:
+
+- Vanlig text
+- Markdown
+- Kodsnuttar
+
+### Filhosting
+
+Ladda upp filer via **S.EE**-panelen eller mediabiblioteket. Efter uppladdningen kan du hämta länken i format som URL, HTML, Markdown eller BBCode.
+
+---
+
+## Relaterat
+
+- [API för utvecklare](/docs/sv/developers)
+- [Fildelning](/docs/sv/file-sharing)
+- [Textdelning](/docs/sv/text-sharing)
+- [Bildhosting](/docs/sv/image-hosting)

@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Панель управления"
+  },
+  "cookieBar": {
+    "message": "Мы используем файлы cookie, чтобы запомнить ваши языковые предпочтения и улучшить работу с сайтом.",
+    "accept": "Принять",
+    "decline": "Отклонить",
+    "privacyLink": "Политика конфиденциальности"
+  },
+  "fumadocs": {
+    "search": "Поиск",
+    "searchNoResult": "Ничего не найдено",
+    "toc": "На этой странице",
+    "lastUpdate": "Последнее обновление",
+    "previousPage": "Назад",
+    "nextPage": "Далее",
+    "chooseTheme": "Выбрать тему",
+    "editOnGithub": "Редактировать на GitHub",
+    "chooseLanguage": "Выбрать язык"
+  }
+}

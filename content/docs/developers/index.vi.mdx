@@ -1,0 +1,88 @@
+---
+title: Bắt đầu
+description: REST API của S.EE để tạo, quản lý và theo dõi URL ngắn, chia sẻ văn bản và chia sẻ tệp
+icon: Rocket
+---
+
+## Tổng quan
+
+API của S.EE cho phép bạn tạo và quản lý liên kết ngắn, chia sẻ văn bản và chia sẻ tệp theo cách lập trình. Bạn có thể dùng nó để:
+
+- Tạo liên kết ngắn ở quy mô lớn
+- Chia sẻ đoạn văn bản và mã với tô sáng cú pháp
+- Tải lên và chia sẻ tệp
+- Quản lý tên miền tùy chỉnh
+- Truy xuất dữ liệu phân tích
+- Tích hợp vào ứng dụng của bạn
+
+---
+
+## Bắt đầu
+
+### Điều kiện tiên quyết
+
+1. Một tài khoản S.EE với gói đang hoạt động
+2. Một access token API
+
+### Xác thực
+
+Mọi yêu cầu API đều cần access token trong header `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Base URL
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Ví dụ yêu cầu
+
+### Tạo URL ngắn
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Tạo chia sẻ văn bản
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Tải tệp lên
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Tài nguyên
+
+<Cards>
+  <Card title="Tham chiếu API" href="/docs/vi/developers/api/">Xem tất cả endpoint hiện có</Card>
+  <Card title="SDK" href="/docs/vi/developers/sdk/">SDK chính thức của S.EE cho nhiều ngôn ngữ lập trình</Card>
+</Cards>

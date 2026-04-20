@@ -1,0 +1,233 @@
+---
+title: ファイル共有
+description: S.EE でファイルをアップロードして共有する方法
+icon: Upload
+---
+
+## 概要
+
+S.EE のファイル共有では、短く共有しやすいリンクでファイルをアップロードして共有できます。画像、ドキュメント、音声、動画、その他のファイル共有に適しています。
+
+---
+
+## ファイルをアップロードする
+
+### クイックアップロード (ドラッグ & ドロップ)
+
+1. [https://s.ee/user/dashboard](https://s.ee/user/dashboard) にログインします
+2. 左側サイドバーの **Sharing > Files** をクリックするか、[https://s.ee/user/files/](https://s.ee/user/files/) を直接開きます
+3. **Drag & Drop** ウィンドウにファイルまたはフォルダーをドラッグ & ドロップします
+   - ウィンドウをクリックしてファイルを参照し、選択することもできます
+   - フォルダーをアップロードすると、その中のすべてのファイルがアップロードされます
+4. ファイルは既定のドメインとランダムなスラッグで共有されます
+
+### 詳細アップロード (Create File)
+
+ファイル共有をより細かく設定したい場合:
+
+1. **Create File** ボタンをクリックします
+2. 設定を行います:
+   - **Domain** - 共有ページに使用するドメインを選択します
+   - **Custom Slug** - カスタム URL スラッグを設定します
+   - **Other options** - タグ、有効期限など
+3. ファイルを選択してアップロードします
+
+---
+
+## ファイルリンク
+
+アップロードしたファイルには、2 種類のリンクがあります:
+
+| リンク種別 | 形式 | 説明 |
+|-----------|--------|-------------|
+| 共有ページ | `fs.to/[your_slug]` | ドメインとスラッグをカスタマイズできます |
+| 直リンク | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | 元のファイル名のまま、ファイルへ直接アクセスできます |
+
+**注意:** 現時点では、直リンクではカスタムドメインをご利用いただけません。
+
+---
+
+## 対応ファイル形式
+
+S.EE は幅広いファイル形式に対応しています:
+
+### 画像
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| image/jpeg | JPEG 画像 (.jpg, .jpeg) |
+| image/png | PNG 画像 (.png) |
+| image/gif | GIF 画像 (.gif) |
+| image/webp | WebP 画像 (.webp) |
+| image/avif | AVIF 画像 (.avif) |
+| image/svg+xml | SVG 画像 (.svg) |
+| image/bmp | BMP 画像 (.bmp) |
+| image/tiff | TIFF 画像 (.tiff, .tif) |
+| image/heic | HEIC 画像 (.heic) |
+| image/heif | HEIF 画像 (.heif) |
+| image/jp2 | JPEG 2000 画像 (.jp2) |
+| image/jpx | JPEG 2000 画像 (.jpx) |
+| image/jxl | JPEG XL 画像 (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop ファイル (.psd) |
+
+### ドキュメント
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| application/pdf | PDF ドキュメント (.pdf) |
+| application/msword | Word ドキュメント (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word ドキュメント (.docx) |
+| application/vnd.ms-excel | Excel スプレッドシート (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel スプレッドシート (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint プレゼンテーション (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint プレゼンテーション (.pptx) |
+| application/vnd.apple.pages | Pages ドキュメント (.pages) |
+| application/vnd.apple.numbers | Numbers スプレッドシート (.numbers) |
+| application/vnd.apple.keynote | Keynote プレゼンテーション (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript ファイル (.ps, .eps) |
+| application/epub+zip | EPUB 電子書籍 (.epub) |
+
+### テキスト & データ
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| text/plain | プレーンテキストファイル (.txt) |
+| text/csv | CSV ファイル (.csv) |
+| text/markdown | Markdown ファイル (.md, .markdown, .mdx) |
+| application/json | JSON ファイル (.json) |
+| application/yaml | YAML ファイル (.yaml, .yml) |
+
+### 音声
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| audio/mpeg | MP3 ファイル (.mp3) |
+| audio/wav | WAV ファイル (.wav) |
+| audio/ogg | OGG 音声 (.ogg) |
+| audio/flac | FLAC 音声 (.flac) |
+| audio/aac | AAC 音声 (.aac) |
+| audio/mp4, audio/x-m4a | M4A 音声 (.m4a) |
+| audio/midi | MIDI ファイル (.mid, .midi) |
+| audio/x-ms-wma | WMA 音声 (.wma) |
+
+### 動画
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| video/mp4 | MP4 動画 (.mp4) |
+| video/webm | WebM 動画 (.webm) |
+| video/quicktime | QuickTime 動画 (.mov) |
+| video/x-matroska | MKV 動画 (.mkv) |
+| video/x-msvideo | AVI 動画 (.avi) |
+| video/mpeg | MPEG 動画 (.mpeg, .mpg) |
+| video/ogg | OGG 動画 (.ogv) |
+| video/3gpp | 3GP 動画 (.3gp) |
+| video/x-flv | FLV 動画 (.flv) |
+| video/x-ms-wmv | WMV 動画 (.wmv) |
+
+### アーカイブ & ディスクイメージ
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| application/zip | ZIP アーカイブ (.zip) |
+| application/x-zip-compressed | ZIP アーカイブ (.zip) |
+| application/gzip | GZIP アーカイブ (.gz) |
+| application/x-bzip2 | BZIP2 アーカイブ (.bz2) |
+| application/x-xz | XZ アーカイブ (.xz) |
+| application/x-tar | TAR アーカイブ (.tar) |
+| application/x-7z-compressed | 7-Zip アーカイブ (.7z) |
+| application/x-rar-compressed | RAR アーカイブ (.rar) |
+| application/x-apple-diskimage | DMG ディスクイメージ (.dmg) |
+| application/x-iso9660-image | ISO ディスクイメージ (.iso) |
+
+<Callout type="warn">
+実行ファイル (.exe、.msi、.bat、.app など) は、セキュリティ上の理由により **アップロードできません**。
+</Callout>
+
+<Callout type="info">
+次の拡張子については、スクリプト悪用のリスクを下げるため、レスポンスの `Content-Type` を `text/plain` に強制する場合があります: `.js`、`.mjs`、`.html`、`.htm`、`.xhtml`、`.shtml`、`.svg`、`.xml`、`.json`、`.map`。
+</Callout>
+
+<Callout type="info">
+不明または判別が難しいファイル形式については、レスポンスの `Content-Type` を `application/octet-stream` に強制します。
+</Callout>
+
+### レガシー / 互換性
+
+これらの MIME Type は、古いシステムとの互換性のために受け付けています。
+
+| MIME Type | 説明 |
+|-----------|-------------|
+| application/excel | Excel スプレッドシート (.xls) |
+| application/x-excel | Excel スプレッドシート (.xls) |
+| application/x-msexcel | Excel スプレッドシート (.xls) |
+| application/mspowerpoint | PowerPoint プレゼンテーション (.ppt) |
+| application/powerpoint | PowerPoint プレゼンテーション (.ppt) |
+| application/x-mspowerpoint | PowerPoint プレゼンテーション (.ppt) |
+
+---
+
+## ストレージ上限
+
+ストレージ上限はプランによって異なります:
+
+| プラン | 最大ファイルサイズ | 総ストレージ |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | カスタム | カスタム |
+
+プランの詳細は [s.ee/pricing](https://s.ee/pricing) をご覧ください。
+
+---
+
+## ファイル保持期間
+
+- サブスクリプションが有効な限り、ファイルは **恒久的に保存** されます
+- サブスクリプションの有効期限が切れた場合、削除前に **7 日間** 保持されます
+
+---
+
+## 対応ドメイン
+
+ファイル共有では、次のドメインをご利用いただけます:
+
+| ドメイン | 用途 |
+|--------|----------|
+| [fs.to](https://fs.to) | 一般的なファイル共有 |
+| [files.to](https://files.to) | 一般的なファイル共有 |
+| [fileshare.to](https://fileshare.to) | 一般的なファイル共有 |
+| [filesharing.to](https://filesharing.to) | 一般的なファイル共有 |
+
+Premium および Enterprise のお客様は、[公式ドメイン](/docs/ja/official-domains/#premium--enterprise) もご参照ください。
+
+---
+
+## API アクセス
+
+ファイル共有は API でもご利用いただけます。プログラムからのアップロードについては、[API ドキュメント](/docs/ja/developers/api/#file-sharing) をご覧ください。
+
+---
+
+## FAQ
+
+### ファイルをアップロードできるのは誰ですか？
+
+ファイルをアップロードできるのは有料プランの契約者のみです。有効なサブスクリプションが必要です。
+
+### ダウンロード数の制限はありますか？
+
+いいえ。共有ファイルのダウンロード回数や帯域幅に制限はありません。
+
+### 共有ページの URL はカスタマイズできますか？
+
+はい。**Create File** のアップロード方法を使用すると、共有ページ用にカスタムドメインとスラッグを設定できます。
+
+### 直リンクの URL はカスタマイズできますか？
+
+現時点では、直リンクは固定形式であり、カスタムドメインには対応していません。

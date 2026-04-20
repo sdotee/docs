@@ -1,0 +1,113 @@
+---
+title: Application de bureau
+description: Application de bureau native pour S.EE
+icon: Monitor
+---
+
+Raccourcissez des liens, partagez du texte et téléversez des fichiers depuis votre ordinateur, avec des applications natives pour macOS et Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Télécharger
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Plateformes prises en charge
+
+| Plateforme | Statut | Technologie |
+|----------|--------|------------|
+| macOS | Disponible | SwiftUI |
+| Linux | Disponible | GTK4 + libadwaita + Rust |
+| Windows | En développement | - |
+
+## Fonctionnalités
+
+- **Raccourcissement d’URL** — slug personnalisé, titre, mot de passe et expiration
+- **Partage de texte** — texte brut, code source ou Markdown avec éditeur à chasse fixe
+- **Téléversement de fichiers** — glisser-déposer, collage depuis le presse-papiers ou sélecteur de fichiers
+- **Génération de code QR** — export en PNG, SVG ou PDF
+- **Historique** — enregistrement local de tous les liens, textes et fichiers créés
+- **Prise en charge de plusieurs domaines** — choisissez parmi plusieurs domaines pour chaque service
+- **Tableau de bord d’utilisation** — stockage utilisé et limites de débit en un coup d’œil
+
+## macOS
+
+Construit avec **SwiftUI** et **SwiftData**. Prise en charge complète des raccourcis clavier et intégration à la barre de menus.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Nécessite macOS 14.0+
+
+### Points forts
+
+- **Barre de menus** — raccourcir des URL, coller et téléverser, puis accéder aux éléments récents sans ouvrir la fenêtre principale
+- **Glisser-déposer** — déposez des fichiers n’importe où dans la zone de téléversement
+- **Coller depuis le presse-papiers** (Cmd+V) — convertit automatiquement les images en WebP avec repli PNG
+- **Trousseau** — stockage sécurisé de la clé API via le framework de sécurité macOS
+
+### Raccourcis clavier
+
+| Raccourci | Action |
+|----------|--------|
+| Cmd+N | Nouveau lien court |
+| Cmd+Shift+N | Nouveau partage de texte |
+| Cmd+V | Coller et téléverser depuis le presse-papiers |
+| Cmd+, | Paramètres |
+| Cmd+Q | Quitter |
+
+### Stack technique
+
+| Couche | Technologie |
+|-------|-----------|
+| UI | SwiftUI |
+| Stockage | SwiftData |
+| Réseau | URLSession (actor-based) |
+| Sécurité | Keychain |
+| Vignettes | QuickLookThumbnailing |
+| Traitement d’image | Swift-WebP |
+
+## Linux
+
+Construit avec **GTK4**, **libadwaita** et **Rust**. Suit les Human Interface Guidelines de GNOME.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Nécessite GTK 4.14+ et libadwaita 1.5+
+
+### Points forts
+
+- **Expérience GNOME native** — disposition adaptative conforme au GNOME HIG
+- **Export de code QR** — PNG, SVG ou PDF
+- **Fichier de configuration** — `~/.config/see/config.toml` pour la clé API, l’URL de base et les domaines par défaut
+- **Variables d’environnement** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` remplacent le fichier de configuration
+
+### Raccourcis clavier
+
+| Raccourci | Action |
+|----------|--------|
+| Ctrl+1 | Basculer vers la vue Liens |
+| Ctrl+2 | Basculer vers la vue Textes |
+| Ctrl+3 | Basculer vers la vue Fichiers |
+| Ctrl+, | Ouvrir les préférences |
+| Ctrl+? | Afficher les raccourcis clavier |
+| Ctrl+Q | Quitter |
+
+### Stack technique
+
+| Couche | Technologie |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Langage | Rust (édition 2024) |
+| Client API | see-sdk |
+| Code QR | Intégré (export PNG, SVG, PDF) |
+
+### Stockage des données
+
+- **Configuration**: `~/.config/see/config.toml`
+- **Historique**: `~/.local/share/see/history.json`
+
+## Premiers pas
+
+1. Téléchargez l’application pour [macOS](https://s.ee/macos) ou [Linux](https://s.ee/linux)
+2. Créez un compte sur [s.ee](https://s.ee) si vous n’en avez pas
+3. [Générez une clé API](https://s.ee/user/developers/) depuis votre tableau de bord
+4. Ouvrez l’application, accédez à **Preferences** puis saisissez votre clé API

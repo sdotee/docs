@@ -1,0 +1,80 @@
+---
+title: Teksti jagamine
+description: Kuidas jagada S.EE kaudu teksti, koodilõike ja Markdowni
+icon: FileText
+---
+
+## Ülevaade
+
+S.EE Text Sharing võimaldab jagada tavateksti, koodilõike ja Markdown-dokumente lühikese jagatava lingi kaudu. See sobib hästi seadistusfailide, koodinäidete, märkmete ja dokumentatsiooni jagamiseks.
+
+---
+
+## Loo tekstijagamine
+
+1. Logi sisse aadressil [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klõpsa vasakul külgribal **Sharing > Text** või ava otse [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Täida väljad:
+   - **Title** (valikuline) - seda kasutatakse allalaadimisel failinimena
+   - **Short Link** - vali eelistatud domeen
+   - **Text Type** - vali Plain Text, Code või Markdown
+4. Sisesta oma sisu väljale **Edit**
+5. Seadista vajadusel lisavalikud
+6. Klõpsa **Create Text**
+
+---
+
+## Tekstitüübid
+
+| Tüüp | Kirjeldus |
+|------|-------------|
+| Plain Text | Lihtne vormindamata tekst |
+| Code | Süntaksi esiletõstuga koodilõigud |
+| Markdown | Vormindatult renderdatud Markdown |
+
+---
+
+## Lisavalikud
+
+| Valik | Kirjeldus |
+|--------|-------------|
+| Password | Kaitse teksti parooliga |
+| Tags | Korralda jagatud tekstid siltidega |
+| Expiration | Määra, millal tekstijagamine aegub |
+| Disable search engine indexing | Keela otsingumootoritel jagatud teksti indekseerimine |
+
+---
+
+## Jagatud teksti vaatamine
+
+Pärast loomist saad lühilingi kujul `ba.sh/demo`.
+
+### Vaatereziimid
+
+| URL | Kirjeldus |
+|-----|-------------|
+| `ba.sh/demo` | Kuvab vormindatud tekstilehe koos süntaksi esiletõstmisega |
+| `ba.sh/demo/raw` | Kuvab otse toore tavateksti |
+
+`/raw` lõpp-punkt on kasulik järgmisteks juhtudeks:
+
+- Skriptide allalaadimine otse `curl`-i või `wget`-iga
+- Manustamine teistesse rakendustesse
+- Vaatamine ilma vorminduseta
+
+---
+
+## Toetatud domeenid
+
+Teksti jagamine on kõigi pakettide puhul saadaval järgmistes domeenides:
+
+| Domeen | Sobib kõige paremini |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bashi ja shelli skriptid |
+| [z.sh](https://z.sh) | Shelli skriptid |
+| [fs.to](https://fs.to) | Üldine failide jagamine |
+| [files.to](https://files.to) | Üldine failide jagamine |
+| [fileshare.to](https://fileshare.to) | Üldine failide jagamine |
+| [filesharing.to](https://filesharing.to) | Üldine failide jagamine |
+
+Premium- ja Enterprise-paketi klientidele on lisavalikud kirjas [ametlike domeenide lehel](/docs/et/official-domains/#premium-ja-enterprise).

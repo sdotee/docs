@@ -1,0 +1,28 @@
+{
+  "title": "Tham chiếu API",
+  "description": "Các endpoint API của S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "---URL rút gọn---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Chia sẻ văn bản---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Chia sẻ tệp---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Chung---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

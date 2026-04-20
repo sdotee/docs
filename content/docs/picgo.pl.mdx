@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo ma już wbudowaną obsługę S.EE, bez potrzeby instalowania wtyczek
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) to narzędzie open source do przesyłania obrazów i plików w Windows, macOS i Linuxie. Nowsze wersje mają już wbudowaną obsługę S.EE, więc do rozpoczęcia potrzebujesz tylko API Token.
+
+- [Pobierz PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Kod źródłowy](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Konfiguracja
+
+### 1. Uzyskaj API Token
+
+1. Zaloguj się do konta S.EE
+2. Przejdź do **[Tools > API Token](https://s.ee/user/developers/)**
+3. Wygeneruj nowy API Token
+
+<Callout type="warn">
+Nie udostępniaj publicznie API Tokenu i nie wysyłaj go do systemu kontroli wersji.
+</Callout>
+
+### 2. Skonfiguruj PicGo
+
+1. Pobierz i zainstaluj [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Otwórz PicGo
+3. Przejdź do **Picbeds Settings** > **SM.MS (S.EE)**
+4. Kliknij **+**, aby dodać nową konfigurację
+5. Wpisz nazwę w **Configuration Name** (na przykład `S.EE`)
+6. Wklej API Token do **Set Token**
+7. Kliknij **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Użycie
+
+Możesz przesyłać na kilka sposobów:
+
+- Przeciągnij i upuść pliki do obszaru przesyłania
+- Kliknij obszar przesyłania, aby wybrać pliki z komputera
+- Kliknij miniokno, aby przesłać bezpośrednio
+- Kliknij miniokno prawym przyciskiem myszy i wybierz **Upload by Clipboard**
+
+PicGo skopiuje wynikowy link do schowka. Możesz wybrać format: Markdown, HTML, surowy URL itd.
+
+---
+
+## Powiązane
+
+- [API dla deweloperów](/docs/pl/developers)
+- [Udostępnianie plików](/docs/pl/file-sharing)
+- [Zgodność z SM.MS](/docs/pl/developers/smms-compatibility)

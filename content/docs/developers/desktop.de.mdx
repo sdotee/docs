@@ -1,0 +1,113 @@
+---
+title: Desktop-App
+description: Native Desktop-Anwendung für S.EE
+icon: Monitor
+---
+
+Kürzen Sie Links, teilen Sie Text und laden Sie Dateien von Ihrem Desktop hoch – mit nativen Apps für macOS und Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Download
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Unterstützte Plattformen
+
+| Platform | Status | Technology |
+|----------|--------|------------|
+| macOS | Verfügbar | SwiftUI |
+| Linux | Verfügbar | GTK4 + libadwaita + Rust |
+| Windows | In Entwicklung | - |
+
+## Funktionen
+
+- **URL Shortening** — Benutzerdefinierter Slug, Titel, Passwort und Ablaufdatum
+- **Text Sharing** — Klartext, Quellcode oder Markdown mit Monospace-Editor
+- **File Upload** — Drag & Drop, Einfügen aus der Zwischenablage oder Dateiauswahl
+- **QR Code Generation** — Export als PNG, SVG oder PDF
+- **History** — Lokale Aufzeichnung aller erstellten Links, Texte und Dateien
+- **Multi-Domain Support** — Auswahl aus mehreren Domains pro Dienst
+- **Usage Dashboard** — Speicherverbrauch und Rate Limits auf einen Blick
+
+## macOS
+
+Erstellt mit **SwiftUI** und **SwiftData**. Vollständige Unterstützung für Tastaturkürzel und Menüleisten-Integration.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Erfordert macOS 14.0+
+
+### Highlights
+
+- **Menu Bar** — URLs kürzen, aus der Zwischenablage hochladen und auf zuletzt verwendete Elemente zugreifen, ohne das Hauptfenster zu öffnen
+- **Drag & Drop** — Dateien überall in den Upload-Bereich ziehen
+- **Paste from Clipboard** (Cmd+V) — Konvertiert Bilder automatisch in WebP, mit PNG als Fallback
+- **Keychain** — Sichere Speicherung des API-Keys über das macOS Security Framework
+
+### Tastenkürzel
+
+| Shortcut | Action |
+|----------|--------|
+| Cmd+N | Neuer Kurzlink |
+| Cmd+Shift+N | Neue Textfreigabe |
+| Cmd+V | Aus Zwischenablage einfügen und hochladen |
+| Cmd+, | Einstellungen |
+| Cmd+Q | Beenden |
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+## Linux
+
+Erstellt mit **GTK4**, **libadwaita** und **Rust**. Folgt den GNOME Human Interface Guidelines.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Erfordert GTK 4.14+ und libadwaita 1.5+
+
+### Highlights
+
+- **Native GNOME Experience** — Adaptives Layout nach GNOME HIG
+- **QR Code Export** — PNG, SVG oder PDF
+- **Config File** — `~/.config/see/config.toml` für API-Key, Base-URL und Standard-Domains
+- **Environment Variables** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` überschreiben die Konfigurationsdatei
+
+### Tastenkürzel
+
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+1 | Zur Links-Ansicht wechseln |
+| Ctrl+2 | Zur Texte-Ansicht wechseln |
+| Ctrl+3 | Zur Dateien-Ansicht wechseln |
+| Ctrl+, | Einstellungen öffnen |
+| Ctrl+? | Tastenkürzel anzeigen |
+| Ctrl+Q | Beenden |
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Language | Rust (2024 edition) |
+| API Client | see-sdk |
+| QR Code | Integriert (PNG-, SVG- und PDF-Export) |
+
+### Datenspeicherung
+
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
+
+## Erste Schritte
+
+1. Laden Sie die Version für [macOS](https://s.ee/macos) oder [Linux](https://s.ee/linux) herunter
+2. Erstellen Sie ein Konto bei [s.ee](https://s.ee), falls Sie noch keines haben
+3. [Generieren Sie einen API-Key](https://s.ee/user/developers/) in Ihrem Dashboard
+4. Öffnen Sie die App, gehen Sie zu **Preferences** und geben Sie Ihren API-Key ein

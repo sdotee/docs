@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Hallintapaneeli"
+  },
+  "cookieBar": {
+    "message": "Käytämme evästeitä muistaaksemme kielivalintasi ja parantaaksemme käyttökokemustasi.",
+    "accept": "Hyväksy",
+    "decline": "Hylkää",
+    "privacyLink": "Tietosuojakäytäntö"
+  },
+  "fumadocs": {
+    "search": "Hae",
+    "searchNoResult": "Ei tuloksia",
+    "toc": "Tällä sivulla",
+    "lastUpdate": "Viimeksi päivitetty",
+    "previousPage": "Edellinen",
+    "nextPage": "Seuraava",
+    "chooseTheme": "Valitse teema",
+    "editOnGithub": "Muokkaa GitHubissa",
+    "chooseLanguage": "Valitse kieli"
+  }
+}

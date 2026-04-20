@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo 는 S.EE 를 기본 지원하므로 플러그인이 필요하지 않습니다
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) 는 Windows, macOS, Linux 용 오픈소스 이미지 및 파일 업로드 도구입니다. 최근 버전에는 S.EE 지원이 기본으로 포함되어 있으므로 API Token 만 있으면 바로 사용할 수 있습니다.
+
+- [PicGo 다운로드](https://github.com/Molunerfinn/PicGo/releases)
+- [소스 코드](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## 설정
+
+### 1. API Token 받기
+
+1. S.EE 계정에 로그인합니다
+2. **[Tools > API Token](https://s.ee/user/developers/)** 으로 이동합니다
+3. 새 API Token 을 생성합니다
+
+<Callout type="warn">
+API Token 을 공개적으로 공유하거나 버전 관리에 커밋하지 마세요.
+</Callout>
+
+### 2. PicGo 설정하기
+
+1. [PicGo](https://github.com/Molunerfinn/PicGo/releases) 를 다운로드하여 설치합니다
+2. PicGo 를 엽니다
+3. **Picbeds Settings** > **SM.MS (S.EE)** 로 이동합니다
+4. **+** 버튼을 클릭해 새 설정을 추가합니다
+5. **Configuration Name** 에 이름을 입력합니다 (예: `S.EE`)
+6. **Set Token** 에 API Token 을 붙여 넣습니다
+7. **Confirm** 을 클릭합니다
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## 사용 방법
+
+업로드 방법은 다음과 같습니다.
+
+- 파일을 Upload Area 로 드래그 앤 드롭
+- Upload Area 를 클릭해 컴퓨터에서 파일 선택
+- 떠 있는 미니 창을 클릭해 바로 업로드
+- 떠 있는 미니 창을 오른쪽 클릭한 뒤 **Upload by Clipboard** 선택
+
+PicGo 는 결과 링크를 클립보드에 복사합니다. Markdown, HTML, 원본 URL 등 원하는 형식을 선택할 수 있습니다.
+
+---
+
+## 관련 문서
+
+- [개발자 API](/docs/ko/developers)
+- [파일 공유](/docs/ko/file-sharing)
+- [SM.MS 호환](/docs/ko/developers/smms-compatibility)

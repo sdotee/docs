@@ -1,0 +1,80 @@
+---
+title: Compartilhamento de texto
+description: Como compartilhar texto, trechos de código e Markdown com a S.EE
+icon: FileText
+---
+
+## Visão geral
+
+O S.EE Text Sharing permite que você compartilhe texto simples, trechos de código e documentos Markdown com um link curto e fácil de compartilhar. É ideal para compartilhar arquivos de configuração, exemplos de código, notas e documentação.
+
+---
+
+## Criar um texto compartilhado
+
+1. Entre em [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Clique em **Sharing > Text** na barra lateral esquerda ou acesse diretamente [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Preencha os detalhes:
+   - **Title** (opcional) - Usado como nome do arquivo ao baixar
+   - **Short Link** - Selecione o domínio de sua preferência
+   - **Text Type** - Escolha entre Plain Text, Code ou Markdown
+4. Digite seu conteúdo na caixa **Edit**
+5. Configure as opções opcionais (veja abaixo)
+6. Clique em **Create Text**
+
+---
+
+## Tipos de texto
+
+| Tipo | Descrição |
+|------|-------------|
+| Texto simples | Texto simples sem formatação |
+| Código | Trechos de código com realce de sintaxe |
+| Markdown | Markdown renderizado com formatação |
+
+---
+
+## Configurações opcionais
+
+| Opção | Descrição |
+|--------|-------------|
+| Senha | Proteja seu texto com uma senha |
+| Etiquetas | Organize seus textos compartilhados com etiquetas |
+| Expiração | Defina quando o texto compartilhado expira |
+| Desativar indexação em mecanismos de busca | Impede que mecanismos de busca indexem seu texto compartilhado |
+
+---
+
+## Visualizar texto compartilhado
+
+Depois de criado, você receberá um link curto como `ba.sh/demo`.
+
+### Modos de visualização
+
+| URL | Descrição |
+|-----|-------------|
+| `ba.sh/demo` | Ver a página de texto formatada com realce de sintaxe |
+| `ba.sh/demo/raw` | Ver diretamente o texto bruto |
+
+O endpoint `/raw` é útil para:
+
+- Baixar scripts diretamente com `curl` ou `wget`
+- Incorporar em outros aplicativos
+- Ver conteúdo sem formatação
+
+---
+
+## Domínios suportados
+
+O compartilhamento de texto está disponível nestes domínios para todos os planos:
+
+| Domínio | Melhor para |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Scripts Bash e shell |
+| [z.sh](https://z.sh) | Scripts shell |
+| [fs.to](https://fs.to) | Compartilhamento geral de arquivos |
+| [files.to](https://files.to) | Compartilhamento geral de arquivos |
+| [fileshare.to](https://fileshare.to) | Compartilhamento geral de arquivos |
+| [filesharing.to](https://filesharing.to) | Compartilhamento geral de arquivos |
+
+Para clientes Premium e Enterprise, consulte nossos [domínios oficiais](https://s.ee/docs/pt-BR/official-domains/#premium--enterprise).

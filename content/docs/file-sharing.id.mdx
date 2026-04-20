@@ -1,0 +1,233 @@
+---
+title: Berbagi File
+description: Cara mengunggah dan membagikan file dengan S.EE
+icon: Upload
+---
+
+## Ikhtisar
+
+S.EE File Sharing memungkinkan Anda mengunggah dan membagikan file dengan tautan pendek yang mudah dibagikan. Cocok untuk berbagi gambar, dokumen, audio, video, dan file lainnya.
+
+---
+
+## Unggah File
+
+### Unggah Cepat (Drag & Drop)
+
+1. Login ke [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klik **Sharing > Files** di sidebar kiri atau langsung buka [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Tarik dan lepas file atau folder ke jendela **Drag & Drop**
+   - Anda juga dapat mengklik jendela untuk mencari dan memilih file
+   - Mengunggah folder akan mengunggah semua file di dalamnya
+4. File akan dibagikan dengan domain default dan slug acak
+
+### Unggah Lanjutan (Create File)
+
+Untuk kontrol yang lebih besar atas berbagi file Anda:
+
+1. Klik tombol **Create File**
+2. Atur pengaturan Anda:
+   - **Domain** - Pilih domain yang Anda inginkan untuk halaman berbagi
+   - **Custom Slug** - Atur slug URL kustom
+   - **Other options** - Tag, kedaluwarsa, dan lainnya
+3. Pilih file Anda lalu unggah
+
+---
+
+## Tautan File
+
+Setiap file yang diunggah memiliki dua jenis tautan:
+
+| Link Type | Format | Description |
+|-----------|--------|-------------|
+| Share Page | `fs.to/[your_slug]` | Domain dan slug dapat dikustomisasi |
+| Direct Link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Akses langsung ke file dengan nama file aslinya |
+
+**Catatan:** Saat ini direct link tidak mendukung domain kustom.
+
+---
+
+## Jenis File yang Didukung
+
+S.EE mendukung berbagai jenis file:
+
+### Gambar
+
+| MIME Type | Description |
+|-----------|-------------|
+| image/jpeg | Gambar JPEG (.jpg, .jpeg) |
+| image/png | Gambar PNG (.png) |
+| image/gif | Gambar GIF (.gif) |
+| image/webp | Gambar WebP (.webp) |
+| image/avif | Gambar AVIF (.avif) |
+| image/svg+xml | Gambar SVG (.svg) |
+| image/bmp | Gambar BMP (.bmp) |
+| image/tiff | Gambar TIFF (.tiff, .tif) |
+| image/heic | Gambar HEIC (.heic) |
+| image/heif | Gambar HEIF (.heif) |
+| image/jp2 | Gambar JPEG 2000 (.jp2) |
+| image/jpx | Gambar JPEG 2000 (.jpx) |
+| image/jxl | Gambar JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | File Photoshop (.psd) |
+
+### Dokumen
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/pdf | Dokumen PDF (.pdf) |
+| application/msword | Dokumen Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Dokumen Word (.docx) |
+| application/vnd.ms-excel | Spreadsheet Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Spreadsheet Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Presentasi PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Presentasi PowerPoint (.pptx) |
+| application/vnd.apple.pages | Dokumen Pages (.pages) |
+| application/vnd.apple.numbers | Spreadsheet Numbers (.numbers) |
+| application/vnd.apple.keynote | Presentasi Keynote (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | File PostScript (.ps, .eps) |
+| application/epub+zip | Ebook EPUB (.epub) |
+
+### Teks & Data
+
+| MIME Type | Description |
+|-----------|-------------|
+| text/plain | File teks biasa (.txt) |
+| text/csv | File CSV (.csv) |
+| text/markdown | File Markdown (.md, .markdown, .mdx) |
+| application/json | File JSON (.json) |
+| application/yaml | File YAML (.yaml, .yml) |
+
+### Audio
+
+| MIME Type | Description |
+|-----------|-------------|
+| audio/mpeg | File MP3 (.mp3) |
+| audio/wav | File WAV (.wav) |
+| audio/ogg | Audio OGG (.ogg) |
+| audio/flac | Audio FLAC (.flac) |
+| audio/aac | Audio AAC (.aac) |
+| audio/mp4, audio/x-m4a | Audio M4A (.m4a) |
+| audio/midi | File MIDI (.mid, .midi) |
+| audio/x-ms-wma | Audio WMA (.wma) |
+
+### Video
+
+| MIME Type | Description |
+|-----------|-------------|
+| video/mp4 | Video MP4 (.mp4) |
+| video/webm | Video WebM (.webm) |
+| video/quicktime | Video QuickTime (.mov) |
+| video/x-matroska | Video MKV (.mkv) |
+| video/x-msvideo | Video AVI (.avi) |
+| video/mpeg | Video MPEG (.mpeg, .mpg) |
+| video/ogg | Video OGG (.ogv) |
+| video/3gpp | Video 3GP (.3gp) |
+| video/x-flv | Video FLV (.flv) |
+| video/x-ms-wmv | Video WMV (.wmv) |
+
+### Arsip & Disk Image
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/zip | Arsip ZIP (.zip) |
+| application/x-zip-compressed | Arsip ZIP (.zip) |
+| application/gzip | Arsip GZIP (.gz) |
+| application/x-bzip2 | Arsip BZIP2 (.bz2) |
+| application/x-xz | Arsip XZ (.xz) |
+| application/x-tar | Arsip TAR (.tar) |
+| application/x-7z-compressed | Arsip 7-Zip (.7z) |
+| application/x-rar-compressed | Arsip RAR (.rar) |
+| application/x-apple-diskimage | Disk image DMG (.dmg) |
+| application/x-iso9660-image | Disk image ISO (.iso) |
+
+<Callout type="warn">
+File yang dapat dieksekusi (.exe, .msi, .bat, .app, dan sejenisnya) **tidak diizinkan** demi alasan keamanan.
+</Callout>
+
+<Callout type="info">
+Untuk ekstensi file berikut, kami dapat memaksa respons `Content-Type` menjadi `text/plain` untuk mengurangi penyalahgunaan skrip: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Untuk tipe file yang tidak dikenal atau ambigu, kami akan memaksa respons `Content-Type` menjadi `application/octet-stream`.
+</Callout>
+
+### Legacy/Compatibility
+
+MIME Type berikut diterima demi kompatibilitas dengan sistem lama.
+
+| MIME Type | Description |
+|-----------|-------------|
+| application/excel | Spreadsheet Excel (.xls) |
+| application/x-excel | Spreadsheet Excel (.xls) |
+| application/x-msexcel | Spreadsheet Excel (.xls) |
+| application/mspowerpoint | Presentasi PowerPoint (.ppt) |
+| application/powerpoint | Presentasi PowerPoint (.ppt) |
+| application/x-mspowerpoint | Presentasi PowerPoint (.ppt) |
+
+---
+
+## Batas Penyimpanan
+
+Batas penyimpanan berbeda tergantung paket:
+
+| Plan | Max File Size | Total Storage |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Custom | Custom |
+
+Lihat [s.ee/pricing](https://s.ee/pricing) untuk detail paket lengkap.
+
+---
+
+## Retensi File
+
+- File disimpan **secara permanen** selama langganan Anda aktif
+- Jika langganan Anda berakhir, file akan disimpan selama **7 hari** sebelum dihapus
+
+---
+
+## Domain yang Didukung
+
+Berbagi file tersedia di domain berikut:
+
+| Domain | Best For |
+|--------|----------|
+| [fs.to](https://fs.to) | Berbagi file umum |
+| [files.to](https://files.to) | Berbagi file umum |
+| [fileshare.to](https://fileshare.to) | Berbagi file umum |
+| [filesharing.to](https://filesharing.to) | Berbagi file umum |
+
+Untuk pelanggan Premium dan Enterprise, silakan lihat [domain resmi](/docs/id/official-domains/#premium--enterprise).
+
+---
+
+## Akses API
+
+Berbagi file juga tersedia melalui API. Lihat [dokumentasi API](/docs/id/developers/api/#file-sharing) untuk detail unggah secara terprogram.
+
+---
+
+## FAQ
+
+### Siapa yang dapat mengunggah file?
+
+Hanya pelanggan berbayar yang dapat mengunggah file. Langganan aktif diperlukan.
+
+### Apakah ada batas unduhan?
+
+Tidak. Tidak ada batas jumlah unduhan maupun bandwidth untuk file yang dibagikan.
+
+### Apakah saya bisa mengkustomisasi URL halaman berbagi?
+
+Ya, Anda dapat mengatur domain dan slug kustom untuk halaman berbagi saat menggunakan metode unggah **Create File**.
+
+### Apakah saya bisa mengkustomisasi URL direct link?
+
+Saat ini direct link menggunakan format tetap dan tidak mendukung domain kustom.

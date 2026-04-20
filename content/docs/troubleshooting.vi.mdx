@@ -1,0 +1,114 @@
+---
+title: Khắc phục sự cố
+description: Các vấn đề phổ biến và cách xử lý
+icon: CircleQuestionMark
+---
+
+## Sự cố tài khoản & đăng nhập
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "Invalid email or password. Please check your credentials and try again." | Email hoặc mật khẩu không chính xác | Vui lòng kiểm tra lại email và mật khẩu. Mật khẩu phân biệt chữ hoa chữ thường. |
+| "We couldn't find an account with this email." | Email chưa đăng ký | Vui lòng kiểm tra lại địa chỉ email hoặc tạo tài khoản mới. |
+| "Your account has been suspended. Please contact support for assistance." | Tài khoản bị đình chỉ | Vui lòng liên hệ đội ngũ hỗ trợ tại [hi@s.ee](mailto:hi@s.ee). |
+| "This login link has expired or is invalid. Please request a new one." | Liên kết đăng nhập đã hết hạn | Vui lòng yêu cầu liên kết đăng nhập mới từ trang đăng nhập. |
+| "This verification code has expired or is invalid. Please request a new one." | Mã xác minh hết hạn hoặc không hợp lệ | Vui lòng yêu cầu mã xác minh mới. |
+| "This email is already registered." | Email đã được sử dụng | Vui lòng dùng địa chỉ email khác hoặc thử đăng nhập bằng email này. |
+| "The current password you entered is incorrect." | Sai mật khẩu hiện tại khi đổi mật khẩu | Vui lòng kiểm tra lại mật khẩu hiện tại rồi thử lại. |
+
+**Lưu ý:** Chỉ email chính của bạn mới dùng được để đăng nhập. Các email đã xác minh khác trong tài khoản sẽ không dùng được để xác thực. Email đặt lại mật khẩu cũng chỉ được gửi đến email chính của bạn.
+
+---
+
+## Sự cố username
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "This username is already taken. Please choose a different one." | Username đã được sử dụng | Vui lòng chọn username khác. |
+| "Username can only be changed once." | Đã đạt giới hạn đổi username | Rất tiếc, username chỉ có thể đổi một lần cho mỗi tài khoản. Thay đổi này là vĩnh viễn. |
+
+---
+
+## Sự cố liên kết ngắn
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "This slug is already taken. Please choose a different one." | Slug tùy chỉnh đã được dùng | Vui lòng thử một slug tùy chỉnh khác cho liên kết ngắn của bạn. |
+| "This slug cannot be used. Please choose a different one." | Slug được hệ thống giữ lại | Slug này đã được dành riêng. Vui lòng chọn slug khác. |
+| "This short link does not exist or is no longer available." | Liên kết ngắn không tồn tại hoặc đã bị xóa | Vui lòng kiểm tra lại URL liên kết. Liên kết có thể đã bị xóa. |
+| "The domain linked to this short URL is unavailable or no longer exists." | Tên miền không còn khả dụng | Vui lòng liên hệ hỗ trợ hoặc thử dùng tên miền khác. |
+| "Please enter a valid destination URL starting with http:// or https://" | Định dạng URL không hợp lệ | Vui lòng đảm bảo URL đích bắt đầu bằng `http://` hoặc `https://`. |
+| "This destination URL is not allowed. Please use a different link." | URL đích bị chặn | URL này nằm trong blocklist của chúng tôi. Vui lòng dùng URL đích khác. |
+| "Incorrect password. Please try again." | Sai mật khẩu của liên kết được bảo vệ | Vui lòng nhập đúng mật khẩu để truy cập liên kết này. |
+| "URL has already been shortened." | URL đã từng được rút gọn | URL này đã có một liên kết ngắn được tạo trước đó. |
+
+---
+
+## Sự cố gói & đăng ký
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "You already have an active subscription plan." | Đã có gói đang hoạt động | Nếu muốn đổi gói, vui lòng hủy gói hiện tại trước. |
+| "You don't have an active subscription to cancel." | Không có gói đang hoạt động | Hiện tại bạn không có gói đăng ký nào để hủy. |
+| "This feature requires a premium subscription. Please upgrade your plan to access it." | Tính năng yêu cầu gói cao hơn | Vui lòng nâng cấp gói của bạn để sử dụng tính năng này. |
+| "Unable to find your subscription plan. Please contact support if this issue persists." | Không tìm thấy gói | Vui lòng liên hệ đội ngũ hỗ trợ tại [hi@s.ee](mailto:hi@s.ee) nếu vấn đề vẫn tiếp diễn. |
+| "The selected pricing option is no longer available." | Lựa chọn giá đã hết hiệu lực | Vui lòng tải lại trang và chọn một lựa chọn giá còn hiệu lực. |
+
+---
+
+## Sự cố tải tệp lên
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "File size exceeds limit" | Tệp quá lớn | Vui lòng nén tệp hoặc nâng cấp gói để tải lên tệp lớn hơn. |
+| "Storage limit exceeded" | Đã đạt quota lưu trữ | Vui lòng xóa bớt tệp để giải phóng dung lượng hoặc nâng cấp gói để có thêm dung lượng lưu trữ. |
+| "Unsupported file type" / "File type not allowed" | Định dạng tệp không được hỗ trợ | Vui lòng dùng định dạng tệp được hỗ trợ. |
+| "Maximum concurrent uploads exceeded" | Quá nhiều lượt tải lên đồng thời | Vui lòng chờ các lượt tải hiện tại hoàn tất trước khi bắt đầu tải lên mới. |
+| "This file format is not supported. Allowed formats: JPG, JPEG, PNG, GIF, WEBP, AVIF." | Định dạng avatar không được hỗ trợ | Vui lòng tải avatar lên bằng một trong các định dạng được hỗ trợ: JPG, JPEG, PNG, GIF, WEBP hoặc AVIF. |
+
+---
+
+## Sự cố nhóm
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "This feature is not available on your current plan." | Gói hiện tại không có tính năng nhóm | Vui lòng nâng cấp lên gói có hỗ trợ tính năng nhóm. |
+| "You have already created a team." | Đã tồn tại nhóm | Mỗi người dùng chỉ có thể tạo một nhóm. Bạn có thể quản lý nhóm hiện tại từ bảng điều khiển. |
+| "You don't have permission to manage this team." | Không đủ quyền | Vui lòng liên hệ chủ sở hữu nhóm của bạn. |
+| "The invitation has already been processed." | Lời mời đã được xử lý | Lời mời này đã được chấp nhận hoặc từ chối. |
+| "Please wait at least 24 hours before resending." | Gửi lại lời mời quá sớm | Vui lòng chờ ít nhất 24 giờ trước khi gửi lại lời mời cho người dùng này. |
+
+---
+
+## Sự cố tag
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "This tag is currently in use and cannot be deleted." | Tag đang được gắn cho các liên kết | Vui lòng gỡ tag này khỏi tất cả các liên kết trước khi xóa. |
+
+---
+
+## Sự cố xóa tài khoản
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "Your team has other members, please delete the team first." | Nhóm vẫn còn thành viên khác | Vui lòng xóa tất cả thành viên hoặc xóa nhóm trước khi xóa tài khoản của bạn. |
+| "Too many deletion requests, please try again later." | Quá nhiều yêu cầu | Vui lòng chờ một lúc rồi thử lại. |
+| "Invalid or expired verification code." | Mã xác minh không hợp lệ hoặc đã hết hạn | Vui lòng yêu cầu mã xác minh mới. |
+
+---
+
+## Sự cố quản lý email
+
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| "Email already exists." | Email đã được sử dụng | Vui lòng dùng địa chỉ email khác. |
+| "Main email cannot be deleted." | Không thể xóa email chính | Vui lòng đặt một email đã xác minh khác làm email chính trước khi xóa email này. |
+| "You need to close two factor verification first." | Cần tắt 2FA trước | Vui lòng tắt xác thực hai yếu tố trước khi thay đổi email chính. |
+| "This email has not been verified." | Email chưa được xác minh | Vui lòng xác minh địa chỉ email này trước. |
+
+---
+
+## Cần thêm trợ giúp?
+
+Nếu bạn gặp vấn đề không được liệt kê ở đây hoặc cần hỗ trợ thêm, vui lòng liên hệ với chúng tôi tại [hi@s.ee](mailto:hi@s.ee) hoặc truy cập [trang liên hệ](https://s.ee/contact/). Chúng tôi sẵn sàng hỗ trợ.

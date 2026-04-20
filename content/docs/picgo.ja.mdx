@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo は S.EE を標準でサポートしており、追加プラグインは不要です
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) は、Windows、macOS、Linux 向けのオープンソース画像 / ファイルアップロードツールです。最近のバージョンには S.EE のサポートが標準搭載されているため、API Token があればすぐに使い始められます。
+
+- [PicGo をダウンロード](https://github.com/Molunerfinn/PicGo/releases)
+- [ソースコード](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## 設定
+
+### 1. API Token を取得する
+
+1. S.EE アカウントにログインします
+2. **[Tools > API Token](https://s.ee/user/developers/)** にアクセスします
+3. 新しい API Token を発行します
+
+<Callout type="warn">
+API Token を公開したり、バージョン管理システムへコミットしたりしないでください。
+</Callout>
+
+### 2. PicGo を設定する
+
+1. [PicGo](https://github.com/Molunerfinn/PicGo/releases) をダウンロードしてインストールします
+2. PicGo を起動します
+3. **Picbeds Settings** > **SM.MS (S.EE)** を開きます
+4. **+** をクリックして新しい設定を追加します
+5. **Configuration Name** に名前（例: `S.EE`）を入力します
+6. **Set Token** に API Token を貼り付けます
+7. **Confirm** をクリックします
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## 使い方
+
+アップロード方法は複数あります。
+
+- ファイルをアップロードエリアへドラッグ＆ドロップする
+- アップロードエリアをクリックしてファイルを選択する
+- フローティングミニウィンドウをクリックして直接アップロードする
+- フローティングミニウィンドウを右クリックし、**Upload by Clipboard** を選択する
+
+PicGo は生成されたリンクをクリップボードへコピーします。Markdown、HTML、Raw URL など、出力形式も選択できます。
+
+---
+
+## 関連ページ
+
+- [開発者 API](/docs/ja/developers)
+- [ファイル共有](/docs/ja/file-sharing)
+- [SM.MS 互換性](/docs/ja/developers/smms-compatibility)

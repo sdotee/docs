@@ -1,0 +1,88 @@
+---
+title: Guida introduttiva
+description: REST API di S.EE per creare, gestire e monitorare link brevi, condivisione di testo e condivisione di file
+icon: Rocket
+---
+
+## Panoramica
+
+L'API di S.EE ti permette di creare e gestire in modo programmatico link brevi, condivisione di testo e condivisione di file. Puoi usarla per:
+
+- creare link brevi su larga scala
+- condividere frammenti di testo e codice con evidenziazione sintattica
+- caricare e condividere file
+- gestire domini personalizzati
+- recuperare dati analitici
+- integrare S.EE nelle tue applicazioni
+
+---
+
+## Guida introduttiva
+
+### Prerequisiti
+
+1. Un account S.EE con un piano attivo
+2. Un token di accesso API
+
+### Autenticazione
+
+Tutte le richieste API richiedono un token di accesso nell'header `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Base URL
+
+```text
+https://s.ee/api/v1
+```
+
+---
+
+## Richieste di esempio
+
+### Crea un link breve
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Crea una condivisione di testo
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Carica un file
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Risorse
+
+<Cards>
+  <Card title="API Reference" href="/docs/it/developers/api/">Visualizza tutti gli endpoint disponibili</Card>
+  <Card title="SDK" href="/docs/it/developers/sdk/">SDK ufficiali di S.EE per vari linguaggi</Card>
+</Cards>

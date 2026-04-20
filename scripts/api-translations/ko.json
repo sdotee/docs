@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "단축 URL 생성",
+    "description": "대상 링크에 대한 새 단축 URL을 생성합니다. 사용자 지정 슬러그, 비밀번호 보호, 만료 시간, 분류용 태그를 선택적으로 설정할 수 있습니다."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "단축 URL 생성(간편 모드)",
+    "description": "간소화된 파라미터로 단축 URL을 빠르게 생성합니다. 별도 설정이 거의 없는 경우에 적합합니다."
+  },
+  "UpdateShortUrl": {
+    "title": "단축 URL 수정",
+    "description": "기존 단축 URL의 대상 주소, 비밀번호, 만료 시간 또는 태그를 수정합니다."
+  },
+  "DeleteShortUrl": {
+    "title": "단축 URL 삭제",
+    "description": "지정한 단축 URL을 영구적으로 삭제합니다."
+  },
+  "GetAvailableDomains": {
+    "title": "사용 가능한 도메인 조회",
+    "description": "현재 계정에서 단축 URL 생성에 사용할 수 있는 도메인 목록을 반환합니다."
+  },
+  "GetLinkVisitStat": {
+    "title": "단축 URL 방문 통계 조회",
+    "description": "지정한 단축 URL의 방문 데이터를 반환합니다. 클릭 수, 유입 경로, 지역 분포 등을 포함합니다."
+  },
+  "CreateText": {
+    "title": "텍스트 공유 생성",
+    "description": "일반 텍스트, 코드 조각, Markdown 등 짧은 URL로 접근할 수 있는 텍스트 공유를 생성합니다."
+  },
+  "UpdateText": {
+    "title": "텍스트 공유 수정",
+    "description": "기존 텍스트 공유의 내용, 비밀번호 또는 만료 시간을 수정합니다."
+  },
+  "DeleteText": {
+    "title": "텍스트 공유 삭제",
+    "description": "지정한 텍스트 공유를 영구적으로 삭제합니다."
+  },
+  "GetTextAvailableDomains": {
+    "title": "텍스트 공유용 도메인 조회",
+    "description": "텍스트 공유 생성에 사용할 수 있는 도메인 목록을 반환합니다."
+  },
+  "UploadFile": {
+    "title": "파일 업로드",
+    "description": "파일을 업로드하고 공유 가능한 단축 URL을 생성합니다. 비밀번호와 만료 시간도 설정할 수 있습니다."
+  },
+  "GetFileHistory": {
+    "title": "파일 이력 조회",
+    "description": "현재 계정이 업로드한 파일 목록을 반환합니다."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "비공개 파일 다운로드 URL 조회",
+    "description": "비밀번호로 보호된 비공개 파일에 대한 임시 다운로드 URL을 생성합니다."
+  },
+  "DeleteFile": {
+    "title": "파일 삭제",
+    "description": "지정한 파일을 영구적으로 삭제합니다."
+  },
+  "GetFileAvailableDomains": {
+    "title": "파일 공유용 도메인 조회",
+    "description": "파일 공유에 사용할 수 있는 도메인 목록을 반환합니다."
+  },
+  "GetTags": {
+    "title": "태그 목록 조회",
+    "description": "현재 계정에서 콘텐츠 정리에 사용하는 모든 태그를 반환합니다."
+  },
+  "GetUsage": {
+    "title": "사용량 조회",
+    "description": "현재 계정의 이번 청구 주기 리소스 사용량을 반환합니다."
+  }
+}

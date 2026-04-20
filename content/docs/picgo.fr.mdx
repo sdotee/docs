@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo inclut la prise en charge de S.EE, sans plugin supplémentaire
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) est un outil open source de téléversement d’images et de fichiers pour Windows, macOS et Linux. Les versions récentes incluent la prise en charge de S.EE par défaut. Vous avez seulement besoin d’un Token API pour commencer.
+
+- [Télécharger PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Code source](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Configuration
+
+### 1. Obtenir votre Token API
+
+1. Connectez-vous à votre compte S.EE
+2. Accédez à **[Tools > API Token](https://s.ee/user/developers/)**
+3. Générez un nouveau Token API
+
+<Callout type="warn">
+Ne partagez pas votre Token API publiquement et ne le validez pas dans votre système de gestion de versions.
+</Callout>
+
+### 2. Configurer PicGo
+
+1. Téléchargez et installez [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Ouvrez PicGo
+3. Accédez à **Picbeds Settings** > **SM.MS (S.EE)**
+4. Cliquez sur **+** pour ajouter une nouvelle configuration
+5. Saisissez un nom dans **Configuration Name** (par exemple `S.EE`)
+6. Collez votre Token API dans **Set Token**
+7. Cliquez sur **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Utilisation
+
+Vous pouvez téléverser de plusieurs façons :
+
+- Glissez-déposez des fichiers dans la zone de téléversement
+- Cliquez sur la zone de téléversement pour sélectionner des fichiers depuis votre ordinateur
+- Cliquez sur la mini-fenêtre flottante pour téléverser directement
+- Faites un clic droit sur la mini-fenêtre flottante et sélectionnez **Upload by Clipboard**
+
+PicGo copie le lien obtenu dans votre presse-papiers. Vous pouvez choisir le format : Markdown, HTML, URL brute, etc.
+
+---
+
+## Voir aussi
+
+- [API développeur](/docs/fr/developers)
+- [Partage de fichiers](/docs/fr/file-sharing)
+- [Compatibilité SM.MS](/docs/fr/developers/smms-compatibility)

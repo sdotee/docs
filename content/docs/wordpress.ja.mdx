@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: WordPress ダッシュボードから直接 URL を短縮し、テキストを共有し、ファイルをホストする
+icon: WordPress
+---
+
+[S.EE WordPress plugin](https://wordpress.org/plugins/sdotee/) を使うと、WordPress を離れずに URL の短縮、テキスト共有、ファイルのアップロードを行えます。投稿を公開すると短縮 URL が自動で作成されるため、余計な操作は不要です。
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Source Code on GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## 機能
+
+| 機能 | 説明 |
+|---------|-------------|
+| 短縮 URL | 投稿や固定ページを公開または更新すると、自動で短縮 URL を生成します |
+| テキスト共有 | プレーンテキスト、Markdown、コードスニペットをリンク付きで共有できます |
+| ファイルホスティング | メディアライブラリからファイルをアップロードし、URL、HTML、Markdown、BBCode 形式でリンクをコピーできます |
+| 自動化 | 新しいメディアの自動アップロードと公開時の自動短縮に対応しています。一度設定すれば継続利用できます |
+| 管理画面連携 | 投稿 / 固定ページ一覧から短縮 URL を確認、管理できます |
+| ダッシュボードパネル | テキスト共有とファイル共有専用の S.EE パネルを用意し、利用履歴も確認できます |
+| 13 言語対応 | English、Chinese (Simplified/Traditional)、Japanese、Korean、Indonesian、Vietnamese、German、French、Spanish、Portuguese (Brazil/Portugal)、Russian |
+
+---
+
+## 動作要件
+
+- PHP 8.2+
+- WordPress 6.0+
+- [API Token](https://s.ee/user/developers/) を持つ S.EE アカウント
+
+---
+
+## インストール
+
+### WordPress Plugin Directory から
+
+1. WordPress 管理画面で **Plugins** > **Add New** を開きます
+2. **S.EE** を検索します
+3. **Install Now** をクリックし、その後 **Activate** をクリックします
+
+### GitHub から
+
+1. [GitHub Releases](https://github.com/sdotee/see-wordpress/releases) から最新の ZIP をダウンロードします
+2. **Plugins** > **Add New** > **Upload Plugin** を開きます
+3. ZIP をアップロードし、**Install Now**、続けて **Activate** をクリックします
+
+---
+
+## セットアップ
+
+### 1. API Token を取得する
+
+1. S.EE アカウントにログインします
+2. **[Tools > API Token](https://s.ee/user/developers/)** を開きます
+3. 新しい API Token を生成します
+
+<Callout type="warn">
+API Token を公開したり、バージョン管理にコミットしたりしないでください。
+</Callout>
+
+### 2. プラグインを設定する
+
+1. **Settings** > **S.EE** を開きます
+2. API Token を貼り付けて **Verify** をクリックします
+3. 短縮 URL、テキスト、ファイル用の既定ドメインを選択します
+4. 手間なく使いたい場合は、自動生成と自動アップロードを有効にします
+
+<Callout type="info">
+API Token は `wp-config.php` に設定して、データベースに保存しないようにすることもできます。
+</Callout>
+
+---
+
+## 使い方
+
+### 短縮 URL
+
+自動生成を有効にしておくと、投稿や固定ページを公開した時点で短縮 URL が作成されます。管理画面の投稿 / 固定ページ一覧の列から、短縮 URL の作成や確認も行えます。
+
+### テキスト共有
+
+**S.EE** ダッシュボードパネルを開いて内容を貼り付けます。対応形式は次のとおりです:
+
+- プレーンテキスト
+- Markdown
+- コードスニペット
+
+### ファイルホスティング
+
+**S.EE** ダッシュボードパネルまたはメディアライブラリからファイルをアップロードできます。アップロード後は、URL、HTML、Markdown、BBCode などお好みの形式でリンクを取得できます。
+
+---
+
+## 関連情報
+
+- [Developer API](/docs/ja/developers)
+- [ファイル共有](/docs/ja/file-sharing)
+- [テキスト共有](/docs/ja/text-sharing)
+- [画像ホスティング](/docs/ja/image-hosting)

@@ -1,0 +1,105 @@
+---
+title: Bezpieczeństwo i przeciwdziałanie nadużyciom
+description: Jak S.EE zapobiega phishingowi, malware i nadużyciom w krótkich linkach, udostępnianiu tekstu i plików.
+icon: ShieldCheck
+---
+
+S.EE to skracacz URL-i obsługujący przekierowania na dużą skalę. Traktujemy to poważnie. Wszystko opisane tutaj dotyczy w równym stopniu krótkich linków, udostępniania tekstu i udostępniania plików.
+
+---
+
+## Zapobieganie nadużyciom
+
+### Listy blokad
+
+Utrzymujemy wewnętrzną listę blokad, aktualizowaną codziennie na podstawie źródeł utrzymywanych przez społeczność:
+
+* bazy jednorazowych i tymczasowych domen e-mail
+* publiczne zbiory phishingowych i oszukańczych URL-i
+* listy domen powiązanych z treściami dla dorosłych albo wysokiego ryzyka
+
+Znane złośliwe treści są blokowane, zanim w ogóle zostaną utworzone.
+
+---
+
+### Brak darmowych kont
+
+S.EE nie oferuje darmowych kont ani okresów próbnych. Wymóg płatności podnosi koszt nadużyć i utrudnia zautomatyzowane nadużycia na dużą skalę.
+
+---
+
+### Reputacja domeny
+
+Domena `s.ee` jest zarejestrowana jako oficjalna domena krótkich linków na głównych platformach i w ekosystemach bezpieczeństwa. Zmniejsza to liczbę fałszywych alarmów w automatycznej moderacji i przyspiesza rozwiązywanie zgłoszeń dotyczących treści.
+
+---
+
+## Kontrole przy tworzeniu treści
+
+### Skanowanie URL-i w czasie rzeczywistym
+
+Gdy ktoś tworzy krótki link, docelowy URL jest sprawdzany w czasie rzeczywistym przez nasze systemy wykrywania nadużyć i phishingu. Linki pasujące do znanych złośliwych wzorców są blokowane.
+
+---
+
+### Limity szybkości
+
+* Tworzenie treści podlega limitom per konto
+* Nietypowe wzorce, takie jak szybkie masowe tworzenie slugów, mogą wywołać ręczną weryfikację
+* Dla regionów podwyższonego ryzyka stosujemy dodatkowe zabezpieczenia
+
+---
+
+## Udostępnianie tekstu i plików
+
+Udostępnianie tekstu i plików podlega tym samym zasadom co krótkie linki. Treści mogą zostać ograniczone albo usunięte, jeśli:
+
+* rozpowszechniają malware
+* ułatwiają phishing, oszustwa albo socjotechnikę
+* naruszają obowiązujące prawo albo naszą [Politykę dopuszczalnego użycia](https://s.ee/aup/)
+
+Konta powiązane z naruszeniami mogą zostać zawieszone po ręcznej weryfikacji.
+
+---
+
+## Monitoring i egzekwowanie zasad
+
+### Wyłączanie z mocą wsteczną
+
+Jeśli link, tekst albo plik zostanie później uznany za złośliwy albo wprowadzający w błąd, wyłączamy go, nawet jeśli przeszedł kontrolę w momencie utworzenia.
+
+---
+
+### Ręczna weryfikacja
+
+Zgłoszenia użytkowników i wewnętrzne alerty trafiają do moderatora. Jeśli nadużycie się potwierdzi, wyłączamy treść i możemy zawiesić albo zamknąć konto.
+
+---
+
+## Zgłaszanie nadużyć
+
+Jeśli zauważysz coś podejrzanego w S.EE, poinformuj nas:
+
+* E-mail: `abuse@s.ee`
+* Formularz kontaktowy: [https://s.ee/contact/](https://s.ee/contact/)
+
+Zobacz też: [Warunki korzystania z usługi](https://s.ee/terms/) i [Politykę dopuszczalnego użycia](https://s.ee/aup/)
+
+---
+
+## Prywatność
+
+Podczas badania nadużyć lub incydentów bezpieczeństwa możemy przetwarzać ograniczony zakres informacji technicznych. Dane te **nie** są wykorzystywane do śledzenia, profilowania, analityki ani marketingu.
+
+Szczegóły: [Polityka prywatności](https://s.ee/privacy/)
+
+---
+
+## Zasoby
+
+<Cards>
+  <Card title="Polityka prywatności" href="https://s.ee/privacy/">Jak przetwarzamy Twoje dane</Card>
+  <Card title="Warunki korzystania" href="https://s.ee/terms/">Nasza umowa świadczenia usługi</Card>
+  <Card title="Polityka dopuszczalnego użycia" href="https://s.ee/aup/">Co jest dozwolone w S.EE</Card>
+  <Card title="Zgłoś nadużycie" href="https://s.ee/contact/">Zgłoś podejrzane treści</Card>
+</Cards>

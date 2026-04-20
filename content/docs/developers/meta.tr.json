@@ -1,0 +1,14 @@
+{
+  "title": "Geliştiriciler için",
+  "description": "S.EE API ve SDK belgeleri",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "api",
+    "sdk",
+    "cli",
+    "desktop",
+    "apps",
+    "smms-compatibility"
+  ]
+}

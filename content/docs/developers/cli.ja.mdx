@@ -1,0 +1,181 @@
+---
+title: CLI
+description: S.EE プラットフォーム向けコマンドラインクライアント
+icon: Terminal
+---
+
+S.EE プラットフォーム向けのコマンドラインクライアントです。ターミナルから直接、短縮 URL、テキストスニペット、ファイルの作成と管理を行えます。
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## 機能
+
+- **短縮 URL 管理**: カスタムスラッグ、ドメイン、有効期限付きの短縮リンクを作成、更新、削除できます
+- **テキストスニペット**: stdin またはファイルからコードスニペットやメモを共有できます
+- **ファイルアップロード**: ファイルを直接、または stdin 経由でアップロードできます
+- **ドメイン / タグ管理**: 利用可能なドメインの一覧取得やタグ管理ができます
+- **パスワード保護**: パスワードでコンテンツを保護できます
+- **JSON 出力**: スクリプト向けに機械可読な出力を利用できます
+
+## インストール
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# or pre-built binary
+yay -S see-cli-bin
+```
+
+### ソースから
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+ビルド済みバイナリおよび各種パッケージは [GitHub Releases](https://github.com/sdotee/cli/releases) からダウンロードできます。
+
+## 設定
+
+API キーは環境変数またはフラグで指定できます:
+
+```bash
+# Environment variable (recommended)
+export SEE_API_KEY="your-api-key"
+
+# Or use the flag
+see --api-key "your-api-key" <command>
+```
+
+### 設定オプション
+
+| オプション | 環境変数 | 説明 |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | S.EE API キー (必須) |
+| `--base-url` | `SEE_BASE_URL` | カスタム API ベース URL |
+| `--timeout` | `SEE_TIMEOUT` | リクエストタイムアウト |
+| `--json` | - | JSON 出力を有効にします |
+
+## コマンド
+
+### ドメイン / タグ
+
+```bash
+# List available domains for short URLs
+see domains
+
+# List available domains for file uploads
+see file domains
+
+# List your tags
+see tags
+```
+
+### 短縮 URL
+
+```bash
+# Create a short URL
+see url create https://example.com
+
+# Create with custom options
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Update a short URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Delete a short URL
+see url delete --domain s.ee --slug my-link
+```
+
+### テキストスニペット
+
+```bash
+# Create text from stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Create text from file
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Create with options
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Update text
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Delete text
+see text delete --domain fs.to --slug abc123
+```
+
+### ファイルアップロード
+
+```bash
+# Upload a file
+see file upload ./image.png
+
+# Upload with custom domain
+see file upload ./document.pdf --domain fs.to
+
+# Upload from stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Delete a file
+see file delete <delete-hash>
+```
+
+## JSON 出力
+
+スクリプト用途では、`--json` フラグを付けて機械可読な出力をご利用ください:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## 例
+
+### 短縮 URL を作成してクリップボードへコピーする (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### スクリーンショットをアップロードして URL を取得する (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### 短縮 URL を一括作成する
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo incluye compatibilidad integrada con S.EE, sin necesidad de plugins
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) es una herramienta de código abierto para subir imágenes y archivos en Windows, macOS y Linux. Las versiones recientes ya incluyen compatibilidad con S.EE, así que solo necesita un Token de API para empezar.
+
+- [Descargar PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [Código fuente](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## Configuración
+
+### 1. Obtenga su Token de API
+
+1. Inicie sesión en su cuenta de S.EE
+2. Vaya a **[Tools > API Token](https://s.ee/user/developers/)**
+3. Genere un nuevo Token de API
+
+<Callout type="warn">
+No comparta su Token de API públicamente ni lo suba a su sistema de control de versiones.
+</Callout>
+
+### 2. Configure PicGo
+
+1. Descargue e instale [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. Abra PicGo
+3. Vaya a **Picbeds Settings** > **SM.MS (S.EE)**
+4. Haga clic en **+** para añadir una nueva configuración
+5. Introduzca un nombre en **Configuration Name** (por ejemplo, `S.EE`)
+6. Pegue su Token de API en **Set Token**
+7. Haga clic en **Confirm**
+
+![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## Uso
+
+Hay varias formas de subir contenido:
+
+- Arrastre y suelte archivos en el área de subida
+- Haga clic en el área de subida para elegir archivos desde su ordenador
+- Haga clic en la mini ventana flotante para subir directamente
+- Haga clic derecho en la mini ventana flotante y seleccione **Upload by Clipboard**
+
+PicGo copia el enlace resultante al portapapeles. Puede elegir el formato: Markdown, HTML, URL sin formato, etc.
+
+---
+
+## Relacionado
+
+- [API para desarrolladores](/docs/es/developers)
+- [Compartir archivos](/docs/es/file-sharing)
+- [Compatibilidad con SM.MS](/docs/es/developers/smms-compatibility)

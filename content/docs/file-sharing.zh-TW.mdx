@@ -1,0 +1,233 @@
+---
+title: 檔案分享
+description: 如何使用 S.EE 上傳和分享檔案
+icon: Upload
+---
+
+## 概覽
+
+S.EE 檔案分享允許您透過簡短、可分享的連結上傳和分享檔案。非常適合分享圖片、檔案、音訊、影片和其他檔案。
+
+---
+
+## 上傳檔案
+
+### 快速上傳（拖拽）
+
+1. 登入 [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. 在左側邊欄點擊 **Sharing > Files**，或直接前往 [https://s.ee/user/files/](https://s.ee/user/files/)
+3. 將檔案或資料夾拖入 **Drag & Drop** 視窗
+   - 您也可以點擊視窗來瀏覽並選擇檔案
+   - 上傳資料夾時，會上傳其中的所有檔案
+4. 檔案會使用預設網域和隨機短碼進行分享
+
+### 高階上傳（Create File）
+
+如果您希望更靈活地控制檔案分享：
+
+1. 點擊 **Create File** 按鈕
+2. 設定您的設定：
+   - **Domain** - 為分享頁面選擇網域
+   - **Custom Slug** - 設定自訂 URL 短碼
+   - **Other options** - 標籤、過期時間等
+3. 選擇檔案並上傳
+
+---
+
+## 檔案連結
+
+每個上傳的檔案都會生成兩種連結：
+
+| 連結型別 | 格式 | 說明 |
+|-----------|--------|-------------|
+| 分享頁 | `fs.to/[your_slug]` | 支援自訂網域和短碼 |
+| 直鏈 | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | 直接存取原始檔名對應的檔案 |
+
+**注意：** 直鏈當前不支援自訂網域。
+
+---
+
+## 支援的檔案型別
+
+S.EE 支援多種檔案型別：
+
+### 圖片
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| image/jpeg | JPEG 圖片（.jpg、.jpeg） |
+| image/png | PNG 圖片（.png） |
+| image/gif | GIF 圖片（.gif） |
+| image/webp | WebP 圖片（.webp） |
+| image/avif | AVIF 圖片（.avif） |
+| image/svg+xml | SVG 圖片（.svg） |
+| image/bmp | BMP 圖片（.bmp） |
+| image/tiff | TIFF 圖片（.tiff、.tif） |
+| image/heic | HEIC 圖片（.heic） |
+| image/heif | HEIF 圖片（.heif） |
+| image/jp2 | JPEG 2000 圖片（.jp2） |
+| image/jpx | JPEG 2000 圖片（.jpx） |
+| image/jxl | JPEG XL 圖片（.jxl） |
+| image/vnd.adobe.photoshop | Photoshop 檔案（.psd） |
+
+### 檔案
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| application/pdf | PDF 檔案（.pdf） |
+| application/msword | Word 檔案（.doc） |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word 檔案（.docx） |
+| application/vnd.ms-excel | Excel 表格（.xls） |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel 表格（.xlsx） |
+| application/vnd.ms-powerpoint | PowerPoint 簡報（.ppt） |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint 簡報（.pptx） |
+| application/vnd.apple.pages | Pages 檔案（.pages） |
+| application/vnd.apple.numbers | Numbers 表格（.numbers） |
+| application/vnd.apple.keynote | Keynote 簡報（.key） |
+| application/vnd.oasis.opendocument.text | OpenDocument Text（.odt） |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet（.ods） |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation（.odp） |
+| application/rtf | 富文字格式（.rtf） |
+| application/postscript | PostScript 檔案（.ps、.eps） |
+| application/epub+zip | EPUB 電子書（.epub） |
+
+### 文字和資料
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| text/plain | 純文字檔案（.txt） |
+| text/csv | CSV 檔案（.csv） |
+| text/markdown | Markdown 檔案（.md、.markdown、.mdx） |
+| application/json | JSON 檔案（.json） |
+| application/yaml | YAML 檔案（.yaml、.yml） |
+
+### 音訊
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| audio/mpeg | MP3 檔案（.mp3） |
+| audio/wav | WAV 檔案（.wav） |
+| audio/ogg | OGG 音訊（.ogg） |
+| audio/flac | FLAC 音訊（.flac） |
+| audio/aac | AAC 音訊（.aac） |
+| audio/mp4, audio/x-m4a | M4A 音訊（.m4a） |
+| audio/midi | MIDI 檔案（.mid、.midi） |
+| audio/x-ms-wma | WMA 音訊（.wma） |
+
+### 影片
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| video/mp4 | MP4 影片（.mp4） |
+| video/webm | WebM 影片（.webm） |
+| video/quicktime | QuickTime 影片（.mov） |
+| video/x-matroska | MKV 影片（.mkv） |
+| video/x-msvideo | AVI 影片（.avi） |
+| video/mpeg | MPEG 影片（.mpeg、.mpg） |
+| video/ogg | OGG 影片（.ogv） |
+| video/3gpp | 3GP 影片（.3gp） |
+| video/x-flv | FLV 影片（.flv） |
+| video/x-ms-wmv | WMV 影片（.wmv） |
+
+### 壓縮包和磁碟映象
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| application/zip | ZIP 壓縮包（.zip） |
+| application/x-zip-compressed | ZIP 壓縮包（.zip） |
+| application/gzip | GZIP 壓縮包（.gz） |
+| application/x-bzip2 | BZIP2 壓縮包（.bz2） |
+| application/x-xz | XZ 壓縮包（.xz） |
+| application/x-tar | TAR 壓縮包（.tar） |
+| application/x-7z-compressed | 7-Zip 壓縮包（.7z） |
+| application/x-rar-compressed | RAR 壓縮包（.rar） |
+| application/x-apple-diskimage | DMG 磁碟映象（.dmg） |
+| application/x-iso9660-image | ISO 磁碟映象（.iso） |
+
+<Callout type="warn">
+出於安全原因，可執行檔案（.exe、.msi、.bat、.app 等）**不允許上傳**。
+</Callout>
+
+<Callout type="info">
+對於以下副檔名，我們可能會強制將回應 `Content-Type` 設定為 `text/plain`，以降低指令碼濫用風險：`.js`、`.mjs`、`.html`、`.htm`、`.xhtml`、`.shtml`、`.svg`、`.xml`、`.json`、`.map`。
+</Callout>
+
+<Callout type="info">
+對於未知或無法明確識別的檔案型別，我們會強制將回應 `Content-Type` 設定為 `application/octet-stream`。
+</Callout>
+
+### 舊版 / 相容型別
+
+這些 MIME Type 出於相容舊系統的目的也會被接受。
+
+| MIME Type | 說明 |
+|-----------|-------------|
+| application/excel | Excel 表格（.xls） |
+| application/x-excel | Excel 表格（.xls） |
+| application/x-msexcel | Excel 表格（.xls） |
+| application/mspowerpoint | PowerPoint 簡報（.ppt） |
+| application/powerpoint | PowerPoint 簡報（.ppt） |
+| application/x-mspowerpoint | PowerPoint 簡報（.ppt） |
+
+---
+
+## 儲存限制
+
+不同套餐的儲存限制如下：
+
+| 套餐 | 最大檔案大小 | 總儲存空間 |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | 自訂 | 自訂 |
+
+完整套餐詳情請檢視 [s.ee/pricing](https://s.ee/pricing)。
+
+---
+
+## 檔案保留策略
+
+- 只要您的訂閱處於有效狀態，檔案就會**永久儲存**
+- 如果訂閱過期，檔案會在刪除前保留 **7 天**
+
+---
+
+## 支援的網域
+
+以下網域支援檔案分享：
+
+| 網域 | 適用場景 |
+|--------|----------|
+| [fs.to](https://fs.to) | 通用檔案分享 |
+| [files.to](https://files.to) | 通用檔案分享 |
+| [fileshare.to](https://fileshare.to) | 通用檔案分享 |
+| [filesharing.to](https://filesharing.to) | 通用檔案分享 |
+
+如果您是 Premium 或 Enterprise 客戶，請參考 [官方網域](/docs/zh-TW/official-domains/#premium--enterprise)。
+
+---
+
+## API 存取
+
+您也可以透過 API 使用檔案分享。有關程式化上傳的詳細資訊，請參閱我們的 [API 文件](/docs/zh-TW/developers/api/#file-sharing)。
+
+---
+
+## 常見問題
+
+### 誰可以上傳檔案？
+
+只有付費訂閱使用者可以上傳檔案。您必須擁有有效訂閱。
+
+### 有下載次數限制嗎？
+
+沒有，分享檔案沒有下載次數或頻寬限制。
+
+### 我可以自訂分享頁面 URL 嗎？
+
+可以。使用 **Create File** 上傳方式時，您可以為分享頁面設定自訂網域和短碼。
+
+### 我可以自訂直鏈 URL 嗎？
+
+當前直鏈使用固定格式，不支援自訂網域。

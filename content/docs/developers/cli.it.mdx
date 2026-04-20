@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Client da riga di comando per la piattaforma S.EE
+icon: Terminal
+---
+
+Un client da riga di comando per la piattaforma S.EE che ti consente di creare e gestire short URL, snippet di testo e file direttamente dal terminale.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Funzionalità
+
+- **Gestione short URL**: crea, aggiorna ed elimina link con slug personalizzato, dominio e scadenza
+- **Snippet di testo**: condividi note e frammenti di codice da stdin o da file
+- **Upload file**: carica file direttamente o tramite stdin
+- **Gestione domini e tag**: elenca i domini disponibili e gestisci i tag
+- **Protezione con password**: proteggi i contenuti con password
+- **Output JSON**: output leggibile dalle macchine per scripting
+
+## Installazione
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# oppure il binario precompilato
+yay -S see-cli-bin
+```
+
+### Da sorgente
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Puoi scaricare binari e pacchetti precompilati da [GitHub Releases](https://github.com/sdotee/cli/releases).
+
+## Configurazione
+
+Imposta la tua API key tramite variabile d'ambiente o flag:
+
+```bash
+# Variabile d'ambiente (consigliata)
+export SEE_API_KEY="your-api-key"
+
+# Oppure usa il flag
+see --api-key "your-api-key" <command>
+```
+
+### Opzioni di configurazione
+
+| Opzione | Variabile d'ambiente | Descrizione |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | La tua API key S.EE |
+| `--base-url` | `SEE_BASE_URL` | Base URL API personalizzata |
+| `--timeout` | `SEE_TIMEOUT` | Timeout della richiesta |
+| `--json` | - | Abilita output in formato JSON |
+
+## Comandi
+
+### Domini e tag
+
+```bash
+# Elenca i domini disponibili per gli short URL
+see domains
+
+# Elenca i domini disponibili per gli upload file
+see file domains
+
+# Elenca i tuoi tag
+see tags
+```
+
+### Short URL
+
+```bash
+# Crea uno short URL
+see url create https://example.com
+
+# Crea con opzioni personalizzate
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Aggiorna uno short URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Elimina uno short URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Snippet di testo
+
+```bash
+# Crea testo da stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Crea testo da file
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Crea con opzioni aggiuntive
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Aggiorna testo
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Elimina testo
+see text delete --domain fs.to --slug abc123
+```
+
+### Upload file
+
+```bash
+# Carica un file
+see file upload ./image.png
+
+# Carica con dominio personalizzato
+see file upload ./document.pdf --domain fs.to
+
+# Carica da stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Elimina un file
+see file delete <delete-hash>
+```
+
+## Output JSON
+
+Usa il flag `--json` per ottenere output machine-readable:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Esempi
+
+### Crea uno short URL e copialo negli appunti (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Carica uno screenshot e ottieni l'URL (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Creazione batch di short URL
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

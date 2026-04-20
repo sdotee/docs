@@ -1,0 +1,156 @@
+---
+title: YOURLS-kompatible API
+description: Verwenden Sie S.EE mit jedem YOURLS-kompatiblen Client oder jeder Integration
+icon: LinkShare
+---
+
+S.EE bietet einen YOURLS-kompatiblen API-Endpunkt, sodass Sie S.EE mit bestehenden Drittanbieter-Clients und Integrationen verwenden können, die die [YOURLS](https://yourls.org/)-API unterstützen.
+
+Dieser Endpunkt wurde entwickelt, um die Migration von YOURLS zu erleichtern oder S.EE in Automatisierungstools, Browser-Erweiterungen und Anwendungen zu integrieren, die bereits das YOURLS-API-Protokoll sprechen.
+
+---
+
+## API-Endpunkt
+
+```
+https://s.ee/api/v1/yourls
+````
+
+---
+
+## Umfang der Kompatibilität
+
+Dieser Endpunkt implementiert eine **teilweise Kompatibilitätsschicht zur YOURLS API**.
+
+### Unterstützt
+
+- `action=shorturl`
+- `signature`-Authentifizierung
+- Ausgabeformate: `json`, `jsonp`, `xml`, `simple`
+- GET- und POST-Anfragen
+
+### Nicht unterstützt
+
+- `username` / `password`-Authentifizierung
+- Andere YOURLS-Aktionen wie `expand`, `stats` oder `db-stats`
+- Administrative oder datenbankbezogene Operationen
+
+Es wird nur die Funktion zum Kürzen von URLs bereitgestellt.
+
+---
+
+## Authentifizierung
+
+<Callout type="warn">
+Es wird nur die `signature`-Authentifizierung unterstützt. Benutzername-/Passwort-Authentifizierung ist **nicht** verfügbar.
+</Callout>
+
+Der Parameter `signature` ist Ihr **S.EE API Token**.
+
+Sie können Ihren API-Token hier generieren und verwalten:
+
+https://s.ee/user/developers/
+
+Der API-Token ist an den authentifizierten Benutzer gebunden und übernimmt dieselben Berechtigungen und Einschränkungen wie das Konto.
+
+---
+
+## Unterstützte Aktionen
+
+Derzeit wird nur die folgende Aktion unterstützt:
+
+| Action | Description |
+|------|-------------|
+| `shorturl` | Erstellt eine Kurz-URL für einen bestimmten Link |
+
+---
+
+## Parameter
+
+| Parameter | Required | Description |
+|----------|----------|-------------|
+| `signature` | Yes | Ihr S.EE API Token |
+| `action` | Yes | Die auszuführende Aktion (derzeit nur `shorturl`) |
+| `url` | Yes | Die zu kürzende URL |
+| `format` | No | Ausgabeformat: `json`, `jsonp`, `xml` oder `simple` (Standard: `simple`) |
+| `keyword` | No | Benutzerdefinierter Slug für die Kurz-URL |
+| `title` | No | Titel für die Kurz-URL |
+
+### Hinweise
+
+- Wenn ein angegebenes `keyword` bereits verwendet wird, erzeugt die API automatisch ein neues verfügbares Keyword, anstatt einen Fehler zurückzugeben.
+- Die Standardregeln von S.EE zur Missbrauchsprävention und Validierung gelten für alle Anfragen.
+
+---
+
+## Beispiele
+
+### POST-Anfrage
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+````
+
+**Antwort:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Einige Antwortfelder werden aus Gründen der YOURLS-Kompatibilität beibehalten und können leer sein.
+</Callout>
+
+---
+
+### GET-Anfrage
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Antwort:**
+
+```
+https://s.ee/link
+```
+
+<Callout>
+Denken Sie daran, Parameter bei GET-Anfragen URL-zu-kodieren.  
+Für lange URLs oder zusätzliche Parameter werden POST-Anfragen empfohlen, um URL-Längenlimits zu vermeiden.
+</Callout>
+
+---
+
+## Drittanbieter-Clients
+
+Diese API ist mit jedem Client kompatibel, der YOURLS-artige URL-Kürzung unterstützt, einschließlich:
+
+* Browser-Erweiterungen
+* Mobilen Anwendungen
+* Desktop-Anwendungen
+* Automatisierungstools (Shortcuts, Tasker, Zapier usw.)
+
+Ausführliche Informationen zur ursprünglichen YOURLS-API-Spezifikation finden Sie in der offiziellen Dokumentation:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

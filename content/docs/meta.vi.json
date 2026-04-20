@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Bắt đầu---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Tính năng---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Dịch vụ miễn phí---",
+    "free-url-shorteners",
+    "---Trợ giúp---",
+    "troubleshooting",
+    "security",
+    "---Tích hợp---",
+    "developers",
+    "api",
+    "---Tích hợp bên thứ ba---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Cộng đồng---",
+    "awesome"
+  ]
+}

@@ -1,0 +1,70 @@
+---
+title: Domini personalizzati
+description: Come usare il tuo dominio per i link brevi in S.EE
+icon: Globe
+---
+
+## Che cos'è un dominio personalizzato?
+
+Un dominio personalizzato ti permette di usare il tuo brand nei link brevi invece di `s.ee`. Per esempio, al posto di `s.ee/link` puoi usare `go.example.com/link`.
+
+---
+
+## Perché usare un dominio personalizzato?
+
+- **Riconoscibilità del brand** - i link mostrano il tuo marchio, non il nostro
+- **Fiducia** - gli utenti sono più propensi a fare clic su link brandizzati
+- **Tassi di clic più alti** - i link brandizzati in genere performano meglio
+
+---
+
+## Aggiungere un dominio personalizzato
+
+1. Vai su [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Fai clic su **Add Domain**
+3. Inserisci il nome del tuo dominio
+4. Aggiungi i record DNS richiesti:
+   - **Record TXT** - per verificare il dominio
+   - **Record CNAME o Alias** - per puntare il tuo dominio a S.EE
+5. Attendi la propagazione DNS (di solito bastano pochi minuti)
+6. Fai clic su **Verify** per confermare la configurazione
+
+---
+
+## Requisiti
+
+- Il dominio deve essere diverso dal dominio principale del tuo sito
+- Lunghezza massima: 63 caratteri, incluso il punto
+- Devi avere accesso alle impostazioni DNS del dominio
+
+---
+
+## Note importanti
+
+### Utenti Cloudflare
+
+Se usi Cloudflare per il DNS, **non attivare il Proxy (icona della nuvola arancione)** per il record CNAME. Tienilo in modalità DNS-only (nuvola grigia). Attivare il proxy di Cloudflare può causare conflitti con la CDN e problemi di reindirizzamento.
+
+### Uso di un dominio nudo (dominio radice)
+
+Se vuoi usare un dominio nudo, ad esempio `example.com` invece di `go.example.com`, il tuo provider DNS deve supportare i **record ALIAS** o il **CNAME flattening**. Tra i provider più comuni che offrono questa funzione ci sono:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Se il tuo provider DNS non supporta queste funzionalità, [contattaci](https://s.ee/contact/) e ti aiuteremo a verificare e aggiungere manualmente il dominio nudo.
+
+---
+
+## Limiti per piano
+
+| Piano | Domini personalizzati |
+|------|------------------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Illimitati |

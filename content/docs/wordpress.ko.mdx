@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: WordPress 대시보드에서 바로 URL 단축, 텍스트 공유, 파일 호스팅하기
+icon: WordPress
+---
+
+[S.EE WordPress plugin](https://wordpress.org/plugins/sdotee/) 을 사용하면 WordPress 를 벗어나지 않고 URL 단축, 텍스트 공유, 파일 업로드를 처리할 수 있습니다. 게시물을 발행하면 단축 URL 이 자동으로 생성되므로 추가 작업이 필요하지 않습니다.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Source Code on GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## 기능
+
+| Feature | Description |
+|---------|-------------|
+| Short URLs | 글과 페이지를 게시하거나 업데이트할 때 단축 URL 을 자동 생성합니다 |
+| Text Sharing | 일반 텍스트, Markdown, 코드 스니펫을 링크와 함께 공유합니다 |
+| File Hosting | 미디어 라이브러리에서 파일을 업로드하고 URL, HTML, Markdown, BBCode 형식으로 링크를 복사합니다 |
+| Automation | 새 미디어 자동 업로드와 게시 시 자동 단축을 지원합니다. 한 번 설정하면 계속 사용할 수 있습니다 |
+| Admin Integration | 글/페이지 목록에서 바로 단축 URL 을 확인하고 관리합니다 |
+| Dashboard Panel | 텍스트 및 파일 공유용 전용 S.EE 패널과 전체 사용 기록을 제공합니다 |
+| 13 Languages | English, Chinese (Simplified/Traditional), Japanese, Korean, Indonesian, Vietnamese, German, French, Spanish, Portuguese (Brazil/Portugal), Russian |
+
+---
+
+## 요구 사항
+
+- PHP 8.2+
+- WordPress 6.0+
+- [API Token](https://s.ee/user/developers/) 이 있는 S.EE 계정
+
+---
+
+## 설치
+
+### WordPress Plugin Directory 에서 설치
+
+1. WordPress 관리자 화면에서 **Plugins** > **Add New** 로 이동합니다
+2. **S.EE** 를 검색합니다
+3. **Install Now** 를 클릭한 뒤 **Activate** 를 클릭합니다
+
+### GitHub 에서 설치
+
+1. [GitHub Releases](https://github.com/sdotee/see-wordpress/releases) 에서 최신 ZIP 파일을 다운로드합니다
+2. **Plugins** > **Add New** > **Upload Plugin** 으로 이동합니다
+3. ZIP 파일을 업로드하고 **Install Now** 를 클릭한 뒤 **Activate** 를 클릭합니다
+
+---
+
+## 설정
+
+### 1. API Token 가져오기
+
+1. S.EE 계정에 로그인합니다
+2. **[Tools > API Token](https://s.ee/user/developers/)** 으로 이동합니다
+3. 새 API Token 을 생성합니다
+
+<Callout type="warn">
+API Token 을 공개적으로 공유하거나 버전 관리에 커밋하지 마세요.
+</Callout>
+
+### 2. 플러그인 구성
+
+1. **Settings** > **S.EE** 로 이동합니다
+2. API Token 을 붙여 넣고 **Verify** 를 클릭합니다
+3. 단축 URL, 텍스트, 파일에 사용할 기본 도메인을 선택합니다
+4. 자동 동작을 원하면 자동 생성 및 자동 업로드를 켭니다
+
+<Callout type="info">
+API Token 을 `wp-config.php` 에 설정해 데이터베이스에 저장하지 않도록 할 수도 있습니다.
+</Callout>
+
+---
+
+## 사용 방법
+
+### 단축 URL
+
+자동 생성을 켜 두면 글이나 페이지를 발행하는 즉시 단축 URL 이 생성됩니다. 관리자 화면의 글/페이지 목록 열에서도 단축 URL 을 만들거나 확인할 수 있습니다.
+
+### 텍스트 공유
+
+**S.EE** 대시보드 패널을 열고 내용을 붙여 넣으세요. 지원 형식은 다음과 같습니다.
+
+- 일반 텍스트
+- Markdown
+- 코드 스니펫
+
+### 파일 호스팅
+
+**S.EE** 대시보드 패널 또는 미디어 라이브러리를 통해 파일을 업로드할 수 있습니다. 업로드 후에는 URL, HTML, Markdown, BBCode 등 원하는 형식으로 링크를 가져올 수 있습니다.
+
+---
+
+## 관련 문서
+
+- [Developer API](/docs/ko/developers)
+- [파일 공유](/docs/ko/file-sharing)
+- [텍스트 공유](/docs/ko/text-sharing)
+- [이미지 호스팅](/docs/ko/image-hosting)

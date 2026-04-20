@@ -1,0 +1,113 @@
+---
+title: SDK
+description: SDK oficiais da S.EE para várias linguagens de programação
+icon: Package
+---
+
+## SDK oficiais
+
+A S.EE fornece SDK oficiais para garantir segurança de tipos e integração simples:
+
+| Linguagem | Repositório | Descrição |
+|----------|------------|-------------|
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Toolkit para aplicações PHP |
+| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Integração tipada para projetos JavaScript/TypeScript |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Suporte em Go para gestão de links |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Encurtamento de URL e partilha de ficheiros em Python |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | Implementação Java empresarial |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | Suporte para linguagens de sistemas |
+| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | Suporte para uma linguagem emergente (experimental) |
+
+---
+
+## Servidor MCP
+
+Para integrações de IA / LLM, use o nosso servidor MCP (Model Context Protocol):
+
+- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
+
+### Funcionalidades
+
+- **Gestão de URL**: criar, atualizar, eliminar e listar domínios para URLs curtos
+- **Partilha de conteúdo**: partilhar fragmentos de código e texto com expiração e proteção por palavra-passe
+- **Operações com ficheiros**: carregar e eliminar ficheiros
+- **Utilitários de tempo**: aceder à hora atual com suporte para fuso horário
+
+### Requisitos
+
+- Go 1.25+
+- Chave de API válida da S.EE
+
+### Compilação
+
+```bash
+# Using Makefile (current OS)
+make build
+
+# Build for all platforms
+make build-all
+
+# Or using Go directly
+go build -o bin/cli-mcp-server .
+```
+
+### Execução
+
+```bash
+./bin/cli-mcp-server -api-key "your-api-key"
+```
+
+Também pode definir a chave de API através de variável de ambiente:
+
+```bash
+export SEE_API_KEY="your-api-key"
+./bin/cli-mcp-server
+```
+
+O servidor usa por defeito a porta 30101 e Server-Sent Events para ligações MCP. Configure o URL do servidor MCP nas definições do seu cliente LLM (por exemplo, Cherry Studio) para o integrar.
+
+---
+
+## Instalação
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### TypeScript
+
+```bash
+npm install see-sdk
+```
+
+### Go
+
+```bash
+go get github.com/sdotee/sdk.go
+```
+
+### Python
+
+```bash
+pip install see-sdk
+```
+
+### Java
+
+Consulte o repositório [sdk.java](https://github.com/sdotee/sdk.java) para instruções de instalação.
+
+### Rust
+
+Consulte o repositório [sdk.rs](https://github.com/sdotee/sdk.rs) para instruções de instalação.
+
+### Zig
+
+Consulte o repositório [sdk.zig](https://github.com/sdotee/sdk.zig) para instruções de instalação.
+
+---
+
+## Utilização
+
+Consulte o repositório de cada SDK para documentação detalhada e exemplos.

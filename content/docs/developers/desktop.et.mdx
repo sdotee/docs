@@ -1,0 +1,113 @@
+---
+title: Töölauarakendus
+description: S.EE natiivne töölauarakendus
+icon: Monitor
+---
+
+Lühenda linke, jaga teksti ja laadi faile üles oma arvutist, kasutades S.EE natiivseid rakendusi macOS-i ja Linuxi jaoks.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Allalaadimine
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Toetatud platvormid
+
+| Platvorm | Olek | Tehnoloogia |
+|----------|--------|------------|
+| macOS | Saadaval | SwiftUI |
+| Linux | Saadaval | GTK4 + libadwaita + Rust |
+| Windows | Arenduses | - |
+
+## Funktsioonid
+
+- **URL-ide lühendamine** - kohandatud lühikood, pealkiri, parool ja aegumine
+- **Teksti jagamine** - tavatekst, lähtekood või Markdown monoruumilise redaktoriga
+- **Faili üleslaadimine** - lohista ja aseta, kleebi lõikelaualt või kasuta failivalijat
+- **QR-koodide loomine** - eksport PNG-, SVG- või PDF-vormingus
+- **Ajalugu** - kohalik kirje kõigist loodud linkidest, tekstidest ja failidest
+- **Mitme domeeni tugi** - vali iga teenuse jaoks mitme domeeni vahel
+- **Kasutuse juhtpaneel** - salvestusruum ja limiidid lühidalt
+
+## macOS
+
+Ehitatud **SwiftUI** ja **SwiftData** abil. Toetab täielikult kiirklahve ja menüüriba integratsiooni.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Nõuab macOS 14.0+
+
+### Tugevad küljed
+
+- **Menu Bar** - lühenda URL-e, kleebi ja laadi üles ning ava hiljutised elemendid ilma peaakent avamata
+- **Drag & Drop** - lohista failid ükskõik kuhu üleslaadimisalale
+- **Paste from Clipboard** (`Cmd+V`) - teisendab pildid automaatselt WebP-vormingusse ja kasutab vajadusel PNG-d
+- **Keychain** - turvaline API võtme salvestus macOS Security raamistiku kaudu
+
+### Kiirklahvid
+
+| Otsetee | Toiming |
+|----------|--------|
+| Cmd+N | Uus lühilink |
+| Cmd+Shift+N | Uus teksti jagamine |
+| Cmd+V | Kleebi ja laadi lõikelaualt üles |
+| Cmd+, | Seaded |
+| Cmd+Q | Välju |
+
+### Tehnoloogiakiht
+
+| Kiht | Tehnoloogia |
+|-------|-----------|
+| UI | SwiftUI |
+| Salvestus | SwiftData |
+| Võrk | URLSession, actor-põhine |
+| Turve | Keychain |
+| Pisipildid | QuickLookThumbnailing |
+| Pilditöötlus | Swift-WebP |
+
+## Linux
+
+Ehitatud **GTK4**, **libadwaita** ja **Rusti** abil. Järgib GNOME inimese-liidese juhiseid.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Nõuab GTK 4.14+ ja libadwaita 1.5+
+
+### Tugevad küljed
+
+- **Native GNOME Experience** - kohanduv paigutus vastavalt GNOME HIG-ile
+- **QR Code Export** - PNG, SVG või PDF
+- **Config File** - `~/.config/see/config.toml` API võtme, baas-URL-i ja vaike-domeenide jaoks
+- **Environment Variables** - `SEE_API_KEY`, `SEE_BASE_URL` ja `SEE_TIMEOUT` kirjutavad konfiguratsioonifaili üle
+
+### Kiirklahvid
+
+| Otsetee | Toiming |
+|----------|--------|
+| Ctrl+1 | Vaheta linkide vaatesse |
+| Ctrl+2 | Vaheta tekstide vaatesse |
+| Ctrl+3 | Vaheta failide vaatesse |
+| Ctrl+, | Ava eelistused |
+| Ctrl+? | Kuva kiirklahvid |
+| Ctrl+Q | Välju |
+
+### Tehnoloogiakiht
+
+| Kiht | Tehnoloogia |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Keel | Rust, 2024 väljaanne |
+| API klient | see-sdk |
+| QR-kood | Sisseehitatud, PNG, SVG ja PDF eksport |
+
+### Andmete salvestus
+
+- **Konfiguratsioon**: `~/.config/see/config.toml`
+- **Ajalugu**: `~/.local/share/see/history.json`
+
+## Alustamine
+
+1. Laadi rakendus alla [macOS-ile](https://s.ee/macos) või [Linuxile](https://s.ee/linux)
+2. Loo konto aadressil [s.ee](https://s.ee), kui sul seda veel ei ole
+3. [Loo API võti](https://s.ee/user/developers/) oma juhtpaneelilt
+4. Ava rakendus, mine menüüsse **Preferences** ja sisesta oma API võti

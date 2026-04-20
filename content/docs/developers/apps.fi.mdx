@@ -1,0 +1,125 @@
+---
+title: Mobiilisovellus
+description: Natiivi mobiilisovellus S.EE:lle
+icon: Smartphone
+---
+
+Lyhennä linkkejä, jaa tekstiä ja lataa tiedostoja puhelimesta natiivilla sovelluksella, jossa on kaikki S.EE:n keskeiset ominaisuudet.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Lataa
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/app-store-badge.svg" alt="Download on the App Store" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+  </a>
+</div>
+
+## Tuetut alustat
+
+| Alusta | Vaatimukset | Teknologia |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Ominaisuudet
+
+### URL-lyhennys
+
+- Luo lyhytlinkkejä mukautetulla slugilla, otsikolla, salasanalla ja vanhenemisajalla
+- Valitse useista verkkotunnuksista
+- Näe linkkitilastot tänään, tässä kuussa ja yhteensä
+- Hae slugilla, kohde-URL:lla, otsikolla ja verkkotunnuksella
+- Muokkaa tai poista olemassa olevia linkkejä
+
+### Tekstin jakaminen
+
+- Jaa raakatekstiä, lähdekoodia tai Markdownia
+- Tasalevyinen editori koodille
+- Mukautettu slug, salasana ja vanhenemisaika
+- Verkkotunnuksen valinta ja tagien lisääminen (enintään 5 tagia)
+
+### Tiedostojen lataus
+
+- Valitse tiedostoja, poimi galleriasta tai ota kuva kameralla
+- Liitä leikepöydältä automaattisella WebP-muunnoksella (iOS)
+- Reaaliaikainen latauksen eteneminen
+- 9 linkkimuotoa: suora linkki, share page, BBCode, HTML, Markdown ja muita
+- Eräkopiointi ja eräpoisto kaikissa listoissa
+
+### Käyttöpaneeli
+
+- Tallennustilan käyttö visuaalisella edistymispalkilla
+- API-kutsujen, linkkien, tekstijakojen, latausten ja QR-koodien rajoitukset
+- Päivittäiset ja kuukausittaiset käyttömäärät
+
+### Asetukset
+
+- Perus-URL:n määritys itse isännöidyille asennuksille
+- API-avaimen hallinta ja vahvistus yhdellä napautuksella
+- Oletusverkkotunnusten valinta palveluittain (linkit, tekstit, tiedostot)
+- Teema: Järjestelmä / Vaalea / Tumma
+- Dynamic Color / Material You (Android)
+
+## iOS
+
+Rakennettu **SwiftUI**- ja **SwiftData**-tekniikoilla natiivin iOS-kokemuksen tarjoamiseksi.
+
+- **Photo Picker** — valitse kuvia Kuvat-kirjastosta
+- **Camera** — ota valokuvia (JPG) tai videoita (MOV -> MP4)
+- Pull-to-refresh tageille ja listoille
+- Keychain-pohjainen turvallinen API-avaimen tallennus
+
+## Android
+
+Rakennettu **Jetpack Compose**- ja **Material 3** -teknologioilla natiivin Android-kokemuksen tarjoamiseksi.
+
+- **Share Target** — vastaanota jaettua tekstiä, URL-osoitteita ja tiedostoja muista sovelluksista
+- **App Shortcuts** — nopeita toimintoja sovelluskuvaketta pitkään painamalla
+- **Predictive Back** -tuki (Android 14+)
+- **Adaptive Icon** teemoitetun kuvakkeen tuella
+- Room-tietokanta paikalliseen historiaan
+- EncryptedSharedPreferences turvalliseen tallennukseen
+
+## Teknologiapino
+
+### iOS
+
+| Kerros | Teknologia |
+|-------|-----------|
+| UI | SwiftUI |
+| Tallennus | SwiftData |
+| Verkkoyhteydet | URLSession (actor-pohjainen) |
+| Turvallisuus | Keychain |
+| Pikkukuvat | QuickLookThumbnailing |
+| Kuvankäsittely | Swift-WebP |
+
+### Android
+
+| Kerros | Teknologia |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Arkkitehtuuri | MVVM + Repository |
+| Verkkoyhteydet | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Paikallinen DB | Room |
+| Turvallisuus | EncryptedSharedPreferences |
+| Kuvien lataus | Coil 3 |
+
+## Lähdekoodi
+
+Molemmat sovellukset ovat avoimen lähdekoodin MIT-lisenssillä:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Aloittaminen
+
+1. Lataa sovellus [App Storesta](https://s.ee/ios) tai [Google Playsta](https://s.ee/android)
+2. Luo tili osoitteessa [s.ee](https://s.ee), jos sinulla ei vielä ole sitä
+3. [Luo API-avain](https://s.ee/user/developers/) hallintapaneelista
+4. Avaa sovellus, siirry **Asetuksiin**, syötä API-avain ja napauta **Verify**

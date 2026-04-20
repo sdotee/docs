@@ -1,0 +1,70 @@
+---
+title: Omat verkkotunnukset
+description: Näin käytät omaa verkkotunnustasi lyhyille linkeille S.EE:ssä
+icon: Globe
+---
+
+## Mikä on oma verkkotunnus?
+
+Oman verkkotunnuksen avulla voit käyttää omaa brändiäsi lyhyissä linkeissä `s.ee`:n sijaan. Esimerkiksi `s.ee/link`-osoitteen sijasta voit käyttää `go.example.com/link`-osoitetta.
+
+---
+
+## Miksi käyttää omaa verkkotunnusta?
+
+- **Brändin tunnistettavuus** - Linkit näyttävät sinun brändiltäsi, eivät meidän
+- **Luottamus** - Käyttäjät klikkaavat todennäköisemmin brändättyjä linkkejä
+- **Parempi klikkausprosentti** - Brändätyt linkit toimivat yleensä paremmin
+
+---
+
+## Lisää oma verkkotunnus
+
+1. Avaa [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Napsauta **Add Domain**
+3. Syötä verkkotunnuksesi nimi
+4. Lisää tarvittavat DNS-tietueet:
+   - **TXT-tietue** - Verkkotunnuksen vahvistusta varten
+   - **CNAME- tai Alias-tietue** - Ohjaa verkkotunnuksesi S.EE:hen
+5. Odota DNS:n leviämistä (yleensä muutama minuutti)
+6. Napsauta **Verify** vahvistaaksesi asetukset
+
+---
+
+## Vaatimukset
+
+- Verkkotunnuksen täytyy olla eri kuin pääsivustosi verkkotunnus
+- Enimmäispituus on 63 merkkiä (piste mukaan lukien)
+- Sinulla täytyy olla pääsy verkkotunnuksesi DNS-asetuksiin
+
+---
+
+## Tärkeät huomiot
+
+### Cloudflare-käyttäjät
+
+Jos käytät Cloudflarea DNS:ssä, **älä ota käyttöön Proxyä (oranssi pilvi -kuvake)** CNAME-tietueelle. Pidä se DNS-only-tilassa (harmaa pilvi). Cloudflaren proxyn käyttö voi aiheuttaa CDN-ristiriitoja ja uudelleenohjausongelmia.
+
+### Paljas verkkotunnus (juuriverkkotunnus)
+
+Jos haluat käyttää paljasta verkkotunnusta, esimerkiksi `example.com`-osoitetta `go.example.com`-osoitteen sijaan, DNS-palveluntarjoajasi täytyy tukea **ALIAS-tietueita** tai **CNAME flatteningia**. Tämän ominaisuuden tarjoavia palveluita ovat muun muassa:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Jos DNS-palveluntarjoajasi ei tue näitä ominaisuuksia, ota [yhteyttä meihin](https://s.ee/contact/) - voimme auttaa vahvistamaan ja lisäämään paljaan verkkotunnuksesi manuaalisesti.
+
+---
+
+## Verkkotunnusrajat suunnitelman mukaan
+
+| Suunnitelma | Omat verkkotunnukset |
+|-------------|----------------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Rajoittamaton |

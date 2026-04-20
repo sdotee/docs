@@ -1,0 +1,233 @@
+---
+title: 文件分享
+description: 如何使用 S.EE 上传和分享文件
+icon: Upload
+---
+
+## 概览
+
+S.EE 文件分享允许您通过简短、可分享的链接上传和分享文件。非常适合分享图片、文档、音频、视频和其他文件。
+
+---
+
+## 上传文件
+
+### 快速上传（拖拽）
+
+1. 登录 [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. 在左侧边栏点击 **Sharing > Files**，或直接前往 [https://s.ee/user/files/](https://s.ee/user/files/)
+3. 将文件或文件夹拖入 **Drag & Drop** 窗口
+   - 您也可以点击窗口来浏览并选择文件
+   - 上传文件夹时，会上传其中的所有文件
+4. 文件会使用默认域名和随机短码进行分享
+
+### 高级上传（Create File）
+
+如果您希望更灵活地控制文件分享：
+
+1. 点击 **Create File** 按钮
+2. 配置您的设置：
+   - **Domain** - 为分享页面选择域名
+   - **Custom Slug** - 设置自定义 URL 短码
+   - **Other options** - 标签、过期时间等
+3. 选择文件并上传
+
+---
+
+## 文件链接
+
+每个上传的文件都会生成两种链接：
+
+| 链接类型 | 格式 | 说明 |
+|-----------|--------|-------------|
+| 分享页 | `fs.to/[your_slug]` | 支持自定义域名和短码 |
+| 直链 | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | 直接访问原始文件名对应的文件 |
+
+**注意：** 直链当前不支持自定义域名。
+
+---
+
+## 支持的文件类型
+
+S.EE 支持多种文件类型：
+
+### 图片
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| image/jpeg | JPEG 图片（.jpg、.jpeg） |
+| image/png | PNG 图片（.png） |
+| image/gif | GIF 图片（.gif） |
+| image/webp | WebP 图片（.webp） |
+| image/avif | AVIF 图片（.avif） |
+| image/svg+xml | SVG 图片（.svg） |
+| image/bmp | BMP 图片（.bmp） |
+| image/tiff | TIFF 图片（.tiff、.tif） |
+| image/heic | HEIC 图片（.heic） |
+| image/heif | HEIF 图片（.heif） |
+| image/jp2 | JPEG 2000 图片（.jp2） |
+| image/jpx | JPEG 2000 图片（.jpx） |
+| image/jxl | JPEG XL 图片（.jxl） |
+| image/vnd.adobe.photoshop | Photoshop 文件（.psd） |
+
+### 文档
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| application/pdf | PDF 文档（.pdf） |
+| application/msword | Word 文档（.doc） |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word 文档（.docx） |
+| application/vnd.ms-excel | Excel 表格（.xls） |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel 表格（.xlsx） |
+| application/vnd.ms-powerpoint | PowerPoint 演示文稿（.ppt） |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint 演示文稿（.pptx） |
+| application/vnd.apple.pages | Pages 文档（.pages） |
+| application/vnd.apple.numbers | Numbers 表格（.numbers） |
+| application/vnd.apple.keynote | Keynote 演示文稿（.key） |
+| application/vnd.oasis.opendocument.text | OpenDocument Text（.odt） |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet（.ods） |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation（.odp） |
+| application/rtf | 富文本格式（.rtf） |
+| application/postscript | PostScript 文件（.ps、.eps） |
+| application/epub+zip | EPUB 电子书（.epub） |
+
+### 文本和数据
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| text/plain | 纯文本文件（.txt） |
+| text/csv | CSV 文件（.csv） |
+| text/markdown | Markdown 文件（.md、.markdown、.mdx） |
+| application/json | JSON 文件（.json） |
+| application/yaml | YAML 文件（.yaml、.yml） |
+
+### 音频
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| audio/mpeg | MP3 文件（.mp3） |
+| audio/wav | WAV 文件（.wav） |
+| audio/ogg | OGG 音频（.ogg） |
+| audio/flac | FLAC 音频（.flac） |
+| audio/aac | AAC 音频（.aac） |
+| audio/mp4, audio/x-m4a | M4A 音频（.m4a） |
+| audio/midi | MIDI 文件（.mid、.midi） |
+| audio/x-ms-wma | WMA 音频（.wma） |
+
+### 视频
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| video/mp4 | MP4 视频（.mp4） |
+| video/webm | WebM 视频（.webm） |
+| video/quicktime | QuickTime 视频（.mov） |
+| video/x-matroska | MKV 视频（.mkv） |
+| video/x-msvideo | AVI 视频（.avi） |
+| video/mpeg | MPEG 视频（.mpeg、.mpg） |
+| video/ogg | OGG 视频（.ogv） |
+| video/3gpp | 3GP 视频（.3gp） |
+| video/x-flv | FLV 视频（.flv） |
+| video/x-ms-wmv | WMV 视频（.wmv） |
+
+### 压缩包和磁盘镜像
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| application/zip | ZIP 压缩包（.zip） |
+| application/x-zip-compressed | ZIP 压缩包（.zip） |
+| application/gzip | GZIP 压缩包（.gz） |
+| application/x-bzip2 | BZIP2 压缩包（.bz2） |
+| application/x-xz | XZ 压缩包（.xz） |
+| application/x-tar | TAR 压缩包（.tar） |
+| application/x-7z-compressed | 7-Zip 压缩包（.7z） |
+| application/x-rar-compressed | RAR 压缩包（.rar） |
+| application/x-apple-diskimage | DMG 磁盘镜像（.dmg） |
+| application/x-iso9660-image | ISO 磁盘镜像（.iso） |
+
+<Callout type="warn">
+出于安全原因，可执行文件（.exe、.msi、.bat、.app 等）**不允许上传**。
+</Callout>
+
+<Callout type="info">
+对于以下文件扩展名，我们可能会强制将响应 `Content-Type` 设置为 `text/plain`，以降低脚本滥用风险：`.js`、`.mjs`、`.html`、`.htm`、`.xhtml`、`.shtml`、`.svg`、`.xml`、`.json`、`.map`。
+</Callout>
+
+<Callout type="info">
+对于未知或无法明确识别的文件类型，我们会强制将响应 `Content-Type` 设置为 `application/octet-stream`。
+</Callout>
+
+### 旧版 / 兼容类型
+
+这些 MIME Type 出于兼容旧系统的目的也会被接受。
+
+| MIME Type | 说明 |
+|-----------|-------------|
+| application/excel | Excel 表格（.xls） |
+| application/x-excel | Excel 表格（.xls） |
+| application/x-msexcel | Excel 表格（.xls） |
+| application/mspowerpoint | PowerPoint 演示文稿（.ppt） |
+| application/powerpoint | PowerPoint 演示文稿（.ppt） |
+| application/x-mspowerpoint | PowerPoint 演示文稿（.ppt） |
+
+---
+
+## 存储限制
+
+不同套餐的存储限制如下：
+
+| 套餐 | 最大文件大小 | 总存储空间 |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | 自定义 | 自定义 |
+
+完整套餐详情请查看 [s.ee/pricing](https://s.ee/pricing)。
+
+---
+
+## 文件保留策略
+
+- 只要您的订阅处于有效状态，文件就会**永久保存**
+- 如果订阅过期，文件会在删除前保留 **7 天**
+
+---
+
+## 支持的域名
+
+以下域名支持文件分享：
+
+| 域名 | 适用场景 |
+|--------|----------|
+| [fs.to](https://fs.to) | 通用文件分享 |
+| [files.to](https://files.to) | 通用文件分享 |
+| [fileshare.to](https://fileshare.to) | 通用文件分享 |
+| [filesharing.to](https://filesharing.to) | 通用文件分享 |
+
+如果您是 Premium 或 Enterprise 客户，请参考 [官方域名](/docs/zh-CN/official-domains/#premium--enterprise)。
+
+---
+
+## API 访问
+
+您也可以通过 API 使用文件分享。有关程序化上传的详细信息，请参阅我们的 [API 文档](/docs/zh-CN/developers/api/#file-sharing)。
+
+---
+
+## 常见问题
+
+### 谁可以上传文件？
+
+只有付费订阅用户可以上传文件。您必须拥有有效订阅。
+
+### 有下载次数限制吗？
+
+没有，分享文件没有下载次数或带宽限制。
+
+### 我可以自定义分享页面 URL 吗？
+
+可以。使用 **Create File** 上传方式时，您可以为分享页面设置自定义域名和短码。
+
+### 我可以自定义直链 URL 吗？
+
+当前直链使用固定格式，不支持自定义域名。

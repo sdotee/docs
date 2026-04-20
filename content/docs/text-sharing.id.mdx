@@ -1,0 +1,80 @@
+---
+title: Berbagi Teks
+description: Cara membagikan teks, cuplikan kode, dan Markdown dengan S.EE
+icon: FileText
+---
+
+## Ikhtisar
+
+S.EE Text Sharing memungkinkan Anda membagikan teks biasa, cuplikan kode, dan dokumen Markdown dengan tautan pendek yang mudah dibagikan. Cocok untuk membagikan file konfigurasi, contoh kode, catatan, dan dokumentasi.
+
+---
+
+## Buat Berbagi Teks
+
+1. Login ke [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klik **Sharing > Text** di sidebar kiri atau langsung buka [https://s.ee/user/text/](https://s.ee/user/text/)
+3. Isi detail berikut:
+   - **Title** (opsional) - Digunakan sebagai nama file saat diunduh
+   - **Short Link** - Pilih domain yang Anda inginkan
+   - **Text Type** - Pilih Plain Text, Code, atau Markdown
+4. Masukkan konten Anda ke kotak **Edit**
+5. Atur pengaturan opsional (lihat di bawah)
+6. Klik **Create Text**
+
+---
+
+## Jenis Teks
+
+| Type | Description |
+|------|-------------|
+| Plain Text | Teks sederhana tanpa format |
+| Code | Cuplikan kode dengan sorotan sintaks |
+| Markdown | Markdown yang dirender dengan format |
+
+---
+
+## Pengaturan Opsional
+
+| Option | Description |
+|--------|-------------|
+| Password | Lindungi teks Anda dengan kata sandi |
+| Tags | Atur teks yang dibagikan dengan tag |
+| Expiration | Atur kapan berbagi teks akan kedaluwarsa |
+| Disable search engine indexing | Cegah mesin pencari mengindeks teks yang Anda bagikan |
+
+---
+
+## Melihat Teks yang Dibagikan
+
+Setelah dibuat, Anda akan menerima tautan pendek seperti `ba.sh/demo`.
+
+### Mode Tampilan
+
+| URL | Description |
+|-----|-------------|
+| `ba.sh/demo` | Menampilkan halaman teks berformat dengan sorotan sintaks |
+| `ba.sh/demo/raw` | Menampilkan teks mentah secara langsung |
+
+Endpoint `/raw` berguna untuk:
+
+- Mengunduh skrip langsung dengan `curl` atau `wget`
+- Menyematkan ke aplikasi lain
+- Melihat konten tanpa format apa pun
+
+---
+
+## Domain yang Didukung
+
+Berbagi teks tersedia di domain berikut untuk semua paket:
+
+| Domain | Best For |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash dan shell script |
+| [z.sh](https://z.sh) | Shell script |
+| [fs.to](https://fs.to) | Berbagi file umum |
+| [files.to](https://files.to) | Berbagi file umum |
+| [fileshare.to](https://fileshare.to) | Berbagi file umum |
+| [filesharing.to](https://filesharing.to) | Berbagi file umum |
+
+Untuk pelanggan Premium dan Enterprise, silakan lihat [domain resmi](https://s.ee/docs/id/official-domains/#premium--enterprise).

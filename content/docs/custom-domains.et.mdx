@@ -1,0 +1,70 @@
+---
+title: Kohandatud domeenid
+description: Kuidas seadistada lühilinkide jaoks kohandatud domeen
+icon: Globe
+---
+
+## Mis on kohandatud domeen?
+
+Kohandatud domeen võimaldab kasutada lühilinkides `s.ee` asemel oma brändi. Näiteks aadressi `s.ee/link` asemel saad kasutada `go.example.com/link`.
+
+---
+
+## Miks kasutada kohandatud domeeni?
+
+- **Brändituntus** - lingid näitavad sinu brändi, mitte meie oma
+- **Usaldus** - kasutajad klikivad bränditud linke tõenäolisemalt
+- **Parem klikkimise määr** - bränditud lingid toimivad paremini
+
+---
+
+## Lisa kohandatud domeen
+
+1. Ava [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Klõpsa **Add Domain**
+3. Sisesta oma domeeninimi
+4. Lisa vajalikud DNS-kirjed:
+   - **TXT-kirje** - domeeni kinnitamiseks
+   - **CNAME- või Alias-kirje** - domeeni suunamiseks S.EE-le
+5. Oota DNS-i levimist, tavaliselt mõni minut
+6. Seadistuse kinnitamiseks klõpsa **Verify**
+
+---
+
+## Nõuded
+
+- Domeen peab erinema sinu peamise veebisaidi domeenist
+- Maksimaalselt 63 märki, kaasa arvatud punkt
+- Sul peab olema juurdepääs domeeni DNS-seadetele
+
+---
+
+## Olulised märkused
+
+### Cloudflare'i kasutajatele
+
+Kui kasutad DNS-i jaoks Cloudflare'i, siis **ära lülita CNAME-kirjel sisse Proxy't ehk oranži pilve ikooni**. Hoia see DNS-only reziimis ehk halli pilvena. Cloudflare'i puhverserver võib põhjustada CDN-i konflikte ja ümbersuunamisprobleeme.
+
+### Juurdomeeni kasutamine
+
+Kui tahad kasutada juurdomeeni, näiteks `example.com` aadressi `go.example.com` asemel, peab sinu DNS-teenuse pakkuja toetama **ALIAS-kirjeid** või **CNAME flattening'ut**. Levinud pakkujad, mis seda võimaldavad:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) - CNAME flattening
+- [Hurricane Electric](https://dns.he.net/) - CNAME
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) - ALIAS
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) - ANAME
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) - ALIAS
+
+Kui sinu DNS-teenuse pakkuja neid võimalusi ei toeta, siis [võta meiega ühendust](https://s.ee/contact/) ja me aitame juurdomeeni käsitsi kinnitada ning lisada.
+
+---
+
+## Domeenipiirangud paketi järgi
+
+| Pakett | Kohandatud domeenid |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Piiramatu |

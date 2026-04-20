@@ -1,0 +1,183 @@
+---
+title: 公式ドメイン
+description: S.EE の公式短縮 URL ドメイン一覧
+icon: Server
+---
+
+## プライマリドメイン
+
+URL 短縮で既定として使用されるドメインです。Lite、Pro、Premium、Lifetime、Enterprise のすべてのユーザーが利用できます。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**s.ee**](https://s.ee) | あらゆる用途で利用できる、公式かつ信頼性の高いドメインです。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/s.ee) | ✓ |
+
+---
+
+## プライマリ共有ドメイン
+
+テキスト共有とファイル共有の既定ドメインです。Lite、Pro、Premium、Lifetime、Enterprise のすべてのユーザーが利用できます。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**sm.ms**](https://sm.ms) | 歴史のある画像ホスティング用ドメインです。もともとは独立した画像ホスティングサービスでしたが、現在は S.EE プラットフォームの一部です。 | [.ms](https://www.iana.org/domains/root/db/ms.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/sm.ms) | ✓ |
+| [**fs.to**](https://fs.to) | FS は File Sharing を意味します。ファイル共有やダウンロード向けの、分かりやすく認識しやすいドメインです。 | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/fs.to) | ✓ |
+| [**files.to**](https://files.to) | 用途がひと目で分かるファイル共有用ドメインです。直リンクやダウンロードページに適しています。 | [.to](https://www.iana.org/domains/root/db/to.html) | Bunny | Bunny | [View](https://dnssec-analyzer.verisignlabs.com/files.to) | ✓ |
+| [**fileshare.to**](https://fileshare.to) | ファイル共有サービス向けであることが分かりやすいドメインです。クラウドストレージのリンクや共有フォルダーに適しています。 | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/fileshare.to) | ✓ |
+| [**filesharing.to**](https://filesharing.to) | フルスペルのファイル共有ドメインです。業務用やエンタープライズ向けのファイル配布に適しています。 | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/filesharing.to) | ✓ |
+
+---
+
+## ファイルストレージ / CDN ドメイン
+
+これらは、S.EE がファイル保存、ユーザーアップロードコンテンツの配信、CDN 配信に内部的に使用するドメインです。静的アセット、キャッシュ済みリソース、ユーザー生成コンテンツを S.EE プラットフォーム全体に配信します。エンドユーザーが直接利用することは想定していませんが、ホストされたファイルやメディアにアクセスする際の URL に表示される場合があります。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**see.you**](https://see.you) | ユーザー向けのファイルダウンロードや共有メディアリンクに使用する主要ドメインです。 | [.you](https://www.iana.org/domains/root/db/you.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/see.you) | ✓ |
+| [**seecdn.com**](https://seecdn.com) | 静的アセットやキャッシュ済みリソースを世界中へ高速配信するための主要 CDN ドメインです。 | [.com](https://www.iana.org/domains/root/db/com.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/seecdn.com) | ✓ |
+| [**seecdn.net**](https://seecdn.net) | 高可用性とフェイルオーバーのために冗長化された配信を提供するセカンダリ CDN ドメインです。 | [.net](https://www.iana.org/domains/root/db/net.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/seecdn.net) | ✓ |
+| [**seeusercontent.com**](https://seeusercontent.com) | ユーザーアップロードコンテンツをサンドボックス環境で配信する専用ドメインです。セキュリティのため、ユーザーファイルを本体アプリケーションから分離します。 | [.com](https://www.iana.org/domains/root/db/com.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/seeusercontent.com) | ✓ |
+
+---
+
+## 汎用ドメイン
+
+### Lite、Pro、Premium、Lifetime、Enterprise
+
+これらのドメインは Lite、Pro、Premium、Lifetime、Enterprise ユーザーが利用できます。URL 短縮専用です。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**b.ls**](https://b.ls) | ビジネス向けでミニマルです。社内向けにも外部向けにも適しています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/b.ls) | ✓ |
+| [**g.ls**](https://g.ls) | 汎用的で柔軟性があります。キャンペーン、リダイレクト、計測向けに適しています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/g.ls) | ✓ |
+| [**j.ls**](https://j.ls) | コンパクトでプロフェッショナルです。クリエイターやビジネスユーザー向けに設計されています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/j.ls) | ✓ |
+| [**q.gg**](https://q.gg) | ゲーム系らしい .gg TLD です。コミュニティ、技術系ユーザー、高エンゲージメントのキャンペーンに適しています。 | [.gg](https://www.iana.org/domains/root/db/gg.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/q.gg) | ✓ |
+| [**q.ls**](https://q.ls) | 印象に残りやすく識別しやすいドメインです。技術系のオーディエンスや製品ローンチに適しています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/q.ls) | ✓ |
+| [**s.lu**](https://s.lu) | シンプルで洗練されており、個人ブランドにも商用ブランドにも適しています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/s.lu) | ✓ |
+| [**u.ls**](https://u.ls) | 汎用性が高く認識しやすいドメインです。クリック率と共有しやすさを意識して最適化されています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/u.ls) | ✓ |
+| [**u.nu**](https://u.nu) | プレミアムでコンパクトです。最大限の共有しやすさを重視しています。 | [.nu](https://www.iana.org/domains/root/db/nu.html) | ClouDNS | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/u.nu) | ✓ |
+| [**w.ls**](https://w.ls) | W は web や world を想起させます。製品ページ、プロフィールリンク、ビジネス用途の共有に適しています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/w.ls) | ✓ |
+| [**z.ls**](https://z.ls) | 珍しい末尾アルファベットのドメインです。成果重視のキャンペーンや高速リダイレクトに向いています。 | [.ls](https://www.iana.org/domains/root/db/ls.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/z.ls) | ✓ |
+
+> ブランド表現の幅を広げたい場合は、Pro 以上へアップグレードすると、数字ドメインやプレミアムドメインをご利用いただけます。
+
+---
+
+### Pro、Premium、Enterprise
+
+これらのドメインは Pro、Premium、Enterprise ユーザーが利用できます。URL 短縮専用です。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**0.sb**](https://0.sb) | 大胆な数字スタイルです。A/B テスト、計測リンク、マーケティング実験に適しています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/0.sb) | ✓ |
+| [**0.tl**](https://0.tl) | 数字らしさが強く、識別しやすいドメインです。A/B テストやグロース実験向けです。 | [.tl](https://www.iana.org/domains/root/db/tl.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/0.tl) | ✓ |
+| [**2.pe**](https://2.pe) | コンパクトな数字ドメインです。大規模キャンペーンや高速リダイレクト向けに設計されています。 | [.pe](https://www.iana.org/domains/root/db/pe.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/2.pe) | ✓ |
+| [**2.sb**](https://2.sb) | 短く、クリーンで、プロフェッショナルです。ビジネス向けリンクに適しています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/2.sb) | ✓ |
+| [**3.sb**](https://3.sb) | 成果重視のルーティングや製品告知に向いています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/3.sb) | ✓ |
+| [**4.sb**](https://4.sb) | 高速リダイレクト、技術コンテンツ、製品アップデートに適しています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/4.sb) | ✓ |
+| [**4u.sh**](https://4u.sh) | 親しみやすく、クリエイター向けの印象があります。個人ブランドやソーシャル共有に向いています。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Bunny | Bunny | [View](https://dnssec-analyzer.verisignlabs.com/4u.sh) | ✓ |
+| [**6.gd**](https://6.gd) | 短く、印象的で、技術寄りです。自動化や開発者向けリンクに適しています。 | [.gd](https://www.iana.org/domains/root/db/gd.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/6.gd) | ✓ |
+| [**8u.cz**](https://8u.cz) | 数字入りで記憶に残りやすく、ソーシャル共有やコミュニティ用途に適しています。 | [.cz](https://www.iana.org/domains/root/db/cz.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/8u.cz) | ✓ |
+| [**9qr.de**](https://9qr.de) | QR コードを想起させるドメインです。オフライン配布や印刷物向けに適しています。 | [.de](https://www.iana.org/domains/root/db/de.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/9qr.de) | ✓ |
+| [**all.so**](https://all.so) | 幅広い用途に対応できる、包括的で柔軟なドメインです。 | [.so](https://www.iana.org/domains/root/db/so.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/all.so) | ✓ |
+| [**c8.vc**](https://c8.vc) | ベンチャーやスタートアップ向けの印象があります。VC、SaaS、資金調達関連の共有に向いています。 | [.vc](https://www.iana.org/domains/root/db/vc.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/c8.vc) | ✓ |
+| [**ck8.uk**](https://ck8.uk) | クリックを想起させる覚えやすいドメインです。CTA やパフォーマンス計測向けに適しています。 | [.uk](https://www.iana.org/domains/root/db/uk.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/ck8.uk) | ✓ |
+| [**d8.is**](https://d8.is) | データや分析を連想させる、技術系のオーディエンス向けドメインです。 | [.is](https://www.iana.org/domains/root/db/is.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/d8.is) | ✓ |
+| [**g9g.org**](https://g9g.org) | 覚えやすく、非営利やコミュニティ系の文脈に適しています。 | [.org](https://www.iana.org/domains/root/db/org.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/g9g.org) | ✓ |
+| [**go2.sh**](https://go2.sh) | コマンド風の技術的な印象です。開発者向けフローや即時アクションに向いています。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Bunny | Bunny | [View](https://dnssec-analyzer.verisignlabs.com/go2.sh) | ✓ |
+| [**i.ee**](https://i.ee) | 非常に短く、個人向けです。プロフィールや個人ブランドに適しています。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/i.ee) | ✓ |
+| [**is.gd**](https://is.gd) | よく知られた短縮ドメインで、シンプルな共有に適しています。 | [.gd](https://www.iana.org/domains/root/db/gd.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/is.gd) | ✓ |
+| [**ki.ki**](https://ki.ki) | 遊び心があり印象に残ります。クリエイターやインフルエンサー向けです。 | [.ki](https://www.iana.org/domains/root/db/ki.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/ki.ki) | ✓ |
+| [**l.gt**](https://l.gt) | 軽快で汎用的です。ランディングページ、プロフィール、日常的な共有に適しています。 | [.gt](https://www.iana.org/domains/root/db/gt.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/l.gt) | ✓ |
+| [**l.nf**](https://l.nf) | 洗練されていて軽量です。ランディングページやオンボーディング導線に適しています。 | [.nf](https://www.iana.org/domains/root/db/nf.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/l.nf) | ✓ |
+| [**l.td**](https://l.td) | クリーンで軽快です。個人プロフィールや link-in-bio ページに適しています。 | [.td](https://www.iana.org/domains/root/db/td.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/l.td) | ✓ |
+| [**m.bo**](https://m.bo) | 高いブランド性があります。M は mobile を想起させ、モバイル向けリンクやマーケティングキャンペーンに適しています。 | [.bo](https://www.iana.org/domains/root/db/bo.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/m.bo) | ✓ |
+| [**n.ms**](https://n.ms) | すっきりしており、焦点が明確です。ニュースレターや教育系コンテンツに適しています。 | [.ms](https://www.iana.org/domains/root/db/ms.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/n.ms) | ✓ |
+| [**nih.ao**](https://nih.ao) | 「你好」(こんにちは) から着想を得ています。親しみやすく印象的で、個人の共有やソーシャル向けコンテンツに適しています。 | [.ao](https://www.iana.org/domains/root/db/ao.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/nih.ao) | ✓ |
+| [**oo.ps**](https://oo.ps) | 遊び心があり、覚えやすいドメインです。キャンペーンやソーシャルメディアに適しています。 | [.ps](https://www.iana.org/domains/root/db/ps.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/oo.ps) | ✓ |
+| [**p.sb**](https://p.sb) | 精度重視です。マーケティングのアトリビューションや分析中心の用途に最適化されています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/p.sb) | ✓ |
+| [**q.cg**](https://q.cg) | 技術寄りで個性があります。開発者向けツールや製品アップデートに適しています。 | [.cg](https://www.iana.org/domains/root/db/cg.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/q.cg) | ✓ |
+| [**r.gl**](https://r.gl) | プロフェッショナルで信頼感があります。企業ページや製品ドキュメントに適しています。 | [.gl](https://www.iana.org/domains/root/db/gl.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/r.gl) | ✓ |
+| [**s.sb**](https://s.sb) | クリーンで信頼性があります。業務向けリンクやセールスファネルに適しています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/s.sb) | ✓ |
+| [**s.td**](https://s.td) | シンプルで汎用的です。マーケティングキャンペーンやブランド付きリダイレクト向けです。 | [.td](https://www.iana.org/domains/root/db/td.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/s.td) | ✓ |
+| [**s.tt**](https://s.tt) | 控えめで覚えやすく、マーケティングやグロース施策向けに設計されています。 | [.tt](https://www.iana.org/domains/root/db/tt.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/s.tt) | ✓ |
+| [**sto.ne**](https://sto.ne) | "stone" と読めるドメインです。強くクラシックな印象で、長期利用の URL や定番コンテンツに適しています。 | [.ne](https://www.iana.org/domains/root/db/ne.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/sto.ne) | ✓ |
+| [**u.nf**](https://u.nf) | モダンで個人向けです。ポートフォリオサイトやクリエイターのアイデンティティに適しています。 | [.nf](https://www.iana.org/domains/root/db/nf.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/u.nf) | ✓ |
+| [**ul.lu**](https://ul.lu) | 回文のようなパターンです。link-in-bio、クリエイターのブランディング、ポートフォリオページに適しています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Bunny | Bunny | [View](https://dnssec-analyzer.verisignlabs.com/ul.lu) | ✓ |
+| [**www.ht**](https://www.ht) | クラシックな web 風ドメインで、製品やセールス系キャンペーンに適しています。 | [.ht](https://www.iana.org/domains/root/db/ht.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/www.ht) | ✓ |
+| [**www.ki**](https://www.ki) | 一般的な Web サイトの URL に見えやすく、プロモーションリンクへの信頼感を高めます。 | [.ki](https://www.iana.org/domains/root/db/ki.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/www.ki) | ✓ |
+| [**www.re**](https://www.re) | 読みやすく SEO にも無難で、編集系やブログ関連リンクに適しています。 | [.re](https://www.iana.org/domains/root/db/re.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/www.re) | ✓ |
+| [**www.sb**](https://www.sb) | 強いビジネス感があり、エンタープライズ向けの計測用途に適しています。 | [.sb](https://www.iana.org/domains/root/db/sb.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/www.sb) | ✓ |
+| [**www.tf**](https://www.tf) | プロフェッショナルな web 風ドメインです。製品ページや業務向けコンテンツに適しています。 | [.tf](https://www.iana.org/domains/root/db/tf.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/www.tf) | ✓ |
+| [**www.tl**](https://www.tl) | プロフェッショナルで中立的です。企業向けやニュースレター向けリンクに適しています。 | [.tl](https://www.iana.org/domains/root/db/tl.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/www.tl) | ✓ |
+| [**z.nu**](https://z.nu) | 珍しく覚えやすいドメインです。高速な共有と高いエンゲージメントを意識して作られています。 | [.nu](https://www.iana.org/domains/root/db/nu.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/z.nu) | ✓ |
+
+> 珍しい ccTLD や二文字ドメインをお求めの場合は、Premium または Enterprise で全コレクションをご利用いただけます。
+
+---
+
+### Premium と Enterprise
+
+これらのドメインは Premium および Enterprise ユーザーが利用できます。URL 短縮、テキスト共有、ファイル共有を含むすべての機能に対応しています。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**a.ac**](https://a.ac) | 汎用性が高く、非常に覚えやすいドメインです。ソーシャル共有、告知、ランディングページに適しています。 | [.ac](https://www.iana.org/domains/root/db/ac.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/a.ac) | ✓ |
+| [**a.tt**](https://a.tt) | ミニマルで印象に残りやすく、A/B テストや計測リンクでよく使われます。 | [.tt](https://www.iana.org/domains/root/db/tt.html) | xTom | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/a.tt) | ✓ |
+| [**b.ee**](https://b.ee) | 親しみやすく覚えやすいドメインです。ブログ、個人サイト、コミュニティ共有に適しています。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/b.ee) | ✓ |
+| [**b.lu**](https://b.lu) | クリーンで親しみやすく、ブログ、個人プロフィール、コミュニティコンテンツに適しています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/b.lu) | ✓ |
+| [**c.sk**](https://c.sk) | 親しみやすく、協調的な印象があります。コミュニティ投稿や共有リソースに適しています。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/c.sk) | ✓ |
+| [**d.ac**](https://d.ac) | 直接的なアクションを促す印象があります。CTA リンクや成果重視のキャンペーンに適しています。 | [.ac](https://www.iana.org/domains/root/db/ac.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/d.ac) | ✓ |
+| [**f.bi**](https://f.bi) | 力強くブランド性があります。スピード感のあるキャンペーンやソーシャル共有に適しています。 | [.bi](https://www.iana.org/domains/root/db/bi.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/f.bi) | ✓ |
+| [**h.lu**](https://h.lu) | 強さとプロらしさを感じさせます。ビジネスページや企業向けコンテンツに向いています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | AWS Route 53 | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/h.lu) | ✓ |
+| [**h.sk**](https://h.sk) | プロフェッショナルで構造的な印象です。製品コンテンツやドキュメントに適しています。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/h.sk) | ✓ |
+| [**k.sk**](https://k.sk) | 個性的でスタイリッシュです。クリエイター、インフルエンサー、ソーシャルプラットフォーム向けです。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/k.sk) | ✓ |
+| [**l.tt**](https://l.tt) | 覚えやすく入力しやすいドメインで、link-in-bio やランディングページに適しています。 | [.tt](https://www.iana.org/domains/root/db/tt.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/l.tt) | ✓ |
+| [**n.ee**](https://n.ee) | モダンで編集的な印象があります。ニュースレターや長文コンテンツの読了促進に適しています。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/n.ee) | ✓ |
+| [**n.lu**](https://n.lu) | 編集系コンテンツ向きで、ニュースレター、長文記事、読ませるコンテンツに適しています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/n.lu) | ✓ |
+| [**q.lu**](https://q.lu) | 個性があり、技術寄りの印象です。製品アップデート、SaaS のリリース、開発者向けコンテンツに適しています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/q.lu) | ✓ |
+| [**t.ee**](https://t.ee) | クリーンで汎用的です。マーケティング、製品告知、ソーシャルコンテンツ向けに設計されています。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/t.ee) | ✓ |
+| [**t.lu**](https://t.lu) | マーケティング向けで汎用性があり、キャンペーン、ローンチ、ソーシャルプロモーションに適しています。 | [.lu](https://www.iana.org/domains/root/db/lu.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/t.lu) | ✓ |
+| [**t.sc**](https://t.sc) | 中立的で汎用性があり、製品告知やドキュメント向けに設計されています。 | [.sc](https://www.iana.org/domains/root/db/sc.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/t.sc) | ✓ |
+| [**u.sc**](https://u.sc) | 軽量でプロフェッショナルです。オンボーディングやチーム内コミュニケーションに適しています。 | [.sc](https://www.iana.org/domains/root/db/sc.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/u.sc) | ✓ |
+| [**u.sk**](https://u.sk) | ミニマルで柔軟性があり、日常的な共有やオンボーディング用リンクに最適化されています。 | [.sk](https://www.iana.org/domains/root/db/sk.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/u.sk) | ✓ |
+| [**v.sc**](https://v.sc) | パフォーマンス重視で、グロース分析やキャンペーン計測向けに設計されています。 | [.sc](https://www.iana.org/domains/root/db/sc.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/v.sc) | ✓ |
+| [**x.sh**](https://x.sh) | 技術系の .sh TLD です。オープンソースプロジェクトや API リファレンスに適しています。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/x.sh) | ✓ |
+| [**z.ee**](https://z.ee) | ミニマルでインパクトがあります。直接的なアクションや成果重視のキャンペーン向けに最適化されています。 | [.ee](https://www.iana.org/domains/root/db/ee.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/z.ee) | ✓ |
+
+> Premium と Enterprise では、ブランドの識別性を高められる希少ドメイン群をご利用いただけます。
+
+---
+
+## 開発者向けドメイン
+
+これらのドメインは、コードやスクリプトの共有向けに設計されています。URL 短縮とテキスト共有に対応しています。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**ba.sh**](https://ba.sh) | bash スクリプトを簡単に共有できるドメインです。GitHub と GitLab のリンクのみ対応しています。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/ba.sh) | ✓ |
+| [**z.sh**](https://z.sh) | shell スクリプトをすぐに共有できます。GitHub と GitLab のリンクのみ対応しています。 | [.sh](https://www.iana.org/domains/root/db/sh.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/z.sh) | ✓ |
+
+---
+
+## 特殊ブランドドメイン
+
+これらのドメインは特定のコンテンツ種別またはサービス専用です。URL 短縮専用です。
+
+| Domain | Description | TLD | DNS | CDN | DNSSEC | HSTS |
+|--------|-------------|-----|-----|-----|--------|------|
+| [**aff.af**](https://aff.af) | あらゆる商品ページを、ワンクリックでご自身のアフィリエイトリンクに変換できます。 | [.af](https://www.iana.org/domains/root/db/af.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/aff.af) | ✓ |
+| [**arstechni.ca**](https://arstechni.ca) | Ars Technica の記事やコンテンツ専用の短縮 URL ドメインです。Ars Technica の URL のみ受け付けます。 | [.ca](https://www.iana.org/domains/root/db/ca.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/arstechni.ca) | ✓ |
+| [**fileba.se**](https://fileba.se) | Firebase コンテンツ専用です。Firebase の Web サイト URL のみ短縮できます。 | [.se](https://www.iana.org/domains/root/db/se.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/fileba.se) | ✓ |
+| [**guc.ci**](https://guc.ci) | Gucci コンテンツ専用です。Gucci の Web サイト URL のみ短縮できます。 | [.ci](https://www.iana.org/domains/root/db/ci.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/guc.ci) | ✓ |
+| [**kak.ao**](https://kak.ao) | Kakao の URL 専用に設計された短縮ドメインです。Kakao ドメインのリンクのみ受け付けます。 | [.ao](https://www.iana.org/domains/root/db/ao.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/kak.ao) | ✓ |
+| [**lamborghi.ni**](https://lamborghi.ni) | Lamborghini コンテンツ専用です。Lamborghini の Web サイト URL のみ短縮できます。 | [.ni](https://www.iana.org/domains/root/db/ni.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/lamborghi.ni) | ✓ |
+| [**lowend.box**](https://lowend.box) | LowEndBox のオファーやレビュー専用の短縮 URL ドメインです。LowEndBox の URL に限定されます。 | [.box](https://www.iana.org/domains/root/db/box.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/lowend.box) | ✓ |
+| [**lowend.talk**](https://lowend.talk) | LowEndTalk の投稿やスレッド専用の短縮 URL ドメインです。LET のリンクのみ利用できます。 | [.talk](https://www.iana.org/domains/root/db/talk.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/lowend.talk) | ✓ |
+| [**milan.ac**](https://milan.ac) | AC Milan コンテンツ専用です。AC Milan の Web サイト URL のみ短縮できます。 | [.ac](https://www.iana.org/domains/root/db/ac.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/milan.ac) | ✓ |
+| [**neverle.ss**](https://neverle.ss) | Neverless コンテンツ専用です。Neverless の Web サイト URL のみ短縮できます。 | [.ss](https://www.iana.org/domains/root/db/ss.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/neverle.ss) | ✓ |
+| [**quai.ly**](https://quai.ly) | Quaily 専用の短縮 URL サービスです。Quaily のページとアセットのみ短縮できます。 | [.ly](https://www.iana.org/domains/root/db/ly.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/quai.ly) | ✓ |
+| [**techrad.ar**](https://techrad.ar) | TechRadar コンテンツ専用の短縮 URL ドメインです。TechRadar の記事 URL のみ対応しています。 | [.ar](https://www.iana.org/domains/root/db/ar.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/techrad.ar) | ✓ |
+| [**thever.ge**](https://thever.ge) | The Verge 専用の短縮 URL ドメインです。The Verge の記事やページのみ短縮できます。 | [.ge](https://www.iana.org/domains/root/db/ge.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/thever.ge) | ✓ |
+| [**zaob.ao**](https://zaob.ao) | Zaobao コンテンツ専用です。Zaobao の Web サイト URL のみ短縮できます。 | [.ao](https://www.iana.org/domains/root/db/ao.html) | xTom | Google Cloud | [View](https://dnssec-analyzer.verisignlabs.com/zaob.ao) | ✓ |

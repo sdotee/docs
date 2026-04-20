@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Command-line-client voor het S.EE-platform
+icon: Terminal
+---
+
+Een command-line-client voor het S.EE-platform, waarmee u korte URL's, tekstfragmenten en bestanden rechtstreeks vanuit uw terminal kunt maken en beheren.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Functies
+
+- **Beheer van korte URL's**: maak, werk bij en verwijder verkorte links met aangepaste slugs, domeinen en vervaldatum
+- **Tekstfragmenten**: deel codefragmenten en notities vanuit stdin of bestanden
+- **Bestandsupload**: upload bestanden direct of via stdin
+- **Domein- en tagbeheer**: toon beschikbare domeinen en beheer tags
+- **Wachtwoordbeveiliging**: beveilig uw content met wachtwoorden
+- **JSON-uitvoer**: machineleesbare uitvoer voor scripts
+
+## Installatie
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# of de vooraf gebouwde binary
+yay -S see-cli-bin
+```
+
+### Vanuit broncode
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Download vooraf gebouwde binaries en pakketten via [GitHub Releases](https://github.com/sdotee/cli/releases).
+
+## Configuratie
+
+Stel uw API-sleutel in via een omgevingsvariabele of een flag:
+
+```bash
+# Omgevingsvariabele, aanbevolen
+export SEE_API_KEY="your-api-key"
+
+# Of gebruik de flag
+see --api-key "your-api-key" <command>
+```
+
+### Configuratieopties
+
+| Optie | Omgevingsvariabele | Beschrijving |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | Uw S.EE API-sleutel, verplicht |
+| `--base-url` | `SEE_BASE_URL` | Aangepaste API-basis-URL |
+| `--timeout` | `SEE_TIMEOUT` | Time-out voor requests |
+| `--json` | - | Schakel JSON-uitvoer in |
+
+## Commando's
+
+### Domeinen en tags
+
+```bash
+# Toon beschikbare domeinen voor korte URL's
+see domains
+
+# Toon beschikbare domeinen voor bestandsuploads
+see file domains
+
+# Toon uw tags
+see tags
+```
+
+### Korte URL's
+
+```bash
+# Maak een korte URL
+see url create https://example.com
+
+# Maak met aangepaste opties
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Werk een korte URL bij
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Verwijder een korte URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Tekstfragmenten
+
+```bash
+# Maak tekst vanuit stdin
+echo "Hello World" | see text create --title "greeting"
+
+# Maak tekst vanuit een bestand
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Maak met opties
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Werk tekst bij
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Verwijder tekst
+see text delete --domain fs.to --slug abc123
+```
+
+### Bestandsupload
+
+```bash
+# Upload een bestand
+see file upload ./image.png
+
+# Upload met aangepast domein
+see file upload ./document.pdf --domain fs.to
+
+# Upload vanuit stdin
+cat image.png | see file upload --stdin --filename image.png
+
+# Verwijder een bestand
+see file delete <delete-hash>
+```
+
+## JSON-uitvoer
+
+Gebruik de vlag `--json` voor machineleesbare uitvoer, handig voor scripts:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Voorbeelden
+
+### Een korte URL maken en naar het klembord kopieren, macOS
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Een screenshot uploaden en de URL ophalen, Linux
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Korte URL's in batches maken
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

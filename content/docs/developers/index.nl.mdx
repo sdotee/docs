@@ -1,0 +1,88 @@
+---
+title: Aan de slag
+description: S.EE REST API voor het maken, beheren en volgen van korte URL's, tekstdeling en bestandsdeling
+icon: Rocket
+---
+
+## Overzicht
+
+Met de S.EE API kunt u programmatisch korte links, tekstdeling en bestandsdeling maken en beheren. Gebruik de API om:
+
+- Op schaal korte links te maken
+- Tekstfragmenten en code met syntax highlighting te delen
+- Bestanden te uploaden en te delen
+- Aangepaste domeinen te beheren
+- Analyticsgegevens op te halen
+- S.EE in uw applicaties te integreren
+
+---
+
+## Aan de slag
+
+### Vereisten
+
+1. Een S.EE-account met een actief abonnement
+2. Een API-toegangstoken
+
+### Authenticatie
+
+Alle API-verzoeken vereisen een toegangstoken in de `Authorization`-header:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Basis-URL
+
+```text
+https://s.ee/api/v1
+```
+
+---
+
+## Voorbeeldverzoeken
+
+### Korte URL maken
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Tekstdeling maken
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Bestand uploaden
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Bronnen
+
+<Cards>
+  <Card title="API-referentie" href="/docs/nl/developers/api/">Bekijk alle beschikbare endpoints</Card>
+  <Card title="SDK's" href="/docs/nl/developers/sdk/">Officiele S.EE-SDK's voor verschillende programmeertalen</Card>
+</Cards>

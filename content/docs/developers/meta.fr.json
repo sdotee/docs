@@ -1,0 +1,14 @@
+{
+  "title": "Développeurs",
+  "description": "Documentation de l’API et des SDK S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "api",
+    "sdk",
+    "cli",
+    "desktop",
+    "apps",
+    "smms-compatibility"
+  ]
+}

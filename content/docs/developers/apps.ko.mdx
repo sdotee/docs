@@ -1,0 +1,125 @@
+---
+title: 모바일 앱
+description: S.EE 의 네이티브 모바일 애플리케이션
+icon: Smartphone
+---
+
+휴대폰에서 링크를 단축하고, 텍스트를 공유하고, 파일을 업로드할 수 있습니다. S.EE 의 모든 기능을 네이티브 앱에서 그대로 사용할 수 있습니다.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## 다운로드
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="/app-store-badge.svg" alt="App Store 에서 다운로드" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="/google-play-badge.svg" alt="Google Play 에서 받기" height="40" />
+  </a>
+</div>
+
+## 지원 플랫폼
+
+| Platform | Requirements | Technology |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## 기능
+
+### URL 단축
+
+- 사용자 정의 슬러그, 제목, 비밀번호, 만료일이 포함된 단축 링크를 생성할 수 있습니다
+- 여러 도메인 중에서 선택할 수 있습니다
+- 링크 통계를 확인할 수 있습니다: 오늘, 이번 달, 총 방문 수
+- 슬러그, 대상 URL, 제목, 도메인 기준으로 검색할 수 있습니다
+- 기존 링크를 수정하거나 삭제할 수 있습니다
+
+### 텍스트 공유
+
+- 일반 텍스트, 소스 코드, Markdown 을 공유할 수 있습니다
+- 코드에 적합한 고정폭 편집기를 제공합니다
+- 사용자 정의 슬러그, 비밀번호, 만료일을 설정할 수 있습니다
+- 도메인 선택 및 태그 지정 (최대 5 개) 을 지원합니다
+
+### 파일 업로드
+
+- 파일 선택, 갤러리 선택, 카메라 촬영을 지원합니다
+- 클립보드 붙여넣기 시 자동 WebP 변환을 지원합니다 (iOS)
+- 실시간 업로드 진행률을 표시합니다
+- Direct Link, Share Page, BBCode, HTML, Markdown 등 9 가지 링크 형식을 지원합니다
+- 모든 목록에서 일괄 복사 및 일괄 삭제를 지원합니다
+
+### 사용량 대시보드
+
+- 시각적인 진행 막대로 저장 공간 사용량을 확인할 수 있습니다
+- API Calls, Links, Text Shares, Uploads, QR Codes 의 속도 제한을 확인할 수 있습니다
+- 일별 및 월별 사용량을 볼 수 있습니다
+
+### 설정
+
+- 셀프 호스팅 인스턴스를 위한 Base URL 설정
+- 한 번의 탭으로 검증할 수 있는 API Key 관리
+- 서비스별 기본 도메인 선택 (링크, 텍스트, 파일)
+- 테마: System / Light / Dark
+- Dynamic Color / Material You (Android)
+
+## iOS
+
+**SwiftUI** 와 **SwiftData** 로 제작되어 네이티브 iOS 경험을 제공합니다.
+
+- **Photo Picker** - 사진 라이브러리에서 선택
+- **Camera** - 사진 (JPG) 또는 동영상 (MOV 를 MP4 로 변환) 촬영
+- 태그와 목록 새로고침을 위한 pull-to-refresh 지원
+- Keychain 기반의 안전한 API Key 저장
+
+## Android
+
+**Jetpack Compose** 와 **Material 3** (Material You) 로 제작되어 네이티브 Android 경험을 제공합니다.
+
+- **Share Target** - 다른 앱에서 공유한 텍스트, URL, 파일 수신
+- **App Shortcuts** - 앱 아이콘 길게 누르기로 빠른 작업 실행
+- **Predictive Back** 제스처 지원 (Android 14+)
+- 테마 아이콘을 지원하는 **Adaptive Icon**
+- 로컬 기록 저장용 Room 데이터베이스
+- 보안 저장을 위한 EncryptedSharedPreferences
+
+## 기술 스택
+
+### iOS
+
+| Layer | Technology |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+### Android
+
+| Layer | Technology |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architecture | MVVM + Repository |
+| Networking | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Local DB | Room |
+| Security | EncryptedSharedPreferences |
+| Image Loading | Coil 3 |
+
+## 소스 코드
+
+두 앱 모두 MIT 라이선스로 오픈소스 공개되어 있습니다.
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## 시작하기
+
+1. [App Store](https://s.ee/ios) 또는 [Google Play](https://s.ee/android) 에서 다운로드합니다
+2. 계정이 없다면 [s.ee](https://s.ee) 에서 계정을 만듭니다
+3. 대시보드에서 [API Key 를 생성](https://s.ee/user/developers/)합니다
+4. 앱을 열고 **Settings** 로 이동한 뒤 API Key 를 입력하고 **Verify** 를 누릅니다

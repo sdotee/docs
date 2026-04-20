@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Panel"
+  },
+  "cookieBar": {
+    "message": "Dil tercihinizi hatırlamak ve deneyiminizi iyileştirmek için çerezler kullanıyoruz.",
+    "accept": "Kabul Et",
+    "decline": "Reddet",
+    "privacyLink": "Gizlilik Politikası"
+  },
+  "fumadocs": {
+    "search": "Ara",
+    "searchNoResult": "Sonuç bulunamadı",
+    "toc": "Bu sayfada",
+    "lastUpdate": "Son güncelleme",
+    "previousPage": "Önceki",
+    "nextPage": "Sonraki",
+    "chooseTheme": "Tema seç",
+    "editOnGithub": "GitHub'da düzenle",
+    "chooseLanguage": "Dil seç"
+  }
+}

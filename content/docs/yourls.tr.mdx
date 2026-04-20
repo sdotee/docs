@@ -1,0 +1,156 @@
+---
+title: YOURLS uyumlu API
+description: S.EE'yi YOURLS ile uyumlu herhangi bir istemci veya entegrasyonla kullanın
+icon: LinkShare
+---
+
+S.EE, [YOURLS](https://yourls.org/) API'sini destekleyen mevcut üçüncü taraf istemciler ve entegrasyonlarla birlikte kullanılabilmesi için YOURLS uyumlu bir API uç noktası sağlar.
+
+Bu uç nokta, YOURLS'tan geçişi kolaylaştırmak veya S.EE'yi halihazırda YOURLS API protokolünü kullanan otomasyon araçlarına, tarayıcı uzantılarına ve uygulamalara entegre etmek için tasarlanmıştır.
+
+---
+
+## API uç noktası
+
+```text
+https://s.ee/api/v1/yourls
+```
+
+---
+
+## Uyumluluk kapsamı
+
+Bu uç nokta **kısmi bir YOURLS API uyumluluk katmanı** uygular.
+
+### Desteklenenler
+
+- `action=shorturl`
+- `signature` ile kimlik doğrulama
+- Çıktı biçimleri: `json`, `jsonp`, `xml`, `simple`
+- GET ve POST istekleri
+
+### Desteklenmeyenler
+
+- `username` / `password` ile kimlik doğrulama
+- `expand`, `stats` veya `db-stats` gibi diğer YOURLS eylemleri
+- Yönetim veya veritabanı odaklı işlemler
+
+Yalnızca URL kısaltma işlevi sunulur.
+
+---
+
+## Kimlik doğrulama
+
+<Callout type="warn">
+Yalnızca `signature` ile kimlik doğrulama desteklenir. Kullanıcı adı/parola ile kimlik doğrulama **desteklenmez**.
+</Callout>
+
+`signature` parametresi sizin **S.EE API Token** değerinizi temsil eder.
+
+API Token'ınızı şu adresten oluşturabilir ve yönetebilirsiniz:
+
+https://s.ee/user/developers/
+
+API Token, doğrulanan kullanıcıya bağlıdır ve hesabın sahip olduğu izinleri ve kısıtlamaları aynen devralır.
+
+---
+
+## Desteklenen eylemler
+
+Şu anda yalnızca aşağıdaki eylem desteklenmektedir:
+
+| Eylem | Açıklama |
+|------|-------------|
+| `shorturl` | Verilen bağlantı için kısa URL oluşturur |
+
+---
+
+## Parametreler
+
+| Parametre | Gerekli | Açıklama |
+|----------|----------|-------------|
+| `signature` | Evet | S.EE API Token'ınız |
+| `action` | Evet | Yapılacak işlem; şu anda yalnızca `shorturl` |
+| `url` | Evet | Kısaltılacak URL |
+| `format` | Hayır | Çıktı biçimi: `json`, `jsonp`, `xml` veya `simple`; varsayılan `simple` |
+| `keyword` | Hayır | Kısa URL için özel slug |
+| `title` | Hayır | Kısa URL başlığı |
+
+### Notlar
+
+- Verilen `keyword` kullanımda ise API hata döndürmek yerine otomatik olarak yeni ve uygun bir `keyword` üretir
+- Tüm isteklerde S.EE'nin standart kötüye kullanım önleme ve doğrulama kuralları geçerlidir
+
+---
+
+## Örnekler
+
+### POST isteği
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+```
+
+**Yanıt:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Bazı yanıt alanları YOURLS uyumluluğu için korunur ve boş olabilir.
+</Callout>
+
+---
+
+### GET isteği
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Yanıt:**
+
+```text
+https://s.ee/link
+```
+
+<Callout>
+GET isteklerinde parametreleri URL-encode etmeyi unutmayın.
+Uzun URL'ler veya ek parametreler için URL uzunluğu sınırlarından kaçınmak amacıyla POST kullanmanız önerilir.
+</Callout>
+
+---
+
+## Üçüncü taraf istemciler
+
+Bu API, YOURLS tarzı URL kısaltmayı destekleyen tüm istemcilerle uyumludur:
+
+* Tarayıcı uzantıları
+* Mobil uygulamalar
+* Masaüstü uygulamaları
+* Otomasyon araçları (Shortcuts, Tasker, Zapier vb.)
+
+YOURLS API belirtiminin özgün ayrıntıları için resmî dokümantasyona bakın:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

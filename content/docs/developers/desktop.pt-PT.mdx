@@ -1,0 +1,113 @@
+---
+title: Aplicação de desktop
+description: Aplicação de desktop nativa para a S.EE
+icon: Monitor
+---
+
+Encurte links, partilhe texto e carregue ficheiros a partir do seu computador com aplicações nativas para macOS e Linux.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Transferir
+
+- **macOS**: [https://s.ee/macos](https://s.ee/macos)
+- **Linux**: [https://s.ee/linux](https://s.ee/linux)
+
+## Plataformas suportadas
+
+| Plataforma | Estado | Tecnologia |
+|----------|--------|------------|
+| macOS | Disponível | SwiftUI |
+| Linux | Disponível | GTK4 + libadwaita + Rust |
+| Windows | Em desenvolvimento | - |
+
+## Funcionalidades
+
+- **Encurtamento de URL** — slug personalizado, título, palavra-passe e expiração
+- **Partilha de texto** — texto simples, código-fonte ou Markdown com editor monoespaçado
+- **Carregamento de ficheiros** — arrastar e largar, colar a partir da área de transferência ou seletor de ficheiros
+- **Geração de código QR** — exportação em PNG, SVG ou PDF
+- **Histórico** — registo local de todos os links, textos e ficheiros criados
+- **Suporte multidomínio** — escolha entre vários domínios por serviço
+- **Painel de utilização** — uso de armazenamento e limites de velocidade num relance
+
+## macOS
+
+Desenvolvida com **SwiftUI** e **SwiftData**. Suporte completo a atalhos de teclado e integração com a barra de menus.
+
+- [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- Requer macOS 14.0+
+
+### Destaques
+
+- **Barra de menus** — encurtar URLs, colar e carregar, e aceder a itens recentes sem abrir a janela principal
+- **Drag & Drop** — largar ficheiros em qualquer ponto da área de carregamento
+- **Colar da área de transferência** (Cmd+V) — converte automaticamente imagens para WebP com fallback para PNG
+- **Keychain** — armazenamento seguro da chave de API através da framework de segurança do macOS
+
+### Atalhos de teclado
+
+| Atalho | Ação |
+|----------|--------|
+| Cmd+N | Novo link curto |
+| Cmd+Shift+N | Nova partilha de texto |
+| Cmd+V | Colar e carregar a partir da área de transferência |
+| Cmd+, | Definições |
+| Cmd+Q | Sair |
+
+### Stack técnica
+
+| Camada | Tecnologia |
+|-------|-----------|
+| UI | SwiftUI |
+| Armazenamento | SwiftData |
+| Rede | URLSession (actor-based) |
+| Segurança | Keychain |
+| Miniaturas | QuickLookThumbnailing |
+| Processamento de imagem | Swift-WebP |
+
+## Linux
+
+Desenvolvida com **GTK4**, **libadwaita** e **Rust**. Segue as Human Interface Guidelines do GNOME.
+
+- [sdotee/app/linux](https://github.com/sdotee/app/tree/main/linux)
+- Requer GTK 4.14+ e libadwaita 1.5+
+
+### Destaques
+
+- **Experiência nativa GNOME** — layout adaptativo seguindo o GNOME HIG
+- **Exportação de código QR** — PNG, SVG ou PDF
+- **Ficheiro de configuração** — `~/.config/see/config.toml` para chave de API, URL base e domínios predefinidos
+- **Variáveis de ambiente** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` substituem o ficheiro de configuração
+
+### Atalhos de teclado
+
+| Atalho | Ação |
+|----------|--------|
+| Ctrl+1 | Mudar para a vista Links |
+| Ctrl+2 | Mudar para a vista Textos |
+| Ctrl+3 | Mudar para a vista Ficheiros |
+| Ctrl+, | Abrir Preferências |
+| Ctrl+? | Mostrar atalhos de teclado |
+| Ctrl+Q | Sair |
+
+### Stack técnica
+
+| Camada | Tecnologia |
+|-------|-----------|
+| UI | GTK4 + libadwaita |
+| Linguagem | Rust (edição 2024) |
+| Cliente API | see-sdk |
+| Código QR | Integrado (exportação PNG, SVG, PDF) |
+
+### Armazenamento de dados
+
+- **Config**: `~/.config/see/config.toml`
+- **History**: `~/.local/share/see/history.json`
+
+## Primeiros passos
+
+1. Transfira para [macOS](https://s.ee/macos) ou [Linux](https://s.ee/linux)
+2. Crie uma conta em [s.ee](https://s.ee) se ainda não tiver uma
+3. [Gere uma chave de API](https://s.ee/user/developers/) a partir do seu painel
+4. Abra a aplicação, vá a **Preferences** e introduza a sua chave de API

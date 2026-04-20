@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Pendekkan URL, bagikan teks, dan host file langsung dari dasbor WordPress Anda
+icon: WordPress
+---
+
+[Plugin WordPress S.EE](https://wordpress.org/plugins/sdotee/) memungkinkan Anda memendekkan URL, berbagi teks, dan mengunggah file tanpa meninggalkan WordPress. Saat Anda menerbitkan posting, tautan pendek akan dibuat otomatis — tanpa langkah tambahan.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Source Code on GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Fitur
+
+| Feature | Description |
+|---------|-------------|
+| Short URLs | Otomatis membuat tautan pendek saat Anda menerbitkan atau memperbarui posting dan halaman |
+| Text Sharing | Bagikan teks biasa, Markdown, dan cuplikan kode dengan tautan |
+| File Hosting | Unggah file dari Media Library dan salin tautan sebagai URL, HTML, Markdown, atau BBCode |
+| Automation | Otomatis unggah media baru dan otomatis pendekkan tautan saat publish — atur sekali dan selesai |
+| Admin Integration | Lihat dan kelola URL pendek langsung dari daftar posting/halaman |
+| Dashboard Panel | Panel S.EE khusus untuk berbagi teks dan file dengan riwayat penggunaan lengkap |
+| 13 Languages | English, Chinese (Simplified/Traditional), Japanese, Korean, Indonesian, Vietnamese, German, French, Spanish, Portuguese (Brazil/Portugal), Russian |
+
+---
+
+## Persyaratan
+
+- PHP 8.2+
+- WordPress 6.0+
+- Akun S.EE dengan [API Token](https://s.ee/user/developers/)
+
+---
+
+## Instalasi
+
+### Dari WordPress Plugin Directory
+
+1. Di admin WordPress Anda, buka **Plugins** > **Add New**
+2. Cari **S.EE**
+3. Klik **Install Now**, lalu **Activate**
+
+### Dari GitHub
+
+1. Unduh ZIP terbaru dari [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Buka **Plugins** > **Add New** > **Upload Plugin**
+3. Unggah ZIP lalu klik **Install Now**, kemudian **Activate**
+
+---
+
+## Pengaturan
+
+### 1. Dapatkan API Token Anda
+
+1. Login ke akun S.EE Anda
+2. Buka **[Tools > API Token](https://s.ee/user/developers/)**
+3. Buat API Token baru
+
+<Callout type="warn">
+Jangan membagikan API Token Anda secara publik atau menyimpannya ke version control.
+</Callout>
+
+### 2. Konfigurasikan plugin
+
+1. Buka **Settings** > **S.EE**
+2. Tempelkan API Token Anda lalu klik **Verify**
+3. Pilih domain default untuk URL pendek, teks, dan file
+4. Aktifkan auto-generation dan auto-upload jika Anda ingin semuanya berjalan otomatis
+
+<Callout type="info">
+Anda juga dapat mengatur API Token di `wp-config.php` agar tidak disimpan di database.
+</Callout>
+
+---
+
+## Penggunaan
+
+### URL Pendek
+
+Jika auto-generation aktif, setiap posting dan halaman akan mendapatkan tautan pendek saat Anda menekan Publish. Anda juga dapat membuat atau melihat URL pendek dari kolom daftar posting/halaman di panel admin.
+
+### Berbagi Teks
+
+Buka panel dasbor **S.EE** lalu tempelkan konten Anda. Format yang didukung:
+
+- Teks biasa
+- Markdown
+- Cuplikan kode
+
+### File Hosting
+
+Unggah file melalui panel dasbor **S.EE** atau Media Library. Setelah diunggah, ambil tautan dalam format yang Anda inginkan: URL, HTML, Markdown, atau BBCode.
+
+---
+
+## Terkait
+
+- [Developer API](/docs/id/developers)
+- [Berbagi File](/docs/id/file-sharing)
+- [Berbagi Teks](/docs/id/text-sharing)
+- [Hosting Gambar](/docs/id/image-hosting)

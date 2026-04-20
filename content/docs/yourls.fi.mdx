@@ -1,0 +1,154 @@
+---
+title: YOURLS-yhteensopiva API
+description: Käytä S.EE:tä minkä tahansa YOURLS-yhteensopivan asiakkaan tai integraation kanssa
+icon: LinkShare
+---
+
+S.EE tarjoaa YOURLS-yhteensopivan API-päätepisteen.
+
+Tämän avulla voit käyttää S.EE:tä olemassa olevien asiakkaiden ja integraatioiden kanssa, jotka tukevat [YOURLS](https://yourls.org/) APIa.
+
+## API-päätepiste
+
+```text
+https://s.ee/api/v1/yourls
+```
+
+---
+
+## Yhteensopivuuden laajuus
+
+Tämä päätepiste toteuttaa **osittaisen YOURLS API -yhteensopivuuskerroksen**.
+
+### Tuettu
+
+- `action=shorturl`
+- `signature`-todennus
+- Tulostemuodot: `json`, `jsonp`, `xml`, `simple`
+- GET- ja POST-pyynnöt
+
+### Ei tuettu
+
+- `username` / `password` -todennus
+- Muut YOURLS-toiminnot kuten `expand`, `stats` tai `db-stats`
+- Hallinnolliset tai tietokantaan liittyvät toiminnot
+
+Vain URL-lyhennystoiminto on käytettävissä.
+
+---
+
+## Todennus
+
+<Callout type="warn">
+Vain `signature`-todennus on tuettu. Käyttäjätunnus- ja salasanatodennusta ei ole saatavilla.
+</Callout>
+
+`signature`-parametri on oma **S.EE API Token**.
+
+Voit luoda ja hallita API-tokeniasi täällä:
+
+https://s.ee/user/developers/
+
+API-token on sidottu kirjautuneeseen käyttäjään ja perii samat oikeudet ja rajoitukset kuin tili.
+
+---
+
+## Tuetut toiminnot
+
+Tällä hetkellä tuetaan vain seuraavaa toimintoa:
+
+| Toiminto | Kuvaus |
+|------|-------------|
+| `shorturl` | Luo lyhyt URL annetulle linkille |
+
+---
+
+## Parametrit
+
+| Parametri | Pakollinen | Kuvaus |
+|----------|----------|-------------|
+| `signature` | Kyllä | S.EE API Tokenisi |
+| `action` | Kyllä | Suoritettava toiminto (tällä hetkellä vain `shorturl`) |
+| `url` | Kyllä | Lyhennettävä URL |
+| `format` | Ei | Tulostemuoto: `json`, `jsonp`, `xml` tai `simple` |
+| `keyword` | Ei | Mukautettu slug lyhyelle URL:lle |
+| `title` | Ei | Lyhyen URL:n otsikko |
+
+### Huomioita
+
+- Jos annettu `keyword` on jo käytössä, API luo automaattisesti uuden saatavilla olevan avainsanan virheen sijaan.
+- S.EE:n tavalliset väärinkäytösten eston ja validoinnin säännöt koskevat kaikkia pyyntöjä.
+
+---
+
+## Esimerkit
+
+### POST-pyyntö
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+```
+
+**Vastaus:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ lisätty tietokantaan",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Jotkin vastauskentät säilytetään YOURLS-yhteensopivuuden vuoksi ja voivat olla tyhjiä.
+</Callout>
+
+---
+
+### GET-pyyntö
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Vastaus:**
+
+```text
+https://s.ee/link
+```
+
+<Callout>
+Muista URL-koodata parametrit GET-pyyntöjä käytettäessä.  
+Pitkille URL-osoitteille tai lisäparametreille POST-pyyntö on suositeltu URL-pituusrajojen välttämiseksi.
+</Callout>
+
+---
+
+## Kolmannen osapuolen asiakkaat
+
+Tämä API on yhteensopiva kaikkien YOURLS-tyylisiä lyhennysasiakkaita tukevien työkalujen kanssa, mukaan lukien:
+
+- selainlaajennukset
+- mobiilisovellukset
+- työpöytäsovellukset
+- automaatiotyökalut (Shortcuts, Tasker, Zapier jne.)
+
+YOURLS API:n alkuperäinen määrittely löytyy virallisesta dokumentaatiosta:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

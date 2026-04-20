@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Lühenda URL-e, jaga teksti ja halda faile otse WordPressi juhtpaneelist
+icon: WordPress
+---
+
+[S.EE WordPressi plugin](https://wordpress.org/plugins/sdotee/) võimaldab URL-e lühendada, teksti jagada ja faile üles laadida ilma WordPressist lahkumata. Avalda postitus ja lühilink luuakse automaatselt, lisasamme pole vaja.
+
+- [WordPressi pluginate kataloog](https://wordpress.org/plugins/sdotee/)
+- [Lähtekood GitHubis](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Funktsioonid
+
+| Funktsioon | Kirjeldus |
+|---------|-------------|
+| Lühikesed URL-id | Loo postituste ja lehtede avaldamisel või uuendamisel lühilingid automaatselt |
+| Teksti jagamine | Jaga tavateksti, Markdowni ja koodilõike lingiga |
+| Failide hostimine | Laadi Media Libraryst faile üles ja kopeeri link URL-i, HTML-i, Markdowni või BBCode'ina |
+| Automatiseerimine | Uus meedia laetakse automaatselt üles ja lingid lühendatakse avaldamisel automaatselt |
+| Haldusliidese integratsioon | Vaata ja halda lühilinke otse postituste ja lehtede loendist |
+| Juhtpaneeli paneel | Eraldi S.EE paneel teksti ja failide jagamiseks koos täieliku kasutusajalooga |
+| 13 keelt | Inglise, hiina (lihtsustatud ja traditsiooniline), jaapani, korea, indoneesia, vietnami, saksa, prantsuse, hispaania, portugali (Brasiilia ja Portugal), vene |
+
+---
+
+## Nõuded
+
+- PHP 8.2+
+- WordPress 6.0+
+- S.EE konto koos [API tokeniga](https://s.ee/user/developers/)
+
+---
+
+## Paigaldamine
+
+### WordPressi pluginate kataloogist
+
+1. Ava WordPressi halduses **Plugins** > **Add New**
+2. Otsi **S.EE**
+3. Klõpsa **Install Now**, seejärel **Activate**
+
+### GitHubist
+
+1. Laadi uusim ZIP alla lehelt [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Ava **Plugins** > **Add New** > **Upload Plugin**
+3. Laadi ZIP üles ning klõpsa **Install Now**, seejärel **Activate**
+
+---
+
+## Seadistamine
+
+### 1. Hangi API token
+
+1. Logi S.EE kontole sisse
+2. Ava **[Tools > API Token](https://s.ee/user/developers/)**
+3. Loo uus API token
+
+<Callout type="warn">
+Ära jaga oma API tokenit avalikult ega lisa seda versioonihaldusse.
+</Callout>
+
+### 2. Seadista plugin
+
+1. Ava **Settings** > **S.EE**
+2. Kleebi API token ja klõpsa **Verify**
+3. Vali lühilinkide, teksti ja failide vaikimisi domeenid
+4. Kui tahad töövoogu automatiseerida, lülita sisse automaatne genereerimine ja automaatne üleslaadimine
+
+<Callout type="info">
+API tokeni saab andmebaasist eemal hoidmiseks määrata ka failis `wp-config.php`.
+</Callout>
+
+---
+
+## Kasutamine
+
+### Lühikesed URL-id
+
+Kui automaatne genereerimine on sisse lülitatud, saab iga postitus ja leht avaldamisel kohe lühilingi. Lühikesi URL-e saab luua või vaadata ka halduspaneeli postituste ja lehtede loendiveerust.
+
+### Teksti jagamine
+
+Ava juhtpaneeli paneel **S.EE** ja kleebi sinna sisu. Toetatud vormingud:
+
+- tavatekst
+- Markdown
+- koodilõigud
+
+### Failide hostimine
+
+Laadi faile üles kas paneeli **S.EE** kaudu või Media Libraryst. Pärast üleslaadimist saad lingi võtta endale sobivas vormingus: URL, HTML, Markdown või BBCode.
+
+---
+
+## Seotud
+
+- [Arendajate API](/docs/et/developers)
+- [Failide jagamine](/docs/et/file-sharing)
+- [Teksti jagamine](/docs/et/text-sharing)
+- [Piltide hostimine](/docs/et/image-hosting)

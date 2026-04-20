@@ -1,0 +1,125 @@
+---
+title: 移動應用
+description: S.EE 的原生移動應用
+icon: Smartphone
+---
+
+在手機上縮短網址、分享文字和上傳檔案，以原生應用體驗使用完整的 S.EE 功能。
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## 下載
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="/app-store-badge.svg" alt="在 App Store 下載" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="/google-play-badge.svg" alt="在 Google Play 取得" height="40" />
+  </a>
+</div>
+
+## 支援的平台
+
+| 平台 | 要求 | 技術棧 |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+（API 29） | Jetpack Compose + Material 3 |
+
+## 功能
+
+### URL 縮短
+
+- 建立帶自訂短碼、標題、密碼和過期時間的短網址
+- 從多個網域中選擇
+- 檢視連結統計：今天、本月和總造訪量
+- 按短碼、目標 URL、標題和網域搜尋
+- 編輯或刪除現有短網址
+
+### 文字分享
+
+- 分享純文字、原始碼或 Markdown
+- 面向程式碼的等寬編輯器
+- 自訂短碼、密碼和過期時間
+- 選擇網域並分配標籤（最多 5 個）
+
+### 檔案上傳
+
+- 選擇檔案、從相簿選取，或使用相機拍攝
+- 從剪貼簿貼上並自動轉換為 WebP（iOS）
+- 即時上傳進度
+- 9 種連結格式：直鏈、分享頁、BBCode、HTML、Markdown 等
+- 在所有列表中批次複製和批次刪除
+
+### 用量儀表板
+
+- 帶視覺化進度條的儲存空間使用情況
+- API Calls、Links、Text Shares、Uploads 和 QR Codes 的頻率限制
+- 每日和每月用量統計
+
+### 設定
+
+- 自託管例項的基礎 URL 設定
+- 一鍵驗證的 API Key 管理
+- 按服務分別設定預設網域（短網址、文字、檔案）
+- 主題：System / Light / Dark
+- Dynamic Color / Material You（Android）
+
+## iOS
+
+使用 **SwiftUI** 和 **SwiftData** 構建，提供原生 iOS 體驗。
+
+- **Photo Picker** —— 從照片庫中選擇
+- **Camera** —— 拍攝照片（JPG）或影片（MOV 轉 MP4）
+- 支援透過下拉重新整理標籤和列表
+- 基於 Keychain 的安全 API Key 儲存
+
+## Android
+
+使用 **Jetpack Compose** 和 **Material 3**（Material You）構建，提供原生 Android 體驗。
+
+- **Share Target** —— 從其他應用接收共享的文字、URL 和檔案
+- **App Shortcuts** —— 長按應用圖示執行快捷操作
+- **Predictive Back** 手勢支援（Android 14+）
+- 支援主題圖示的 **Adaptive Icon**
+- 使用 Room 資料庫儲存本地歷史
+- 使用 EncryptedSharedPreferences 進行安全儲存
+
+## 技術棧
+
+### iOS
+
+| 層 | 技術 |
+|-------|-----------|
+| UI | SwiftUI |
+| 儲存 | SwiftData |
+| 網路 | URLSession（基於 actor） |
+| 安全 | Keychain |
+| 縮圖 | QuickLookThumbnailing |
+| 影像處理 | Swift-WebP |
+
+### Android
+
+| 層 | 技術 |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| 架構 | MVVM + Repository |
+| 網路 | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt（Dagger） |
+| 本地資料庫 | Room |
+| 安全 | EncryptedSharedPreferences |
+| 圖片載入 | Coil 3 |
+
+## 原始碼
+
+兩個應用都基於 MIT 許可證開源：
+
+- **iOS**：[sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**：[sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## 快速上手
+
+1. 從 [App Store](https://s.ee/ios) 或 [Google Play](https://s.ee/android) 下載應用
+2. 如果您還沒有帳號，請前往 [s.ee](https://s.ee) 建立帳號
+3. 在儀表板中 [產生 API 金鑰](https://s.ee/user/developers/)
+4. 開啟應用，前往 **Settings**，輸入您的 API Key 並點擊 **Verify**

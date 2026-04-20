@@ -1,0 +1,233 @@
+---
+title: Bestanden delen
+description: Hoe u bestanden uploadt en deelt met S.EE
+icon: Upload
+---
+
+## Overzicht
+
+Met S.EE File Sharing uploadt en deelt u bestanden via een korte, deelbare link. Ideaal voor afbeeldingen, documenten, audio, video en andere bestanden.
+
+---
+
+## Bestanden uploaden
+
+### Snel uploaden met slepen en neerzetten
+
+1. Log in op [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Klik in de linkerzijbalk op **Sharing > Files** of ga direct naar [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Sleep bestanden of mappen naar het venster **Drag & Drop**
+   - U kunt ook op het venster klikken om bestanden te kiezen
+   - Als u een map uploadt, worden alle bestanden daarin meegenomen
+4. Bestanden worden gedeeld via het standaarddomein met een willekeurige slug
+
+### Geavanceerd uploaden met Create File
+
+Voor meer controle over uw bestandsdeling:
+
+1. Klik op **Create File**
+2. Stel uw opties in:
+   - **Domain** - Kies het gewenste domein voor de deelpagina
+   - **Custom Slug** - Stel een aangepaste URL-slug in
+   - **Other options** - Tags, vervaldatum enzovoort
+3. Kies uw bestand en upload het
+
+---
+
+## Bestandslinks
+
+Elk geupload bestand heeft twee soorten links:
+
+| Linktype | Formaat | Beschrijving |
+|-----------|--------|-------------|
+| Deelpagina | `fs.to/[your_slug]` | Aanpasbaar domein en aanpasbare slug |
+| Directe link | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Rechtstreekse toegang tot het bestand met de oorspronkelijke bestandsnaam |
+
+**Opmerking:** directe links ondersteunen momenteel geen aangepaste domeinen.
+
+---
+
+## Ondersteunde bestandstypen
+
+S.EE ondersteunt een breed scala aan bestandstypen:
+
+### Afbeeldingen
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| image/jpeg | JPEG-afbeeldingen (.jpg, .jpeg) |
+| image/png | PNG-afbeeldingen (.png) |
+| image/gif | GIF-afbeeldingen (.gif) |
+| image/webp | WebP-afbeeldingen (.webp) |
+| image/avif | AVIF-afbeeldingen (.avif) |
+| image/svg+xml | SVG-afbeeldingen (.svg) |
+| image/bmp | BMP-afbeeldingen (.bmp) |
+| image/tiff | TIFF-afbeeldingen (.tiff, .tif) |
+| image/heic | HEIC-afbeeldingen (.heic) |
+| image/heif | HEIF-afbeeldingen (.heif) |
+| image/jp2 | JPEG 2000-afbeeldingen (.jp2) |
+| image/jpx | JPEG 2000-afbeeldingen (.jpx) |
+| image/jxl | JPEG XL-afbeeldingen (.jxl) |
+| image/vnd.adobe.photoshop | Photoshop-bestanden (.psd) |
+
+### Documenten
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| application/pdf | PDF-documenten (.pdf) |
+| application/msword | Word-documenten (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Word-documenten (.docx) |
+| application/vnd.ms-excel | Excel-spreadsheets (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Excel-spreadsheets (.xlsx) |
+| application/vnd.ms-powerpoint | PowerPoint-presentaties (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | PowerPoint-presentaties (.pptx) |
+| application/vnd.apple.pages | Pages-documenten (.pages) |
+| application/vnd.apple.numbers | Numbers-spreadsheets (.numbers) |
+| application/vnd.apple.keynote | Keynote-presentaties (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | PostScript-bestanden (.ps, .eps) |
+| application/epub+zip | EPUB-e-books (.epub) |
+
+### Tekst en data
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| text/plain | Platte tekstbestanden (.txt) |
+| text/csv | CSV-bestanden (.csv) |
+| text/markdown | Markdown-bestanden (.md, .markdown, .mdx) |
+| application/json | JSON-bestanden (.json) |
+| application/yaml | YAML-bestanden (.yaml, .yml) |
+
+### Audio
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| audio/mpeg | MP3-bestanden (.mp3) |
+| audio/wav | WAV-bestanden (.wav) |
+| audio/ogg | OGG-audio (.ogg) |
+| audio/flac | FLAC-audio (.flac) |
+| audio/aac | AAC-audio (.aac) |
+| audio/mp4, audio/x-m4a | M4A-audio (.m4a) |
+| audio/midi | MIDI-bestanden (.mid, .midi) |
+| audio/x-ms-wma | WMA-audio (.wma) |
+
+### Video
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| video/mp4 | MP4-video's (.mp4) |
+| video/webm | WebM-video's (.webm) |
+| video/quicktime | QuickTime-video's (.mov) |
+| video/x-matroska | MKV-video's (.mkv) |
+| video/x-msvideo | AVI-video's (.avi) |
+| video/mpeg | MPEG-video's (.mpeg, .mpg) |
+| video/ogg | OGG-video's (.ogv) |
+| video/3gpp | 3GP-video's (.3gp) |
+| video/x-flv | FLV-video's (.flv) |
+| video/x-ms-wmv | WMV-video's (.wmv) |
+
+### Archieven en schijfimages
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| application/zip | ZIP-archieven (.zip) |
+| application/x-zip-compressed | ZIP-archieven (.zip) |
+| application/gzip | GZIP-archieven (.gz) |
+| application/x-bzip2 | BZIP2-archieven (.bz2) |
+| application/x-xz | XZ-archieven (.xz) |
+| application/x-tar | TAR-archieven (.tar) |
+| application/x-7z-compressed | 7-Zip-archieven (.7z) |
+| application/x-rar-compressed | RAR-archieven (.rar) |
+| application/x-apple-diskimage | DMG-schijfimages (.dmg) |
+| application/x-iso9660-image | ISO-schijfimages (.iso) |
+
+<Callout type="warn">
+Uitvoerbare bestanden (.exe, .msi, .bat, .app enzovoort) zijn om veiligheidsredenen **niet toegestaan**.
+</Callout>
+
+<Callout type="info">
+Voor de volgende extensies kunnen we het response-`Content-Type` forceren naar `text/plain` om misbruik via scripts te beperken: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Voor onbekende of onduidelijke bestandstypen forceren we het response-`Content-Type` naar `application/octet-stream`.
+</Callout>
+
+### Legacy en compatibiliteit
+
+Deze MIME-typen worden geaccepteerd voor compatibiliteit met oudere systemen.
+
+| MIME-type | Beschrijving |
+|-----------|-------------|
+| application/excel | Excel-spreadsheets (.xls) |
+| application/x-excel | Excel-spreadsheets (.xls) |
+| application/x-msexcel | Excel-spreadsheets (.xls) |
+| application/mspowerpoint | PowerPoint-presentaties (.ppt) |
+| application/powerpoint | PowerPoint-presentaties (.ppt) |
+| application/x-mspowerpoint | PowerPoint-presentaties (.ppt) |
+
+---
+
+## Opslaglimieten
+
+Opslaglimieten verschillen per abonnement:
+
+| Abonnement | Maximale bestandsgrootte | Totale opslag |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Aangepast | Aangepast |
+
+Zie [s.ee/pricing](https://s.ee/pricing) voor alle abonnementsdetails.
+
+---
+
+## Bewaartermijn van bestanden
+
+- Bestanden worden **permanent bewaard** zolang uw abonnement actief is
+- Als uw abonnement verloopt, blijven bestanden nog **7 dagen** beschikbaar voordat ze worden verwijderd
+
+---
+
+## Ondersteunde domeinen
+
+Bestandsdeling is beschikbaar op de volgende domeinen:
+
+| Domein | Beste voor |
+|--------|----------|
+| [fs.to](https://fs.to) | Algemene bestandsdeling |
+| [files.to](https://files.to) | Algemene bestandsdeling |
+| [fileshare.to](https://fileshare.to) | Algemene bestandsdeling |
+| [filesharing.to](https://filesharing.to) | Algemene bestandsdeling |
+
+Voor Premium- en Enterprise-klanten: zie [officiele domeinen](/docs/nl/official-domains/#premium--enterprise).
+
+---
+
+## API-toegang
+
+Bestandsdeling is ook via de API beschikbaar. Zie onze [API-documentatie](/docs/nl/developers/api/#file-sharing) voor programmatische uploads.
+
+---
+
+## Veelgestelde vragen
+
+### Wie kan bestanden uploaden?
+
+Alleen betalende abonnees kunnen bestanden uploaden. Een geldig abonnement is vereist.
+
+### Zijn er downloadlimieten?
+
+Nee, er zijn geen limieten voor het aantal downloads of de bandbreedte van gedeelde bestanden.
+
+### Kan ik de URL van de deelpagina aanpassen?
+
+Ja, bij de uploadmethode **Create File** kunt u een aangepast domein en een aangepaste slug instellen voor de deelpagina.
+
+### Kan ik de URL van de directe link aanpassen?
+
+Momenteel gebruiken directe links een vast formaat en ondersteunen ze geen aangepaste domeinen.

@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Käsureaklient S.EE platvormi jaoks
+icon: Terminal
+---
+
+S.EE platvormi käsureaklient, millega saad otse terminalist luua ja hallata lühikesi URL-e, tekstikatkeid ning faile.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Funktsioonid
+
+- **Lühikeste URL-ide haldamine**: loo, uuenda ja kustuta lühilinke koos kohandatud lühikoodide, domeenide ja aegumisega
+- **Tekstikatked**: jaga koodilõike ja märkmeid stdin-ist või failidest
+- **Failide üleslaadimine**: laadi faile üles otse või stdin-i kaudu
+- **Domeenide ja siltide haldamine**: kuva saadaolevaid domeene ja halda silte
+- **Paroolikaitse**: kaitse oma sisu paroolidega
+- **JSON-väljund**: masinloetav väljund skriptimiseks
+
+## Paigaldamine
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# või eelkompileeritud binaar
+yay -S see-cli-bin
+```
+
+### Lähtekoodist
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Eelkompileeritud binaarid ja paketid leiad [GitHub Releases](https://github.com/sdotee/cli/releases) lehelt.
+
+## Seadistamine
+
+Määra API võti keskkonnamuutuja või lipu kaudu:
+
+```bash
+# Keskkonnamuutuja, soovitatav
+export SEE_API_KEY="your-api-key"
+
+# Või lipuga
+see --api-key "your-api-key" <command>
+```
+
+### Seadistusvalikud
+
+| Valik | Keskkonnamuutuja | Kirjeldus |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | Sinu S.EE API võti, kohustuslik |
+| `--base-url` | `SEE_BASE_URL` | Kohandatud API baas-URL |
+| `--timeout` | `SEE_TIMEOUT` | Päringu ajalõpp |
+| `--json` | - | Lülitab sisse JSON-väljundi |
+
+## Käsud
+
+### Domeenid ja sildid
+
+```bash
+# Kuva lühikeste URL-ide saadaolevad domeenid
+see domains
+
+# Kuva failiüleslaadimiste domeenid
+see file domains
+
+# Kuva sinu sildid
+see tags
+```
+
+### Lühikesed URL-id
+
+```bash
+# Loo lühike URL
+see url create https://example.com
+
+# Loo kohandatud valikutega
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Uuenda lühikest URL-i
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Kustuta lühike URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Tekstikatked
+
+```bash
+# Loo tekst stdin-ist
+echo "Hello World" | see text create --title "greeting"
+
+# Loo tekst failist
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Loo lisavalikutega
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Uuenda teksti
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Kustuta tekst
+see text delete --domain fs.to --slug abc123
+```
+
+### Faili üleslaadimine
+
+```bash
+# Laadi fail üles
+see file upload ./image.png
+
+# Laadi üles kohandatud domeeniga
+see file upload ./document.pdf --domain fs.to
+
+# Laadi üles stdin-ist
+cat image.png | see file upload --stdin --filename image.png
+
+# Kustuta fail
+see file delete <delete-hash>
+```
+
+## JSON-väljund
+
+Kasuta skriptimiseks masinloetava väljundi saamiseks lippu `--json`:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Näited
+
+### Loo lühike URL ja kopeeri lõikelauale macOS-is
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Laadi Linuxis ekraanipilt üles ja saa URL
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Loo lühikesi URL-e partiina
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

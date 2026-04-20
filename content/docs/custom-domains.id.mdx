@@ -1,0 +1,70 @@
+---
+title: Domain Kustom
+description: Cara menyiapkan domain kustom untuk tautan pendek Anda
+icon: Globe
+---
+
+## Apa itu Domain Kustom?
+
+Domain kustom memungkinkan Anda menggunakan merek Anda sendiri pada tautan pendek alih-alih `s.ee`. Misalnya, alih-alih `s.ee/link`, Anda dapat menggunakan `go.example.com/link`.
+
+---
+
+## Mengapa Menggunakan Domain Kustom?
+
+- **Pengenalan merek** - Tautan menampilkan merek Anda, bukan merek kami
+- **Kepercayaan** - Pengguna lebih cenderung mengklik tautan bermerek
+- **CTR lebih tinggi** - Tautan bermerek biasanya memiliki performa lebih baik
+
+---
+
+## Tambahkan Domain Kustom
+
+1. Buka [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Klik **Add Domain**
+3. Masukkan nama domain Anda
+4. Tambahkan record DNS yang diperlukan:
+   - **TXT record** - Untuk verifikasi domain
+   - **CNAME or Alias record** - Untuk mengarahkan domain Anda ke S.EE
+5. Tunggu propagasi DNS (biasanya beberapa menit)
+6. Klik **Verify** untuk mengonfirmasi pengaturan
+
+---
+
+## Persyaratan
+
+- Domain harus berbeda dari domain situs utama Anda
+- Maksimal 63 karakter (termasuk titik)
+- Anda harus memiliki akses ke pengaturan DNS domain Anda
+
+---
+
+## Catatan Penting
+
+### Pengguna Cloudflare
+
+Jika Anda menggunakan Cloudflare untuk DNS, **jangan aktifkan Proxy (ikon awan oranye)** pada record CNAME Anda. Biarkan tetap dalam mode DNS-only (awan abu-abu). Mengaktifkan proxy Cloudflare dapat menyebabkan konflik CDN dan masalah pengalihan.
+
+### Menggunakan Naked Domain (Root Domain)
+
+Jika Anda ingin menggunakan naked domain (misalnya `example.com` alih-alih `go.example.com`), penyedia DNS Anda harus mendukung **ALIAS records** atau **CNAME flattening**. Beberapa penyedia umum yang mendukung fitur ini:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Jika penyedia DNS Anda tidak mendukung fitur ini, silakan [hubungi kami](https://s.ee/contact/) - kami dapat membantu memverifikasi dan menambahkan naked domain Anda secara manual.
+
+---
+
+## Batas Domain per Paket
+
+| Plan | Custom Domains |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Unlimited |

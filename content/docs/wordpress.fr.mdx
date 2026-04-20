@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Raccourcissez des URL, partagez du texte et hébergez des fichiers directement depuis votre tableau de bord WordPress
+icon: WordPress
+---
+
+Le [plugin WordPress S.EE](https://wordpress.org/plugins/sdotee/) vous permet de raccourcir des URL, partager du texte et téléverser des fichiers sans quitter WordPress. Publiez un article et un lien court est créé automatiquement, sans étape supplémentaire.
+
+- [Répertoire des plugins WordPress](https://wordpress.org/plugins/sdotee/)
+- [Code source sur GitHub](https://github.com/sdotee/see-wordpress)
+- [Versions GitHub](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Fonctionnalités
+
+| Fonctionnalité | Description |
+|---------|-------------|
+| URL courtes | Générez automatiquement des liens courts lorsque vous publiez ou mettez à jour des articles et des pages |
+| Partage de texte | Partagez du texte brut, du Markdown et des extraits de code avec un lien |
+| Hébergement de fichiers | Téléversez des fichiers depuis la bibliothèque de médias et copiez le lien au format URL, HTML, Markdown ou BBCode |
+| Automatisation | Téléversement automatique des nouveaux médias et raccourcissement automatique à la publication : configurez une fois et n’y pensez plus |
+| Intégration à l’administration | Consultez et gérez les URL courtes directement depuis la liste des articles / pages |
+| Panneau du tableau de bord | Un panneau S.EE dédié au partage de texte et de fichiers avec l’historique d’utilisation complet |
+| 13 langues | Anglais, chinois (simplifié / traditionnel), japonais, coréen, indonésien, vietnamien, allemand, français, espagnol, portugais (Brésil / Portugal), russe |
+
+---
+
+## Exigences
+
+- PHP 8.2+
+- WordPress 6.0+
+- Un compte S.EE avec un [Token API](https://s.ee/user/developers/)
+
+---
+
+## Installation
+
+### Depuis le répertoire des plugins WordPress
+
+1. Dans l’administration WordPress, accédez à **Plugins** > **Add New**
+2. Recherchez **S.EE**
+3. Cliquez sur **Install Now**, puis sur **Activate**
+
+### Depuis GitHub
+
+1. Téléchargez le dernier fichier ZIP depuis [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Accédez à **Plugins** > **Add New** > **Upload Plugin**
+3. Téléversez le ZIP puis cliquez sur **Install Now**, ensuite sur **Activate**
+
+---
+
+## Configuration
+
+### 1. Obtenir votre Token API
+
+1. Connectez-vous à votre compte S.EE
+2. Accédez à **[Tools > API Token](https://s.ee/user/developers/)**
+3. Générez un nouveau Token API
+
+<Callout type="warn">
+Ne partagez pas votre Token API publiquement et ne le validez pas dans votre système de gestion de versions.
+</Callout>
+
+### 2. Configurer le plugin
+
+1. Accédez à **Settings** > **S.EE**
+2. Collez votre Token API puis cliquez sur **Verify**
+3. Choisissez vos domaines par défaut pour les URL courtes, le texte et les fichiers
+4. Activez la génération automatique et le téléversement automatique si vous souhaitez un fonctionnement sans intervention
+
+<Callout type="info">
+Vous pouvez aussi définir votre Token API dans `wp-config.php` pour éviter qu’il soit stocké dans la base de données.
+</Callout>
+
+---
+
+## Utilisation
+
+### URL courtes
+
+Lorsque la génération automatique est activée, chaque article et chaque page reçoit un lien court dès la publication. Vous pouvez aussi créer ou consulter des URL courtes depuis la colonne de la liste des articles / pages dans l’administration.
+
+### Partage de texte
+
+Ouvrez le panneau du tableau de bord **S.EE** puis collez votre contenu. Formats pris en charge :
+
+- Texte brut
+- Markdown
+- Extraits de code
+
+### Hébergement de fichiers
+
+Téléversez des fichiers via le panneau du tableau de bord **S.EE** ou la bibliothèque de médias. Une fois le téléversement terminé, récupérez le lien dans le format souhaité : URL, HTML, Markdown ou BBCode.
+
+---
+
+## Voir aussi
+
+- [API développeur](/docs/fr/developers)
+- [Partage de fichiers](/docs/fr/file-sharing)
+- [Partage de texte](/docs/fr/text-sharing)
+- [Hébergement d’images](/docs/fr/image-hosting)

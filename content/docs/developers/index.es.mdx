@@ -1,0 +1,88 @@
+---
+title: Primeros pasos
+description: API REST de S.EE para crear, gestionar y supervisar URL cortas, compartir texto y compartir archivos
+icon: Rocket
+---
+
+## Descripción general
+
+La API de S.EE le permite crear y gestionar mediante programación enlaces cortos, compartir texto y compartir archivos. Úsela para:
+
+- Crear enlaces cortos a gran escala
+- Compartir fragmentos de texto y código con resaltado de sintaxis
+- Subir y compartir archivos
+- Gestionar dominios personalizados
+- Obtener datos analíticos
+- Integrar S.EE en sus aplicaciones
+
+---
+
+## Primeros pasos
+
+### Requisitos previos
+
+1. Una cuenta de S.EE con un plan activo
+2. Un token de acceso a la API
+
+### Autenticación
+
+Todas las solicitudes a la API requieren un token de acceso en el encabezado `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### URL base
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Solicitudes de ejemplo
+
+### Crear URL corta
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Crear texto compartido
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Subir archivo
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Recursos
+
+<Cards>
+  <Card title="Referencia de la API" href="/docs/es/developers/api/">Ver todos los endpoints disponibles</Card>
+  <Card title="SDK" href="/docs/es/developers/sdk/">SDK oficiales de S.EE para distintos lenguajes de programación</Card>
+</Cards>

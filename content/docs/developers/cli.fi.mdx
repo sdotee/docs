@@ -1,0 +1,181 @@
+---
+title: CLI
+description: Komentoriviasiakas S.EE-alustalle
+icon: Terminal
+---
+
+Komentoriviasiakas S.EE-alustalle, jolla voit luoda ja hallita lyhyitä URL-osoitteita, tekstikatkelmia ja tiedostoja suoraan päätelaitteesta.
+
+- [sdotee/cli](https://github.com/sdotee/cli)
+
+## Ominaisuudet
+
+- **Lyhyiden URL-osoitteiden hallinta**: luo, päivitä ja poista linkkejä mukautetuilla slugeilla, verkkotunnuksilla ja vanhenemisajoilla
+- **Tekstikatkelmat**: jaa koodia ja muistiinpanoja stdinistä tai tiedostoista
+- **Tiedostojen lataus**: lataa tiedostoja suoraan tai stdinistä
+- **Verkkotunnusten ja tagien hallinta**: listaa saatavilla olevat verkkotunnukset ja hallitse tageja
+- **Salasanasuojaus**: suojaa sisältö salasanalla
+- **JSON-tuloste**: koneellisesti luettava tuloste skriptaukseen
+
+## Asennus
+
+### macOS
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+```
+
+### Debian / Ubuntu
+
+```bash
+dpkg -i see-cli_<version>_<arch>.deb
+```
+
+### RHEL / Fedora
+
+```bash
+rpm -i see-cli_<version>_linux_<arch>.rpm
+```
+
+### Arch Linux
+
+```bash
+yay -S see-cli
+# tai valmiiksi käännetty binaari
+yay -S see-cli-bin
+```
+
+### Lähdekoodista
+
+```bash
+go install github.com/sdotee/cli@latest
+```
+
+Valmiit binaarit ja paketit löytyvät [GitHub Releases](https://github.com/sdotee/cli/releases) -sivulta.
+
+## Määritys
+
+Aseta API-avaimesi ympäristömuuttujalla tai komentorivivalitsimella:
+
+```bash
+# Ympäristömuuttuja (suositus)
+export SEE_API_KEY="your-api-key"
+
+# Tai käytä valitsinta
+see --api-key "your-api-key" <command>
+```
+
+### Asetusvaihtoehdot
+
+| Vaihtoehto | Ympäristömuuttuja | Kuvaus |
+|--------|---------------------|-------------|
+| `--api-key` | `SEE_API_KEY` | S.EE API-avaimesi |
+| `--base-url` | `SEE_BASE_URL` | Mukautettu API:n perus-URL |
+| `--timeout` | `SEE_TIMEOUT` | Pyynnön aikakatkaisu |
+| `--json` | - | Ota käyttöön JSON-muotoinen tuloste |
+
+## Komennot
+
+### Verkkotunnukset ja tagit
+
+```bash
+# Listaa saatavilla olevat verkkotunnukset lyhyt-URL-osoitteille
+see domains
+
+# Listaa verkkotunnukset tiedostolatauksille
+see file domains
+
+# Listaa tagit
+see tags
+```
+
+### Lyhyet URL-osoitteet
+
+```bash
+# Luo lyhyt URL
+see url create https://example.com
+
+# Luo mukautetuilla asetuksilla
+see url create https://example.com \
+  --slug my-link \
+  --domain s.ee \
+  --title "My Link" \
+  --password secret \
+  --expires 2024-12-31
+
+# Päivitä lyhyt URL
+see url update --domain s.ee --slug my-link --title "New Title"
+
+# Poista lyhyt URL
+see url delete --domain s.ee --slug my-link
+```
+
+### Tekstikatkelmat
+
+```bash
+# Luo teksti stdinistä
+echo "Hello World" | see text create --title "greeting"
+
+# Luo teksti tiedostosta
+see text create --file ./snippet.txt --title "Code Snippet"
+
+# Luo lisäasetuksilla
+cat script.sh | see text create \
+  --title "Shell Script" \
+  --domain fs.to \
+  --password secret \
+  --expires 2024-12-31
+
+# Päivitä teksti
+see text update --domain fs.to --slug abc123 --title "Updated Title"
+
+# Poista teksti
+see text delete --domain fs.to --slug abc123
+```
+
+### Tiedostojen lataus
+
+```bash
+# Lataa tiedosto
+see file upload ./image.png
+
+# Lataa mukautetulla verkkotunnuksella
+see file upload ./document.pdf --domain fs.to
+
+# Lataa stdinistä
+cat image.png | see file upload --stdin --filename image.png
+
+# Poista tiedosto
+see file delete <delete-hash>
+```
+
+## JSON-tuloste
+
+Käytä `--json`-lippua koneellisesti luettavaan tulosteeseen:
+
+```bash
+see url create https://example.com --json | jq '.short_url'
+```
+
+## Esimerkkejä
+
+### Luo lyhytlinkki ja kopioi se leikepöydälle (macOS)
+
+```bash
+see url create https://example.com --json | jq -r '.short_url' | pbcopy
+```
+
+### Lataa kuvakaappaus ja palauta URL (Linux)
+
+```bash
+see file upload ~/screenshot.png --json | jq -r '.url'
+```
+
+### Luo useita lyhytlinkkejä eräajona
+
+```bash
+while read url; do
+  see url create "$url" --json
+done < urls.txt
+```

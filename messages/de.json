@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Übersicht"
+  },
+  "cookieBar": {
+    "message": "Wir verwenden Cookies, um Ihre Spracheinstellung zu speichern und Ihr Nutzungserlebnis zu verbessern.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "privacyLink": "Datenschutzerklärung"
+  },
+  "fumadocs": {
+    "search": "Suchen",
+    "searchNoResult": "Keine Ergebnisse gefunden",
+    "toc": "Auf dieser Seite",
+    "lastUpdate": "Zuletzt aktualisiert",
+    "previousPage": "Zurück",
+    "nextPage": "Weiter",
+    "chooseTheme": "Design auswählen",
+    "editOnGithub": "Auf GitHub bearbeiten",
+    "chooseLanguage": "Sprache auswählen"
+  }
+}

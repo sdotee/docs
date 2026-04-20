@@ -1,0 +1,70 @@
+---
+title: Własne domeny
+description: Jak skonfigurować własną domenę dla krótkich linków
+icon: Globe
+---
+
+## Co to jest własna domena?
+
+Własna domena pozwala używać własnej marki w krótkich linkach zamiast `s.ee`. Na przykład zamiast `s.ee/link` możesz używać `go.example.com/link`.
+
+---
+
+## Dlaczego warto używać własnej domeny?
+
+- **Rozpoznawalność marki** - linki pokazują Twoją markę, a nie naszą
+- **Zaufanie** - użytkownicy chętniej klikają linki z własną marką
+- **Wyższy CTR** - linki brandowane zwykle osiągają lepsze wyniki
+
+---
+
+## Dodaj własną domenę
+
+1. Przejdź do [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Kliknij **Add Domain**
+3. Wpisz nazwę domeny
+4. Dodaj wymagane rekordy DNS:
+   - **Rekord TXT** - do weryfikacji domeny
+   - **Rekord CNAME lub Alias** - aby wskazać domenę na S.EE
+5. Poczekaj na propagację DNS, zwykle kilka minut
+6. Kliknij **Verify**, aby potwierdzić konfigurację
+
+---
+
+## Wymagania
+
+- Domena musi różnić się od domeny Twojej głównej witryny
+- Maksymalna długość to 63 znaki, łącznie z kropką
+- Musisz mieć dostęp do ustawień DNS domeny
+
+---
+
+## Ważne informacje
+
+### Użytkownicy Cloudflare
+
+Jeśli używasz Cloudflare jako DNS, **nie włączaj Proxy (pomarańczowej chmurki)** dla rekordu CNAME. Pozostaw tryb DNS only (szara chmurka). Włączenie proxy Cloudflare może powodować konflikty CDN i problemy z przekierowaniami.
+
+### Korzystanie z domeny głównej
+
+Jeśli chcesz używać domeny głównej, np. `example.com` zamiast `go.example.com`, dostawca DNS musi obsługiwać **rekordy ALIAS** albo **spłaszczanie CNAME**. Popularni dostawcy z taką funkcją:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (spłaszczanie CNAME)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Jeśli Twój dostawca DNS tego nie obsługuje, [skontaktuj się z nami](https://s.ee/contact/) - pomożemy ręcznie zweryfikować i dodać domenę główną.
+
+---
+
+## Limity domen według planu
+
+| Plan | Własne domeny |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Bez limitu |

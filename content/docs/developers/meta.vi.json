@@ -1,0 +1,14 @@
+{
+  "title": "Nhà phát triển",
+  "description": "Tài liệu API và SDK của S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "api",
+    "sdk",
+    "cli",
+    "desktop",
+    "apps",
+    "smms-compatibility"
+  ]
+}

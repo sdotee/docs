@@ -1,0 +1,88 @@
+---
+title: Primeiros passos
+description: API REST da S.EE para criar, gerir e acompanhar URLs curtos, partilha de texto e partilha de ficheiros
+icon: Rocket
+---
+
+## Visão geral
+
+A API da S.EE permite-lhe criar e gerir programaticamente links curtos, partilha de texto e partilha de ficheiros. Use-a para:
+
+- Criar links curtos em escala
+- Partilhar fragmentos de texto e código com realce de sintaxe
+- Carregar e partilhar ficheiros
+- Gerir domínios personalizados
+- Obter dados analíticos
+- Integrar a S.EE nas suas aplicações
+
+---
+
+## Primeiros passos
+
+### Pré-requisitos
+
+1. Uma conta S.EE com um plano ativo
+2. Um token de acesso à API
+
+### Autenticação
+
+Todos os pedidos à API exigem um token de acesso no cabeçalho `Authorization`:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### URL base
+
+```
+https://s.ee/api/v1
+```
+
+---
+
+## Pedidos de exemplo
+
+### Criar URL curta
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Criar partilha de texto
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Carregar ficheiro
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Recursos
+
+<Cards>
+  <Card title="Referência da API" href="/docs/pt-PT/developers/api/">Ver todos os endpoints disponíveis</Card>
+  <Card title="SDK" href="/docs/pt-PT/developers/sdk/">SDK oficiais da S.EE para várias linguagens de programação</Card>
+</Cards>

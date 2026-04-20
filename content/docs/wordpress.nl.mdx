@@ -1,0 +1,103 @@
+---
+title: WordPress
+description: Verkort URL's, deel tekst en host bestanden rechtstreeks vanuit uw WordPress-dashboard
+icon: WordPress
+---
+
+Met de [S.EE WordPress-plug-in](https://wordpress.org/plugins/sdotee/) kunt u URL's verkorten, tekst delen en bestanden uploaden zonder WordPress te verlaten. Publiceer een bericht en er wordt automatisch een korte link gemaakt, zonder extra stappen.
+
+- [WordPress Plugin Directory](https://wordpress.org/plugins/sdotee/)
+- [Broncode op GitHub](https://github.com/sdotee/see-wordpress)
+- [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+
+---
+
+## Functies
+
+| Functie | Beschrijving |
+|---------|-------------|
+| Korte URL's | Genereer automatisch korte links wanneer u berichten en pagina's publiceert of bijwerkt |
+| Tekst delen | Deel platte tekst, Markdown en codefragmenten met een link |
+| Bestandshosting | Upload bestanden vanuit de mediabibliotheek en kopieer de link als URL, HTML, Markdown of BBCode |
+| Automatisering | Upload nieuwe media automatisch en verkort links bij publicatie, eenmalig instellen en klaar |
+| Beheerintegratie | Bekijk en beheer korte URL's rechtstreeks vanuit de lijst met berichten en pagina's |
+| Dashboardpaneel | Een speciaal S.EE-paneel voor tekst- en bestandsdeling met volledige gebruiksgeschiedenis |
+| 13 talen | Engels, Chinees vereenvoudigd/traditioneel, Japans, Koreaans, Indonesisch, Vietnamees, Duits, Frans, Spaans, Portugees Brazilië/Portugal en Russisch |
+
+---
+
+## Vereisten
+
+- PHP 8.2+
+- WordPress 6.0+
+- Een S.EE-account met een [API Token](https://s.ee/user/developers/)
+
+---
+
+## Installatie
+
+### Vanuit de WordPress Plugin Directory
+
+1. Ga in WordPress-beheer naar **Plugins** > **Add New**
+2. Zoek op **S.EE**
+3. Klik op **Install Now** en daarna op **Activate**
+
+### Vanaf GitHub
+
+1. Download de nieuwste ZIP van [GitHub Releases](https://github.com/sdotee/see-wordpress/releases)
+2. Ga naar **Plugins** > **Add New** > **Upload Plugin**
+3. Upload de ZIP en klik op **Install Now**, daarna op **Activate**
+
+---
+
+## Instellen
+
+### 1. Haal uw API-token op
+
+1. Log in op uw S.EE-account
+2. Ga naar **[Tools > API Token](https://s.ee/user/developers/)**
+3. Genereer een nieuw API-token
+
+<Callout type="warn">
+Deel uw API-token niet openbaar en commit het niet naar versiebeheer.
+</Callout>
+
+### 2. De plug-in configureren
+
+1. Ga naar **Settings** > **S.EE**
+2. Plak uw API-token en klik op **Verify**
+3. Kies uw standaarddomeinen voor korte URL's, tekst en bestanden
+4. Schakel automatische generatie en automatische upload in als u handsfree wilt werken
+
+<Callout type="info">
+U kunt uw API-token ook in `wp-config.php` zetten om het buiten de database te houden.
+</Callout>
+
+---
+
+## Gebruik
+
+### Korte URL's
+
+Met automatische generatie ingeschakeld krijgt elk bericht en elke pagina een korte link zodra u op Publish klikt. U kunt ook korte URL's maken of bekijken vanuit de kolom in het beheerpaneel.
+
+### Tekst delen
+
+Open het dashboardpaneel **S.EE** en plak uw inhoud. Ondersteunde formaten:
+
+- Platte tekst
+- Markdown
+- Codefragmenten
+
+### Bestandshosting
+
+Upload bestanden via het dashboardpaneel **S.EE** of via de mediabibliotheek. Na het uploaden haalt u de link op in het gewenste formaat: URL, HTML, Markdown of BBCode.
+
+---
+
+## Gerelateerd
+
+- [Developer API](/docs/nl/developers)
+- [Bestanden delen](/docs/nl/file-sharing)
+- [Tekst delen](/docs/nl/text-sharing)
+- [Afbeeldingshosting](/docs/nl/image-hosting)

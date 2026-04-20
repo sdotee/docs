@@ -1,0 +1,146 @@
+---
+title: Compatibilidad con SM.MS
+description: Migre de SM.MS a S.EE con cambios mínimos de código
+icon: RefreshCw
+---
+
+S.EE ofrece una capa de API compatible con SM.MS, lo que le permite migrar de SM.MS a S.EE con cambios mínimos de código. Solo tiene que reemplazar el endpoint de la API y estará listo.
+
+## Migración rápida
+
+Reemplace la URL base de la API de SM.MS por su equivalente en S.EE:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Endpoint compatible
+
+| Endpoint de SM.MS | Endpoint de S.EE | Descripción |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Subir imagen |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Obtener historial de subidas |
+
+## Subir imagen
+
+### Solicitud
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Parámetros
+
+| Parámetro | Tipo | Obligatorio | Descripción |
+|-----------|------|----------|-------------|
+| `smfile` | file | Sí | El archivo de imagen que se va a subir (alias: `file`) |
+| `domain` | string | No | Dominio personalizado para el enlace corto |
+| `custom_slug` | string | No | Slug personalizado para la URL (aleatorio si no se proporciona) |
+
+### Respuesta
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Historial de subidas
+
+### Solicitud
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Parámetros
+
+| Parámetro | Tipo | Obligatorio | Descripción |
+|-----------|------|----------|-------------|
+| `page` | integer | No | Número de página (predeterminado 1, 30 archivos por página) |
+
+### Respuesta
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## Diferencias con respecto a SM.MS
+
+Aunque S.EE mantiene compatibilidad con la API de SM.MS, incluye algunas mejoras:
+
+| Función | SM.MS | S.EE |
+|---------|-------|------|
+| Dominio personalizado | No | Sí |
+| Slug personalizado | No | Sí |
+| Límite de tamaño de archivo | 5MB | Varía según el plan |
+| Formatos compatibles | Solo imágenes | Imágenes, documentos y más |
+
+## Obtenga su clave API
+
+Para usar la API de S.EE, necesita una clave API:
+
+1. Regístrese o inicie sesión en [s.ee](https://s.ee)
+2. Vaya a **[Tools > API Token](https://s.ee/user/developers/)**
+3. Genere una nueva clave API
+
+## ¿Necesita ayuda?
+
+Si tiene algún problema durante la migración, [contacte con soporte](https://s.ee/contact) o consulte nuestra [documentación de la API](/docs/es/developers/api).

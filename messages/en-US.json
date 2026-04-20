@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "dashboard": "Dashboard"
+  },
+  "cookieBar": {
+    "message": "We use cookies to remember your language preference and improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "privacyLink": "Privacy Policy"
+  },
+  "fumadocs": {
+    "search": "Search",
+    "searchNoResult": "No results found",
+    "toc": "On this page",
+    "lastUpdate": "Last updated",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "chooseTheme": "Choose theme",
+    "editOnGithub": "Edit on GitHub",
+    "chooseLanguage": "Choose language"
+  }
+}

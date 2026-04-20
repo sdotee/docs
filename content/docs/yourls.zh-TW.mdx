@@ -1,0 +1,156 @@
+---
+title: YOURLS 相容 API
+description: 在任何相容 YOURLS 的客戶端或整合中使用 S.EE
+icon: LinkShare
+---
+
+S.EE 提供相容 YOURLS 的 API 端點，因此您可以在現有支援 [YOURLS](https://yourls.org/) API 的第三方客戶端和整合中直接使用 S.EE。
+
+該介面旨在幫助您從 YOURLS 平滑遷移，或將 S.EE 整合到已支援 YOURLS API 協議的自動化工具、瀏覽器擴充套件和應用中。
+
+---
+
+## API 端點
+
+```
+https://s.ee/api/v1/yourls
+````
+
+---
+
+## 兼容範圍
+
+該介面實現了 **部分 YOURLS API 相容層**。
+
+### 支援
+
+- `action=shorturl`
+- `signature` 認證
+- 輸出格式：`json`、`jsonp`、`xml`、`simple`
+- GET 和 POST 請求
+
+### 不支援
+
+- `username` / `password` 認證
+- 其他 YOURLS 操作，例如 `expand`、`stats` 或 `db-stats`
+- 管理或資料庫相關操作
+
+當前僅提供 URL 縮短功能。
+
+---
+
+## 認證
+
+<Callout type="warn">
+僅支援 `signature` 認證。**不**支援使用者名稱 / 密碼認證。
+</Callout>
+
+`signature` 參數就是您的 **S.EE API Token**。
+
+您可以在以下位置生成和管理 API Token：
+
+https://s.ee/user/developers/
+
+API Token 繫結到當前認證使用者，並繼承該帳號的相同權限和限制。
+
+---
+
+## 支援的操作
+
+目前僅支援以下操作：
+
+| 操作 | 說明 |
+|------|-------------|
+| `shorturl` | 為指定連結建立短網址 |
+
+---
+
+## 參數
+
+| 參數 | 必填 | 說明 |
+|----------|----------|-------------|
+| `signature` | 是 | 您的 S.EE API Token |
+| `action` | 是 | 要執行的操作（當前僅支援 `shorturl`） |
+| `url` | 是 | 要縮短的 URL |
+| `format` | 否 | 輸出格式：`json`、`jsonp`、`xml` 或 `simple`（預設：`simple`） |
+| `keyword` | 否 | 短網址的自訂短碼 |
+| `title` | 否 | 短網址的標題 |
+
+### 注意
+
+- 如果提供的 `keyword` 已被佔用，API 會自動生成一個新的可用短碼，而不是返回錯誤。
+- 所有請求都適用標準的 S.EE 濫用防護和校驗規則。
+
+---
+
+## 範例
+
+### POST 請求
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+````
+
+**回應：**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+某些回應欄位是為相容 YOURLS 而保留的，因此可能為空。
+</Callout>
+
+---
+
+### GET 請求
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**回應：**
+
+```
+https://s.ee/link
+```
+
+<Callout>
+使用 GET 請求時，請記得對參數進行 URL 編碼。  
+對於較長的 URL 或包含更多參數的情況，建議使用 POST 請求，以避免 URL 長度限制。
+</Callout>
+
+---
+
+## 第三方客戶端
+
+此 API 相容任何支援 YOURLS 風格 URL 縮短的客戶端，包括：
+
+* 瀏覽器擴充套件
+* 移動應用
+* 桌面應用
+* 自動化工具（Shortcuts、Tasker、Zapier 等）
+
+關於原始 YOURLS API 規範的完整說明，請參閱官方文件：
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

@@ -1,0 +1,156 @@
+---
+title: API tương thích YOURLS
+description: Dùng S.EE với mọi client hoặc tích hợp tương thích với YOURLS
+icon: LinkShare
+---
+
+S.EE cung cấp một endpoint API tương thích với YOURLS, cho phép bạn dùng S.EE với các client và tích hợp bên thứ ba hiện có vốn đã hỗ trợ API của [YOURLS](https://yourls.org/).
+
+Endpoint này được thiết kế để giúp việc chuyển đổi từ YOURLS sang S.EE trở nên dễ dàng hơn, hoặc để tích hợp S.EE vào các công cụ tự động hóa, tiện ích trình duyệt và ứng dụng vốn đã dùng giao thức API YOURLS.
+
+---
+
+## API Endpoint
+
+```
+https://s.ee/api/v1/yourls
+````
+
+---
+
+## Phạm vi tương thích
+
+Endpoint này triển khai **lớp tương thích một phần với YOURLS API**.
+
+### Được hỗ trợ
+
+- `action=shorturl`
+- Xác thực `signature`
+- Định dạng đầu ra: `json`, `jsonp`, `xml`, `simple`
+- Yêu cầu GET và POST
+
+### Không được hỗ trợ
+
+- Xác thực `username` / `password`
+- Các action khác của YOURLS như `expand`, `stats`, hoặc `db-stats`
+- Các thao tác quản trị hoặc liên quan đến cơ sở dữ liệu
+
+Hiện tại chỉ có chức năng rút gọn URL được cung cấp.
+
+---
+
+## Xác thực
+
+<Callout type="warn">
+Chỉ hỗ trợ xác thực `signature`. Xác thực bằng username/password **không khả dụng**.
+</Callout>
+
+Tham số `signature` chính là **API Token S.EE** của bạn.
+
+Bạn có thể tạo và quản lý API token tại:
+
+https://s.ee/user/developers/
+
+API token được gắn với người dùng đã xác thực và kế thừa cùng quyền hạn cũng như giới hạn của tài khoản đó.
+
+---
+
+## Các action được hỗ trợ
+
+Hiện tại chỉ hỗ trợ action sau:
+
+| Action | Description |
+|------|-------------|
+| `shorturl` | Tạo URL ngắn cho một liên kết |
+
+---
+
+## Tham số
+
+| Parameter | Required | Description |
+|----------|----------|-------------|
+| `signature` | Yes | API Token S.EE của bạn |
+| `action` | Yes | Action cần thực hiện (hiện chỉ hỗ trợ `shorturl`) |
+| `url` | Yes | URL cần rút gọn |
+| `format` | No | Định dạng đầu ra: `json`, `jsonp`, `xml`, hoặc `simple` (mặc định: `simple`) |
+| `keyword` | No | Slug tùy chỉnh cho URL ngắn |
+| `title` | No | Tiêu đề cho URL ngắn |
+
+### Ghi chú
+
+- Nếu `keyword` được cung cấp đã được sử dụng, API sẽ tự động tạo một keyword mới khả dụng thay vì trả lỗi.
+- Các quy tắc xác thực và chống lạm dụng tiêu chuẩn của S.EE áp dụng cho mọi yêu cầu.
+
+---
+
+## Ví dụ
+
+### POST Request
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+````
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Một số trường trong response được giữ lại để tương thích với YOURLS và có thể để trống.
+</Callout>
+
+---
+
+### GET Request
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Response:**
+
+```
+https://s.ee/link
+```
+
+<Callout>
+Hãy nhớ URL-encode các tham số khi dùng GET request.  
+Với URL dài hoặc có thêm tham số, nên dùng POST request để tránh giới hạn độ dài URL.
+</Callout>
+
+---
+
+## Client bên thứ ba
+
+API này tương thích với mọi client hỗ trợ rút gọn URL kiểu YOURLS, bao gồm:
+
+* Tiện ích mở rộng trình duyệt
+* Ứng dụng di động
+* Ứng dụng desktop
+* Công cụ tự động hóa (Shortcuts, Tasker, Zapier, v.v.)
+
+Để biết đầy đủ về đặc tả gốc của YOURLS API, hãy xem tài liệu chính thức:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

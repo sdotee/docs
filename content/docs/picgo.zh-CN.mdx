@@ -1,0 +1,57 @@
+---
+title: PicGo
+description: PicGo 内置对 S.EE 的支持，无需额外插件
+icon: ImageUpload
+---
+
+[PicGo](https://picgo.app/) 是一款适用于 Windows、macOS 和 Linux 的开源图片与文件上传工具。较新的版本已原生支持 S.EE，您只需要一个 API Token 即可开始使用。
+
+- [下载 PicGo](https://github.com/Molunerfinn/PicGo/releases)
+- [源代码](https://github.com/Molunerfinn/PicGo)
+
+---
+
+## 设置
+
+### 1. 获取您的 API Token
+
+1. 登录您的 S.EE 账号
+2. 前往 **[Tools > API Token](https://s.ee/user/developers/)**
+3. 生成新的 API Token
+
+<Callout type="warn">
+不要公开分享您的 API Token，也不要将其提交到版本控制系统中。
+</Callout>
+
+### 2. 配置 PicGo
+
+1. 下载并安装 [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+2. 打开 PicGo
+3. 前往 **Picbeds Settings** > **SM.MS (S.EE)**
+4. 点击 **+** 添加新配置
+5. 在 **Configuration Name** 中输入名称（例如 `S.EE`）
+6. 将您的 API Token 粘贴到 **Set Token**
+7. 点击 **Confirm**
+
+![PicGo S.EE 配置](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
+
+---
+
+## 使用方法
+
+您可以通过以下几种方式上传：
+
+- 将文件拖拽到上传区域
+- 点击上传区域，从电脑中选择文件
+- 点击悬浮迷你窗口直接上传
+- 右键悬浮迷你窗口并选择 **Upload by Clipboard**
+
+PicGo 会将生成的链接复制到您的剪贴板。您可以选择输出格式，例如 Markdown、HTML、原始 URL 等。
+
+---
+
+## 相关内容
+
+- [开发者 API](/docs/zh-CN/developers)
+- [文件分享](/docs/zh-CN/file-sharing)
+- [SM.MS 兼容性](/docs/zh-CN/developers/smms-compatibility)

@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Utwórz krótki URL",
+    "description": "Tworzy nowy krótki URL dla linku docelowego. Opcjonalnie można ustawić własny slug, ochronę hasłem, czas wygaśnięcia i tagi do organizacji."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Utwórz krótki URL (tryb prosty)",
+    "description": "Szybko tworzy krótki URL przy użyciu uproszczonych parametrów, odpowiedni do scenariuszy bez konfiguracji."
+  },
+  "UpdateShortUrl": {
+    "title": "Zaktualizuj krótki URL",
+    "description": "Aktualizuje adres docelowy, hasło, czas wygaśnięcia lub tagi istniejącego krótkiego URL-a."
+  },
+  "DeleteShortUrl": {
+    "title": "Usuń krótki URL",
+    "description": "Trwale usuwa wskazany krótki URL."
+  },
+  "GetAvailableDomains": {
+    "title": "Pobierz dostępne domeny",
+    "description": "Zwraca listę domen dostępnych na bieżącym koncie do tworzenia krótkich URL-i."
+  },
+  "GetLinkVisitStat": {
+    "title": "Pobierz statystyki odwiedzin",
+    "description": "Zwraca dane odwiedzin dla wskazanego krótkiego URL-a, w tym liczbę kliknięć, źródła i rozkład geograficzny."
+  },
+  "CreateText": {
+    "title": "Utwórz udostępnienie tekstu",
+    "description": "Tworzy treść tekstową dostępną przez krótki URL, na przykład zwykły tekst, fragment kodu lub Markdown."
+  },
+  "UpdateText": {
+    "title": "Zaktualizuj udostępnienie tekstu",
+    "description": "Aktualizuje treść, hasło lub czas wygaśnięcia istniejącego udostępnienia tekstu."
+  },
+  "DeleteText": {
+    "title": "Usuń udostępnienie tekstu",
+    "description": "Trwale usuwa wskazane udostępnienie tekstu."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Pobierz domeny dla udostępniania tekstu",
+    "description": "Zwraca listę domen dostępnych do tworzenia udostępnień tekstu."
+  },
+  "UploadFile": {
+    "title": "Prześlij plik",
+    "description": "Przesyła plik i generuje krótki URL do udostępniania, z obsługą hasła i czasu wygaśnięcia."
+  },
+  "GetFileHistory": {
+    "title": "Pobierz historię plików",
+    "description": "Zwraca listę plików przesłanych przez bieżące konto."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Pobierz URL pobierania pliku prywatnego",
+    "description": "Generuje tymczasowy URL pobierania dla prywatnego pliku chronionego hasłem."
+  },
+  "DeleteFile": {
+    "title": "Usuń plik",
+    "description": "Trwale usuwa wskazany plik."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Pobierz domeny dla udostępniania plików",
+    "description": "Zwraca listę domen dostępnych do udostępniania plików."
+  },
+  "GetTags": {
+    "title": "Pobierz listę tagów",
+    "description": "Zwraca wszystkie tagi na bieżącym koncie używane do organizacji treści."
+  },
+  "GetUsage": {
+    "title": "Pobierz użycie",
+    "description": "Zwraca wykorzystanie zasobów bieżącego konta w trwającym cyklu rozliczeniowym."
+  }
+}

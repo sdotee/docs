@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---Başlarken---",
+    "signup",
+    "login",
+    "dashboard",
+    "---Özellikler---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---Ücretsiz Hizmetler---",
+    "free-url-shorteners",
+    "---Yardım---",
+    "troubleshooting",
+    "security",
+    "---Entegrasyon---",
+    "developers",
+    "api",
+    "---Üçüncü Taraf Entegrasyonları---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---Topluluk---",
+    "awesome"
+  ]
+}

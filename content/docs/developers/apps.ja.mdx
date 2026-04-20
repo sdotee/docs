@@ -1,0 +1,125 @@
+---
+title: モバイルアプリ
+description: S.EE のネイティブモバイルアプリケーション
+icon: Smartphone
+---
+
+スマートフォンからリンクを短縮し、テキストを共有し、ファイルをアップロードできます。S.EE の機能をネイティブアプリでそのままご利用いただけます。
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## ダウンロード
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="/app-store-badge.svg" alt="App Store でダウンロード" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="/google-play-badge.svg" alt="Google Play で入手" height="40" />
+  </a>
+</div>
+
+## 対応プラットフォーム
+
+| プラットフォーム | 動作要件 | 技術 |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## 機能
+
+### URL 短縮
+
+- カスタムスラッグ、タイトル、パスワード、有効期限付きの短縮 URL を作成できます
+- 複数のドメインから選択できます
+- リンクの統計情報を確認できます: 今日、今月、累計訪問数
+- スラッグ、リンク先 URL、タイトル、ドメインで検索できます
+- 既存のリンクを編集または削除できます
+
+### テキスト共有
+
+- プレーンテキスト、ソースコード、Markdown を共有できます
+- コード向けの等幅エディターを搭載しています
+- カスタムスラッグ、パスワード、有効期限を設定できます
+- ドメインの選択とタグの設定 (最大 5 個) に対応しています
+
+### ファイルアップロード
+
+- ファイルを選択する、ギャラリーから選ぶ、カメラで撮影する、といった方法に対応しています
+- クリップボードから貼り付けると、画像を自動で WebP に変換します (iOS)
+- アップロード進捗をリアルタイムで表示します
+- 9 種類のリンク形式に対応しています。直リンク、共有ページ、BBCode、HTML、Markdown などをご利用いただけます
+- すべての一覧で一括コピーと一括削除が行えます
+
+### 利用状況ダッシュボード
+
+- ストレージ使用量を視覚的なプログレスバーで確認できます
+- API Calls、Links、Text Shares、Uploads、QR Codes のレート制限を確認できます
+- 日次および月次の利用数を確認できます
+
+### 設定
+
+- セルフホスト環境向けにベース URL を設定できます
+- ワンタップで検証できる API Key 管理に対応しています
+- サービスごと (リンク、テキスト、ファイル) に既定ドメインを設定できます
+- テーマ: System / Light / Dark
+- Dynamic Color / Material You (Android)
+
+## iOS
+
+**SwiftUI** と **SwiftData** を使用し、ネイティブな iOS 体験を提供します。
+
+- **Photo Picker** - 写真ライブラリから選択できます
+- **Camera** - 写真 (JPG) または動画 (MOV から MP4) を撮影できます
+- タグや一覧のプルツーリフレッシュに対応しています
+- Keychain ベースの安全な API Key 保存に対応しています
+
+## Android
+
+**Jetpack Compose** と **Material 3** (Material You) を使用し、ネイティブな Android 体験を提供します。
+
+- **Share Target** - 他のアプリから共有されたテキスト、URL、ファイルを受け取れます
+- **App Shortcuts** - アプリアイコンの長押しでクイック操作ができます
+- **Predictive Back** ジェスチャーに対応しています (Android 14+)
+- テーマ付きアイコンに対応した **Adaptive Icon** を利用できます
+- ローカル履歴の保存には Room データベースを使用しています
+- EncryptedSharedPreferences による安全な保存に対応しています
+
+## 技術スタック
+
+### iOS
+
+| レイヤー | 技術 |
+|-------|-----------|
+| UI | SwiftUI |
+| Storage | SwiftData |
+| Networking | URLSession (actor-based) |
+| Security | Keychain |
+| Thumbnails | QuickLookThumbnailing |
+| Image Processing | Swift-WebP |
+
+### Android
+
+| レイヤー | 技術 |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architecture | MVVM + Repository |
+| Networking | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Local DB | Room |
+| Security | EncryptedSharedPreferences |
+| Image Loading | Coil 3 |
+
+## ソースコード
+
+両アプリは MIT ライセンスでオープンソース公開されています:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## はじめに
+
+1. [App Store](https://s.ee/ios) または [Google Play](https://s.ee/android) からダウンロードします
+2. アカウントをお持ちでない場合は [s.ee](https://s.ee) で作成します
+3. ダッシュボードから [API Key を生成](https://s.ee/user/developers/) します
+4. アプリを開き、**Settings** で API Key を入力し、**Verify** をタップします

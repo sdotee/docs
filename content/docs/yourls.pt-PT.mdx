@@ -1,0 +1,156 @@
+---
+title: API compatível com YOURLS
+description: Use a S.EE com qualquer cliente ou integração compatível com YOURLS
+icon: LinkShare
+---
+
+A S.EE disponibiliza um endpoint de API compatível com YOURLS, permitindo-lhe usar a S.EE com clientes e integrações de terceiros existentes que suportam a API [YOURLS](https://yourls.org/).
+
+Este endpoint foi concebido para facilitar a migração a partir do YOURLS ou integrar a S.EE em ferramentas de automação, extensões de navegador e aplicações que já usam o protocolo da API YOURLS.
+
+---
+
+## Endpoint da API
+
+```
+https://s.ee/api/v1/yourls
+````
+
+---
+
+## Âmbito de compatibilidade
+
+Este endpoint implementa uma **camada de compatibilidade parcial com a API YOURLS**.
+
+### Suportado
+
+- `action=shorturl`
+- Autenticação `signature`
+- Formatos de saída: `json`, `jsonp`, `xml`, `simple`
+- Pedidos GET e POST
+
+### Não suportado
+
+- Autenticação `username` / `password`
+- Outras ações YOURLS como `expand`, `stats` ou `db-stats`
+- Operações administrativas ou relacionadas com base de dados
+
+Só é disponibilizada a funcionalidade de encurtamento de URL.
+
+---
+
+## Autenticação
+
+<Callout type="warn">
+Só a autenticação `signature` é suportada. A autenticação com nome de utilizador / palavra-passe **não** está disponível.
+</Callout>
+
+O parâmetro `signature` corresponde ao seu **Token de API da S.EE**.
+
+Pode gerar e gerir o seu Token de API em:
+
+https://s.ee/user/developers/
+
+O Token de API está associado ao utilizador autenticado e herda as mesmas permissões e restrições da conta.
+
+---
+
+## Ações suportadas
+
+Atualmente, só a ação seguinte é suportada:
+
+| Ação | Descrição |
+|------|-------------|
+| `shorturl` | Criar um URL curto para um determinado link |
+
+---
+
+## Parâmetros
+
+| Parâmetro | Obrigatório | Descrição |
+|----------|----------|-------------|
+| `signature` | Sim | O seu Token de API da S.EE |
+| `action` | Sim | A ação a executar (atualmente apenas `shorturl`) |
+| `url` | Sim | O URL a encurtar |
+| `format` | Não | Formato de saída: `json`, `jsonp`, `xml` ou `simple` (predefinição: `simple`) |
+| `keyword` | Não | Slug personalizado para o URL curto |
+| `title` | Não | Título para o URL curto |
+
+### Notas
+
+- Se um `keyword` fornecido já estiver em uso, a API gera automaticamente um novo keyword disponível em vez de devolver um erro.
+- As regras padrão de validação e prevenção de abusos da S.EE aplicam-se a todos os pedidos.
+
+---
+
+## Exemplos
+
+### Pedido POST
+
+```bash
+curl -X POST \
+  'https://s.ee/api/v1/yourls' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'signature=your_api_token' \
+  --data-urlencode 'format=json' \
+  --data-urlencode 'action=shorturl' \
+  --data-urlencode 'url=https://example.com/'
+````
+
+**Resposta:**
+
+```json
+{
+  "status": "success",
+  "code": "",
+  "message": "https://example.com/ added to database",
+  "errorCode": "",
+  "statusCode": "200",
+  "url": {
+    "keyword": "link",
+    "url": "https://example.com/",
+    "title": "",
+    "date": "2026-01-14 21:38:10",
+    "ip": "192.0.2.2"
+  },
+  "shorturl": "https://s.ee/link"
+}
+```
+
+<Callout>
+Alguns campos de resposta são preservados para compatibilidade com YOURLS e podem estar vazios.
+</Callout>
+
+---
+
+### Pedido GET
+
+```bash
+curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
+```
+
+**Resposta:**
+
+```
+https://s.ee/link
+```
+
+<Callout>
+Lembre-se de codificar os parâmetros em URL quando usar pedidos GET.  
+Para URLs longos ou parâmetros adicionais, recomenda-se o uso de pedidos POST para evitar limites de comprimento de URL.
+</Callout>
+
+---
+
+## Clientes de terceiros
+
+Esta API é compatível com qualquer cliente que suporte encurtamento de URL ao estilo YOURLS, incluindo:
+
+* Extensões de navegador
+* Aplicações móveis
+* Aplicações de desktop
+* Ferramentas de automação (Shortcuts, Tasker, Zapier, etc.)
+
+Para obter todos os detalhes sobre a especificação original da API YOURLS, consulte a documentação oficial:
+
+[https://yourls.org/readme.html#API](https://yourls.org/readme.html#API)

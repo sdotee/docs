@@ -1,0 +1,233 @@
+---
+title: Обмен файлами
+description: Как загружать и публиковать файлы через S.EE
+icon: Upload
+---
+
+## Обзор
+
+Функция S.EE File Sharing позволяет загружать и публиковать файлы по короткой и удобной ссылке. Это удобно для изображений, документов, аудио, видео и других файлов.
+
+---
+
+## Загрузка файлов
+
+### Быстрая загрузка (перетаскивание)
+
+1. Войдите в [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. Нажмите **Sharing > Files** в левой боковой панели или откройте [https://s.ee/user/files/](https://s.ee/user/files/)
+3. Перетащите файлы или папки в окно **Drag & Drop**
+   - Вы также можете нажать на окно, чтобы выбрать файлы вручную
+   - При загрузке папки будут отправлены все файлы внутри нее
+4. Файлы будут опубликованы с доменом по умолчанию и случайным коротким кодом
+
+### Расширенная загрузка (Create File)
+
+Чтобы получить больше контроля над публикацией файлов:
+
+1. Нажмите **Create File**
+2. Настройте параметры:
+   - **Domain** - Выберите домен для страницы публикации
+   - **Custom Slug** - Укажите пользовательский короткий код URL
+   - **Other options** - Метки, срок действия и т. д.
+3. Выберите файл и загрузите его
+
+---
+
+## Ссылки на файл
+
+Для каждого загруженного файла доступны два типа ссылок:
+
+| Тип ссылки | Формат | Описание |
+|-----------|--------|-------------|
+| Страница публикации | `fs.to/[your_slug]` | Настраиваемые домен и короткий код |
+| Прямая ссылка | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | Прямой доступ к файлу с исходным именем |
+
+**Примечание:** прямые ссылки пока не поддерживают пользовательские домены.
+
+---
+
+## Поддерживаемые типы файлов
+
+S.EE поддерживает широкий набор типов файлов:
+
+### Изображения
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| image/jpeg | Изображения JPEG (.jpg, .jpeg) |
+| image/png | Изображения PNG (.png) |
+| image/gif | Изображения GIF (.gif) |
+| image/webp | Изображения WebP (.webp) |
+| image/avif | Изображения AVIF (.avif) |
+| image/svg+xml | Изображения SVG (.svg) |
+| image/bmp | Изображения BMP (.bmp) |
+| image/tiff | Изображения TIFF (.tiff, .tif) |
+| image/heic | Изображения HEIC (.heic) |
+| image/heif | Изображения HEIF (.heif) |
+| image/jp2 | Изображения JPEG 2000 (.jp2) |
+| image/jpx | Изображения JPEG 2000 (.jpx) |
+| image/jxl | Изображения JPEG XL (.jxl) |
+| image/vnd.adobe.photoshop | Файлы Photoshop (.psd) |
+
+### Документы
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| application/pdf | Документы PDF (.pdf) |
+| application/msword | Документы Word (.doc) |
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Документы Word (.docx) |
+| application/vnd.ms-excel | Таблицы Excel (.xls) |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | Таблицы Excel (.xlsx) |
+| application/vnd.ms-powerpoint | Презентации PowerPoint (.ppt) |
+| application/vnd.openxmlformats-officedocument.presentationml.presentation | Презентации PowerPoint (.pptx) |
+| application/vnd.apple.pages | Документы Pages (.pages) |
+| application/vnd.apple.numbers | Таблицы Numbers (.numbers) |
+| application/vnd.apple.keynote | Презентации Keynote (.key) |
+| application/vnd.oasis.opendocument.text | OpenDocument Text (.odt) |
+| application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet (.ods) |
+| application/vnd.oasis.opendocument.presentation | OpenDocument Presentation (.odp) |
+| application/rtf | Rich Text Format (.rtf) |
+| application/postscript | Файлы PostScript (.ps, .eps) |
+| application/epub+zip | Электронные книги EPUB (.epub) |
+
+### Текст и данные
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| text/plain | Обычные текстовые файлы (.txt) |
+| text/csv | Файлы CSV (.csv) |
+| text/markdown | Файлы Markdown (.md, .markdown, .mdx) |
+| application/json | Файлы JSON (.json) |
+| application/yaml | Файлы YAML (.yaml, .yml) |
+
+### Аудио
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| audio/mpeg | Файлы MP3 (.mp3) |
+| audio/wav | Файлы WAV (.wav) |
+| audio/ogg | Аудио OGG (.ogg) |
+| audio/flac | Аудио FLAC (.flac) |
+| audio/aac | Аудио AAC (.aac) |
+| audio/mp4, audio/x-m4a | Аудио M4A (.m4a) |
+| audio/midi | Файлы MIDI (.mid, .midi) |
+| audio/x-ms-wma | Аудио WMA (.wma) |
+
+### Видео
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| video/mp4 | Видео MP4 (.mp4) |
+| video/webm | Видео WebM (.webm) |
+| video/quicktime | Видео QuickTime (.mov) |
+| video/x-matroska | Видео MKV (.mkv) |
+| video/x-msvideo | Видео AVI (.avi) |
+| video/mpeg | Видео MPEG (.mpeg, .mpg) |
+| video/ogg | Видео OGG (.ogv) |
+| video/3gpp | Видео 3GP (.3gp) |
+| video/x-flv | Видео FLV (.flv) |
+| video/x-ms-wmv | Видео WMV (.wmv) |
+
+### Архивы и образы дисков
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| application/zip | Архивы ZIP (.zip) |
+| application/x-zip-compressed | Архивы ZIP (.zip) |
+| application/gzip | Архивы GZIP (.gz) |
+| application/x-bzip2 | Архивы BZIP2 (.bz2) |
+| application/x-xz | Архивы XZ (.xz) |
+| application/x-tar | Архивы TAR (.tar) |
+| application/x-7z-compressed | Архивы 7-Zip (.7z) |
+| application/x-rar-compressed | Архивы RAR (.rar) |
+| application/x-apple-diskimage | Образы дисков DMG (.dmg) |
+| application/x-iso9660-image | Образы дисков ISO (.iso) |
+
+<Callout type="warn">
+Исполняемые файлы (.exe, .msi, .bat, .app и т. д.) **не допускаются** по соображениям безопасности.
+</Callout>
+
+<Callout type="info">
+Для следующих расширений файлов мы можем принудительно установить `Content-Type` ответа в `text/plain`, чтобы снизить риск злоупотреблений со скриптами: `.js`, `.mjs`, `.html`, `.htm`, `.xhtml`, `.shtml`, `.svg`, `.xml`, `.json`, `.map`.
+</Callout>
+
+<Callout type="info">
+Для неизвестных или неоднозначных типов файлов мы принудительно устанавливаем `Content-Type` ответа в `application/octet-stream`.
+</Callout>
+
+### Устаревшие / совместимость
+
+Эти MIME-типы принимаются для совместимости со старыми системами.
+
+| MIME-тип | Описание |
+|-----------|-------------|
+| application/excel | Таблицы Excel (.xls) |
+| application/x-excel | Таблицы Excel (.xls) |
+| application/x-msexcel | Таблицы Excel (.xls) |
+| application/mspowerpoint | Презентации PowerPoint (.ppt) |
+| application/powerpoint | Презентации PowerPoint (.ppt) |
+| application/x-mspowerpoint | Презентации PowerPoint (.ppt) |
+
+---
+
+## Лимиты хранения
+
+Лимиты зависят от вашего тарифа:
+
+| Тариф | Максимальный размер файла | Общее хранилище |
+|------|---------------|---------------|
+| Lite | 100 MB | 100 GB |
+| Pro | 1 GB | 500 GB |
+| Premium | 5 GB | 5 TB |
+| Enterprise | Индивидуально | Индивидуально |
+
+Подробности см. на [s.ee/pricing](https://s.ee/pricing).
+
+---
+
+## Хранение файлов
+
+- Файлы **хранятся постоянно**, пока ваша подписка активна
+- Если подписка истекает, файлы хранятся **7 дней**, после чего удаляются
+
+---
+
+## Поддерживаемые домены
+
+Обмен файлами доступен на следующих доменах:
+
+| Домен | Лучше всего подходит для |
+|--------|----------|
+| [fs.to](https://fs.to) | Общий обмен файлами |
+| [files.to](https://files.to) | Общий обмен файлами |
+| [fileshare.to](https://fileshare.to) | Общий обмен файлами |
+| [filesharing.to](https://filesharing.to) | Общий обмен файлами |
+
+Для клиентов Premium и Enterprise см. [официальные домены](/docs/ru/official-domains/#premium--enterprise).
+
+---
+
+## Доступ к API
+
+Обмен файлами также доступен через API. Подробности о программной загрузке см. в [документации API](/docs/ru/developers/api/#обмен-файлами).
+
+---
+
+## FAQ
+
+### Кто может загружать файлы?
+
+Только платные подписчики. Требуется действующая подписка.
+
+### Есть ли ограничения на скачивание?
+
+Нет, ограничений по количеству скачиваний и пропускной способности для опубликованных файлов нет.
+
+### Можно ли настроить URL страницы публикации?
+
+Да. Вы можете указать пользовательский домен и короткий код для страницы публикации при использовании метода **Create File**.
+
+### Можно ли настроить прямую ссылку?
+
+Пока прямые ссылки используют фиксированный формат и не поддерживают пользовательские домены.

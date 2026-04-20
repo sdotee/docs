@@ -1,0 +1,96 @@
+---
+title: ShareX
+description: Unggah screenshot, file, dan teks ke S.EE dari ShareX
+icon: AttachFile
+---
+
+[ShareX](https://getsharex.com/) adalah alat screen capture dan berbagi file open source untuk Windows. S.EE menyediakan konfigurasi custom uploader untuk ShareX, sehingga Anda dapat mengunggah screenshot, file, teks, dan kode langsung ke S.EE lalu mendapatkan tautan berbagi.
+
+Lihat juga: [Dokumentasi custom uploader ShareX](https://getsharex.com/docs/custom-uploader)
+
+---
+
+## Custom uploader
+
+S.EE memiliki konfigurasi untuk jenis unggahan berikut:
+
+| Uploader | What it does |
+|----------|-------------|
+| URL Shortener | Memendekkan URL melalui S.EE |
+| Text Uploader | Mengunggah cuplikan teks |
+| Code Uploader | Mengunggah kode dengan sorotan sintaks |
+| Markdown Uploader | Mengunggah Markdown dengan pratinjau yang dirender |
+| Image & File Uploader | Mengunggah gambar dan file |
+
+---
+
+## Instalasi
+
+Ambil file konfigurasi `.sxcu` di bawah ini. Anda dapat mengunduhnya atau mengimpornya melalui URL di ShareX.
+
+| Uploader | Download / Import Link |
+|----------|------------------------|
+| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+
+### Impor
+
+1. Buka **ShareX**
+2. Buka **Destinations** > **Custom uploader settings**
+3. Klik **Import**, lalu pilih salah satu:
+   - Pilih file `.sxcu` yang sudah diunduh
+   - Tempelkan URL unduhan secara langsung
+
+![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+
+---
+
+## Siapkan API key Anda
+
+1. Dapatkan API key Anda dari **[Tools > API Token](https://s.ee/user/developers/)**
+2. Di ShareX, buka **Custom uploader settings** lalu pilih uploader S.EE yang Anda impor
+3. Pada bagian **Headers**, isi nilai `Authorization` dengan API key Anda
+
+<Callout type="warn">
+Jangan membagikan API key Anda secara publik atau menyimpannya ke version control.
+</Callout>
+
+---
+
+## Penggunaan
+
+### Pilih uploader
+
+Di ShareX, buka **Destinations** dan tetapkan uploader S.EE:
+
+- URL shortener → S.EE URL Shortener
+- Text uploader → S.EE Text Uploader, Code Uploader, atau Markdown Uploader
+- Image uploader → S.EE File Uploader
+- File uploader → S.EE File Uploader
+
+### Unggah
+
+Gunakan hotkey atau menu klik kanan ShareX untuk memendekkan URL, mengunggah screenshot, membagikan cuplikan teks, dan sebagainya. ShareX akan mengunggah ke S.EE dan menyalin tautan ke clipboard Anda.
+
+---
+
+## Pemecahan Masalah
+
+| Issue | Fix |
+|-------|-----|
+| 401 error | Pastikan API key Anda telah diatur dengan benar di header Authorization |
+| 403 error | Pastikan API key Anda memiliki izin yang tepat |
+| File rejected | Jenis file mungkin tidak didukung. Lihat [Berbagi File](/docs/id/file-sharing) untuk tipe file yang diizinkan |
+
+Anda dapat mengklik **Test** di **Custom uploader settings** untuk memastikan semuanya bekerja dengan benar.
+
+---
+
+## Terkait
+
+- [Developer API](/docs/id/developers)
+- [Berbagi File](/docs/id/file-sharing)
+- [Berbagi Teks](/docs/id/text-sharing)

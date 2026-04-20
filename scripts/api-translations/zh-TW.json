@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "建立短網址",
+    "description": "為目標連結建立新的短網址，並可選擇設定自訂短碼、密碼保護、到期時間與用於分類的標籤。"
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "建立短網址（簡易模式）",
+    "description": "使用簡化參數快速建立短網址，適合零設定情境。"
+  },
+  "UpdateShortUrl": {
+    "title": "更新短網址",
+    "description": "更新既有短網址的目標位址、密碼、到期時間或標籤。"
+  },
+  "DeleteShortUrl": {
+    "title": "刪除短網址",
+    "description": "永久刪除指定的短網址。"
+  },
+  "GetAvailableDomains": {
+    "title": "取得可用網域",
+    "description": "回傳目前帳號可用於建立短網址的網域清單。"
+  },
+  "GetLinkVisitStat": {
+    "title": "取得短網址存取統計",
+    "description": "回傳指定短網址的存取資料，包括點擊次數、來源與地理分布等。"
+  },
+  "CreateText": {
+    "title": "建立文字分享",
+    "description": "建立可透過短網址存取的文字內容，例如純文字、程式碼片段或 Markdown。"
+  },
+  "UpdateText": {
+    "title": "更新文字分享",
+    "description": "更新既有文字分享的內容、密碼或到期時間。"
+  },
+  "DeleteText": {
+    "title": "刪除文字分享",
+    "description": "永久刪除指定的文字分享。"
+  },
+  "GetTextAvailableDomains": {
+    "title": "取得文字分享可用網域",
+    "description": "回傳可用於建立文字分享的網域清單。"
+  },
+  "UploadFile": {
+    "title": "上傳檔案",
+    "description": "上傳檔案並產生可分享的短網址，支援設定密碼與到期時間。"
+  },
+  "GetFileHistory": {
+    "title": "取得檔案歷史",
+    "description": "回傳目前帳號上傳的檔案清單。"
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "取得私人檔案下載網址",
+    "description": "為受密碼保護的私人檔案產生暫時下載連結。"
+  },
+  "DeleteFile": {
+    "title": "刪除檔案",
+    "description": "永久刪除指定的檔案。"
+  },
+  "GetFileAvailableDomains": {
+    "title": "取得檔案分享可用網域",
+    "description": "回傳可用於檔案分享的網域清單。"
+  },
+  "GetTags": {
+    "title": "取得標籤清單",
+    "description": "回傳目前帳號下所有用於整理內容的標籤。"
+  },
+  "GetUsage": {
+    "title": "取得使用量",
+    "description": "回傳目前帳號在本計費週期內的資源使用情況。"
+  }
+}

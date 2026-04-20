@@ -1,0 +1,146 @@
+---
+title: Khả năng tương thích SM.MS
+description: Chuyển từ SM.MS sang S.EE với thay đổi mã tối thiểu
+icon: RefreshCw
+---
+
+S.EE cung cấp một lớp API tương thích với SM.MS, cho phép bạn chuyển từ SM.MS sang S.EE với rất ít thay đổi trong mã. Chỉ cần thay endpoint API là bạn đã có thể sử dụng.
+
+## Chuyển đổi nhanh
+
+Thay base URL API của SM.MS bằng URL tương đương của S.EE:
+
+| SM.MS | S.EE |
+|-------|------|
+| `https://sm.ms/api/v2` | `https://s.ee/api/v1/file` |
+
+## Endpoint được hỗ trợ
+
+| SM.MS Endpoint | S.EE Endpoint | Description |
+|----------------|---------------|-------------|
+| `POST /api/v2/upload` | `POST /api/v1/file/upload` | Tải ảnh lên |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | Lấy lịch sử tải lên |
+
+## Tải ảnh lên
+
+### Request
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: your-api-key" \
+  -F "smfile=@/path/to/image.png" \
+  -F "domain=sm.ms" \
+  -F "custom_slug=my-image"
+```
+
+### Parameter
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `smfile` | file | Yes | Tệp hình ảnh cần tải lên (alias: `file`) |
+| `domain` | string | No | Tên miền tùy chỉnh cho liên kết ngắn |
+| `custom_slug` | string | No | Slug tùy chỉnh cho URL (ngẫu nhiên nếu không cung cấp) |
+
+### Response
+
+```json
+{
+  "code": 200,
+  "data": {
+    "file_id": 14184137,
+    "width": 1024,
+    "height": 1024,
+    "filename": "my-cat.jpg",
+    "storename": "my-cat.jpg",
+    "size": 202814,
+    "path": "/2026/02/11/dm3K/my-cat.jpg",
+    "hash": "delete-hash-here",
+    "url": "https://i.see.you/2026/02/11/dm3K/my-cat.jpg",
+    "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+    "page": "https://sm.ms/my-cat",
+    "upload_status": 2
+  },
+  "message": "success",
+  "success": true
+}
+```
+
+## Lịch sử tải lên
+
+### Request
+
+```bash
+curl "https://s.ee/api/v1/files" \
+  -H "Authorization: your-api-key"
+```
+
+### Parameter
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `page` | integer | No | Số trang (mặc định 1, 30 tệp mỗi trang) |
+
+### Response
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
+## Khác biệt so với SM.MS
+
+Mặc dù S.EE duy trì khả năng tương thích với API của SM.MS, vẫn có một số cải tiến:
+
+| Feature | SM.MS | S.EE |
+|---------|-------|------|
+| Custom domain | No | Yes |
+| Custom slug | No | Yes |
+| File size limit | 5MB | Khác nhau theo gói |
+| Supported formats | Images only | Hình ảnh, tài liệu và nhiều loại khác |
+
+## Lấy API Key của bạn
+
+Để dùng API của S.EE, bạn cần API key:
+
+1. Đăng ký hoặc đăng nhập tại [s.ee](https://s.ee)
+2. Truy cập **[Tools > API Token](https://s.ee/user/developers/)**
+3. Tạo một API key mới
+
+## Cần trợ giúp?
+
+Nếu bạn gặp bất kỳ vấn đề nào trong quá trình chuyển đổi, hãy [liên hệ hỗ trợ](https://s.ee/contact) hoặc xem [tài liệu API](/docs/vi/developers/api).

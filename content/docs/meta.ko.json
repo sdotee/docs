@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index",
+    "---시작하기---",
+    "signup",
+    "login",
+    "dashboard",
+    "---기능---",
+    "links",
+    "text-sharing",
+    "file-sharing",
+    "image-hosting",
+    "quick-response-codes",
+    "custom-domains",
+    "official-domains",
+    "browser-extensions",
+    "---무료 서비스---",
+    "free-url-shorteners",
+    "---도움말---",
+    "troubleshooting",
+    "security",
+    "---연동---",
+    "developers",
+    "api",
+    "---서드파티 연동---",
+    "yourls",
+    "sharex",
+    "picgo",
+    "wordpress",
+    "---커뮤니티---",
+    "awesome"
+  ]
+}

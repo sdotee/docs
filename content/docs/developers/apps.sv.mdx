@@ -1,0 +1,125 @@
+---
+title: Mobilapp
+description: Inbyggd mobilapp för S.EE
+icon: Smartphone
+---
+
+Förkorta länkar, dela text och ladda upp filer från telefonen med hela kraften i S.EE i en inbyggd app.
+
+- [sdotee/app](https://github.com/sdotee/app)
+
+## Ladda ner
+
+<div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
+  <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/app-store-badge.svg" alt="Hämta i App Store" height="40" />
+  </a>
+  <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
+    <img src="https://assets.seecdn.com/static/google-play-badge.svg" alt="Hämta på Google Play" height="40" />
+  </a>
+</div>
+
+## Plattformar som stöds
+
+| Plattform | Krav | Teknik |
+|----------|-------------|------------|
+| iOS | iOS 18.0+ | SwiftUI |
+| Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
+
+## Funktioner
+
+### URL-förkortning
+
+- Skapa korta länkar med anpassad slug, titel, lösenord och utgångstid
+- Välj mellan flera domäner
+- Visa länkstatistik för i dag, denna månad och totalt
+- Sök på slug, mål-URL, titel och domän
+- Redigera eller ta bort befintliga länkar
+
+### Textdelning
+
+- Dela vanlig text, källkod eller Markdown
+- Editor i monospace för kod
+- Anpassad slug, lösenord och utgångstid
+- Välj domän och tilldela taggar, upp till 5 stycken
+
+### Filuppladdning
+
+- Välj filer, hämta från galleri eller ta bild med kameran
+- Klistra in från urklipp med automatisk WebP-konvertering på iOS
+- Uppladdningsförlopp i realtid
+- 9 länkformat: direktlänk, delningssida, BBCode, HTML, Markdown med mera
+- Batchkopiering och batchradering i alla listor
+
+### Användningsöversikt
+
+- Lagringsanvändning med visuell stapel
+- Hastighetsgränser för API-anrop, länkar, textdelningar, uppladdningar och QR-koder
+- Daglig och månatlig användningsstatistik
+
+### Inställningar
+
+- Konfiguration av bas-URL för self-hosted-installerade instanser
+- Hantering av API-nyckel med verifiering med ett tryck
+- Standarddomän per tjänst: länkar, text och filer
+- Tema: system, ljust eller mörkt
+- Dynamic Color / Material You på Android
+
+## iOS
+
+Byggd med **SwiftUI** och **SwiftData** för en inbyggd iOS-upplevelse.
+
+- **Photo Picker** - välj från bildbiblioteket
+- **Camera** - ta foton (JPG) eller video (MOV till MP4)
+- Dra för att uppdatera taggar och listor
+- Säker lagring av API-nyckel i nyckelringen
+
+## Android
+
+Byggd med **Jetpack Compose** och **Material 3** för en inbyggd Android-upplevelse.
+
+- **Share Target** - ta emot delad text, URL:er och filer från andra appar
+- **App Shortcuts** - håll ned appikonen för snabba åtgärder
+- Stöd för **Predictive Back** (Android 14+)
+- **Adaptive Icon** med stöd för tematiserad ikon
+- Room-databas för lokal historik
+- EncryptedSharedPreferences för säker lagring
+
+## Teknikstack
+
+### iOS
+
+| Lager | Teknik |
+|-------|-----------|
+| UI | SwiftUI |
+| Lagring | SwiftData |
+| Nätverk | URLSession (aktörsbaserad) |
+| Säkerhet | Keychain |
+| Miniatyrer | QuickLookThumbnailing |
+| Bildbehandling | Swift-WebP |
+
+### Android
+
+| Lager | Teknik |
+|-------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Arkitektur | MVVM + Repository |
+| Nätverk | Retrofit 3.0 + OkHttp 5 |
+| DI | Hilt (Dagger) |
+| Lokal DB | Room |
+| Säkerhet | EncryptedSharedPreferences |
+| Bildinläsning | Coil 3 |
+
+## Källkod
+
+Båda apparna är öppen källkod under MIT-licensen:
+
+- **iOS**: [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
+- **Android**: [sdotee/app/android](https://github.com/sdotee/app/tree/main/android)
+
+## Kom igång
+
+1. Ladda ner från [App Store](https://s.ee/ios) eller [Google Play](https://s.ee/android)
+2. Skapa ett konto på [s.ee](https://s.ee) om du inte redan har ett
+3. [Skapa en API-nyckel](https://s.ee/user/developers/) från instrumentpanelen
+4. Öppna appen, gå till **Settings**, ange API-nyckeln och tryck på **Verify**

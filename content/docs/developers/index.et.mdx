@@ -1,0 +1,88 @@
+---
+title: Alustamine
+description: S.EE REST API lühikeste URL-ide, teksti jagamise ja failide jagamise loomiseks, haldamiseks ning jälgimiseks
+icon: Rocket
+---
+
+## Ülevaade
+
+S.EE API võimaldab sul programmiliselt luua ja hallata lühilinke, teksti jagamist ja failide jagamist. Seda saab kasutada järgmiseks:
+
+- loo lühilinke suuremas mahus
+- jaga tekstikatkeid ja koodi koos süntaksi esiletõstmisega
+- laadi faile üles ja jaga neid
+- halda kohandatud domeene
+- päri analüütikaandmeid
+- integreeri see oma rakendustesse
+
+---
+
+## Alustamine
+
+### Eeldused
+
+1. S.EE konto aktiivse paketiga
+2. API ligipääsutoken
+
+### Autentimine
+
+Kõik API-päringud nõuavad päises `Authorization` ligipääsutokenit:
+
+```bash
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Baas-URL
+
+```text
+https://s.ee/api/v1
+```
+
+---
+
+## Näidispäringud
+
+### Loo lühike URL
+
+```bash
+curl -X POST "https://s.ee/api/v1/shorten" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_url": "https://example.com/very-long-url",
+    "domain": "s.ee",
+    "custom_slug": "my-link"
+  }'
+```
+
+### Loo teksti jagamine
+
+```bash
+curl -X POST "https://s.ee/api/v1/text" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Code Snippet",
+    "content": "console.log(\"Hello, World!\");",
+    "text_type": "source_code",
+    "domain": "fs.to"
+  }'
+```
+
+### Laadi fail üles
+
+```bash
+curl -X POST "https://s.ee/api/v1/file/upload" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -F "file=@/path/to/your/file.png" \
+  -F "domain=fs.to"
+```
+
+---
+
+## Ressursid
+
+<Cards>
+  <Card title="API viide" href="/docs/et/developers/api/">Vaata kõiki saadaolevaid lõpp-punkte</Card>
+  <Card title="SDK-d" href="/docs/et/developers/sdk/">Ametlikud S.EE SDK-d eri programmeerimiskeelte jaoks</Card>
+</Cards>

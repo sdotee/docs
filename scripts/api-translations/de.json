@@ -1,0 +1,70 @@
+{
+  "CreateShortUrl": {
+    "title": "Kurz-URL erstellen",
+    "description": "Erstellt eine neue Kurz-URL für einen Ziellink. Optional können ein benutzerdefinierter Slug, Passwortschutz, Ablaufzeit und Tags zur Organisation gesetzt werden."
+  },
+  "CreateShortUrlSimpleMode": {
+    "title": "Kurz-URL erstellen (einfacher Modus)",
+    "description": "Erstellt mit vereinfachten Parametern schnell eine Kurz-URL und eignet sich für Szenarien ohne Konfiguration."
+  },
+  "UpdateShortUrl": {
+    "title": "Kurz-URL aktualisieren",
+    "description": "Aktualisiert die Zieladresse, das Passwort, die Ablaufzeit oder die Tags einer bestehenden Kurz-URL."
+  },
+  "DeleteShortUrl": {
+    "title": "Kurz-URL löschen",
+    "description": "Löscht die angegebene Kurz-URL dauerhaft."
+  },
+  "GetAvailableDomains": {
+    "title": "Verfügbare Domains abrufen",
+    "description": "Gibt die Liste der Domains zurück, die im aktuellen Konto zum Erstellen von Kurz-URLs verfügbar sind."
+  },
+  "GetLinkVisitStat": {
+    "title": "Aufrufstatistiken der Kurz-URL abrufen",
+    "description": "Gibt Besuchsdaten einer Kurz-URL zurück, einschließlich Klicks, Quellen und geografischer Verteilung."
+  },
+  "CreateText": {
+    "title": "Textfreigabe erstellen",
+    "description": "Erstellt einen Textinhalt, der über eine Kurz-URL erreichbar ist, zum Beispiel Klartext, Code-Snippets oder Markdown."
+  },
+  "UpdateText": {
+    "title": "Textfreigabe aktualisieren",
+    "description": "Aktualisiert Inhalt, Passwort oder Ablaufzeit einer bestehenden Textfreigabe."
+  },
+  "DeleteText": {
+    "title": "Textfreigabe löschen",
+    "description": "Löscht die angegebene Textfreigabe dauerhaft."
+  },
+  "GetTextAvailableDomains": {
+    "title": "Verfügbare Domains für Textfreigaben abrufen",
+    "description": "Gibt die Liste der Domains zurück, die zum Erstellen von Textfreigaben verfügbar sind."
+  },
+  "UploadFile": {
+    "title": "Datei hochladen",
+    "description": "Lädt eine Datei hoch und erzeugt eine teilbare Kurz-URL. Passwort und Ablaufzeit können festgelegt werden."
+  },
+  "GetFileHistory": {
+    "title": "Dateiverlauf abrufen",
+    "description": "Gibt die Liste der vom aktuellen Konto hochgeladenen Dateien zurück."
+  },
+  "GetPrivateFileDownloadURL": {
+    "title": "Download-URL für private Datei abrufen",
+    "description": "Erzeugt eine temporäre Download-URL für eine passwortgeschützte private Datei."
+  },
+  "DeleteFile": {
+    "title": "Datei löschen",
+    "description": "Löscht die angegebene Datei dauerhaft."
+  },
+  "GetFileAvailableDomains": {
+    "title": "Verfügbare Domains für Dateifreigaben abrufen",
+    "description": "Gibt die Liste der Domains zurück, die für Dateifreigaben verfügbar sind."
+  },
+  "GetTags": {
+    "title": "Tag-Liste abrufen",
+    "description": "Gibt alle Tags des aktuellen Kontos zurück, die zur Organisation von Inhalten verwendet werden."
+  },
+  "GetUsage": {
+    "title": "Nutzung abrufen",
+    "description": "Gibt die Ressourcennutzung des aktuellen Kontos im laufenden Abrechnungszeitraum zurück."
+  }
+}

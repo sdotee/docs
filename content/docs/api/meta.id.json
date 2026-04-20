@@ -1,0 +1,28 @@
+{
+  "title": "Referensi API",
+  "description": "Endpoint API S.EE",
+  "defaultOpen": true,
+  "pages": [
+    "---URL Pendek---",
+    "CreateShortUrl",
+    "CreateShortUrlSimpleMode",
+    "UpdateShortUrl",
+    "DeleteShortUrl",
+    "GetAvailableDomains",
+    "GetLinkVisitStat",
+    "---Berbagi Teks---",
+    "CreateText",
+    "UpdateText",
+    "DeleteText",
+    "GetTextAvailableDomains",
+    "---Berbagi File---",
+    "UploadFile",
+    "GetFileHistory",
+    "GetPrivateFileDownloadURL",
+    "DeleteFile",
+    "GetFileAvailableDomains",
+    "---Umum---",
+    "GetTags",
+    "GetUsage"
+  ]
+}

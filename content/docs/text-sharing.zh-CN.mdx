@@ -1,0 +1,80 @@
+---
+title: 文本分享
+description: 如何使用 S.EE 分享文本、代码片段和 Markdown
+icon: FileText
+---
+
+## 概览
+
+S.EE 文本分享允许您通过简短、可分享的链接来分享纯文本、代码片段和 Markdown 文档。非常适合分享配置文件、代码示例、笔记和文档。
+
+---
+
+## 创建文本分享
+
+1. 登录 [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
+2. 在左侧边栏点击 **Sharing > Text**，或直接前往 [https://s.ee/user/text/](https://s.ee/user/text/)
+3. 填写以下信息：
+   - **Title**（可选）- 下载时会作为文件名使用
+   - **Short Link** - 选择您偏好的域名
+   - **Text Type** - 从 Plain Text、Code 或 Markdown 中选择
+4. 在 **Edit** 输入框中填入内容
+5. 配置可选设置（见下文）
+6. 点击 **Create Text**
+
+---
+
+## 文本类型
+
+| 类型 | 说明 |
+|------|-------------|
+| 纯文本 | 简单的无格式文本 |
+| 代码 | 带语法高亮的代码片段 |
+| Markdown | 渲染后的 Markdown 文档 |
+
+---
+
+## 可选设置
+
+| 选项 | 说明 |
+|--------|-------------|
+| 密码 | 为文本设置密码保护 |
+| 标签 | 使用标签整理分享的文本 |
+| 过期时间 | 设置文本分享的过期时间 |
+| 禁用搜索引擎索引 | 防止搜索引擎收录您分享的文本 |
+
+---
+
+## 查看分享的文本
+
+创建完成后，您会得到类似 `ba.sh/demo` 的短网址。
+
+### 查看模式
+
+| URL | 说明 |
+|-----|-------------|
+| `ba.sh/demo` | 查看带语法高亮的格式化文本页面 |
+| `ba.sh/demo/raw` | 直接查看原始纯文本 |
+
+`/raw` 接口适用于：
+
+- 使用 `curl` 或 `wget` 直接下载脚本
+- 嵌入到其他应用中
+- 在无格式模式下查看内容
+
+---
+
+## 支持的域名
+
+所有套餐都可以在以下域名上使用文本分享：
+
+| 域名 | 适用场景 |
+|--------|----------|
+| [ba.sh](https://ba.sh) | Bash 和 Shell 脚本 |
+| [z.sh](https://z.sh) | Shell 脚本 |
+| [fs.to](https://fs.to) | 通用文件分享 |
+| [files.to](https://files.to) | 通用文件分享 |
+| [fileshare.to](https://fileshare.to) | 通用文件分享 |
+| [filesharing.to](https://filesharing.to) | 通用文件分享 |
+
+如果您是 Premium 或 Enterprise 客户，请参考我们的[官方域名](https://s.ee/docs/official-domains/#premium--enterprise)。

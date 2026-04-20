@@ -1,0 +1,70 @@
+---
+title: Benutzerdefinierte Domains
+description: So richten Sie eine benutzerdefinierte Domain für Ihre Kurzlinks ein
+icon: Globe
+---
+
+## Was ist eine benutzerdefinierte Domain?
+
+Mit einer benutzerdefinierten Domain können Sie Ihre eigene Marke in Kurzlinks verwenden statt `s.ee`. Statt `s.ee/link` könnten Sie beispielsweise `go.example.com/link` verwenden.
+
+---
+
+## Warum eine benutzerdefinierte Domain verwenden?
+
+- **Markenwahrnehmung** - Links zeigen Ihre Marke, nicht unsere
+- **Vertrauen** - Nutzer klicken eher auf gebrandete Links
+- **Höhere Klickrate** - Gebrandete Links erzielen oft bessere Ergebnisse
+
+---
+
+## Eine benutzerdefinierte Domain hinzufügen
+
+1. Gehen Sie zu [https://s.ee/user/domains/](https://s.ee/user/domains/)
+2. Klicken Sie auf **Add Domain**
+3. Geben Sie Ihren Domainnamen ein
+4. Fügen Sie die erforderlichen DNS-Einträge hinzu:
+   - **TXT record** - Für die Domain-Verifizierung
+   - **CNAME or Alias record** - Damit Ihre Domain auf S.EE zeigt
+5. Warten Sie auf die DNS-Propagation (normalerweise einige Minuten)
+6. Klicken Sie auf **Verify**, um die Einrichtung zu bestätigen
+
+---
+
+## Voraussetzungen
+
+- Die Domain muss sich von Ihrer Haupt-Website-Domain unterscheiden
+- Maximal 63 Zeichen (einschließlich Punkt)
+- Sie müssen Zugriff auf die DNS-Einstellungen Ihrer Domain haben
+
+---
+
+## Wichtige Hinweise
+
+### Cloudflare-Nutzer
+
+Wenn Sie Cloudflare für DNS verwenden, **aktivieren Sie den Proxy (orangefarbenes Wolkensymbol) für Ihren CNAME-Eintrag nicht**. Lassen Sie ihn im DNS-only-Modus (graue Wolke). Ein aktivierter Cloudflare-Proxy kann zu CDN-Konflikten und Weiterleitungsproblemen führen.
+
+### Verwendung einer Root-Domain (naked domain)
+
+Wenn Sie eine Root-Domain verwenden möchten (z. B. `example.com` statt `go.example.com`), muss Ihr DNS-Anbieter **ALIAS records** oder **CNAME flattening** unterstützen. Häufige Anbieter mit dieser Funktion:
+
+- [Cloudflare](https://developers.cloudflare.com/dns/cname-flattening/) (CNAME flattening)
+- [Hurricane Electric](https://dns.he.net/) (CNAME)
+- [DNSimple](https://support.dnsimple.com/articles/alias-record-reference/) (ALIAS)
+- [DNS Made Easy](https://dnsmadeeasy.com/aname-records) (ANAME)
+- [ClouDNS](https://www.cloudns.net/wiki/article/18/) (ALIAS)
+
+Wenn Ihr DNS-Anbieter diese Funktionen nicht unterstützt, [kontaktieren Sie uns](https://s.ee/contact/) - wir können bei der Verifizierung und manuellen Einrichtung Ihrer Root-Domain helfen.
+
+---
+
+## Domain-Limits nach Tarif
+
+| Plan | Custom Domains |
+|------|----------------|
+| Lite | 1 |
+| Lifetime | 1 |
+| Pro | 5 |
+| Premium | 10 |
+| Enterprise | Unlimited |
