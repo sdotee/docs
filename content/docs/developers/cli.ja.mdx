@@ -93,10 +93,10 @@ see tags
 ### 短縮 URL
 
 ```bash
-# Create a short URL
+# 作成 a short URL
 see url create https://example.com
 
-# Create with custom options
+# 作成 with custom options
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -107,46 +107,46 @@ see url create https://example.com \
 # Update a short URL
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# 短縮 URL を削除
 see url delete --domain s.ee --slug my-link
 ```
 
 ### テキストスニペット
 
 ```bash
-# Create text from stdin
+# 作成 text from stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# 作成 text from file
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# 作成 with options
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
+# テキストを更新
 see text update --domain fs.to --slug abc123 --title "Updated Title"
 
-# Delete text
+# テキストを削除
 see text delete --domain fs.to --slug abc123
 ```
 
 ### ファイルアップロード
 
 ```bash
-# Upload a file
+# ファイルをアップロード
 see file upload ./image.png
 
-# Upload with custom domain
+# カスタムドメインでアップロード
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# stdin からアップロード
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# ファイルを削除
 see file delete <delete-hash>
 ```
 

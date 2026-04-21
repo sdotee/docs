@@ -4,23 +4,23 @@ description: Ekran görüntülerini, dosyaları ve metinleri ShareX üzerinden S
 icon: AttachFile
 ---
 
-[ShareX](https://getsharex.com/), Windows için açık kaynaklı bir ekran yakalama ve dosya paylaşım aracıdır. S.EE, ShareX için özel uploader yapılandırmaları sunar; böylece ekran görüntülerini, dosyaları, metinleri ve kodları doğrudan S.EE'ye yükleyip paylaşılabilir bağlantıyı geri alabilirsiniz.
+[ShareX](https://getsharex.com/), Windows için açık kaynaklı bir ekran yakalama ve dosya paylaşım aracıdır. S.EE, ShareX için özel yükleyici yapılandırmaları sunar; böylece ekran görüntülerini, dosyaları, metinleri ve kodları doğrudan S.EE'ye yükleyip paylaşılabilir bağlantıyı geri alabilirsiniz.
 
-Ayrıca bkz.: [ShareX özel uploader dokümantasyonu](https://getsharex.com/docs/custom-uploader)
+Ayrıca bkz.: [ShareX özel yükleyici dokümantasyonu](https://getsharex.com/docs/custom-yükleyici)
 
 ---
 
-## Özel uploader'lar
+## Özel yükleyiciler
 
 S.EE şu yükleme türleri için yapılandırma sunar:
 
 | Uploader | İşlevi |
 |----------|-------------|
-| URL Shortener | URL'leri S.EE üzerinden kısaltır |
-| Text Uploader | Metin parçaları yükler |
-| Code Uploader | Sözdizimi vurgulamalı kod yükler |
-| Markdown Uploader | Render edilmiş önizlemeyle Markdown yükler |
-| Image & File Uploader | Görselleri ve dosyaları yükler |
+| URL kısaltıcı | URL'leri S.EE üzerinden kısaltır |
+| Metin yükleyici | Metin parçaları yükler |
+| Kod yükleyici | Sözdizimi vurgulamalı kod yükler |
+| Markdown yükleyici | Render edilmiş önizlemeyle Markdown yükler |
+| Görsel ve dosya yükleyici | Görselleri ve dosyaları yükler |
 
 ---
 
@@ -30,29 +30,29 @@ Aşağıdaki `.sxcu` yapılandırma dosyalarını alın. Dosyaları indirebilir 
 
 | Uploader | İndirme / içe aktarma bağlantısı |
 |----------|------------------------|
-| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
-| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
-| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
-| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
-| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+| URL kısaltıcı | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Metin yükleyici | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Kod yükleyici | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown yükleyici | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Görsel ve dosya yükleyici | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
 
 ### İçe aktarma
 
 1. **ShareX** uygulamasını açın
-2. **Destinations** > **Custom uploader settings** yoluna gidin
-3. **Import** düğmesine tıklayın ve ardından:
+2. **Hedefler** > **Özel yükleyici ayarları** yoluna gidin
+3. **İçe aktar** düğmesine tıklayın ve ardından:
    - İndirdiğiniz `.sxcu` dosyasını seçin veya
    - İndirme URL'sini doğrudan yapıştırın
 
-![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+![ShareX özel yükleyici ayarları](https://i.see.you/2026/01/18/5dkS/image.webp)
 
 ---
 
 ## API anahtarını ayarlama
 
-1. API anahtarınızı **[Tools > API Token](https://s.ee/user/developers/)** sayfasından alın
-2. ShareX içinde **Custom uploader settings** bölümünü açın ve içe aktardığınız S.EE uploader'ını seçin
-3. **Headers** bölümünde `Authorization` değerini API anahtarınız olarak ayarlayın
+1. API anahtarınızı **[Araçlar > API Token](https://s.ee/user/developers/)** sayfasından alın
+2. ShareX içinde **Özel yükleyici ayarları** bölümünü açın ve içe aktardığınız S.EE yükleyici'ını seçin
+3. **Başlıklar** bölümünde `Authorization` değerini API anahtarınız olarak ayarlayın
 
 <Callout type="warn">
 API anahtarınızı herkese açık şekilde paylaşmayın ve sürüm kontrolüne eklemeyin.
@@ -64,12 +64,12 @@ API anahtarınızı herkese açık şekilde paylaşmayın ve sürüm kontrolüne
 
 ### Uploader atama
 
-ShareX içinde **Destinations** bölümüne gidin ve S.EE uploader'larını atayın:
+ShareX içinde **Hedefler** bölümüne gidin ve S.EE yükleyici'larını atayın:
 
-- URL shortener -> S.EE URL Shortener
-- Text uploader -> S.EE Text Uploader, Code Uploader veya Markdown Uploader
-- Image uploader -> S.EE File Uploader
-- File uploader -> S.EE File Uploader
+- URL kısaltıcı -> S.EE URL Shortener
+- Metin yükleyici -> S.EE Text Uploader, Code Uploader veya Markdown Uploader
+- Görsel yükleyici -> S.EE File Uploader
+- Dosya yükleyici -> S.EE File Uploader
 
 ### Yükleme
 
@@ -85,7 +85,7 @@ ShareX kısayollarını veya sağ tık menüsünü kullanarak URL kısaltabilir,
 | 403 hatası | API anahtarınızın gerekli izinlere sahip olduğundan emin olun |
 | Dosya reddedildi | Dosya türü desteklenmiyor olabilir; izin verilen türler için [Dosya paylaşımı](/docs/tr/file-sharing) sayfasına bakın |
 
-Her şeyin çalıştığını doğrulamak için **Custom uploader settings** içinde **Test** düğmesine tıklayabilirsiniz.
+Her şeyin çalıştığını doğrulamak için **Özel yükleyici ayarları** içinde **Doğrula** düğmesine tıklayabilirsiniz.
 
 ---
 

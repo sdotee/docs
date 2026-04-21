@@ -4,23 +4,23 @@ description: Tải screenshot, tệp và văn bản lên S.EE từ ShareX
 icon: AttachFile
 ---
 
-[ShareX](https://getsharex.com/) là công cụ chụp màn hình và chia sẻ tệp mã nguồn mở cho Windows. S.EE cung cấp cấu hình custom uploader cho ShareX, để bạn có thể tải screenshot, tệp, văn bản và mã trực tiếp lên S.EE và nhận lại liên kết chia sẻ.
+[ShareX](https://getsharex.com/) là công cụ chụp màn hình và chia sẻ tệp mã nguồn mở cho Windows. S.EE cung cấp cấu hình trình tải lên tùy chỉnh cho ShareX, để bạn có thể tải screenshot, tệp, văn bản và mã trực tiếp lên S.EE và nhận lại liên kết chia sẻ.
 
-Xem thêm: [Tài liệu custom uploader của ShareX](https://getsharex.com/docs/custom-uploader)
+Xem thêm: [Tài liệu trình tải lên tùy chỉnh của ShareX](https://getsharex.com/docs/custom-trình tải lên)
 
 ---
 
-## Custom uploader
+## Trình tải lên tùy chỉnh
 
 S.EE có cấu hình cho các loại upload sau:
 
 | Trình tải lên | Chức năng |
 |----------|-------------|
-| URL Shortener | Rút gọn URL qua S.EE |
-| Text Uploader | Tải lên đoạn văn bản |
-| Code Uploader | Tải lên mã có tô sáng cú pháp |
-| Markdown Uploader | Tải lên Markdown với bản xem trước đã render |
-| Image & File Uploader | Tải lên hình ảnh và tệp |
+| Trình rút gọn URL | Rút gọn URL qua S.EE |
+| Trình tải văn bản lên | Tải lên đoạn văn bản |
+| Trình tải mã lên | Tải lên mã có tô sáng cú pháp |
+| Trình tải Markdown lên | Tải lên Markdown với bản xem trước đã render |
+| Trình tải hình ảnh và tệp lên | Tải lên hình ảnh và tệp |
 
 ---
 
@@ -30,17 +30,17 @@ Lấy các tệp cấu hình `.sxcu` dưới đây. Bạn có thể tải chúng
 
 | Trình tải lên | Liên kết tải xuống / nhập |
 |----------|------------------------|
-| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
-| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
-| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
-| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
-| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+| Trình rút gọn URL | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Trình tải văn bản lên | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Trình tải mã lên | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Trình tải Markdown lên | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Trình tải hình ảnh và tệp lên | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
 
-### Import
+### Nhập
 
 1. Mở **ShareX**
-2. Truy cập **Destinations** > **Custom uploader settings**
-3. Nhấp vào **Import**, sau đó chọn một trong hai cách:
+2. Truy cập **Đích đến** > **Cài đặt trình tải lên tùy chỉnh**
+3. Nhấp vào **Nhập**, sau đó chọn một trong hai cách:
    - Chọn tệp `.sxcu` đã tải xuống
    - Dán trực tiếp URL tải xuống
 
@@ -50,9 +50,9 @@ Lấy các tệp cấu hình `.sxcu` dưới đây. Bạn có thể tải chúng
 
 ## Thiết lập API key
 
-1. Lấy API key của bạn từ **[Tools > API Token](https://s.ee/user/developers/)**
-2. Trong ShareX, mở **Custom uploader settings** và chọn uploader S.EE mà bạn đã import
-3. Trong phần **Headers**, đặt giá trị `Authorization` thành API key của bạn
+1. Lấy API key của bạn từ **[Công cụ > API Token](https://s.ee/user/developers/)**
+2. Trong ShareX, mở **Cài đặt trình tải lên tùy chỉnh** và chọn trình tải lên S.EE mà bạn đã import
+3. Trong phần **Tiêu đề**, đặt giá trị `Authorization` thành API key của bạn
 
 <Callout type="warn">
 Không chia sẻ công khai API key hoặc commit nó vào version control.
@@ -62,14 +62,14 @@ Không chia sẻ công khai API key hoặc commit nó vào version control.
 
 ## Cách sử dụng
 
-### Chọn uploader
+### Chọn trình tải lên
 
-Trong ShareX, vào **Destinations** và gán các uploader của S.EE:
+Trong ShareX, vào **Đích đến** và gán các trình tải lên của S.EE:
 
-- URL shortener → S.EE URL Shortener
-- Text uploader → S.EE Text Uploader, Code Uploader hoặc Markdown Uploader
-- Image uploader → S.EE File Uploader
-- File uploader → S.EE File Uploader
+- Trình rút gọn URL → S.EE URL Shortener
+- Trình tải văn bản lên → S.EE Text Uploader, Code Uploader hoặc Markdown Uploader
+- Trình tải hình ảnh lên → S.EE File Uploader
+- Trình tải tệp lên → S.EE File Uploader
 
 ### Upload
 
@@ -81,11 +81,11 @@ Dùng phím tắt hoặc menu chuột phải của ShareX để rút gọn URL, 
 
 | Sự cố | Cách khắc phục |
 |-------|-----|
-| 401 error | Kiểm tra xem API key đã được đặt đúng trong header Authorization chưa |
+| Lỗi 401 | Kiểm tra xem API key đã được đặt đúng trong header Authorization chưa |
 | 403 error | Đảm bảo API key có đủ quyền cần thiết |
 | File rejected | Có thể loại tệp này không được hỗ trợ. Hãy xem [Chia sẻ tệp](/docs/vi/file-sharing) để biết các loại tệp được phép |
 
-Bạn có thể nhấp **Test** trong **Custom uploader settings** để xác minh mọi thứ hoạt động chính xác.
+Bạn có thể nhấp **Kiểm tra** trong **Cài đặt trình tải lên tùy chỉnh** để xác minh mọi thứ hoạt động chính xác.
 
 ---
 

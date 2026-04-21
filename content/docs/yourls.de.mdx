@@ -45,7 +45,7 @@ Es wird nur die Funktion zum Kürzen von URLs bereitgestellt.
 Es wird nur die `signature`-Authentifizierung unterstützt. Benutzername-/Passwort-Authentifizierung ist **nicht** verfügbar.
 </Callout>
 
-Der Parameter `signature` ist Ihr **S.EE API Token**.
+Der Parameter `signature` ist Ihr **S.EE API-Schlüssel令牌**.
 
 Sie können Ihren API-Token hier generieren und verwalten:
 
@@ -69,7 +69,7 @@ Derzeit wird nur die folgende Aktion unterstützt:
 
 | Parameter | Erforderlich | Beschreibung |
 |----------|----------|-------------|
-| `signature` | Ja | Ihr S.EE API Token |
+| `signature` | Ja | Ihr S.EE API-Schlüssel令牌 |
 | `action` | Ja | Die auszuführende Aktion (derzeit nur `shorturl`) |
 | `url` | Ja | Die zu kürzende URL |
 | `format` | Nein | Ausgabeformat: `json`, `jsonp`, `xml` oder `simple` (Standard: `simple`) |

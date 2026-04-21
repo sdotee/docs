@@ -93,10 +93,10 @@ see tags
 ### 단축 URL
 
 ```bash
-# Create a short URL
+# 생성 a short URL
 see url create https://example.com
 
-# Create with custom options
+# 생성 with custom options
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -107,46 +107,46 @@ see url create https://example.com \
 # Update a short URL
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# 단축 URL 삭제
 see url delete --domain s.ee --slug my-link
 ```
 
 ### 텍스트 스니펫
 
 ```bash
-# Create text from stdin
+# 생성 text from stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# 생성 text from file
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# 생성 with options
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
+# 텍스트 업데이트
 see text update --domain fs.to --slug abc123 --title "Updated Title"
 
-# Delete text
+# 텍스트 삭제
 see text delete --domain fs.to --slug abc123
 ```
 
 ### 파일 업로드
 
 ```bash
-# Upload a file
+# 파일 업로드
 see file upload ./image.png
 
-# Upload with custom domain
+# 사용자 지정 도메인으로 업로드
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# stdin 에서 업로드
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# 파일 삭제
 see file delete <delete-hash>
 ```
 

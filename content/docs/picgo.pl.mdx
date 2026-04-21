@@ -4,7 +4,7 @@ description: PicGo ma już wbudowaną obsługę S.EE, bez potrzeby instalowania 
 icon: ImageUpload
 ---
 
-[PicGo](https://picgo.app/) to narzędzie open source do przesyłania obrazów i plików w Windows, macOS i Linuxie. Nowsze wersje mają już wbudowaną obsługę S.EE, więc do rozpoczęcia potrzebujesz tylko API Token.
+[PicGo](https://picgo.app/) to narzędzie open source do przesyłania obrazów i plików w Windows, macOS i Linuxie. Nowsze wersje mają już wbudowaną obsługę S.EE, więc do rozpoczęcia potrzebujesz tylko klucz API令牌.
 
 - [Pobierz PicGo](https://github.com/Molunerfinn/PicGo/releases)
 - [Kod źródłowy](https://github.com/Molunerfinn/PicGo)
@@ -13,25 +13,25 @@ icon: ImageUpload
 
 ## Konfiguracja
 
-### 1. Uzyskaj API Token
+### 1. Uzyskaj klucz API令牌
 
 1. Zaloguj się do konta S.EE
-2. Przejdź do **[Tools > API Token](https://s.ee/user/developers/)**
-3. Wygeneruj nowy API Token
+2. Przejdź do **[Narzędzia > Token API](https://s.ee/user/developers/)**
+3. Wygeneruj nowy klucz API令牌
 
 <Callout type="warn">
-Nie udostępniaj publicznie API Tokenu i nie wysyłaj go do systemu kontroli wersji.
+Nie udostępniaj publicznie klucz API令牌u i nie wysyłaj go do systemu kontroli wersji.
 </Callout>
 
 ### 2. Skonfiguruj PicGo
 
 1. Pobierz i zainstaluj [PicGo](https://github.com/Molunerfinn/PicGo/releases)
 2. Otwórz PicGo
-3. Przejdź do **Picbeds Settings** > **SM.MS (S.EE)**
+3. Przejdź do **Ustawienia Picbeds** > **SM.MS (S.EE)**
 4. Kliknij **+**, aby dodać nową konfigurację
-5. Wpisz nazwę w **Configuration Name** (na przykład `S.EE`)
-6. Wklej API Token do **Set Token**
-7. Kliknij **Confirm**
+5. Wpisz nazwę w **Nazwa konfiguracji** (na przykład `S.EE`)
+6. Wklej klucz API令牌 do **Ustaw token**
+7. Kliknij **Potwierdź**
 
 ![PicGo S.EE Configuration](https://i.see.you/2026/02/10/k6Nr/pasted-image-1770748236942.webp)
 
@@ -44,7 +44,7 @@ Możesz przesyłać na kilka sposobów:
 - Przeciągnij i upuść pliki do obszaru przesyłania
 - Kliknij obszar przesyłania, aby wybrać pliki z komputera
 - Kliknij miniokno, aby przesłać bezpośrednio
-- Kliknij miniokno prawym przyciskiem myszy i wybierz **Upload by Clipboard**
+- Kliknij miniokno prawym przyciskiem myszy i wybierz **Prześlij ze schowka**
 
 PicGo skopiuje wynikowy link do schowka. Możesz wybrać format: Markdown, HTML, surowy URL itd.
 

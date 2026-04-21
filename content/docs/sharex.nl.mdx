@@ -4,23 +4,23 @@ description: Upload screenshots, bestanden en tekst naar S.EE vanuit ShareX
 icon: AttachFile
 ---
 
-[ShareX](https://getsharex.com/) is een open-sourcetool voor schermafbeeldingen en bestandsdeling op Windows. S.EE levert aangepaste uploaderconfiguraties voor ShareX, zodat u screenshots, bestanden, tekst en code rechtstreeks naar S.EE kunt uploaden en een deelbare link terugkrijgt.
+[ShareX](https://getsharex.com/) is een open-sourcetool voor schermafbeeldingen en bestandsdeling op Windows. S.EE levert aangepaste uploadconfiguraties voor ShareX, zodat u screenshots, bestanden, tekst en code rechtstreeks naar S.EE kunt uploaden en een deelbare link terugkrijgt.
 
-Zie ook: [ShareX-documentatie voor custom uploaders](https://getsharex.com/docs/custom-uploader)
+Zie ook: [ShareX-documentatie voor aangepaste uploadmodules](https://getsharex.com/docs/custom-uploadmodule)
 
 ---
 
-## Aangepaste uploaders
+## Aangepaste uploadmodules
 
 S.EE heeft configuraties voor de volgende uploadtypen:
 
 | Uploader | Wat deze doet |
 |----------|-------------|
-| URL Shortener | Verkort URL's via S.EE |
-| Text Uploader | Uploadt tekstfragmenten |
-| Code Uploader | Uploadt code met syntax highlighting |
-| Markdown Uploader | Uploadt Markdown met gerenderde preview |
-| Image & File Uploader | Uploadt afbeeldingen en bestanden |
+| URL-verkorter | Verkort URL's via S.EE |
+| Tekstupload | Uploadt tekstfragmenten |
+| Code-upload | Uploadt code met syntax highlighting |
+| Markdown-upload | Uploadt Markdown met gerenderde preview |
+| Afbeeldings- en bestandsupload | Uploadt afbeeldingen en bestanden |
 
 ---
 
@@ -30,29 +30,29 @@ Gebruik de `.sxcu`-configuratiebestanden hieronder. U kunt ze downloaden of via 
 
 | Uploader | Download- of importlink |
 |----------|------------------------|
-| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
-| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
-| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
-| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
-| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+| URL-verkorter | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Tekstupload | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Code-upload | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown-upload | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Afbeeldings- en bestandsupload | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
 
-### Importeren
+### Importereneren
 
 1. Open **ShareX**
-2. Ga naar **Destinations** > **Custom uploader settings**
-3. Klik op **Import**, en doe daarna een van de volgende dingen:
+2. Ga naar **Bestemmingen** > **Instellingen voor aangepaste uploadmodule**
+3. Klik op **Importeren**, en doe daarna een van de volgende dingen:
    - Selecteer het gedownloade `.sxcu`-bestand
    - Plak de download-URL direct in
 
-![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+![Instellingen voor aangepaste uploadmodule van ShareX](https://i.see.you/2026/01/18/5dkS/image.webp)
 
 ---
 
 ## Uw API-sleutel instellen
 
-1. Haal uw API-sleutel op via **[Tools > API Token](https://s.ee/user/developers/)**
-2. Open in ShareX **Custom uploader settings** en selecteer de eerder geimporteerde S.EE-uploader
-3. Stel in de sectie **Headers** de waarde van `Authorization` in op uw API-sleutel
+1. Haal uw API-sleutel op via **[Hulpmiddelen > API-token](https://s.ee/user/developers/)**
+2. Open in ShareX **Instellingen voor aangepaste uploadmodule** en selecteer de eerder geimporteerde S.EE-uploadmodule
+3. Stel in de sectie **Kopteksten** de waarde van `Authorization` in op uw API-sleutel
 
 <Callout type="warn">
 Deel uw API-sleutel niet openbaar en commit die niet naar versiebeheer.
@@ -62,14 +62,14 @@ Deel uw API-sleutel niet openbaar en commit die niet naar versiebeheer.
 
 ## Gebruik
 
-### Uw uploaders kiezen
+### Uw uploadmethoden kiezen
 
-Ga in ShareX naar **Destinations** en wijs de S.EE-uploaders toe:
+Ga in ShareX naar **Bestemmingen** en wijs de S.EE-uploadmethoden toe:
 
-- URL shortener -> S.EE URL Shortener
-- Text uploader -> S.EE Text Uploader, Code Uploader of Markdown Uploader
-- Image uploader -> S.EE File Uploader
-- File uploader -> S.EE File Uploader
+- URL-verkorter -> S.EE URL Shortener
+- Tekstupload -> S.EE Text Uploader, Code Uploader of Markdown Uploader
+- Afbeeldingsupload -> S.EE File Uploader
+- Bestandsupload -> S.EE File Uploader
 
 ### Uploaden
 
@@ -85,7 +85,7 @@ Gebruik de sneltoetsen van ShareX of het rechtsklikmenu om een URL te verkorten,
 | 403-fout | Controleer of uw API-sleutel de juiste rechten heeft |
 | Bestand geweigerd | Het bestandstype wordt mogelijk niet ondersteund. Zie [Bestanden delen](/docs/nl/file-sharing) voor toegestane typen |
 
-U kunt op **Test** klikken in **Custom uploader settings** om te controleren of alles werkt.
+U kunt op **Testen** klikken in **Instellingen voor aangepaste uploadmodule** om te controleren of alles werkt.
 
 ---
 

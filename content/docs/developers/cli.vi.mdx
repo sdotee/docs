@@ -56,7 +56,7 @@ Tải các binary và package dựng sẵn từ [GitHub Releases](https://github
 
 ## Cấu hình
 
-Đặt API key của bạn qua environment variable hoặc flag:
+Đặt khóa API của bạn qua environment variable hoặc flag:
 
 ```bash
 # Environment variable (recommended)
@@ -70,8 +70,8 @@ see --api-key "your-api-key" <command>
 
 | Option | Environment Variable | Description |
 |--------|---------------------|-------------|
-| `--api-key` | `SEE_API_KEY` | API key S.EE của bạn (bắt buộc) |
-| `--base-url` | `SEE_BASE_URL` | Base URL API tùy chỉnh |
+| `--api-key` | `SEE_API_KEY` | khóa API S.EE của bạn (bắt buộc) |
+| `--base-url` | `SEE_BASE_URL` | URL cơ sở API tùy chỉnh |
 | `--timeout` | `SEE_TIMEOUT` | Thời gian chờ yêu cầu |
 | `--json` | - | Bật định dạng đầu ra JSON |
 
@@ -93,10 +93,10 @@ see tags
 ### URL ngắn
 
 ```bash
-# Create a short URL
+# Tạo a short URL
 see url create https://example.com
 
-# Create with custom options
+# Tạo with custom options
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -107,46 +107,46 @@ see url create https://example.com \
 # Update a short URL
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# Xóa URL rút gọn
 see url delete --domain s.ee --slug my-link
 ```
 
 ### Đoạn văn bản
 
 ```bash
-# Create text from stdin
+# Tạo text from stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# Tạo text from file
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# Tạo with options
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
+# Cập nhật văn bản
 see text update --domain fs.to --slug abc123 --title "Updated Title"
 
-# Delete text
+# Xóa văn bản
 see text delete --domain fs.to --slug abc123
 ```
 
 ### Tải tệp lên
 
 ```bash
-# Upload a file
+# Tải tệp lên
 see file upload ./image.png
 
-# Upload with custom domain
+# Tải lên với tên miền tùy chỉnh
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# Tải lên từ stdin
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# Xóa tệp
 see file delete <delete-hash>
 ```
 

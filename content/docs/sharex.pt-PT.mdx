@@ -6,7 +6,7 @@ icon: AttachFile
 
 [ShareX](https://getsharex.com/) é uma ferramenta open source de captura de ecrã e partilha de ficheiros para Windows. A S.EE fornece configurações de carregadores personalizados para o ShareX, para que possa carregar capturas de ecrã, ficheiros, texto e código diretamente para a S.EE e obter um link para partilha.
 
-Consulte também: [Documentação de carregadores personalizados do ShareX](https://getsharex.com/docs/custom-uploader)
+Consulte também: [Documentação de carregadores personalizados do ShareX](https://getsharex.com/docs/custom-carregador)
 
 ---
 
@@ -16,11 +16,11 @@ A S.EE tem configurações para estes tipos de carregamento:
 
 | Carregador | O que faz |
 |----------|-------------|
-| URL Shortener | Encurta URLs através da S.EE |
-| Text Uploader | Carrega fragmentos de texto |
-| Code Uploader | Carrega código com realce de sintaxe |
-| Markdown Uploader | Carrega Markdown com pré-visualização renderizada |
-| Image & File Uploader | Carrega imagens e ficheiros |
+| Encurtador de URL | Encurta URLs através da S.EE |
+| Carregador de texto | Carrega fragmentos de texto |
+| Carregador de código | Carrega código com realce de sintaxe |
+| Carregador de Markdown | Carrega Markdown com pré-visualização renderizada |
+| Carregador de imagens e ficheiros | Carrega imagens e ficheiros |
 
 ---
 
@@ -30,29 +30,29 @@ Obtenha os ficheiros de configuração `.sxcu` abaixo. Pode transferi-los ou imp
 
 | Carregador | Link de transferência / importação |
 |----------|------------------------|
-| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
-| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
-| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
-| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
-| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+| Encurtador de URL | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Carregador de texto | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Carregador de código | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Carregador de Markdown | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Carregador de imagens e ficheiros | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
 
-### Importação
+### Importaração
 
 1. Abra o **ShareX**
-2. Aceda a **Destinations** > **Custom uploader settings**
-3. Clique em **Import** e depois:
+2. Aceda a **Destinos** > **Configurações do carregador personalizado**
+3. Clique em **Importar** e depois:
    - Selecione o ficheiro `.sxcu` transferido
    - Ou cole diretamente o URL de transferência
 
-![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+![Configurações do carregador personalizado do ShareX](https://i.see.you/2026/01/18/5dkS/image.webp)
 
 ---
 
 ## Configurar a sua chave de API
 
-1. Obtenha a sua chave de API em **[Tools > API Token](https://s.ee/user/developers/)**
-2. No ShareX, abra **Custom uploader settings** e selecione o carregador S.EE que importou
-3. Na secção **Headers**, defina o valor de `Authorization` com a sua chave de API
+1. Obtenha a sua chave de API em **[Ferramentas > Token de API](https://s.ee/user/developers/)**
+2. No ShareX, abra **Configurações do carregador personalizado** e selecione o carregador S.EE que importou
+3. Na secção **Cabeçalhos**, defina o valor de `Authorization` com a sua chave de API
 
 <Callout type="warn">
 Não partilhe publicamente a sua chave de API nem a envie para o seu sistema de controlo de versões.
@@ -64,12 +64,12 @@ Não partilhe publicamente a sua chave de API nem a envie para o seu sistema de 
 
 ### Escolher os seus carregadores
 
-No ShareX, vá a **Destinations** e atribua os carregadores da S.EE:
+No ShareX, vá a **Destinos** e atribua os carregadores da S.EE:
 
-- URL shortener → S.EE URL Shortener
-- Text uploader → S.EE Text Uploader, Code Uploader ou Markdown Uploader
-- Image uploader → S.EE File Uploader
-- File uploader → S.EE File Uploader
+- Encurtador de URL → S.EE URL Shortener
+- Carregador de texto → S.EE Text Uploader, Code Uploader ou Markdown Uploader
+- Carregador de imagens → S.EE File Uploader
+- Carregador de ficheiros → S.EE File Uploader
 
 ### Carregar
 
@@ -85,7 +85,7 @@ Use as teclas de atalho do ShareX ou o menu de contexto para encurtar um URL, ca
 | Erro 403 | Certifique-se de que a sua chave de API tem as permissões corretas |
 | Ficheiro rejeitado | O tipo de ficheiro pode não ser suportado. Consulte [Partilha de ficheiros](/docs/pt-PT/file-sharing) para ver os tipos permitidos |
 
-Pode clicar em **Test** em **Custom uploader settings** para confirmar que tudo está a funcionar.
+Pode clicar em **Testar** em **Configurações do carregador personalizado** para confirmar que tudo está a funcionar.
 
 ---
 

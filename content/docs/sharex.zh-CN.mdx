@@ -6,7 +6,7 @@ icon: AttachFile
 
 [ShareX](https://getsharex.com/) 是一款适用于 Windows 的开源截图和文件分享工具。S.EE 为 ShareX 提供了自定义上传器配置，因此您可以直接将截图、文件、文本和代码上传到 S.EE，并获得可分享链接。
 
-另请参阅：[ShareX 自定义上传器文档](https://getsharex.com/docs/custom-uploader)
+另请参阅：[ShareX 自定义上传器文档](https://getsharex.com/docs/custom-上传器)
 
 ---
 
@@ -16,11 +16,11 @@ S.EE 为以下上传类型提供配置：
 
 | 上传器 | 功能 |
 |----------|-------------|
-| URL Shortener | 通过 S.EE 创建短网址 |
-| Text Uploader | 上传文本片段 |
-| Code Uploader | 上传带语法高亮的代码 |
-| Markdown Uploader | 上传带渲染预览的 Markdown |
-| Image & File Uploader | 上传图片和文件 |
+| 短网址上传器 | 通过 S.EE 创建短网址 |
+| 文本上传器 | 上传文本片段 |
+| 代码上传器 | 上传带语法高亮的代码 |
+| Markdown 上传器 | 上传带渲染预览的 Markdown |
+| 图片和文件上传器 | 上传图片和文件 |
 
 ---
 
@@ -30,17 +30,17 @@ S.EE 为以下上传类型提供配置：
 
 | 上传器 | 下载 / 导入链接 |
 |----------|------------------------|
-| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
-| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
-| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
-| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
-| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+| 短网址上传器 | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| 文本上传器 | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| 代码上传器 | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Markdown 上传器 | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| 图片和文件上传器 | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
 
 ### 导入
 
 1. 打开 **ShareX**
-2. 前往 **Destinations** > **Custom uploader settings**
-3. 点击 **Import**，然后执行以下任一操作：
+2. 前往 **目标位置** > **自定义上传器设置**
+3. 点击 **导入**，然后执行以下任一操作：
    - 选择已下载的 `.sxcu` 文件
    - 直接粘贴下载 URL
 
@@ -50,9 +50,9 @@ S.EE 为以下上传类型提供配置：
 
 ## 设置 API 密钥
 
-1. 在 **[Tools > API Token](https://s.ee/user/developers/)** 获取您的 API 密钥
-2. 在 ShareX 中打开 **Custom uploader settings**，并选择您导入的 S.EE 上传器
-3. 在 **Headers** 区域，将 `Authorization` 的值设置为您的 API 密钥
+1. 在 **[工具 > API Token](https://s.ee/user/developers/)** 获取您的 API 密钥
+2. 在 ShareX 中打开 **自定义上传器设置**，并选择您导入的 S.EE 上传器
+3. 在 **请求头** 区域，将 `Authorization` 的值设置为您的 API 密钥
 
 <Callout type="warn">
 不要公开分享您的 API 密钥，也不要将其提交到版本控制系统中。
@@ -64,12 +64,12 @@ S.EE 为以下上传类型提供配置：
 
 ### 选择上传器
 
-在 ShareX 中，前往 **Destinations** 并分配 S.EE 上传器：
+在 ShareX 中，前往 **目标位置** 并分配 S.EE 上传器：
 
-- URL shortener → S.EE URL Shortener
-- Text uploader → S.EE Text Uploader、Code Uploader 或 Markdown Uploader
-- Image uploader → S.EE File Uploader
-- File uploader → S.EE File Uploader
+- 短网址上传器 → S.EE URL Shortener
+- 文本上传器 → S.EE Text Uploader、Code Uploader 或 Markdown Uploader
+- 图片上传器 → S.EE File Uploader
+- 文件上传器 → S.EE File Uploader
 
 ### 上传
 
@@ -85,7 +85,7 @@ S.EE 为以下上传类型提供配置：
 | 403 错误 | 确认您的 API 密钥具有正确权限 |
 | 文件被拒绝 | 文件类型可能不受支持。请查看 [文件分享](/docs/zh-CN/file-sharing) 了解允许的类型 |
 
-您可以在 **Custom uploader settings** 中点击 **Test**，确认配置是否正常工作。
+您可以在 **自定义上传器设置** 中点击 **测试**，确认配置是否正常工作。
 
 ---
 

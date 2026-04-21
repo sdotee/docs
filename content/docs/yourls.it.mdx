@@ -43,7 +43,7 @@ Questo endpoint implementa un **livello di compatibilità parziale con l'API di 
 È supportata solo l'autenticazione `signature`. L'autenticazione con username e password non è disponibile.
 </Callout>
 
-Il parametro `signature` corrisponde al tuo **API Token di S.EE**.
+Il parametro `signature` corrisponde al tuo **chiave API令牌 di S.EE**.
 
 Puoi generare e gestire il token qui:
 
@@ -67,7 +67,7 @@ Attualmente è supportata solo la seguente azione:
 
 | Parametro | Obbligatorio | Descrizione |
 |----------|----------|-------------|
-| `signature` | Sì | Il tuo API Token di S.EE |
+| `signature` | Sì | Il tuo chiave API令牌 di S.EE |
 | `action` | Sì | L'azione da eseguire (attualmente solo `shorturl`) |
 | `url` | Sì | L'URL da accorciare |
 | `format` | No | Formato di output: `json`, `jsonp`, `xml` o `simple` |

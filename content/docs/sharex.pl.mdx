@@ -4,23 +4,23 @@ description: Przesyłaj zrzuty ekranu, pliki i tekst do S.EE przez ShareX
 icon: AttachFile
 ---
 
-[ShareX](https://getsharex.com/) to otwartoźródłowe narzędzie do przechwytywania ekranu i udostępniania plików dla Windows. S.EE udostępnia własne konfiguracje uploaderów do ShareX, dzięki czemu możesz przesyłać zrzuty ekranu, pliki, tekst i kod bezpośrednio do S.EE i od razu otrzymywać link do udostępnienia.
+[ShareX](https://getsharex.com/) to otwartoźródłowe narzędzie do przechwytywania ekranu i udostępniania plików dla Windows. S.EE udostępnia własne konfiguracje moduł przesyłaniaów do ShareX, dzięki czemu możesz przesyłać zrzuty ekranu, pliki, tekst i kod bezpośrednio do S.EE i od razu otrzymywać link do udostępnienia.
 
-Zobacz też: [dokumentację własnych uploaderów ShareX](https://getsharex.com/docs/custom-uploader)
+Zobacz też: [dokumentację własnych modułów przesyłania ShareX](https://getsharex.com/docs/custom-moduł przesyłania)
 
 ---
 
-## Własne uploadery
+## Własne moduły przesyłania
 
 S.EE ma konfiguracje dla następujących typów przesyłania:
 
 | Uploader | Działanie |
 |----------|-------------|
-| URL Shortener | Skraca URL-e przez S.EE |
-| Text Uploader | Przesyła fragmenty tekstu |
-| Code Uploader | Przesyła kod z podświetlaniem składni |
-| Markdown Uploader | Przesyła Markdown z wyrenderowanym podglądem |
-| Image & File Uploader | Przesyła obrazy i pliki |
+| Skracacz URL | Skraca URL-e przez S.EE |
+| Uploader tekstu | Przesyła fragmenty tekstu |
+| Uploader kodu | Przesyła kod z podświetlaniem składni |
+| Uploader Markdown | Przesyła Markdown z wyrenderowanym podglądem |
+| Uploader obrazów i plików | Przesyła obrazy i pliki |
 
 ---
 
@@ -30,29 +30,29 @@ Pobierz poniższe pliki konfiguracyjne `.sxcu`. Możesz je ściągnąć albo zai
 
 | Uploader | Link do pobrania / importu |
 |----------|------------------------|
-| URL Shortener | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
-| Text Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
-| Code Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
-| Markdown Uploader | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
-| Image & File Uploader | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
+| Skracacz URL | [https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu](https://assets.seecdn.com/files/sharex/S.EE_URL_Shortener.sxcu) |
+| Uploader tekstu | [https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Text_Uploader.sxcu) |
+| Uploader kodu | [https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Code_Uploader.sxcu) |
+| Uploader Markdown | [https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_Markdown_Uploader.sxcu) |
+| Uploader obrazów i plików | [https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu](https://assets.seecdn.com/files/sharex/S.EE_File_Uploader.sxcu) |
 
-### Import
+### Importowanie
 
 1. Otwórz **ShareX**
-2. Przejdź do **Destinations** > **Custom uploader settings**
-3. Kliknij **Import**, a następnie:
+2. Przejdź do **Miejsca docelowe** > **Ustawienia własnego modułu przesyłania**
+3. Kliknij **Importuj**, a następnie:
    - wybierz pobrany plik `.sxcu`
    - albo wklej bezpośrednio URL do pobrania
 
-![ShareX Custom Uploader Settings](https://i.see.you/2026/01/18/5dkS/image.webp)
+![Ustawienia własnego modułu przesyłania ShareX](https://i.see.you/2026/01/18/5dkS/image.webp)
 
 ---
 
 ## Skonfiguruj klucz API
 
-1. Pobierz klucz API z **[Tools > API Token](https://s.ee/user/developers/)**
-2. W ShareX otwórz **Custom uploader settings** i wybierz importer S.EE
-3. W sekcji **Headers** ustaw wartość `Authorization` na swój klucz API
+1. Pobierz klucz API z **[Narzędzia > Token API](https://s.ee/user/developers/)**
+2. W ShareX otwórz **Ustawienia własnego modułu przesyłania** i wybierz importer S.EE
+3. W sekcji **Nagłówki** ustaw wartość `Authorization` na swój klucz API
 
 <Callout type="warn">
 Nie udostępniaj publicznie klucza API i nie zapisuj go w systemie kontroli wersji.
@@ -62,14 +62,14 @@ Nie udostępniaj publicznie klucza API i nie zapisuj go w systemie kontroli wers
 
 ## Użycie
 
-### Wybierz uploadery
+### Wybierz moduły przesyłania
 
-W ShareX przejdź do **Destinations** i przypisz uploadery S.EE:
+W ShareX przejdź do **Miejsca docelowe** i przypisz moduły przesyłania S.EE:
 
-- URL shortener -> S.EE URL Shortener
-- Text uploader -> S.EE Text Uploader, Code Uploader albo Markdown Uploader
-- Image uploader -> S.EE File Uploader
-- File uploader -> S.EE File Uploader
+- Skracacz URL -> S.EE URL Shortener
+- Uploader tekstu -> S.EE Text Uploader, Code Uploader albo Markdown Uploader
+- Uploader obrazów -> S.EE File Uploader
+- Uploader plików -> S.EE File Uploader
 
 ### Przesyłanie
 
@@ -85,7 +85,7 @@ Użyj skrótów klawiaturowych ShareX albo menu kontekstowego, aby skrócić URL
 | Błąd 403 | Upewnij się, że klucz API ma odpowiednie uprawnienia |
 | Plik odrzucony | Typ pliku może nie być obsługiwany. Zobacz [Udostępnianie plików](/docs/pl/file-sharing) |
 
-Możesz kliknąć **Test** w **Custom uploader settings**, aby sprawdzić, czy wszystko działa poprawnie.
+Możesz kliknąć **Sprawdź** w **Ustawienia własnego modułu przesyłania**, aby sprawdzić, czy wszystko działa poprawnie.
 
 ---
 

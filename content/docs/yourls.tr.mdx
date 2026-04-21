@@ -45,13 +45,13 @@ Yalnızca URL kısaltma işlevi sunulur.
 Yalnızca `signature` ile kimlik doğrulama desteklenir. Kullanıcı adı/parola ile kimlik doğrulama **desteklenmez**.
 </Callout>
 
-`signature` parametresi sizin **S.EE API Token** değerinizi temsil eder.
+`signature` parametresi sizin **S.EE API anahtarı令牌** değerinizi temsil eder.
 
-API Token'ınızı şu adresten oluşturabilir ve yönetebilirsiniz:
+API anahtarı令牌'ınızı şu adresten oluşturabilir ve yönetebilirsiniz:
 
 https://s.ee/user/developers/
 
-API Token, doğrulanan kullanıcıya bağlıdır ve hesabın sahip olduğu izinleri ve kısıtlamaları aynen devralır.
+API anahtarı令牌, doğrulanan kullanıcıya bağlıdır ve hesabın sahip olduğu izinleri ve kısıtlamaları aynen devralır.
 
 ---
 
@@ -69,7 +69,7 @@ API Token, doğrulanan kullanıcıya bağlıdır ve hesabın sahip olduğu izinl
 
 | Parametre | Gerekli | Açıklama |
 |----------|----------|-------------|
-| `signature` | Evet | S.EE API Token'ınız |
+| `signature` | Evet | S.EE API anahtarı令牌'ınız |
 | `action` | Evet | Yapılacak işlem; şu anda yalnızca `shorturl` |
 | `url` | Evet | Kısaltılacak URL |
 | `format` | Hayır | Çıktı biçimi: `json`, `jsonp`, `xml` veya `simple`; varsayılan `simple` |
