@@ -59,10 +59,10 @@ Descargue binarios y paquetes precompilados desde [GitHub Releases](https://gith
 Defina su clave API mediante una variable de entorno o un flag:
 
 ```bash
-# Environment variable (recommended)
+# Variable de entorno (recomendada)
 export SEE_API_KEY="your-api-key"
 
-# Or use the flag
+# O use el flag
 see --api-key "your-api-key" <command>
 ```
 
@@ -80,23 +80,23 @@ see --api-key "your-api-key" <command>
 ### Dominios y etiquetas
 
 ```bash
-# List available domains for short URLs
+# Listar dominios disponibles para URL cortas
 see domains
 
-# List available domains for file uploads
+# Listar dominios disponibles para subidas de archivos
 see file domains
 
-# List your tags
+# Listar sus etiquetas
 see tags
 ```
 
 ### URL cortas
 
 ```bash
-# Create a short URL
+# Crear una URL corta
 see url create https://example.com
 
-# Create with custom options
+# Crear con opciones personalizadas
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -104,49 +104,49 @@ see url create https://example.com \
   --password secret \
   --expires 2024-12-31
 
-# Update a short URL
+# Actualizar una URL corta
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# Eliminar una URL corta
 see url delete --domain s.ee --slug my-link
 ```
 
 ### Fragmentos de texto
 
 ```bash
-# Create text from stdin
+# Crear texto desde stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# Crear texto desde un archivo
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# Crear con opciones
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
-see text update --domain fs.to --slug abc123 --title "Updated Title"
+# Actualizar texto
+see text update --domain fs.to --slug abc123 --title "Título actualizado"
 
-# Delete text
+# Eliminar texto
 see text delete --domain fs.to --slug abc123
 ```
 
 ### Subida de archivos
 
 ```bash
-# Upload a file
+# Subir un archivo
 see file upload ./image.png
 
-# Upload with custom domain
+# Subir con dominio personalizado
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# Subir desde stdin
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# Eliminar un archivo
 see file delete <delete-hash>
 ```
 

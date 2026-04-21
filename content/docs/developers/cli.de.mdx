@@ -10,12 +10,12 @@ Ein Kommandozeilen-Client für die S.EE-Plattform, mit dem Sie Kurz-URLs, Text-S
 
 ## Funktionen
 
-- **Short URL Management**: Erstellen, aktualisieren und löschen Sie Kurzlinks mit benutzerdefinierten Slugs, Domains und Ablaufdaten
-- **Text Snippets**: Teilen Sie Code-Snippets und Notizen aus stdin oder Dateien
-- **File Upload**: Laden Sie Dateien direkt oder über stdin hoch
-- **Domain & Tag Management**: Verfügbare Domains auflisten und Tags verwalten
-- **Password Protection**: Schützen Sie Inhalte mit Passwörtern
-- **JSON Output**: Maschinenlesbare Ausgabe für Skripting
+- **Kurz-URL-Verwaltung**: Erstellen, aktualisieren und löschen Sie Kurzlinks mit benutzerdefinierten Slugs, Domains und Ablaufdaten
+- **Text-Snippets**: Teilen Sie Code-Snippets und Notizen aus stdin oder Dateien
+- **Datei-Upload**: Laden Sie Dateien direkt oder über stdin hoch
+- **Domain- und Tag-Verwaltung**: Verfügbare Domains auflisten und Tags verwalten
+- **Passwortschutz**: Schützen Sie Inhalte mit Passwörtern
+- **JSON-Ausgabe**: Maschinenlesbare Ausgabe für Skripting
 
 ## Installation
 
@@ -59,16 +59,16 @@ Vorgebaute Binärdateien und Pakete finden Sie in den [GitHub Releases](https://
 Setzen Sie Ihren API-Key per Umgebungsvariable oder Flag:
 
 ```bash
-# Environment variable (recommended)
+# Umgebungsvariable (empfohlen)
 export SEE_API_KEY="your-api-key"
 
-# Or use the flag
+# Oder das Flag verwenden
 see --api-key "your-api-key" <command>
 ```
 
 ### Konfigurationsoptionen
 
-| Option | Environment Variable | Description |
+| Option | Umgebungsvariable | Beschreibung |
 |--------|---------------------|-------------|
 | `--api-key` | `SEE_API_KEY` | Ihr S.EE API-Key (erforderlich) |
 | `--base-url` | `SEE_BASE_URL` | Benutzerdefinierte API-Base-URL |
@@ -80,23 +80,23 @@ see --api-key "your-api-key" <command>
 ### Domains & Tags
 
 ```bash
-# List available domains for short URLs
+# Verfügbare Domains für Kurz-URLs auflisten
 see domains
 
-# List available domains for file uploads
+# Verfügbare Domains für Datei-Uploads auflisten
 see file domains
 
-# List your tags
+# Eigene Tags auflisten
 see tags
 ```
 
 ### Kurz-URLs
 
 ```bash
-# Create a short URL
+# Kurz-URL erstellen
 see url create https://example.com
 
-# Create with custom options
+# Mit benutzerdefinierten Optionen erstellen
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -104,49 +104,49 @@ see url create https://example.com \
   --password secret \
   --expires 2024-12-31
 
-# Update a short URL
+# Kurz-URL aktualisieren
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# Kurz-URL löschen
 see url delete --domain s.ee --slug my-link
 ```
 
 ### Text-Snippets
 
 ```bash
-# Create text from stdin
+# Text aus stdin erstellen
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# Text aus Datei erstellen
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# Mit Optionen erstellen
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
-see text update --domain fs.to --slug abc123 --title "Updated Title"
+# Text aktualisieren
+see text update --domain fs.to --slug abc123 --title "Aktualisierter Titel"
 
-# Delete text
+# Text löschen
 see text delete --domain fs.to --slug abc123
 ```
 
 ### Datei-Upload
 
 ```bash
-# Upload a file
+# Datei hochladen
 see file upload ./image.png
 
-# Upload with custom domain
+# Mit benutzerdefinierter Domain hochladen
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# Aus stdin hochladen
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# Datei löschen
 see file delete <delete-hash>
 ```
 

@@ -23,7 +23,7 @@ Vervang de basis-URL van de SM.MS-API door het equivalente S.EE-endpoint:
 
 ## Afbeelding uploaden
 
-### Request
+### Verzoek
 
 ```bash
 curl -X POST "https://s.ee/api/v1/file/upload" \
@@ -41,7 +41,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 | `domain` | string | Nee | Aangepast domein voor de korte link |
 | `custom_slug` | string | Nee | Aangepaste slug voor de URL, willekeurig als niet opgegeven |
 
-### Response
+### Antwoord
 
 ```json
 {
@@ -67,7 +67,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 
 ## Uploadgeschiedenis
 
-### Request
+### Verzoek
 
 ```bash
 curl "https://s.ee/api/v1/files" \
@@ -80,7 +80,7 @@ curl "https://s.ee/api/v1/files" \
 |-----------|------|----------|-------------|
 | `page` | integer | Nee | Paginanummer, standaard 1, 30 bestanden per pagina |
 
-### Response
+### Antwoord
 
 ```json
 {

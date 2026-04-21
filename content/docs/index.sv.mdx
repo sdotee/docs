@@ -1,78 +1,93 @@
 ---
-title: Vad är S.EE?
-description: En plattform för länkhantering som förkortar URL:er, skapar QR-koder och delar innehåll
-icon: Home
+title: Översikt
+description: Officiell dokumentation för S.EE - plattform för länkhantering och QR-koder
+icon: BookOpen
 ---
+
+## Vad är S.EE?
 
 S.EE är en plattform för länkhantering för att förkorta URL:er, generera QR-koder och dela innehåll, med inbyggd analys och stöd för egna domäner. Plattformen innehåller:
 
-- **Korta länkar** för URL:er, dokument, artiklar, produkter och kampanjer
-- **Egna domäner** för att använda ditt varumärke
-- **QR-koder** för offline- och tryckt material
-- **Analys** för att följa klick och trafikkällor
-- **Textdelning** för kodsnuttar, loggar, anteckningar och Markdown
-- **Fildelning** för bilder, dokument, ljud och video
+- **[S.EE Links](https://s.ee/user/links/)** - Skapa korta länkar med egna domäner, lösenordsskydd och smart målgruppsstyrning
+- **[S.EE QR Codes](https://s.ee/user/qr/)** - Generera anpassningsbara QR-koder med analys
+- **[S.EE Text Sharing](https://s.ee/user/text/)** - Dela vanlig text, kodsnuttar och Markdown med korta länkar
+- **[S.EE File Sharing](https://s.ee/user/files/)** - Ladda upp och dela filer med korta länkar
+- **[S.EE Image Hosting](https://s.ee/user/images/)** - Ladda upp och hosta bilder med korta länkar
 
 ---
 
-## Funktioner
+## Viktiga funktioner
 
-### Korta länkar
+### Länkhantering
 
-- Anpassade slugs
-- Flera domäner
+Skapa korta länkar med:
+
+- Anpassade slugs och domäner
 - Lösenordsskydd
 - Utgångsdatum
-- Taggar och organisering
-- Detaljerad analys
-
-### Egna domäner
-
-- Koppla din egen domän
-- Automatisk SSL-konfiguration
-- Anpassad slug och branding
-- Tillgängligt beroende på abonnemang
+- Styrning efter plats, enhet eller språk
+- UTM-parametrar
+- Vidarebefordran av parametrar
 
 ### QR-koder
 
-- Skapa QR-koder för varje kort länk
-- Anpassa färger och logotyp
-- Exportera till PNG, SVG och PDF
+Generera QR-koder med:
 
-### Analys
-
-- Antal klick
-- Geografiska data
-- Enhetsinformation
-- Hänvisningskällor
-- 365 dagars historik
+- Anpassade färger och logotyper
+- Nedladdning i PNG, SVG eller PDF
+- Inbyggd analys
 
 ### Textdelning
 
-- Vanlig text
-- Kodsnuttar med syntaxmarkering
-- Markdown-dokument med förhandsvisning
-- Egna domäner och anpassade slugs
+Dela textinnehåll med:
+
+- Stöd för vanlig text, kodsnuttar och Markdown
+- Syntaxmarkering för kod
 - Lösenordsskydd och utgångsdatum
+- Raw text-slutpunkt för enkla nedladdningar
 
 ### Fildelning
 
-- Stöd för bilder, dokument, ljud och video
-- Direktlänk och delningssida
-- Uppladdning av mappar med dra-och-släpp
+Ladda upp och dela filer med:
+
+- Dra-och-släpp, klistra in eller uppladdning av mappar
+- Egna domäner och anpassade slugs
+- Lösenordsskydd för privata filer samt utgångsdatum
+- Direkta nedladdningslänkar
+
+### Bildhosting
+
+Hosta bilder med:
+
+- Dra-och-släpp, klistra in eller uppladdning av mappar
 - Automatisk bildoptimering när du klistrar in från urklipp
+- Direkta bildlänkar för inbäddning
+
+### Analys
+
+Följ resultat med:
+
+- Antal klick
+- Geografiska data
+- Information om enheter och webbläsare
+- Hänvisningskällor
 
 ---
 
-## Abonnemang
+## Planer
 
-| Abonnemang | Passar bäst för | Viktiga funktioner |
-|------|----------|--------------|
-| Lite | Privat användning | 5 domäner, 100 GB fillagring |
-| Pro | Professionella och små team | 10 domäner, 500 GB fillagring, 5 arbetsytor |
-| Premium | Avancerade användare och team | 50 domäner, 5 TB fillagring, 20 arbetsytor |
+| Funktion | Lite ($5.99/mån) | Pro ($19.99/mån) | Premium ($199.99/mån) |
+|----------|------------------|------------------|-----------------------|
+| Länkar / månad | 600 | 5,000 | Obegränsat |
+| QR-koder / månad | 600 | 5,000 | Obegränsat |
+| Texter / månad | 600 | 5,000 | Obegränsat |
+| Uppladdningar / månad | 31,000 | 62,000 | Obegränsat |
+| Lagring | 100 GB | 500 GB | 5 TB |
+| Egna domäner | 1 | 5 | 10 |
+| Teammedlemmar | 2 | 10 | 20 |
+| API-åtkomst | Full | Full | Full + dedikerad support |
 
-Se [prissidan](https://s.ee/pricing/) för fullständig information.
+Alla planer inkluderar: lösenordsskydd, A/B-testning, 365 dagars lagring av analysdata och prioriterad support.
 
 ---
 
@@ -83,17 +98,4 @@ Se [prissidan](https://s.ee/pricing/) för fullständig information.
   <Card title="Textdelning" href="/docs/sv/text-sharing">Dela text, kod och Markdown</Card>
   <Card title="Fildelning" href="/docs/sv/file-sharing">Ladda upp och dela filer med korta länkar</Card>
   <Card title="API-dokumentation" href="/docs/sv/developers">Integrera S.EE med dina applikationer</Card>
-</Cards>
-
----
-
-## Relaterat
-
-<Cards>
-  <Card title="Registrera dig" href="/docs/sv/signup">Skapa ditt S.EE-konto</Card>
-  <Card title="Instrumentpanel" href="/docs/sv/dashboard">Hantera länkar och analys</Card>
-  <Card title="Korta länkar" href="/docs/sv/links">Skapa och redigera korta länkar</Card>
-  <Card title="Egna domäner" href="/docs/sv/custom-domains">Använd din egen domän för korta länkar</Card>
-  <Card title="Textdelning" href="/docs/sv/text-sharing">Dela text, kod och Markdown</Card>
-  <Card title="Fildelning" href="/docs/sv/file-sharing">Ladda upp och dela filer med korta länkar</Card>
 </Cards>

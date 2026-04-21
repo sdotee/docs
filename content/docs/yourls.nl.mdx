@@ -59,7 +59,7 @@ Het API-token is gekoppeld aan de geauthenticeerde gebruiker en erft dezelfde re
 
 Momenteel wordt alleen de volgende actie ondersteund:
 
-| Action | Beschrijving |
+| Actie | Beschrijving |
 |------|-------------|
 | `shorturl` | Maak een korte URL voor een opgegeven link |
 
@@ -97,7 +97,7 @@ curl -X POST \
   --data-urlencode 'url=https://example.com/'
 ```
 
-**Response:**
+**Antwoord:**
 
 ```json
 {
@@ -118,7 +118,7 @@ curl -X POST \
 ```
 
 <Callout>
-Sommige responsevelden blijven behouden voor compatibiliteit met YOURLS en kunnen leeg zijn.
+Sommige antwoordvelden blijven behouden voor compatibiliteit met YOURLS en kunnen leeg zijn.
 </Callout>
 
 ---
@@ -129,7 +129,7 @@ Sommige responsevelden blijven behouden voor compatibiliteit met YOURLS en kunne
 curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
 ```
 
-**Response:**
+**Antwoord:**
 
 ```
 https://s.ee/link

@@ -41,7 +41,7 @@ icon: Monitor
 ### 主な特長
 
 - **メニューバー** - メインウィンドウを開かずに URL 短縮、貼り付けアップロード、最近の項目へのアクセスができます
-- **Drag & Drop** - アップロードエリア内の任意の場所にファイルをドロップできます
+- **ドラッグ & ドロップ** - アップロードエリア内の任意の場所にファイルをドロップできます
 - **クリップボードから貼り付け** (Cmd+V) - 画像を自動で WebP に変換し、未対応時は PNG にフォールバックします
 - **Keychain** - macOS Security framework を使って API Key を安全に保存します
 
@@ -60,11 +60,11 @@ icon: Monitor
 | レイヤー | 技術 |
 |-------|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (actor-based) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| ストレージ | SwiftData |
+| ネットワーク | URLSession (actor-based) |
+| セキュリティ | Keychain |
+| サムネイル | QuickLookThumbnailing |
+| 画像処理 | Swift-WebP |
 
 ## Linux
 
@@ -84,10 +84,10 @@ icon: Monitor
 
 | ショートカット | 操作 |
 |----------|--------|
-| Ctrl+1 | Links ビューへ切り替え |
-| Ctrl+2 | Texts ビューへ切り替え |
-| Ctrl+3 | Files ビューへ切り替え |
-| Ctrl+, | Preferences を開く |
+| Ctrl+1 | リンクビューへ切り替え |
+| Ctrl+2 | テキストビューへ切り替え |
+| Ctrl+3 | ファイルビューへ切り替え |
+| Ctrl+, | 環境設定を開く |
 | Ctrl+? | キーボードショートカットを表示 |
 | Ctrl+Q | 終了 |
 
@@ -96,9 +96,9 @@ icon: Monitor
 | レイヤー | 技術 |
 |-------|-----------|
 | UI | GTK4 + libadwaita |
-| Language | Rust (2024 edition) |
-| API Client | see-sdk |
-| QR Code | Built-in (PNG、SVG、PDF 書き出し対応) |
+| 言語 | Rust (2024 edition) |
+| API クライアント | see-sdk |
+| QR コード | 組み込み (PNG、SVG、PDF 書き出し対応) |
 
 ### データ保存先
 
@@ -110,4 +110,4 @@ icon: Monitor
 1. [macOS](https://s.ee/macos) または [Linux](https://s.ee/linux) 版をダウンロードします
 2. アカウントをお持ちでない場合は [s.ee](https://s.ee) で作成します
 3. ダッシュボードから [API Key を生成](https://s.ee/user/developers/) します
-4. アプリを開き、**Preferences** で API Key を入力します
+4. アプリを開き、**環境設定** で API Key を入力します

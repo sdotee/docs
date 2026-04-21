@@ -59,10 +59,10 @@ Téléchargez les binaires et paquets précompilés depuis [GitHub Releases](htt
 Définissez votre clé API via une variable d’environnement ou un flag :
 
 ```bash
-# Environment variable (recommended)
+# Variable d’environnement (recommandée)
 export SEE_API_KEY="your-api-key"
 
-# Or use the flag
+# Ou utilisez le flag
 see --api-key "your-api-key" <command>
 ```
 
@@ -80,23 +80,23 @@ see --api-key "your-api-key" <command>
 ### Domaines et tags
 
 ```bash
-# List available domains for short URLs
+# Lister les domaines disponibles pour les URL courtes
 see domains
 
-# List available domains for file uploads
+# Lister les domaines disponibles pour les téléversements de fichiers
 see file domains
 
-# List your tags
+# Lister vos tags
 see tags
 ```
 
 ### URL courtes
 
 ```bash
-# Create a short URL
+# Créer une URL courte
 see url create https://example.com
 
-# Create with custom options
+# Créer avec des options personnalisées
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -104,49 +104,49 @@ see url create https://example.com \
   --password secret \
   --expires 2024-12-31
 
-# Update a short URL
+# Mettre à jour une URL courte
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# Supprimer une URL courte
 see url delete --domain s.ee --slug my-link
 ```
 
 ### Extraits de texte
 
 ```bash
-# Create text from stdin
+# Créer un texte depuis stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# Créer un texte depuis un fichier
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# Créer avec des options
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
-see text update --domain fs.to --slug abc123 --title "Updated Title"
+# Mettre à jour le texte
+see text update --domain fs.to --slug abc123 --title "Titre mis à jour"
 
-# Delete text
+# Supprimer le texte
 see text delete --domain fs.to --slug abc123
 ```
 
 ### Téléversement de fichiers
 
 ```bash
-# Upload a file
+# Téléverser un fichier
 see file upload ./image.png
 
-# Upload with custom domain
+# Téléverser avec un domaine personnalisé
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# Téléverser depuis stdin
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# Supprimer un fichier
 see file delete <delete-hash>
 ```
 

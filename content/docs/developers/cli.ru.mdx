@@ -42,7 +42,7 @@ rpm -i see-cli_<version>_linux_<arch>.rpm
 
 ```bash
 yay -S see-cli
-# or pre-built binary
+# или готовый бинарный пакет
 yay -S see-cli-bin
 ```
 
@@ -59,10 +59,10 @@ go install github.com/sdotee/cli@latest
 Укажите API-ключ через переменную окружения или флаг:
 
 ```bash
-# Environment variable (recommended)
+# Переменная окружения (рекомендуется)
 export SEE_API_KEY="your-api-key"
 
-# Or use the flag
+# Или используйте флаг
 see --api-key "your-api-key" <command>
 ```
 
@@ -80,23 +80,23 @@ see --api-key "your-api-key" <command>
 ### Домены и метки
 
 ```bash
-# List available domains for short URLs
+# Показать доступные домены для коротких URL
 see domains
 
-# List available domains for file uploads
+# Показать доступные домены для загрузки файлов
 see file domains
 
-# List your tags
+# Показать ваши метки
 see tags
 ```
 
 ### Короткие URL
 
 ```bash
-# Create a short URL
+# Создать короткий URL
 see url create https://example.com
 
-# Create with custom options
+# Создать с дополнительными параметрами
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -104,49 +104,49 @@ see url create https://example.com \
   --password secret \
   --expires 2024-12-31
 
-# Update a short URL
+# Обновить короткий URL
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# Удалить короткий URL
 see url delete --domain s.ee --slug my-link
 ```
 
 ### Текстовые фрагменты
 
 ```bash
-# Create text from stdin
+# Создать текст из stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# Создать текст из файла
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# Создать с параметрами
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
+# Обновить текст
 see text update --domain fs.to --slug abc123 --title "Updated Title"
 
-# Delete text
+# Удалить текст
 see text delete --domain fs.to --slug abc123
 ```
 
 ### Загрузка файлов
 
 ```bash
-# Upload a file
+# Загрузить файл
 see file upload ./image.png
 
-# Upload with custom domain
+# Загрузить с пользовательским доменом
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# Загрузить из stdin
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# Удалить файл
 see file delete <delete-hash>
 ```
 

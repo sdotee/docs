@@ -12,16 +12,16 @@ Pendekkan tautan, bagikan teks, dan unggah file dari ponsel Anda dengan seluruh 
 
 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
   <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
-    <img src="/app-store-badge.svg" alt="Download on the App Store" height="40" />
+    <img src="/app-store-badge.svg" alt="Unduh di App Store" height="40" />
   </a>
   <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
-    <img src="/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+    <img src="/google-play-badge.svg" alt="Dapatkan di Google Play" height="40" />
   </a>
 </div>
 
 ## Platform yang Didukung
 
-| Platform | Requirements | Technology |
+| Platform | Persyaratan | Teknologi |
 |----------|-------------|------------|
 | iOS | iOS 18.0+ | SwiftUI |
 | Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
@@ -85,32 +85,32 @@ Dibangun dengan **Jetpack Compose** dan **Material 3** (Material You) untuk peng
 - Database Room untuk riwayat lokal
 - EncryptedSharedPreferences untuk penyimpanan aman
 
-## Tech Stack
+## Tumpukan Teknologi
 
 ### iOS
 
-| Layer | Technology |
+| Lapisan | Teknologi |
 |-------|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (actor-based) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| Penyimpanan | SwiftData |
+| Jaringan | URLSession (berbasis actor) |
+| Keamanan | Keychain |
+| Thumbnail | QuickLookThumbnailing |
+| Pemrosesan Gambar | Swift-WebP |
 
 ### Android
 
-| Layer | Technology |
+| Lapisan | Teknologi |
 |-------|-----------|
 | UI | Jetpack Compose + Material 3 |
-| Architecture | MVVM + Repository |
-| Networking | Retrofit 3.0 + OkHttp 5 |
+| Arsitektur | MVVM + Repository |
+| Jaringan | Retrofit 3.0 + OkHttp 5 |
 | DI | Hilt (Dagger) |
-| Local DB | Room |
-| Security | EncryptedSharedPreferences |
-| Image Loading | Coil 3 |
+| DB Lokal | Room |
+| Keamanan | EncryptedSharedPreferences |
+| Pemuatan Gambar | Coil 3 |
 
-## Source Code
+## Kode Sumber
 
 Kedua aplikasi bersifat open source di bawah lisensi MIT:
 
@@ -122,4 +122,4 @@ Kedua aplikasi bersifat open source di bawah lisensi MIT:
 1. Unduh dari [App Store](https://s.ee/ios) atau [Google Play](https://s.ee/android)
 2. Buat akun di [s.ee](https://s.ee) jika Anda belum memilikinya
 3. [Buat API key](https://s.ee/user/developers/) dari dasbor Anda
-4. Buka aplikasi, masuk ke **Settings**, masukkan API key Anda, lalu ketuk **Verify**
+4. Buka aplikasi, masuk ke **Pengaturan**, masukkan API key Anda, lalu ketuk **Verifikasi**

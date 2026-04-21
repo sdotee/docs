@@ -8,7 +8,7 @@ icon: Package
 
 S.EE menyediakan SDK resmi untuk memastikan type safety dan integrasi yang mudah:
 
-| Language | Repository | Description |
+| Bahasa | Repositori | Deskripsi |
 |----------|------------|-------------|
 | PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Toolkit developer untuk aplikasi PHP |
 | TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Integrasi type-safe untuk proyek JavaScript/TypeScript |
@@ -20,7 +20,7 @@ S.EE menyediakan SDK resmi untuk memastikan type safety dan integrasi yang mudah
 
 ---
 
-## MCP Server
+## Server MCP
 
 Untuk integrasi AI/LLM, gunakan server MCP (Model Context Protocol) kami:
 
@@ -28,26 +28,26 @@ Untuk integrasi AI/LLM, gunakan server MCP (Model Context Protocol) kami:
 
 ### Fitur
 
-- **URL Management**: Membuat, memperbarui, menghapus, dan melihat daftar domain untuk URL pendek
-- **Content Sharing**: Membagikan cuplikan kode dan teks dengan kedaluwarsa serta perlindungan kata sandi
-- **File Operations**: Mengunggah dan menghapus file
-- **Time Utilities**: Mengakses informasi waktu saat ini dengan dukungan zona waktu
+- **Manajemen URL**: Membuat, memperbarui, menghapus, dan melihat daftar domain untuk URL pendek
+- **Berbagi Konten**: Membagikan cuplikan kode dan teks dengan kedaluwarsa serta perlindungan kata sandi
+- **Operasi File**: Mengunggah dan menghapus file
+- **Utilitas Waktu**: Mengakses informasi waktu saat ini dengan dukungan zona waktu
 
 ### Persyaratan
 
 - Go 1.25+
 - API Key S.EE yang valid
 
-### Build
+### Kompilasi
 
 ```bash
-# Using Makefile (current OS)
+# Menggunakan Makefile (OS saat ini)
 make build
 
-# Build for all platforms
+# Kompilasi untuk semua platform
 make build-all
 
-# Or using Go directly
+# Atau gunakan Go secara langsung
 go build -o bin/cli-mcp-server .
 ```
 

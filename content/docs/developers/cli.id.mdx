@@ -10,12 +10,12 @@ Klien command-line untuk platform S.EE yang memungkinkan Anda membuat dan mengel
 
 ## Fitur
 
-- **Short URL Management**: Membuat, memperbarui, dan menghapus tautan pendek dengan slug kustom, domain, dan kedaluwarsa
-- **Text Snippets**: Membagikan cuplikan kode dan catatan dari stdin atau file
-- **File Upload**: Mengunggah file secara langsung atau melalui stdin
-- **Domain & Tag Management**: Melihat domain yang tersedia dan mengelola tag
-- **Password Protection**: Melindungi konten Anda dengan kata sandi
-- **JSON Output**: Output yang dapat dibaca mesin untuk scripting
+- **Manajemen URL Pendek**: Membuat, memperbarui, dan menghapus tautan pendek dengan slug kustom, domain, dan kedaluwarsa
+- **Cuplikan Teks**: Membagikan cuplikan kode dan catatan dari stdin atau file
+- **Unggah File**: Mengunggah file secara langsung atau melalui stdin
+- **Manajemen Domain & Tag**: Melihat domain yang tersedia dan mengelola tag
+- **Perlindungan Kata Sandi**: Melindungi konten Anda dengan kata sandi
+- **Output JSON**: Output yang dapat dibaca mesin untuk otomasi skrip
 
 ## Instalasi
 
@@ -42,11 +42,11 @@ rpm -i see-cli_<version>_linux_<arch>.rpm
 
 ```bash
 yay -S see-cli
-# or pre-built binary
+# atau biner siap pakai
 yay -S see-cli-bin
 ```
 
-### Dari Source
+### Dari Sumber
 
 ```bash
 go install github.com/sdotee/cli@latest
@@ -56,47 +56,47 @@ Unduh binary dan package yang sudah dibangun dari [GitHub Releases](https://gith
 
 ## Konfigurasi
 
-Atur API key Anda melalui environment variable atau flag:
+Atur kunci API Anda melalui variabel lingkungan atau flag:
 
 ```bash
-# Environment variable (recommended)
+# Variabel lingkungan (disarankan)
 export SEE_API_KEY="your-api-key"
 
-# Or use the flag
+# Atau gunakan flag
 see --api-key "your-api-key" <command>
 ```
 
 ### Opsi Konfigurasi
 
-| Option | Environment Variable | Description |
-|--------|---------------------|-------------|
-| `--api-key` | `SEE_API_KEY` | API key S.EE Anda (wajib) |
-| `--base-url` | `SEE_BASE_URL` | Base URL API kustom |
+| Opsi | Variabel Lingkungan | Deskripsi |
+|------|----------------------|-----------|
+| `--api-key` | `SEE_API_KEY` | Kunci API S.EE Anda (wajib) |
+| `--base-url` | `SEE_BASE_URL` | URL dasar API kustom |
 | `--timeout` | `SEE_TIMEOUT` | Batas waktu permintaan |
 | `--json` | - | Aktifkan format output JSON |
 
 ## Perintah
 
-### Domains & Tags
+### Domain & Tag
 
 ```bash
-# List available domains for short URLs
+# Daftar domain yang tersedia untuk URL pendek
 see domains
 
-# List available domains for file uploads
+# Daftar domain yang tersedia untuk unggahan file
 see file domains
 
-# List your tags
+# Daftar tag Anda
 see tags
 ```
 
 ### URL Pendek
 
 ```bash
-# Create a short URL
+# Buat URL pendek
 see url create https://example.com
 
-# Create with custom options
+# Buat dengan opsi kustom
 see url create https://example.com \
   --slug my-link \
   --domain s.ee \
@@ -104,55 +104,55 @@ see url create https://example.com \
   --password secret \
   --expires 2024-12-31
 
-# Update a short URL
+# Perbarui URL pendek
 see url update --domain s.ee --slug my-link --title "New Title"
 
-# Delete a short URL
+# Hapus URL pendek
 see url delete --domain s.ee --slug my-link
 ```
 
 ### Cuplikan Teks
 
 ```bash
-# Create text from stdin
+# Buat teks dari stdin
 echo "Hello World" | see text create --title "greeting"
 
-# Create text from file
+# Buat teks dari file
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# Create with options
+# Buat dengan opsi
 cat script.sh | see text create \
   --title "Shell Script" \
   --domain fs.to \
   --password secret \
   --expires 2024-12-31
 
-# Update text
+# Perbarui teks
 see text update --domain fs.to --slug abc123 --title "Updated Title"
 
-# Delete text
+# Hapus teks
 see text delete --domain fs.to --slug abc123
 ```
 
 ### Unggah File
 
 ```bash
-# Upload a file
+# Unggah file
 see file upload ./image.png
 
-# Upload with custom domain
+# Unggah dengan domain kustom
 see file upload ./document.pdf --domain fs.to
 
-# Upload from stdin
+# Unggah dari stdin
 cat image.png | see file upload --stdin --filename image.png
 
-# Delete a file
+# Hapus file
 see file delete <delete-hash>
 ```
 
 ## Output JSON
 
-Gunakan flag `--json` untuk output yang dapat dibaca mesin, berguna untuk scripting:
+Gunakan flag `--json` untuk output yang dapat dibaca mesin, berguna untuk otomasi skrip:
 
 ```bash
 see url create https://example.com --json | jq '.short_url'

@@ -10,7 +10,7 @@ Endpoint ini dirancang untuk memudahkan migrasi dari YOURLS atau untuk menginteg
 
 ---
 
-## API Endpoint
+## Endpoint API
 
 ```
 https://s.ee/api/v1/yourls
@@ -59,7 +59,7 @@ API token terikat pada pengguna yang terautentikasi dan mewarisi izin serta bata
 
 Saat ini, hanya aksi berikut yang didukung:
 
-| Action | Description |
+| Aksi | Deskripsi |
 |------|-------------|
 | `shorturl` | Membuat URL pendek untuk tautan tertentu |
 
@@ -67,14 +67,14 @@ Saat ini, hanya aksi berikut yang didukung:
 
 ## Parameter
 
-| Parameter | Required | Description |
+| Parameter | Wajib | Deskripsi |
 |----------|----------|-------------|
-| `signature` | Yes | API Token S.EE Anda |
-| `action` | Yes | Aksi yang akan dijalankan (saat ini hanya `shorturl`) |
-| `url` | Yes | URL yang akan dipendekkan |
-| `format` | No | Format output: `json`, `jsonp`, `xml`, atau `simple` (default: `simple`) |
-| `keyword` | No | Slug kustom untuk URL pendek |
-| `title` | No | Judul untuk URL pendek |
+| `signature` | Ya | API Token S.EE Anda |
+| `action` | Ya | Aksi yang akan dijalankan (saat ini hanya `shorturl`) |
+| `url` | Ya | URL yang akan dipendekkan |
+| `format` | Tidak | Format output: `json`, `jsonp`, `xml`, atau `simple` (default: `simple`) |
+| `keyword` | Tidak | Slug kustom untuk URL pendek |
+| `title` | Tidak | Judul untuk URL pendek |
 
 ### Catatan
 
@@ -85,7 +85,7 @@ Saat ini, hanya aksi berikut yang didukung:
 
 ## Contoh
 
-### POST Request
+### Permintaan POST
 
 ```bash
 curl -X POST \
@@ -97,7 +97,7 @@ curl -X POST \
   --data-urlencode 'url=https://example.com/'
 ````
 
-**Response:**
+**Respons:**
 
 ```json
 {
@@ -123,13 +123,13 @@ Beberapa field respons dipertahankan demi kompatibilitas YOURLS dan bisa saja ko
 
 ---
 
-### GET Request
+### Permintaan GET
 
 ```bash
 curl -X GET "https://s.ee/api/v1/yourls?action=shorturl&format=simple&signature=your_api_token&url=https://example.com/"
 ```
 
-**Response:**
+**Respons:**
 
 ```
 https://s.ee/link

@@ -15,7 +15,7 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ desktop c
 
 ## Nền tảng được hỗ trợ
 
-| Platform | Status | Technology |
+| Nền tảng | Trạng thái | Công nghệ |
 |----------|--------|------------|
 | macOS | Available | SwiftUI |
 | Linux | Available | GTK4 + libadwaita + Rust |
@@ -23,48 +23,48 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ desktop c
 
 ## Tính năng
 
-- **URL Shortening** — Slug tùy chỉnh, tiêu đề, mật khẩu và thời gian hết hạn
-- **Text Sharing** — Văn bản thuần, source code hoặc Markdown với trình soạn thảo monospaced
-- **File Upload** — Kéo thả, dán từ clipboard hoặc chọn tệp
-- **QR Code Generation** — Xuất dưới dạng PNG, SVG hoặc PDF
-- **History** — Lưu cục bộ mọi liên kết, văn bản và tệp đã tạo
-- **Multi-Domain Support** — Chọn từ nhiều tên miền cho từng dịch vụ
-- **Usage Dashboard** — Xem nhanh dung lượng lưu trữ và giới hạn tốc độ
+- **Rút gọn URL** — Slug tùy chỉnh, tiêu đề, mật khẩu và thời gian hết hạn
+- **Chia sẻ văn bản** — Văn bản thuần, mã nguồn hoặc Markdown với trình soạn thảo chữ mono
+- **Tải tệp lên** — Kéo thả, dán từ clipboard hoặc chọn tệp
+- **Tạo mã QR** — Xuất dưới dạng PNG, SVG hoặc PDF
+- **Lịch sử** — Lưu cục bộ mọi liên kết, văn bản và tệp đã tạo
+- **Hỗ trợ nhiều tên miền** — Chọn từ nhiều tên miền cho từng dịch vụ
+- **Bảng điều khiển sử dụng** — Xem nhanh dung lượng lưu trữ và giới hạn tốc độ
 
 ## macOS
 
-Được xây dựng bằng **SwiftUI** và **SwiftData**. Hỗ trợ đầy đủ keyboard shortcut và tích hợp menu bar.
+Được xây dựng bằng **SwiftUI** và **SwiftData**. Hỗ trợ đầy đủ phím tắt và tích hợp thanh menu.
 
 - [sdotee/app/macos](https://github.com/sdotee/app/tree/main/macos)
 - Yêu cầu macOS 14.0+
 
 ### Điểm nổi bật
 
-- **Menu Bar** — Rút gọn URL, dán & tải lên, và truy cập mục gần đây mà không cần mở cửa sổ chính
-- **Drag & Drop** — Thả tệp ở bất kỳ đâu trong vùng tải lên
-- **Paste from Clipboard** (Cmd+V) — Tự động chuyển ảnh sang WebP, fallback sang PNG khi cần
+- **Thanh menu** — Rút gọn URL, dán & tải lên, và truy cập mục gần đây mà không cần mở cửa sổ chính
+- **Kéo và thả** — Thả tệp ở bất kỳ đâu trong vùng tải lên
+- **Dán từ clipboard** (Cmd+V) — Tự động chuyển ảnh sang WebP, dùng PNG dự phòng khi cần
 - **Keychain** — Lưu API key an toàn qua macOS Security framework
 
-### Keyboard Shortcuts
+### Phím tắt
 
-| Shortcut | Action |
+| Phím tắt | Hành động |
 |----------|--------|
-| Cmd+N | New Short Link |
-| Cmd+Shift+N | New Text Share |
-| Cmd+V | Paste & Upload from Clipboard |
-| Cmd+, | Settings |
-| Cmd+Q | Quit |
+| Cmd+N | Liên kết ngắn mới |
+| Cmd+Shift+N | Bản chia sẻ văn bản mới |
+| Cmd+V | Dán và tải lên từ clipboard |
+| Cmd+, | Cài đặt |
+| Cmd+Q | Thoát |
 
-### Tech Stack
+### Ngăn xếp công nghệ
 
-| Layer | Technology |
+| Lớp | Công nghệ |
 |-------|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (actor-based) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| Lưu trữ | SwiftData |
+| Mạng | URLSession (dựa trên actor) |
+| Bảo mật | Keychain |
+| Ảnh thu nhỏ | QuickLookThumbnailing |
+| Xử lý ảnh | Swift-WebP |
 
 ## Linux
 
@@ -75,39 +75,39 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ desktop c
 
 ### Điểm nổi bật
 
-- **Native GNOME Experience** — Giao diện thích ứng tuân theo GNOME HIG
-- **QR Code Export** — PNG, SVG hoặc PDF
-- **Config File** — `~/.config/see/config.toml` cho API key, base URL và tên miền mặc định
-- **Environment Variables** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` sẽ ghi đè config file
+- **Trải nghiệm GNOME native** — Giao diện thích ứng tuân theo GNOME HIG
+- **Xuất mã QR** — PNG, SVG hoặc PDF
+- **Tệp cấu hình** — `~/.config/see/config.toml` cho API key, URL cơ sở và tên miền mặc định
+- **Biến môi trường** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` sẽ ghi đè tệp cấu hình
 
-### Keyboard Shortcuts
+### Phím tắt
 
-| Shortcut | Action |
+| Phím tắt | Hành động |
 |----------|--------|
-| Ctrl+1 | Switch to Links view |
-| Ctrl+2 | Switch to Texts view |
-| Ctrl+3 | Switch to Files view |
-| Ctrl+, | Open Preferences |
-| Ctrl+? | Show keyboard shortcuts |
-| Ctrl+Q | Quit |
+| Ctrl+1 | Chuyển sang chế độ xem liên kết |
+| Ctrl+2 | Chuyển sang chế độ xem văn bản |
+| Ctrl+3 | Chuyển sang chế độ xem tệp |
+| Ctrl+, | Mở tùy chọn |
+| Ctrl+? | Hiển thị phím tắt |
+| Ctrl+Q | Thoát |
 
-### Tech Stack
+### Ngăn xếp công nghệ
 
-| Layer | Technology |
+| Lớp | Công nghệ |
 |-------|-----------|
 | UI | GTK4 + libadwaita |
-| Language | Rust (2024 edition) |
-| API Client | see-sdk |
-| QR Code | Built-in (PNG, SVG, PDF export) |
+| Ngôn ngữ | Rust (2024 edition) |
+| Trình khách API | see-sdk |
+| Mã QR | Tích hợp sẵn (xuất PNG, SVG, PDF) |
 
-### Data Storage
+### Lưu trữ dữ liệu
 
-- **Config**: `~/.config/see/config.toml`
-- **History**: `~/.local/share/see/history.json`
+- **Cấu hình**: `~/.config/see/config.toml`
+- **Lịch sử**: `~/.local/share/see/history.json`
 
 ## Bắt đầu
 
 1. Tải phiên bản cho [macOS](https://s.ee/macos) hoặc [Linux](https://s.ee/linux)
 2. Tạo tài khoản tại [s.ee](https://s.ee) nếu bạn chưa có
 3. [Tạo API key](https://s.ee/user/developers/) từ bảng điều khiển của bạn
-4. Mở ứng dụng, vào **Preferences** và nhập API key
+4. Mở ứng dụng, vào **Tùy chọn** và nhập API key

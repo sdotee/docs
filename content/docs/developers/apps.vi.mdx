@@ -12,17 +12,17 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ điện t
 
 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
   <a href="https://s.ee/ios" target="_blank" rel="noopener noreferrer">
-    <img src="/app-store-badge.svg" alt="Download on the App Store" height="40" />
+    <img src="/app-store-badge.svg" alt="Tải xuống trên App Store" height="40" />
   </a>
   <a href="https://s.ee/android" target="_blank" rel="noopener noreferrer">
-    <img src="/google-play-badge.svg" alt="Get it on Google Play" height="40" />
+    <img src="/google-play-badge.svg" alt="Tải xuống trên Google Play" height="40" />
   </a>
 </div>
 
 ## Nền tảng được hỗ trợ
 
-| Platform | Requirements | Technology |
-|----------|-------------|------------|
+| Nền tảng | Yêu cầu | Công nghệ |
+|-----------|---------|-----------|
 | iOS | iOS 18.0+ | SwiftUI |
 | Android | Android 10+ (API 29) | Jetpack Compose + Material 3 |
 
@@ -38,7 +38,7 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ điện t
 
 ### Chia sẻ văn bản
 
-- Chia sẻ văn bản thuần, source code hoặc Markdown
+- Chia sẻ văn bản thuần, mã nguồn hoặc Markdown
 - Trình soạn thảo chữ mono cho mã
 - Slug tùy chỉnh, mật khẩu và ngày hết hạn
 - Chọn tên miền và gán tag (tối đa 5 tag)
@@ -48,29 +48,29 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ điện t
 - Chọn tệp, chọn từ thư viện ảnh hoặc chụp bằng camera
 - Dán từ clipboard với chuyển đổi WebP tự động (iOS)
 - Hiển thị tiến độ tải lên theo thời gian thực
-- 9 định dạng liên kết — Direct Link, Share Page, BBCode, HTML, Markdown, v.v.
+- 9 định dạng liên kết — liên kết trực tiếp, trang chia sẻ, BBCode, HTML, Markdown, v.v.
 - Sao chép hàng loạt và xóa hàng loạt trên tất cả danh sách
 
 ### Bảng điều khiển sử dụng
 
 - Hiển thị mức sử dụng dung lượng bằng progress bar trực quan
-- Giới hạn tốc độ cho API Calls, Links, Text Shares, Uploads và QR Codes
+- Giới hạn tốc độ cho lệnh gọi API, liên kết, bản chia sẻ văn bản, lượt tải lên và mã QR
 - Thống kê sử dụng theo ngày và theo tháng
 
 ### Cài đặt
 
-- Cấu hình Base URL cho instance self-hosted
-- Quản lý API Key với xác minh một chạm
+- Cấu hình URL cơ sở cho phiên bản tự lưu trữ
+- Quản lý khóa API với xác minh một chạm
 - Chọn tên miền mặc định theo từng dịch vụ (liên kết, văn bản, tệp)
-- Chủ đề: System / Light / Dark
-- Dynamic Color / Material You (Android)
+- Chủ đề: hệ thống / sáng / tối
+- Màu động / Material You (Android)
 
 ## iOS
 
 Được xây dựng bằng **SwiftUI** và **SwiftData** để mang lại trải nghiệm iOS native.
 
-- **Photo Picker** — chọn từ Photos library
-- **Camera** — chụp ảnh (JPG) hoặc video (MOV sang MP4)
+- **Bộ chọn ảnh** — chọn từ thư viện Ảnh
+- **Máy ảnh** — chụp ảnh (JPG) hoặc quay video (MOV sang MP4)
 - Pull-to-refresh cho tag và danh sách
 - Lưu trữ API key an toàn bằng Keychain
 
@@ -78,39 +78,39 @@ Rút gọn liên kết, chia sẻ văn bản và tải tệp lên từ điện t
 
 Được xây dựng bằng **Jetpack Compose** và **Material 3** (Material You) để mang lại trải nghiệm Android native.
 
-- **Share Target** — nhận văn bản, URL và tệp được chia sẻ từ ứng dụng khác
-- **App Shortcuts** — nhấn giữ biểu tượng ứng dụng để thao tác nhanh
+- **Đích chia sẻ** — nhận văn bản, URL và tệp được chia sẻ từ ứng dụng khác
+- **Lối tắt ứng dụng** — nhấn giữ biểu tượng ứng dụng để thao tác nhanh
 - Hỗ trợ cử chỉ **Predictive Back** (Android 14+)
-- **Adaptive Icon** với hỗ trợ themed icon
+- **Biểu tượng thích ứng** với hỗ trợ biểu tượng theo chủ đề
 - Cơ sở dữ liệu Room cho lịch sử cục bộ
 - EncryptedSharedPreferences cho lưu trữ an toàn
 
-## Tech Stack
+## Ngăn xếp công nghệ
 
 ### iOS
 
-| Layer | Technology |
-|-------|-----------|
+| Lớp | Công nghệ |
+|-----|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (actor-based) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| Lưu trữ | SwiftData |
+| Mạng | URLSession (dựa trên actor) |
+| Bảo mật | Keychain |
+| Ảnh thu nhỏ | QuickLookThumbnailing |
+| Xử lý ảnh | Swift-WebP |
 
 ### Android
 
-| Layer | Technology |
-|-------|-----------|
+| Lớp | Công nghệ |
+|-----|-----------|
 | UI | Jetpack Compose + Material 3 |
-| Architecture | MVVM + Repository |
-| Networking | Retrofit 3.0 + OkHttp 5 |
+| Kiến trúc | MVVM + Repository |
+| Mạng | Retrofit 3.0 + OkHttp 5 |
 | DI | Hilt (Dagger) |
-| Local DB | Room |
-| Security | EncryptedSharedPreferences |
-| Image Loading | Coil 3 |
+| CSDL cục bộ | Room |
+| Bảo mật | EncryptedSharedPreferences |
+| Tải ảnh | Coil 3 |
 
-## Source Code
+## Mã nguồn
 
 Cả hai ứng dụng đều là mã nguồn mở theo giấy phép MIT:
 
@@ -122,4 +122,4 @@ Cả hai ứng dụng đều là mã nguồn mở theo giấy phép MIT:
 1. Tải ứng dụng từ [App Store](https://s.ee/ios) hoặc [Google Play](https://s.ee/android)
 2. Tạo tài khoản tại [s.ee](https://s.ee) nếu bạn chưa có
 3. [Tạo API key](https://s.ee/user/developers/) từ bảng điều khiển của bạn
-4. Mở ứng dụng, vào **Settings**, nhập API key và nhấn **Verify**
+4. Mở ứng dụng, vào **Cài đặt**, nhập khóa API và nhấn **Xác minh**

@@ -23,7 +23,7 @@ Thay base URL API của SM.MS bằng URL tương đương của S.EE:
 
 ## Tải ảnh lên
 
-### Request
+### Yêu cầu
 
 ```bash
 curl -X POST "https://s.ee/api/v1/file/upload" \
@@ -33,7 +33,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
   -F "custom_slug=my-image"
 ```
 
-### Parameter
+### Tham số
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -41,7 +41,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 | `domain` | string | No | Tên miền tùy chỉnh cho liên kết ngắn |
 | `custom_slug` | string | No | Slug tùy chỉnh cho URL (ngẫu nhiên nếu không cung cấp) |
 
-### Response
+### Phản hồi
 
 ```json
 {
@@ -67,20 +67,20 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 
 ## Lịch sử tải lên
 
-### Request
+### Yêu cầu
 
 ```bash
 curl "https://s.ee/api/v1/files" \
   -H "Authorization: your-api-key"
 ```
 
-### Parameter
+### Tham số
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `page` | integer | No | Số trang (mặc định 1, 30 tệp mỗi trang) |
 
-### Response
+### Phản hồi
 
 ```json
 {
@@ -126,12 +126,12 @@ curl "https://s.ee/api/v1/files" \
 
 Mặc dù S.EE duy trì khả năng tương thích với API của SM.MS, vẫn có một số cải tiến:
 
-| Feature | SM.MS | S.EE |
+| Tính năng | SM.MS | S.EE |
 |---------|-------|------|
-| Custom domain | No | Yes |
-| Custom slug | No | Yes |
-| File size limit | 5MB | Khác nhau theo gói |
-| Supported formats | Images only | Hình ảnh, tài liệu và nhiều loại khác |
+| Tên miền tùy chỉnh | Không | Có |
+| Slug tùy chỉnh | Không | Có |
+| Giới hạn kích thước tệp | 5MB | Khác nhau theo gói |
+| Định dạng được hỗ trợ | Chỉ hình ảnh | Hình ảnh, tài liệu và nhiều loại khác |
 
 ## Lấy API Key của bạn
 

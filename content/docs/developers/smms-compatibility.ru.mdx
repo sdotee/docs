@@ -80,6 +80,48 @@ curl "https://s.ee/api/v1/files" \
 |-----------|------|----------|-------------|
 | `page` | integer | Нет | Номер страницы (по умолчанию 1, по 30 файлов на страницу) |
 
+### Ответ
+
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "file_id": 14186122,
+      "width": 1255,
+      "height": 636,
+      "filename": "chrome_O93NV9Z3G8.gif",
+      "storename": "chrome_O93NV9Z3G8.gif",
+      "size": 398517,
+      "path": "/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/5isV/chrome_O93NV9Z3G8.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ZS3M",
+      "upload_status": 2,
+      "created_at": 1770908298
+    },
+    {
+      "file_id": 14186073,
+      "width": 1272,
+      "height": 644,
+      "filename": "firefox_P4lBSlG15y.gif",
+      "storename": "firefox_P4lBSlG15y.gif",
+      "size": 802256,
+      "path": "/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "hash": "delete-hash-here",
+      "url": "https://i.see.you/2026/02/12/0Bmu/firefox_P4lBSlG15y.gif",
+      "delete": "https://s.ee/api/v1/file/delete/delete-hash-here",
+      "page": "https://sm.ms/ATas",
+      "upload_status": 2,
+      "created_at": 1770904032
+    }
+  ]
+}
+```
+
 ## Отличия от SM.MS
 
 Хотя S.EE сохраняет совместимость с API SM.MS, есть и улучшения:

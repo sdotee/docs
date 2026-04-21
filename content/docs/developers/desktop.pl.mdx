@@ -40,9 +40,9 @@ Aplikacja jest zbudowana w **SwiftUI** i **SwiftData**. Oferuje pełną obsług�
 
 ### Najważniejsze elementy
 
-- **Menu Bar** - skracanie URL-i, wklejanie i przesyłanie oraz dostęp do ostatnich elementów bez otwierania głównego okna
-- **Drag & Drop** - upuszczanie plików w dowolnym miejscu strefy przesyłania
-- **Paste from Clipboard** (`Cmd+V`) - automatyczna konwersja obrazów do WebP z awaryjnym PNG
+- **Pasek menu** - skracanie URL-i, wklejanie i przesyłanie oraz dostęp do ostatnich elementów bez otwierania głównego okna
+- **Przeciągnij i upuść** - upuszczanie plików w dowolnym miejscu strefy przesyłania
+- **Wklej ze schowka** (`Cmd+V`) - automatyczna konwersja obrazów do WebP z awaryjnym PNG
 - **Keychain** - bezpieczne przechowywanie klucza API przez framework bezpieczeństwa macOS
 
 ### Skróty klawiaturowe
@@ -60,11 +60,11 @@ Aplikacja jest zbudowana w **SwiftUI** i **SwiftData**. Oferuje pełną obsług�
 | Warstwa | Technologia |
 |-------|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (oparte na actorach) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| Przechowywanie | SwiftData |
+| Sieć | URLSession (oparte na actorach) |
+| Bezpieczeństwo | Keychain |
+| Miniatury | QuickLookThumbnailing |
+| Przetwarzanie obrazów | Swift-WebP |
 
 ## Linux
 
@@ -96,9 +96,9 @@ Aplikacja jest zbudowana w **GTK4**, **libadwaita** i **Rust**. Stosuje wytyczne
 | Warstwa | Technologia |
 |-------|-----------|
 | UI | GTK4 + libadwaita |
-| Language | Rust (edycja 2024) |
-| API Client | see-sdk |
-| QR Code | Wbudowana obsługa eksportu PNG, SVG i PDF |
+| Język | Rust (edycja 2024) |
+| Klient API | see-sdk |
+| Kod QR | Wbudowana obsługa eksportu PNG, SVG i PDF |
 
 ### Przechowywanie danych
 
@@ -110,4 +110,4 @@ Aplikacja jest zbudowana w **GTK4**, **libadwaita** i **Rust**. Stosuje wytyczne
 1. Pobierz aplikację dla [macOS](https://s.ee/macos) albo [Linuxa](https://s.ee/linux)
 2. Utwórz konto na [s.ee](https://s.ee), jeśli jeszcze go nie masz
 3. [Wygeneruj klucz API](https://s.ee/user/developers/) w panelu
-4. Otwórz aplikację, przejdź do **Preferences** i wpisz klucz API
+4. Otwórz aplikację, przejdź do **Ustawienia** i wpisz klucz API

@@ -23,7 +23,7 @@ Ganti base URL API SM.MS dengan padanan S.EE:
 
 ## Unggah Gambar
 
-### Request
+### Permintaan
 
 ```bash
 curl -X POST "https://s.ee/api/v1/file/upload" \
@@ -41,7 +41,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 | `domain` | string | No | Domain kustom untuk tautan pendek |
 | `custom_slug` | string | No | Slug kustom untuk URL (acak jika tidak diisi) |
 
-### Response
+### Respons
 
 ```json
 {
@@ -67,7 +67,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 
 ## Riwayat Unggahan
 
-### Request
+### Permintaan
 
 ```bash
 curl "https://s.ee/api/v1/files" \
@@ -80,7 +80,7 @@ curl "https://s.ee/api/v1/files" \
 |-----------|------|----------|-------------|
 | `page` | integer | No | Nomor halaman (default 1, 30 file per halaman) |
 
-### Response
+### Respons
 
 ```json
 {
@@ -126,12 +126,12 @@ curl "https://s.ee/api/v1/files" \
 
 Meskipun S.EE mempertahankan kompatibilitas dengan API SM.MS, ada beberapa peningkatan:
 
-| Feature | SM.MS | S.EE |
+| Fitur | SM.MS | S.EE |
 |---------|-------|------|
-| Custom domain | No | Yes |
-| Custom slug | No | Yes |
-| File size limit | 5MB | Bervariasi menurut paket |
-| Supported formats | Images only | Images, documents, and more |
+| Domain kustom | Tidak | Ya |
+| Slug kustom | Tidak | Ya |
+| Batas ukuran file | 5MB | Bervariasi menurut paket |
+| Format yang didukung | Hanya gambar | Gambar, dokumen, dan lainnya |
 
 ## Dapatkan API Key Anda
 

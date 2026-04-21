@@ -8,7 +8,7 @@ icon: Package
 
 S.EE bietet offizielle SDKs für Typsicherheit und eine einfache Integration:
 
-| Language | Repository | Description |
+| Sprache | Repository | Beschreibung |
 |----------|------------|-------------|
 | PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Entwickler-Toolkit für PHP-Anwendungen |
 | TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Typensichere Integration für JavaScript/TypeScript-Projekte |
@@ -28,26 +28,26 @@ Für AI-/LLM-Integrationen verwenden Sie unseren MCP-Server (Model Context Proto
 
 ### Funktionen
 
-- **URL Management**: Kurz-URLs erstellen, aktualisieren, löschen und Domains auflisten
-- **Content Sharing**: Code-Snippets und Texte mit Ablaufdatum und Passwortschutz teilen
-- **File Operations**: Dateien hochladen und löschen
-- **Time Utilities**: Aktuelle Zeitinformationen mit Zeitzonenunterstützung abrufen
+- **URL-Verwaltung**: Kurz-URLs erstellen, aktualisieren, löschen und Domains auflisten
+- **Inhaltsfreigabe**: Code-Snippets und Texte mit Ablaufdatum und Passwortschutz teilen
+- **Dateioperationen**: Dateien hochladen und löschen
+- **Zeitfunktionen**: Aktuelle Zeitinformationen mit Zeitzonenunterstützung abrufen
 
 ### Voraussetzungen
 
 - Go 1.25+
 - Gültiger S.EE API Key
 
-### Build
+### Erstellen
 
 ```bash
-# Using Makefile (current OS)
+# Mit dem Makefile (aktuelles Betriebssystem)
 make build
 
-# Build for all platforms
+# Für alle Plattformen bauen
 make build-all
 
-# Or using Go directly
+# Oder direkt mit Go
 go build -o bin/cli-mcp-server .
 ```
 

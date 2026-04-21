@@ -8,14 +8,14 @@ Kürzen Sie Links, teilen Sie Text und laden Sie Dateien von Ihrem Desktop hoch 
 
 - [sdotee/app](https://github.com/sdotee/app)
 
-## Download
+## Herunterladen
 
 - **macOS**: [https://s.ee/macos](https://s.ee/macos)
 - **Linux**: [https://s.ee/linux](https://s.ee/linux)
 
 ## Unterstützte Plattformen
 
-| Platform | Status | Technology |
+| Plattform | Status | Technologie |
 |----------|--------|------------|
 | macOS | Verfügbar | SwiftUI |
 | Linux | Verfügbar | GTK4 + libadwaita + Rust |
@@ -23,13 +23,13 @@ Kürzen Sie Links, teilen Sie Text und laden Sie Dateien von Ihrem Desktop hoch 
 
 ## Funktionen
 
-- **URL Shortening** — Benutzerdefinierter Slug, Titel, Passwort und Ablaufdatum
-- **Text Sharing** — Klartext, Quellcode oder Markdown mit Monospace-Editor
-- **File Upload** — Drag & Drop, Einfügen aus der Zwischenablage oder Dateiauswahl
-- **QR Code Generation** — Export als PNG, SVG oder PDF
-- **History** — Lokale Aufzeichnung aller erstellten Links, Texte und Dateien
-- **Multi-Domain Support** — Auswahl aus mehreren Domains pro Dienst
-- **Usage Dashboard** — Speicherverbrauch und Rate Limits auf einen Blick
+- **URL-Kürzung** — Benutzerdefinierter Slug, Titel, Passwort und Ablaufdatum
+- **Textfreigabe** — Klartext, Quellcode oder Markdown mit Monospace-Editor
+- **Datei-Upload** — Drag-and-drop, Einfügen aus der Zwischenablage oder Dateiauswahl
+- **QR-Code-Generierung** — Export als PNG, SVG oder PDF
+- **Verlauf** — Lokale Aufzeichnung aller erstellten Links, Texte und Dateien
+- **Unterstützung mehrerer Domains** — Auswahl aus mehreren Domains pro Dienst
+- **Nutzungs-Dashboard** — Speicherverbrauch und Rate Limits auf einen Blick
 
 ## macOS
 
@@ -40,14 +40,14 @@ Erstellt mit **SwiftUI** und **SwiftData**. Vollständige Unterstützung für Ta
 
 ### Highlights
 
-- **Menu Bar** — URLs kürzen, aus der Zwischenablage hochladen und auf zuletzt verwendete Elemente zugreifen, ohne das Hauptfenster zu öffnen
-- **Drag & Drop** — Dateien überall in den Upload-Bereich ziehen
-- **Paste from Clipboard** (Cmd+V) — Konvertiert Bilder automatisch in WebP, mit PNG als Fallback
+- **Menüleiste** — URLs kürzen, aus der Zwischenablage hochladen und auf zuletzt verwendete Elemente zugreifen, ohne das Hauptfenster zu öffnen
+- **Drag-and-drop** — Dateien überall in den Upload-Bereich ziehen
+- **Aus Zwischenablage einfügen** (Cmd+V) — Konvertiert Bilder automatisch in WebP, mit PNG als Fallback
 - **Keychain** — Sichere Speicherung des API-Keys über das macOS Security Framework
 
 ### Tastenkürzel
 
-| Shortcut | Action |
+| Tastenkürzel | Aktion |
 |----------|--------|
 | Cmd+N | Neuer Kurzlink |
 | Cmd+Shift+N | Neue Textfreigabe |
@@ -55,16 +55,16 @@ Erstellt mit **SwiftUI** und **SwiftData**. Vollständige Unterstützung für Ta
 | Cmd+, | Einstellungen |
 | Cmd+Q | Beenden |
 
-### Tech Stack
+### Tech-Stack
 
-| Layer | Technology |
+| Ebene | Technologie |
 |-------|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (actor-based) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| Speicherung | SwiftData |
+| Netzwerk | URLSession (actor-basiert) |
+| Sicherheit | Keychain |
+| Vorschaubilder | QuickLookThumbnailing |
+| Bildverarbeitung | Swift-WebP |
 
 ## Linux
 
@@ -75,14 +75,14 @@ Erstellt mit **GTK4**, **libadwaita** und **Rust**. Folgt den GNOME Human Interf
 
 ### Highlights
 
-- **Native GNOME Experience** — Adaptives Layout nach GNOME HIG
-- **QR Code Export** — PNG, SVG oder PDF
-- **Config File** — `~/.config/see/config.toml` für API-Key, Base-URL und Standard-Domains
-- **Environment Variables** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` überschreiben die Konfigurationsdatei
+- **Native GNOME-Erfahrung** — Adaptives Layout nach GNOME HIG
+- **QR-Code-Export** — PNG, SVG oder PDF
+- **Konfigurationsdatei** — `~/.config/see/config.toml` für API-Key, Base-URL und Standard-Domains
+- **Umgebungsvariablen** — `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` überschreiben die Konfigurationsdatei
 
 ### Tastenkürzel
 
-| Shortcut | Action |
+| Tastenkürzel | Aktion |
 |----------|--------|
 | Ctrl+1 | Zur Links-Ansicht wechseln |
 | Ctrl+2 | Zur Texte-Ansicht wechseln |
@@ -91,23 +91,23 @@ Erstellt mit **GTK4**, **libadwaita** und **Rust**. Folgt den GNOME Human Interf
 | Ctrl+? | Tastenkürzel anzeigen |
 | Ctrl+Q | Beenden |
 
-### Tech Stack
+### Tech-Stack
 
-| Layer | Technology |
+| Ebene | Technologie |
 |-------|-----------|
 | UI | GTK4 + libadwaita |
-| Language | Rust (2024 edition) |
-| API Client | see-sdk |
-| QR Code | Integriert (PNG-, SVG- und PDF-Export) |
+| Sprache | Rust (Edition 2024) |
+| API-Client | see-sdk |
+| QR-Code | Integriert (PNG-, SVG- und PDF-Export) |
 
 ### Datenspeicherung
 
-- **Config**: `~/.config/see/config.toml`
-- **History**: `~/.local/share/see/history.json`
+- **Konfiguration**: `~/.config/see/config.toml`
+- **Verlauf**: `~/.local/share/see/history.json`
 
 ## Erste Schritte
 
 1. Laden Sie die Version für [macOS](https://s.ee/macos) oder [Linux](https://s.ee/linux) herunter
 2. Erstellen Sie ein Konto bei [s.ee](https://s.ee), falls Sie noch keines haben
 3. [Generieren Sie einen API-Key](https://s.ee/user/developers/) in Ihrem Dashboard
-4. Öffnen Sie die App, gehen Sie zu **Preferences** und geben Sie Ihren API-Key ein
+4. Öffnen Sie die App, gehen Sie zu **Einstellungen** und geben Sie Ihren API-Key ein

@@ -15,7 +15,7 @@ icon: Monitor
 
 ## 지원 플랫폼
 
-| Platform | Status | Technology |
+| 플랫폼 | 상태 | 기술 |
 |----------|--------|------------|
 | macOS | 제공 중 | SwiftUI |
 | Linux | 제공 중 | GTK4 + libadwaita + Rust |
@@ -40,14 +40,14 @@ icon: Monitor
 
 ### 주요 특징
 
-- **Menu Bar** - 메인 창을 열지 않고 URL 단축, 붙여넣기 업로드, 최근 항목 접근 가능
-- **Drag & Drop** - 업로드 영역 어디에나 파일 드롭 가능
-- **Paste from Clipboard** (Cmd+V) - 이미지를 자동으로 WebP 로 변환하고, 미지원 시 PNG 로 대체
+- **메뉴 막대** - 메인 창을 열지 않고 URL 단축, 붙여넣기 업로드, 최근 항목 접근 가능
+- **드래그 앤 드롭** - 업로드 영역 어디에나 파일 드롭 가능
+- **클립보드에서 붙여넣기** (Cmd+V) - 이미지를 자동으로 WebP 로 변환하고, 미지원 시 PNG 로 대체
 - **Keychain** - macOS Security framework 를 통한 안전한 API Key 저장
 
 ### 키보드 단축키
 
-| Shortcut | Action |
+| 단축키 | 동작 |
 |----------|--------|
 | Cmd+N | 새 단축 링크 |
 | Cmd+Shift+N | 새 텍스트 공유 |
@@ -57,14 +57,14 @@ icon: Monitor
 
 ### 기술 스택
 
-| Layer | Technology |
+| 계층 | 기술 |
 |-------|-----------|
 | UI | SwiftUI |
-| Storage | SwiftData |
-| Networking | URLSession (actor-based) |
-| Security | Keychain |
-| Thumbnails | QuickLookThumbnailing |
-| Image Processing | Swift-WebP |
+| 저장소 | SwiftData |
+| 네트워킹 | URLSession (actor 기반) |
+| 보안 | Keychain |
+| 썸네일 | QuickLookThumbnailing |
+| 이미지 처리 | Swift-WebP |
 
 ## Linux
 
@@ -75,39 +75,39 @@ icon: Monitor
 
 ### 주요 특징
 
-- **Native GNOME Experience** - GNOME HIG 를 따르는 적응형 레이아웃
-- **QR Code Export** - PNG, SVG, PDF 지원
-- **Config File** - API 키, 기본 URL, 기본 도메인을 `~/.config/see/config.toml` 에 저장
-- **Environment Variables** - `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` 으로 설정 파일 덮어쓰기
+- **네이티브 GNOME 경험** - GNOME HIG 를 따르는 적응형 레이아웃
+- **QR 코드 내보내기** - PNG, SVG, PDF 지원
+- **설정 파일** - API 키, 기본 URL, 기본 도메인을 `~/.config/see/config.toml` 에 저장
+- **환경 변수** - `SEE_API_KEY`, `SEE_BASE_URL`, `SEE_TIMEOUT` 으로 설정 파일 덮어쓰기
 
 ### 키보드 단축키
 
-| Shortcut | Action |
+| 단축키 | 동작 |
 |----------|--------|
-| Ctrl+1 | Links 보기로 전환 |
-| Ctrl+2 | Texts 보기로 전환 |
-| Ctrl+3 | Files 보기로 전환 |
-| Ctrl+, | Preferences 열기 |
+| Ctrl+1 | 링크 보기로 전환 |
+| Ctrl+2 | 텍스트 보기로 전환 |
+| Ctrl+3 | 파일 보기로 전환 |
+| Ctrl+, | 설정 열기 |
 | Ctrl+? | 키보드 단축키 표시 |
 | Ctrl+Q | 종료 |
 
 ### 기술 스택
 
-| Layer | Technology |
+| 계층 | 기술 |
 |-------|-----------|
 | UI | GTK4 + libadwaita |
-| Language | Rust (2024 edition) |
-| API Client | see-sdk |
-| QR Code | Built-in (PNG, SVG, PDF 내보내기 지원) |
+| 언어 | Rust (2024 edition) |
+| API 클라이언트 | see-sdk |
+| QR 코드 | 내장 기능 (PNG, SVG, PDF 내보내기 지원) |
 
 ### 데이터 저장 위치
 
-- **Config**: `~/.config/see/config.toml`
-- **History**: `~/.local/share/see/history.json`
+- **설정**: `~/.config/see/config.toml`
+- **기록**: `~/.local/share/see/history.json`
 
 ## 시작하기
 
 1. [macOS](https://s.ee/macos) 또는 [Linux](https://s.ee/linux) 버전을 다운로드합니다
 2. 계정이 없다면 [s.ee](https://s.ee) 에서 계정을 만듭니다
 3. 대시보드에서 [API Key 를 생성](https://s.ee/user/developers/)합니다
-4. 앱을 열고 **Preferences** 로 이동해 API Key 를 입력합니다
+4. 앱을 열고 **설정** 으로 이동해 API Key 를 입력합니다

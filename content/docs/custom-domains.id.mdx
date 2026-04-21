@@ -21,13 +21,13 @@ Domain kustom memungkinkan Anda menggunakan merek Anda sendiri pada tautan pende
 ## Tambahkan Domain Kustom
 
 1. Buka [https://s.ee/user/domains/](https://s.ee/user/domains/)
-2. Klik **Add Domain**
+2. Klik **Tambah Domain**
 3. Masukkan nama domain Anda
 4. Tambahkan record DNS yang diperlukan:
    - **TXT record** - Untuk verifikasi domain
    - **CNAME or Alias record** - Untuk mengarahkan domain Anda ke S.EE
 5. Tunggu propagasi DNS (biasanya beberapa menit)
-6. Klik **Verify** untuk mengonfirmasi pengaturan
+6. Klik **Verifikasi** untuk mengonfirmasi pengaturan
 
 ---
 
@@ -45,7 +45,7 @@ Domain kustom memungkinkan Anda menggunakan merek Anda sendiri pada tautan pende
 
 Jika Anda menggunakan Cloudflare untuk DNS, **jangan aktifkan Proxy (ikon awan oranye)** pada record CNAME Anda. Biarkan tetap dalam mode DNS-only (awan abu-abu). Mengaktifkan proxy Cloudflare dapat menyebabkan konflik CDN dan masalah pengalihan.
 
-### Menggunakan Naked Domain (Root Domain)
+### Menggunakan domain apex (domain root)
 
 Jika Anda ingin menggunakan naked domain (misalnya `example.com` alih-alih `go.example.com`), penyedia DNS Anda harus mendukung **ALIAS records** atau **CNAME flattening**. Beberapa penyedia umum yang mendukung fitur ini:
 
@@ -61,10 +61,10 @@ Jika penyedia DNS Anda tidak mendukung fitur ini, silakan [hubungi kami](https:/
 
 ## Batas Domain per Paket
 
-| Plan | Custom Domains |
+| Paket | Domain Kustom |
 |------|----------------|
 | Lite | 1 |
 | Lifetime | 1 |
 | Pro | 5 |
 | Premium | 10 |
-| Enterprise | Unlimited |
+| Enterprise | Tidak terbatas |
