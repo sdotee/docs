@@ -27,6 +27,9 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@orama/orama": "^3.1.18",
+    "@orama/stopwords": "^3.1.18",
+    "@orama/tokenizers": "^3.1.18",
     "@takumi-rs/image-response": "^1.0.14",
     "agentation": "^3.0.2",
     "class-variance-authority": "^0.7.1",
