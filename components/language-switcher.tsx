@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
+import { useTranslations } from '@fuma-translate/react';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import {
   Popover,
@@ -48,8 +49,10 @@ export function LanguageSelect({
   ...rest
 }: LanguageSelectProps) {
   const context = useI18n();
+  const t = useTranslations({ note: 'language switcher' });
   const pathname = usePathname();
   if (!context.locales) throw new Error('Missing `<I18nProvider />`');
+  const chooseLanguage = t('Choose a language');
 
   const handleChange = (newLocale: string) => {
     writeLocaleCookie(newLocale);
@@ -61,7 +64,7 @@ export function LanguageSelect({
   return (
     <Popover>
       <PopoverTrigger
-        aria-label={context.text.chooseLanguage}
+        aria-label={chooseLanguage}
         className={cn(
           buttonVariants({ variant }),
           'gap-1.5 p-1.5 data-[state=open]:bg-fd-accent',
@@ -73,7 +76,7 @@ export function LanguageSelect({
       </PopoverTrigger>
       <PopoverContent className="flex flex-col gap-0.5 p-1">
         <p className="p-2 text-xs font-medium text-fd-muted-foreground">
-          {context.text.chooseLanguage}
+          {chooseLanguage}
         </p>
         {context.locales.map((item) => (
           <button

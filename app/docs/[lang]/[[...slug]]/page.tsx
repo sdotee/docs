@@ -5,6 +5,9 @@ import {
 } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
+import { APIPage } from '@/components/api-page';
+import { openapi } from '@/lib/openapi';
+import type { ComponentProps } from 'react';
 import type { Metadata } from 'next';
 import { LLMCopyButton, ViewOptions } from '@/components/page-actions';
 import { i18n, ogLocaleMap, langNameMap, localePrefix } from '@/lib/i18n';
@@ -79,6 +82,7 @@ export default async function Page(props: {
   }
 
   const MDX = page.data.body;
+  const { preloaded } = await openapi.preloadOpenAPIPage(page);
   const pageUrl = `${baseUrl}${page.url}`;
   const prefix = localePrefix(params.lang);
   const markdownUrl = page.slugs.length > 0 ? `${page.url}.mdx` : `/docs${prefix}/index.mdx`;
@@ -116,7 +120,13 @@ export default async function Page(props: {
         />
       </div>
       <DocsBody>
-        <MDX components={getMDXComponents()} />
+        <MDX
+          components={getMDXComponents({
+            APIPage: (props: ComponentProps<typeof APIPage>) => (
+              <APIPage {...props} preloaded={preloaded} />
+            ),
+          })}
+        />
         </DocsBody>
       </DocsPage>
     </>
