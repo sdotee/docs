@@ -50,7 +50,7 @@ function applyTranslation(content: string, t: ApiTranslation): string {
   const { frontmatter, rest } = split;
   if (t.title) frontmatter.title = t.title;
   if (t.description) frontmatter.description = t.description;
-  const newYaml = dumpYaml(frontmatter, { lineWidth: 0, noRefs: true });
+  const newYaml = dumpYaml(frontmatter, { lineWidth: -1, noRefs: true });
   return `---\n${newYaml}---\n${rest}`;
 }
 
