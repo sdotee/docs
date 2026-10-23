@@ -35,7 +35,7 @@ bun run start
 ### Key Files
 - `lib/source.tsx` - Document loader with OpenAPI integration, custom Lucide icons plugin, and i18n URL formatter
 - `lib/openapi.ts` - OpenAPI configuration pointing to `openapi_swagger.yaml`
-- `lib/i18n.ts` - Locale config (`en`, `zh-CN`), flag URLs, OG locale map, helpers
+- `lib/i18n.ts` - Locale config (`en-US`, `zh-CN`, `zh-TW`), flag URLs, OG locale map, helpers
 - `lib/i18n-ui.tsx` - Fumadocs UI translations per locale
 - `lib/layout.shared.tsx` - Locale-aware nav config
 - `app/layout.tsx` - Root layout: `<html>`/`<body>`, fonts, scripts, `RootProvider`. Reads `x-locale` header (set by `proxy.ts`) to set `<html lang>`
@@ -48,11 +48,13 @@ bun run start
 ### Internationalization
 
 **Supported locales** (URL slug → native name):
-`en` (default, no prefix), `zh-CN` 简体中文, `zh-TW` 繁體中文, `ja` 日本語, `ko` 한국어, `id` Bahasa Indonesia, `vi` Tiếng Việt, `de` Deutsch, `fr` Français, `es` Español, `pt-PT`, `pt-BR`, `ru` Русский, `pl` Polski, `et` Eesti, `nl` Nederlands, `tr` Türkçe, `sv` Svenska, `it` Italiano, `fi` Suomi.
+`en-US` (default, no prefix), `zh-CN` 简体中文, `zh-TW` 繁體中文.
+
+Other locales (`ja`, `ko`, `de`, `fr`, etc.) were removed; `REMOVED_LOCALES` in `next.config.mjs` permanently redirects `/docs/{lang}/...` for them to the English page.
 
 **URL structure** (`hideLocale: 'default-locale'`):
 - English: `/docs/foo/`
-- Other: `/docs/{lang}/foo/` (e.g. `/docs/zh-CN/foo/`, `/docs/ja/foo/`)
+- Other: `/docs/{lang}/foo/` (e.g. `/docs/zh-CN/foo/`, `/docs/zh-TW/foo/`)
 
 The loader's custom `url()` in `lib/source.tsx` keeps locale **after** `/docs` (Fumadocs default would be `/zh-CN/docs/...`).
 
@@ -71,7 +73,7 @@ The loader's custom `url()` in `lib/source.tsx` keeps locale **after** `/docs` (
 **Adding a new language**:
 1. Add the locale to `languages` in `lib/i18n.ts`, plus entries in `langNameMap`, `ogLocaleMap`, `flagMap`.
 2. Add at least `displayName` in `lib/i18n-ui.tsx` (other UI strings fall back to English).
-3. Append the locale to the rewrite regex in `next.config.mjs` (the `(en|zh-CN|...)` group, in two places).
+3. Append the locale to the rewrite regex in `next.config.mjs` (the `(en-US|zh-CN|zh-TW)` group, in two places), and remove it from `REMOVED_LOCALES` if it is listed there.
 4. Create `scripts/api-translations/{lang}.json` (copy any existing one as a template).
 5. Translate manual content as `*.{lang}.mdx` and `meta.{lang}.json`.
 

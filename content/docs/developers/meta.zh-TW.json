@@ -1,6 +1,7 @@
 {
   "title": "開發者",
   "description": "S.EE API 與 SDK 文件",
+  "icon": "md:code",
   "defaultOpen": true,
   "pages": [
     "index",

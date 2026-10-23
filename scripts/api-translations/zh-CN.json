@@ -1,19 +1,23 @@
 {
   "CreateShortUrl": {
     "title": "创建短网址",
-    "description": "为目标链接创建一个新的短网址。可选设置自定义短码、密码保护、过期时间和用于归类的标签。"
+    "description": "为目标链接创建短网址，可设置自定义短码、密码、过期时间和标签。"
   },
   "CreateShortUrlSimpleMode": {
     "title": "创建短网址（简单模式）",
-    "description": "使用简化参数快速创建短网址，适合零配置场景。"
+    "description": "使用简化参数创建短网址。"
   },
   "UpdateShortUrl": {
     "title": "更新短网址",
-    "description": "更新已有短网址的目标地址、密码、过期时间或标签。"
+    "description": "更新已有短网址的目标地址或标题，通过域名和短码指定短网址。"
   },
   "DeleteShortUrl": {
     "title": "删除短网址",
     "description": "永久删除指定的短网址。"
+  },
+  "GetLinkHistory": {
+    "title": "获取短网址创建历史",
+    "description": "分页返回当前账号创建的短网址列表。"
   },
   "GetAvailableDomains": {
     "title": "获取可用域名",
@@ -29,11 +33,15 @@
   },
   "UpdateText": {
     "title": "更新文本分享",
-    "description": "更新已有文本分享的内容、密码或过期时间。"
+    "description": "更新已有文本分享的内容或标题，通过域名和短码指定文本分享。"
   },
   "DeleteText": {
     "title": "删除文本分享",
     "description": "永久删除指定的文本分享。"
+  },
+  "GetTextHistory": {
+    "title": "获取文本分享创建历史",
+    "description": "分页返回当前账号创建的文本分享列表。"
   },
   "GetTextAvailableDomains": {
     "title": "获取文本分享可用域名",
@@ -43,8 +51,12 @@
     "title": "上传文件",
     "description": "上传文件并生成可分享的短网址，支持设置密码和过期时间。"
   },
+  "ReplaceFile": {
+    "title": "替换文件",
+    "description": "用新文件替换已有文件的内容，短网址和文件地址保持不变。"
+  },
   "GetFileHistory": {
-    "title": "获取文件历史",
+    "title": "获取文件上传记录",
     "description": "返回当前账号上传的文件列表。"
   },
   "GetPrivateFileDownloadURL": {
@@ -59,12 +71,72 @@
     "title": "获取文件可用域名",
     "description": "返回可用于文件分享的域名列表。"
   },
+  "CreateLargeFileUpload": {
+    "title": "创建大文件上传会话",
+    "description": "为不超过 5 GB 的文件创建 TUS 上传会话；若文件哈希匹配已有文件，则无需重复上传。"
+  },
+  "TusUploadChunk": {
+    "title": "TUS 上传分片",
+    "description": "通过 TUS 1.0 协议上传大文件的一个分片。"
+  },
+  "TusGetUploadOffset": {
+    "title": "TUS 获取上传偏移量",
+    "description": "返回 TUS 上传的当前偏移量，用于断点续传。"
+  },
+  "TusTerminateUpload": {
+    "title": "TUS 终止上传",
+    "description": "终止 TUS 上传并丢弃已接收的数据。"
+  },
+  "GetLargeFileUploadProgress": {
+    "title": "获取上传进度",
+    "description": "返回大文件上传会话的当前进度。"
+  },
+  "CompleteLargeFileUpload": {
+    "title": "完成大文件上传",
+    "description": "所有分片上传完成后调用，校验文件并保存到永久存储。"
+  },
+  "CancelLargeFileUpload": {
+    "title": "取消大文件上传",
+    "description": "取消进行中的上传会话并删除临时数据。"
+  },
+  "CreateQrcode": {
+    "title": "创建二维码",
+    "description": "为指定网址创建动态二维码，提供 PNG、SVG 和 PDF 格式。"
+  },
+  "DeleteQrcode": {
+    "title": "删除二维码",
+    "description": "永久删除二维码及其关联的短网址。"
+  },
+  "GetQrcodeHistory": {
+    "title": "获取二维码创建记录",
+    "description": "分页返回当前账号创建的二维码列表。"
+  },
+  "CreateBioPage": {
+    "title": "创建个人主页",
+    "description": "创建一个带短网址的个人主页。"
+  },
+  "UpdateBioPage": {
+    "title": "更新个人主页",
+    "description": "更新已有个人主页的内容、链接和样式。"
+  },
+  "DeleteBioPage": {
+    "title": "删除个人主页",
+    "description": "永久删除指定的个人主页。"
+  },
+  "GetBioPageHistory": {
+    "title": "获取个人主页列表",
+    "description": "分页返回当前账号创建的个人主页列表。"
+  },
   "GetTags": {
     "title": "获取标签列表",
-    "description": "返回当前账号下所有用于组织内容的标签。"
+    "description": "返回当前账号下用于整理内容的所有标签。"
   },
   "GetUsage": {
     "title": "获取使用量",
     "description": "返回当前账号在本计费周期内的资源使用情况。"
+  },
+  "CheckToken": {
+    "title": "校验 API 令牌",
+    "description": "检查 API 令牌是否有效，有效时返回令牌及其过期时间。"
   }
 }

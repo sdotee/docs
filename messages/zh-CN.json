@@ -1,9 +1,9 @@
 {
   "nav": {
-    "dashboard": "控制面板"
+    "dashboard": "控制台"
   },
   "cookieBar": {
-    "message": "我们使用 Cookie 来记住你的语言偏好，并提升你的使用体验。",
+    "message": "我们使用 Cookie 保存您的语言设置，并改善使用体验。",
     "accept": "接受",
     "decline": "拒绝",
     "privacyLink": "隐私政策"

@@ -4,43 +4,74 @@ description: 面向開發者的 S.EE API 文件。
 icon: BookOpen
 ---
 
-這裡是面向開發者的 API 文件。您可以使用 API 建立、更新和刪除短網址、文字分享和檔案分享，也可以取得可用網域資訊。
-
-該 API 設計簡潔、易於使用，便於您快速將 S.EE 功能整合到自己的應用中。
+透過 S.EE API，可在應用程式中管理短網址、文字分享和檔案。以下參考文件介紹各端點的用途和參數。
 
 ## 短網址
 
 <Cards>
   <Card title="建立短網址" href="/docs/zh-TW/api/CreateShortUrl/" />
-  <Card title="建立短網址（簡單模式）" href="/docs/zh-TW/api/CreateShortUrlSimpleMode/" />
+  <Card title="建立短網址（簡易模式）" href="/docs/zh-TW/api/CreateShortUrlSimpleMode/" />
   <Card title="更新短網址" href="/docs/zh-TW/api/UpdateShortUrl/" />
   <Card title="刪除短網址" href="/docs/zh-TW/api/DeleteShortUrl/" />
+  <Card title="取得短網址建立紀錄" href="/docs/zh-TW/api/GetLinkHistory/" />
   <Card title="取得可用網域" href="/docs/zh-TW/api/GetAvailableDomains/" />
-  <Card title="取得連結造訪統計" href="/docs/zh-TW/api/GetLinkVisitStat/" />
+  <Card title="取得短網址存取統計" href="/docs/zh-TW/api/GetLinkVisitStat/" />
 </Cards>
 
 ## 文字分享
 
 <Cards>
-  <Card title="建立文字" href="/docs/zh-TW/api/CreateText/" />
-  <Card title="更新文字" href="/docs/zh-TW/api/UpdateText/" />
-  <Card title="刪除文字" href="/docs/zh-TW/api/DeleteText/" />
-  <Card title="取得文字可用網域" href="/docs/zh-TW/api/GetTextAvailableDomains/" />
+  <Card title="建立文字分享" href="/docs/zh-TW/api/CreateText/" />
+  <Card title="更新文字分享" href="/docs/zh-TW/api/UpdateText/" />
+  <Card title="刪除文字分享" href="/docs/zh-TW/api/DeleteText/" />
+  <Card title="取得文字分享建立紀錄" href="/docs/zh-TW/api/GetTextHistory/" />
+  <Card title="取得文字分享可用網域" href="/docs/zh-TW/api/GetTextAvailableDomains/" />
 </Cards>
 
 ## 檔案分享
 
 <Cards>
   <Card title="上傳檔案" href="/docs/zh-TW/api/UploadFile/" />
-  <Card title="取得檔案上傳歷史" href="/docs/zh-TW/api/GetFileHistory/" />
-  <Card title="取得私有檔案下載 URL" href="/docs/zh-TW/api/GetPrivateFileDownloadURL/" />
+  <Card title="替換檔案" href="/docs/zh-TW/api/ReplaceFile/" />
+  <Card title="取得檔案上傳紀錄" href="/docs/zh-TW/api/GetFileHistory/" />
+  <Card title="取得私人檔案下載網址" href="/docs/zh-TW/api/GetPrivateFileDownloadURL/" />
   <Card title="刪除檔案" href="/docs/zh-TW/api/DeleteFile/" />
-  <Card title="取得檔案可用網域" href="/docs/zh-TW/api/GetFileAvailableDomains/" />
+  <Card title="取得檔案分享可用網域" href="/docs/zh-TW/api/GetFileAvailableDomains/" />
+</Cards>
+
+## 大型檔案上傳
+
+<Cards>
+  <Card title="建立大型檔案上傳工作階段" href="/docs/zh-TW/api/CreateLargeFileUpload/" />
+  <Card title="TUS 上傳區塊" href="/docs/zh-TW/api/TusUploadChunk/" />
+  <Card title="TUS 取得上傳位移" href="/docs/zh-TW/api/TusGetUploadOffset/" />
+  <Card title="TUS 終止上傳" href="/docs/zh-TW/api/TusTerminateUpload/" />
+  <Card title="取得上傳進度" href="/docs/zh-TW/api/GetLargeFileUploadProgress/" />
+  <Card title="完成大型檔案上傳" href="/docs/zh-TW/api/CompleteLargeFileUpload/" />
+  <Card title="取消大型檔案上傳" href="/docs/zh-TW/api/CancelLargeFileUpload/" />
+</Cards>
+
+## QR Code
+
+<Cards>
+  <Card title="建立 QR Code" href="/docs/zh-TW/api/CreateQrcode/" />
+  <Card title="刪除 QR Code" href="/docs/zh-TW/api/DeleteQrcode/" />
+  <Card title="取得 QR Code 紀錄" href="/docs/zh-TW/api/GetQrcodeHistory/" />
+</Cards>
+
+## 個人首頁
+
+<Cards>
+  <Card title="建立個人首頁" href="/docs/zh-TW/api/CreateBioPage/" />
+  <Card title="更新個人首頁" href="/docs/zh-TW/api/UpdateBioPage/" />
+  <Card title="刪除個人首頁" href="/docs/zh-TW/api/DeleteBioPage/" />
+  <Card title="取得個人首頁清單" href="/docs/zh-TW/api/GetBioPageHistory/" />
 </Cards>
 
 ## 通用
 
 <Cards>
-  <Card title="取得標籤" href="/docs/zh-TW/api/GetTags/" />
-  <Card title="取得用量" href="/docs/zh-TW/api/GetUsage/" />
+  <Card title="取得標籤清單" href="/docs/zh-TW/api/GetTags/" />
+  <Card title="取得使用量" href="/docs/zh-TW/api/GetUsage/" />
+  <Card title="驗證 API 權杖" href="/docs/zh-TW/api/CheckToken/" />
 </Cards>

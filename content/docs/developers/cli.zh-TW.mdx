@@ -1,10 +1,10 @@
 ---
 title: CLI
-description: S.EE 平台的命令列客戶端
+description: S.EE 平台的命令列用戶端
 icon: Terminal
 ---
 
-這是一個用於 S.EE 平台的命令列客戶端，讓您可以直接在終端中建立和管理短網址、文字片段和檔案。
+使用 S.EE CLI，可直接在終端機中建立和管理短網址、文字片段和檔案。
 
 - [sdotee/cli](https://github.com/sdotee/cli)
 
@@ -42,7 +42,7 @@ rpm -i see-cli_<version>_linux_<arch>.rpm
 
 ```bash
 yay -S see-cli
-# 或安裝預構建二進位制版本
+# 或安裝預先編譯的二進位版本
 yay -S see-cli-bin
 ```
 
@@ -52,7 +52,7 @@ yay -S see-cli-bin
 go install github.com/sdotee/cli@latest
 ```
 
-預構建二進位制檔案和安裝包可從 [GitHub Releases](https://github.com/sdotee/cli/releases) 下載。
+預先編譯的二進位檔案和安裝套件可從 [GitHub Releases](https://github.com/sdotee/cli/releases) 下載。
 
 ## 設定
 
@@ -71,8 +71,8 @@ see --api-key "your-api-key" <command>
 | 選項 | 環境變數 | 說明 |
 |--------|---------------------|-------------|
 | `--api-key` | `SEE_API_KEY` | 您的 S.EE API Key（必填） |
-| `--base-url` | `SEE_BASE_URL` | 自訂 API 基礎 URL |
-| `--timeout` | `SEE_TIMEOUT` | 請求超時時間 |
+| `--base-url` | `SEE_BASE_URL` | 自訂 API 基底 URL |
+| `--timeout` | `SEE_TIMEOUT` | 請求逾時時間 |
 | `--json` | - | 啟用 JSON 輸出格式 |
 
 ## 命令

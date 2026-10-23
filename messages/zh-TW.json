@@ -1,12 +1,12 @@
 {
   "nav": {
-    "dashboard": "控制面板"
+    "dashboard": "儀表板"
   },
   "cookieBar": {
-    "message": "我們使用 Cookie 來記住你的語言偏好，並提升你的使用體驗。",
+    "message": "我們使用 Cookie 儲存您的語言設定，並改善使用體驗。",
     "accept": "接受",
     "decline": "拒絕",
-    "privacyLink": "隱私政策"
+    "privacyLink": "隱私權政策"
   },
   "fumadocs": {
     "search": "搜尋",

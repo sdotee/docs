@@ -4,9 +4,7 @@ description: S.EE API Documentation for Developers.
 icon: BookOpen
 ---
 
-Here is the API documentation for developers. You can use the API to create, update, and delete short URLs, text sharing, and file sharing, as well as retrieve information about available domains.
-
-The API is designed to be simple and easy to use, allowing you to integrate S.EE functionality into your applications quickly.
+Use the S.EE API to manage short URLs, shared text, and files in your applications. The reference pages below describe the available operations and their parameters.
 
 ## Short URLs
 
@@ -15,6 +13,7 @@ The API is designed to be simple and easy to use, allowing you to integrate S.EE
   <Card title="Create Short URL (Simple Mode)" href="/docs/api/CreateShortUrlSimpleMode/" />
   <Card title="Update Short URL" href="/docs/api/UpdateShortUrl/" />
   <Card title="Delete Short URL" href="/docs/api/DeleteShortUrl/" />
+  <Card title="Get Link Creation History" href="/docs/api/GetLinkHistory/" />
   <Card title="Get Available Domains" href="/docs/api/GetAvailableDomains/" />
   <Card title="Get Link Visit Statistics" href="/docs/api/GetLinkVisitStat/" />
 </Cards>
@@ -25,6 +24,7 @@ The API is designed to be simple and easy to use, allowing you to integrate S.EE
   <Card title="Create Text" href="/docs/api/CreateText/" />
   <Card title="Update Text" href="/docs/api/UpdateText/" />
   <Card title="Delete Text" href="/docs/api/DeleteText/" />
+  <Card title="Get Text Creation History" href="/docs/api/GetTextHistory/" />
   <Card title="Get Text Available Domains" href="/docs/api/GetTextAvailableDomains/" />
 </Cards>
 
@@ -32,10 +32,40 @@ The API is designed to be simple and easy to use, allowing you to integrate S.EE
 
 <Cards>
   <Card title="Upload File" href="/docs/api/UploadFile/" />
+  <Card title="Replace File" href="/docs/api/ReplaceFile/" />
   <Card title="Get File Upload History" href="/docs/api/GetFileHistory/" />
   <Card title="Get Private File Download URL" href="/docs/api/GetPrivateFileDownloadURL/" />
   <Card title="Delete File" href="/docs/api/DeleteFile/" />
   <Card title="Get File Available Domains" href="/docs/api/GetFileAvailableDomains/" />
+</Cards>
+
+## Large File Upload
+
+<Cards>
+  <Card title="Create Large File Upload Session" href="/docs/api/CreateLargeFileUpload/" />
+  <Card title="TUS Upload Chunk" href="/docs/api/TusUploadChunk/" />
+  <Card title="TUS Get Upload Offset" href="/docs/api/TusGetUploadOffset/" />
+  <Card title="TUS Terminate Upload" href="/docs/api/TusTerminateUpload/" />
+  <Card title="Get Upload Progress" href="/docs/api/GetLargeFileUploadProgress/" />
+  <Card title="Complete Large File Upload" href="/docs/api/CompleteLargeFileUpload/" />
+  <Card title="Cancel Large File Upload" href="/docs/api/CancelLargeFileUpload/" />
+</Cards>
+
+## QR Codes
+
+<Cards>
+  <Card title="Create QR Code" href="/docs/api/CreateQrcode/" />
+  <Card title="Delete QR Code" href="/docs/api/DeleteQrcode/" />
+  <Card title="Get QR Code History" href="/docs/api/GetQrcodeHistory/" />
+</Cards>
+
+## Bio Pages
+
+<Cards>
+  <Card title="Create Bio Page" href="/docs/api/CreateBioPage/" />
+  <Card title="Update Bio Page" href="/docs/api/UpdateBioPage/" />
+  <Card title="Delete Bio Page" href="/docs/api/DeleteBioPage/" />
+  <Card title="Get Bio Page History" href="/docs/api/GetBioPageHistory/" />
 </Cards>
 
 ## General
@@ -43,4 +73,5 @@ The API is designed to be simple and easy to use, allowing you to integrate S.EE
 <Cards>
   <Card title="Get Tags" href="/docs/api/GetTags/" />
   <Card title="Get Usage" href="/docs/api/GetUsage/" />
+  <Card title="Check API Token" href="/docs/api/CheckToken/" />
 </Cards>

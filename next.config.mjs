@@ -2,6 +2,8 @@ import { createMDX } from 'fumadocs-mdx/next';
 
 const withMDX = createMDX();
 
+const REMOVED_LOCALES = 'ja|ko|id|vi|de|fr|es|pt-PT|pt-BR|ru|pl|et|nl|tr|sv|it|fi';
+
 /** @type {import('next').NextConfig} */
 const config = {
   serverExternalPackages: ['@takumi-rs/image-response'],
@@ -32,12 +34,12 @@ const config = {
       },
       {
         source:
-          '/docs/:lang(en-US|zh-CN|zh-TW|ja|ko|id|vi|de|fr|es|pt-PT|pt-BR|ru|pl|et|nl|tr|sv|it|fi)/:path*.mdx',
+          '/docs/:lang(en-US|zh-CN|zh-TW)/:path*.mdx',
         destination: '/docs/:lang/llms.mdx/:path*',
       },
       {
         source:
-          '/docs/:lang(en-US|zh-CN|zh-TW|ja|ko|id|vi|de|fr|es|pt-PT|pt-BR|ru|pl|et|nl|tr|sv|it|fi).mdx',
+          '/docs/:lang(en-US|zh-CN|zh-TW).mdx',
         destination: '/docs/:lang/llms.mdx',
       },
       {
@@ -48,6 +50,22 @@ const config = {
   },
   async redirects() {
     return [
+      // Locales that are no longer supported fall back to English
+      {
+        source: `/docs/:lang(${REMOVED_LOCALES})`,
+        destination: '/docs/',
+        permanent: true,
+      },
+      {
+        source: `/docs/:lang(${REMOVED_LOCALES})/:path*.mdx`,
+        destination: '/docs/:path*.mdx',
+        permanent: true,
+      },
+      {
+        source: `/docs/:lang(${REMOVED_LOCALES})/:path*`,
+        destination: '/docs/:path*/',
+        permanent: true,
+      },
       // /docs/developers/api/* redirects
       {
         source: '/docs/developers/api/create-short-url/',

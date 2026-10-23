@@ -1,13 +1,6 @@
 components:
   schemas:
-    data:
-      properties:
-        data:
-          $ref: '#/components/schemas/val.GetTagsRespV'
-      type: object
     httper.RespBody:
-      allOf:
-        - $ref: '#/components/schemas/data'
       properties:
         code:
           description: Response status code (200 indicates success)
@@ -16,6 +9,387 @@ components:
           description: Response payload
         message:
           description: Human-readable status message
+          type: string
+      type: object
+    model.BioPageStyle:
+      properties:
+        layout:
+          description: Layout type, e.g. "grid" or "list"
+          type: string
+        meta:
+          description: Extended configuration (arbitrary JSON), stored and returned as-is without validation
+        template:
+          description: Template type, e.g. "card" or "minimal"
+          type: string
+        theme_type:
+          description: Theme type, "light" or "dark"
+          type: string
+      type: object
+    val.BioCustomLinkItem:
+      properties:
+        bg_color:
+          description: Optional background color for the link button, e.g. "#ff0000" or "rgba(255,0,0,0.5)"
+          maxLength: 50
+          type: string
+        description:
+          description: Optional description
+          maxLength: 1024
+          type: string
+        enabled:
+          description: Whether the link is enabled. 1 = enabled (default), 2 = disabled.
+          enum:
+            - 1
+            - 2
+          type: integer
+        title:
+          description: Link title (required)
+          maxLength: 255
+          type: string
+        url:
+          description: 'Target URL (required). Supports http/https URLs, mailto: email links, and tel: phone links.'
+          maxLength: 2048
+          type: string
+      required:
+        - title
+        - url
+      type: object
+    val.BioPageCustomLinkData:
+      properties:
+        bg_color:
+          description: Background color for the link button
+          type: string
+        description:
+          description: Optional description
+          type: string
+        enabled:
+          description: Whether the link is enabled. 1 = enabled, 2 = disabled.
+          type: integer
+        title:
+          description: Link title
+          type: string
+        url:
+          description: Target URL
+          type: string
+      type: object
+    val.BioPageHistoryData:
+      properties:
+        background_color:
+          description: Background color
+          type: string
+        created_at:
+          description: Unix timestamp when the bio page was created
+          type: integer
+        custom_links:
+          description: Custom links on this bio page
+          items:
+            $ref: '#/components/schemas/val.BioPageCustomLinkData'
+          type: array
+        description:
+          description: Description of the bio page
+          type: string
+        domain:
+          description: The domain used for this bio page
+          type: string
+        email:
+          description: Contact email address
+          type: string
+        id:
+          description: Unique identifier for the bio page
+          type: integer
+        link:
+          description: The complete short URL of the bio page
+          type: string
+        mastodon_url:
+          description: Mastodon profile URL
+          type: string
+        rss_url:
+          description: RSS feed URL
+          type: string
+        slug:
+          description: The slug portion of the short URL
+          type: string
+        status:
+          description: Status of the bio page. 1 = enabled, 2 = archived.
+          type: integer
+        style:
+          $ref: '#/components/schemas/model.BioPageStyle'
+          description: Style configuration
+        title:
+          description: Title of the bio page
+          type: string
+        username:
+          description: Display username shown on the bio page
+          type: string
+      type: object
+    val.CancelLargeFileUploadReq:
+      properties:
+        upload_id:
+          description: Upload session ID to cancel
+          type: string
+      required:
+        - upload_id
+      type: object
+    val.CheckTokenReq:
+      properties:
+        token:
+          description: Your API token to validate
+          maxLength: 255
+          type: string
+      required:
+        - token
+      type: object
+    val.CheckTokenResp:
+      properties:
+        expires_at:
+          description: Token expiration time in Unix timestamp
+          type: integer
+        token:
+          description: Token string
+          type: string
+        valid:
+          description: Whether the API token is valid
+          type: boolean
+      type: object
+    val.CheckTokenRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.CheckTokenResp'
+          description: Token validation result
+        message:
+          description: Human-readable status message
+          type: string
+      type: object
+    val.CompleteLargeFileUploadReq:
+      properties:
+        upload_id:
+          description: Upload session ID that has finished uploading all chunks
+          type: string
+      required:
+        - upload_id
+      type: object
+    val.CompleteLargeFileUploadResp:
+      properties:
+        file:
+          $ref: '#/components/schemas/val.UploadFileRespData'
+          description: Uploaded file info
+        short_link:
+          description: Short link created for the file (if domain/alias were provided at creation)
+          type: string
+      type: object
+    val.CompleteLargeFileUploadRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.CompleteLargeFileUploadResp'
+        message:
+          type: string
+      type: object
+    val.CreateBioPageReq:
+      properties:
+        custom_links:
+          description: Optional list of custom links to add to the bio page
+          items:
+            $ref: '#/components/schemas/val.BioCustomLinkItem'
+          type: array
+        custom_slug:
+          description: Your preferred custom slug. If not provided, a random slug will be generated.
+          maxLength: 255
+          type: string
+        description:
+          description: Optional short description shown on the bio page
+          maxLength: 255
+          type: string
+        domain:
+          description: The domain to use for your bio page short URL (e.g., "s.ee"). If not provided, the default link domain is used.
+          maxLength: 255
+          type: string
+        email:
+          description: Contact email address (optional)
+          maxLength: 255
+          type: string
+        mastodon_url:
+          description: Mastodon profile URL, e.g. https://mastodon.social/@username
+          maxLength: 2048
+          type: string
+        rss_url:
+          description: RSS feed URL to display latest posts on your bio page
+          maxLength: 2048
+          type: string
+        style:
+          $ref: '#/components/schemas/model.BioPageStyle'
+          description: Style configuration for the bio page layout and theme
+        title:
+          description: Title of the bio page (required)
+          maxLength: 255
+          type: string
+        username:
+          description: Display username shown on the bio page. Overrides the account username if provided.
+          maxLength: 40
+          type: string
+      required:
+        - title
+      type: object
+    val.CreateBioPageResp:
+      properties:
+        bio_page_id:
+          description: The numeric ID of the created bio page
+          type: integer
+        short_url:
+          description: The complete short URL pointing to the bio page
+          type: string
+      type: object
+    val.CreateBioPageRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.CreateBioPageResp'
+        message:
+          type: string
+      type: object
+    val.CreateLargeFileUploadReq:
+      properties:
+        alias:
+          description: Custom slug for the short link (optional, alphanumeric only)
+          maxLength: 255
+          type: string
+        description:
+          description: Description (optional)
+          maxLength: 1024
+          type: string
+        domain:
+          description: Domain for short link (optional, use /api/v1/file/domains to list)
+          maxLength: 255
+          type: string
+        expire_at:
+          description: Unix timestamp for link expiry (optional)
+          type: integer
+        file_hash:
+          description: SHA256 hash for instant upload deduplication (optional)
+          maxLength: 255
+          type: string
+        file_name:
+          description: Original filename (required)
+          maxLength: 255
+          type: string
+        file_size:
+          description: File size in bytes (required)
+          type: integer
+        is_private:
+          description: 'Privacy: 0=public (default), 1=private'
+          enum:
+            - 0
+            - 1
+          type: integer
+        mime_type:
+          description: MIME type hint (optional, server will detect from file bytes)
+          maxLength: 255
+          type: string
+        password:
+          description: Access password (3–32 chars, optional)
+          maxLength: 32
+          minLength: 3
+          type: string
+        replace_file_id:
+          description: |-
+            ID of an existing file whose content should be replaced by this upload (optional).
+            The short link and the file URL stay unchanged; title, domain, alias, password and is_private are ignored.
+          type: integer
+        title:
+          description: Title for the file (optional)
+          maxLength: 255
+          type: string
+      required:
+        - file_name
+        - file_size
+      type: object
+    val.CreateLargeFileUploadResp:
+      properties:
+        existing_file:
+          $ref: '#/components/schemas/val.UploadFileRespData'
+          description: Populated when fast_upload=true with the existing file info
+        expires_at:
+          description: Unix timestamp when this upload session expires (24h)
+          type: integer
+        fast_upload:
+          description: True when the file already exists and upload was skipped
+          type: boolean
+        file_size:
+          description: Total file size in bytes
+          type: integer
+        id:
+          description: Database record ID for this upload session
+          type: integer
+        upload_id:
+          description: Unique upload session ID to use in subsequent TUS requests
+          type: string
+        upload_url:
+          description: TUS upload endpoint URL
+          type: string
+      type: object
+    val.CreateLargeFileUploadRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.CreateLargeFileUploadResp'
+        message:
+          type: string
+      type: object
+    val.CreateQrcodeReq:
+      properties:
+        custom_slug:
+          description: Your preferred custom slug. If not provided, a random slug will be generated.
+          maxLength: 255
+          type: string
+        domain:
+          description: The domain to use for the QR code short URL. If not provided, the default domain is used.
+          maxLength: 255
+          type: string
+        target_url:
+          description: The destination URL the QR code points to (required)
+          maxLength: 2048
+          type: string
+        title:
+          description: A descriptive title for this QR code (required)
+          maxLength: 255
+          type: string
+      required:
+        - target_url
+        - title
+      type: object
+    val.CreateQrcodeResp:
+      properties:
+        custom_slug:
+          description: The custom slug if one was requested
+          type: string
+        pdf_url:
+          description: Download URL of the QR code in PDF format
+          type: string
+        png_url:
+          description: Download URL of the QR code in PNG format
+          type: string
+        short_url:
+          description: The complete short URL encoded in the QR code
+          type: string
+        slug:
+          description: The slug portion of the short URL
+          type: string
+        svg_url:
+          description: Download URL of the QR code in SVG format
+          type: string
+      type: object
+    val.CreateQrcodeRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.CreateQrcodeResp'
+        message:
           type: string
       type: object
     val.CreateShortURLReq:
@@ -46,7 +420,6 @@ components:
           items:
             type: integer
           type: array
-          uniqueItems: false
         target_url:
           description: The destination URL you want to shorten (required)
           maxLength: 2000
@@ -60,7 +433,6 @@ components:
         - target_url
       type: object
     val.CreateShortURLResp:
-      description: Short URL creation response
       properties:
         custom_slug:
           description: The custom slug if one was requested
@@ -79,6 +451,7 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.CreateShortURLResp'
+          description: Short URL creation response
         message:
           description: Human-readable status message
           type: string
@@ -95,7 +468,7 @@ components:
           type: string
         domain:
           default: fs.to
-          description: The domain to use for your text share URL (e.g., "fs.to")
+          description: The domain to use for your text sharing URL (e.g., "fs.to")
           maxLength: 255
           type: string
         expire_at:
@@ -113,7 +486,6 @@ components:
           maxItems: 5
           minItems: 0
           type: array
-          uniqueItems: false
         text_type:
           description: 'Content format: "plain_text" for regular text, "source_code" for code with syntax highlighting, or "markdown" for formatted text'
           enum:
@@ -130,7 +502,6 @@ components:
         - title
       type: object
     val.CreateTextResp:
-      description: Text sharing creation response
       properties:
         custom_slug:
           description: The custom slug if one was requested
@@ -149,9 +520,19 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.CreateTextResp'
+          description: Text sharing creation response
         message:
           description: Human-readable status message
           type: string
+      type: object
+    val.DeleteBioPageReq:
+      properties:
+        id:
+          description: The numeric ID of the bio page to delete (required)
+          minimum: 1
+          type: integer
+      required:
+        - id
       type: object
     val.DeleteFileResp:
       properties:
@@ -161,6 +542,20 @@ components:
           type: string
         success:
           type: boolean
+      type: object
+    val.DeleteQrcodeReq:
+      properties:
+        domain:
+          description: The domain of the QR code short URL (e.g., "s.ee")
+          maxLength: 255
+          type: string
+        slug:
+          description: The slug of the QR code short URL to delete
+          maxLength: 255
+          type: string
+      required:
+        - domain
+        - slug
       type: object
     val.DeleteShortURLReq:
       properties:
@@ -191,14 +586,12 @@ components:
         - slug
       type: object
     val.GetAvailableDomainsResp:
-      description: Available domains response
       properties:
         domains:
           description: List of domains you can use for creating short URLs
           items:
             type: string
           type: array
-          uniqueItems: false
       type: object
     val.GetAvailableDomainsRespV:
       properties:
@@ -207,12 +600,100 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.GetAvailableDomainsResp'
+          description: Available domains response
         message:
           description: Human-readable status message
           type: string
       type: object
+    val.GetBioPageHistoryResp:
+      properties:
+        bio_pages:
+          items:
+            $ref: '#/components/schemas/val.BioPageHistoryData'
+          type: array
+        total:
+          type: integer
+      type: object
+    val.GetBioPageHistoryRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.GetBioPageHistoryResp'
+        message:
+          type: string
+      type: object
+    val.GetFileHistoryRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          description: List of uploaded files
+          items:
+            $ref: '#/components/schemas/val.UploadFileRespData'
+          type: array
+        message:
+          description: Human-readable status message
+          type: string
+        success:
+          description: Whether the request succeeded
+          type: boolean
+      type: object
+    val.GetLargeFileUploadProgressResp:
+      properties:
+        created_at:
+          description: Unix timestamp of record creation
+          type: integer
+        file_name:
+          description: Original filename
+          type: string
+        file_size:
+          description: Total file size in bytes
+          type: integer
+        progress:
+          description: Progress percentage (0–100)
+          type: number
+        status:
+          description: 'Status: 1=uploading, 2=completed, 3=failed, 4=cancelled'
+          type: integer
+        updated_at:
+          description: Unix timestamp of last update
+          type: integer
+        upload_id:
+          description: Upload session ID
+          type: string
+        uploaded_size:
+          description: Bytes received so far
+          type: integer
+      type: object
+    val.GetLargeFileUploadProgressRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.GetLargeFileUploadProgressResp'
+        message:
+          type: string
+      type: object
+    val.GetLinkHistoryRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          description: List of short links
+          items:
+            $ref: '#/components/schemas/val.LinkHistoryData'
+          type: array
+        message:
+          description: Human-readable status message
+          type: string
+        success:
+          description: Whether the request succeeded
+          type: boolean
+      type: object
     val.GetLinkVisitStatResp:
-      description: Link visit statistics response
       properties:
         visit_count:
           description: Total number of visits/clicks for this link
@@ -225,19 +706,63 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.GetLinkVisitStatResp'
+          description: Link visit statistics response
         message:
           description: Human-readable status message
           type: string
       type: object
+    val.GetPrivateFileURLRespData:
+      properties:
+        expires_at:
+          description: URL expiration time (unix timestamp)
+          type: integer
+        file_id:
+          description: File ID
+          type: integer
+        url:
+          description: Temporary download URL (valid for a limited time)
+          type: string
+      type: object
+    val.GetPrivateFileURLRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.GetPrivateFileURLRespData'
+          description: Response data
+        message:
+          description: Human-readable status message
+          type: string
+        success:
+          description: Success flag
+          type: boolean
+      type: object
+    val.GetQrcodeHistoryResp:
+      properties:
+        qrcodes:
+          items:
+            $ref: '#/components/schemas/val.QrcodeHistoryData'
+          type: array
+        total:
+          type: integer
+      type: object
+    val.GetQrcodeHistoryRespV:
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/val.GetQrcodeHistoryResp'
+        message:
+          type: string
+      type: object
     val.GetTagsResp:
-      description: Get tags response payload
       properties:
         tags:
           description: List of your available tags
           items:
             $ref: '#/components/schemas/val.TagInfo'
           type: array
-          uniqueItems: false
       type: object
     val.GetTagsRespV:
       properties:
@@ -246,12 +771,29 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.GetTagsResp'
+          description: Get tags response payload
         message:
           description: Human-readable status message
           type: string
       type: object
+    val.GetTextHistoryRespV:
+      properties:
+        code:
+          description: Response status code (200 indicates success)
+          type: integer
+        data:
+          description: List of text sharings
+          items:
+            $ref: '#/components/schemas/val.TextHistoryData'
+          type: array
+        message:
+          description: Human-readable status message
+          type: string
+        success:
+          description: Whether the request succeeded
+          type: boolean
+      type: object
     val.GetUsageResp:
-      description: Account usage statistics
       properties:
         api_count_day:
           description: API calls made today
@@ -264,6 +806,9 @@ components:
           type: integer
         api_count_month_limit:
           description: Maximum API calls allowed per month
+          type: integer
+        file_count:
+          description: Total uploaded files count
           type: integer
         link_count_day:
           description: Short links created today
@@ -286,9 +831,6 @@ components:
         qrcode_count_month:
           description: QR codes generated this month
           type: integer
-        file_count:
-          description: Total uploaded files count
-          type: integer
         qrcode_count_month_limit:
           description: Maximum QR codes allowed per month
           type: integer
@@ -299,16 +841,16 @@ components:
           description: Storage space used by uploaded files (in MB, rounded to 2 decimal places)
           type: string
         text_count_day:
-          description: Text shares created today
+          description: Text sharings created today
           type: integer
         text_count_day_limit:
-          description: Maximum text shares allowed per day
+          description: Maximum text sharings allowed per day
           type: integer
         text_count_month:
-          description: Text shares created this month
+          description: Text sharings created this month
           type: integer
         text_count_month_limit:
-          description: Maximum text shares allowed per month
+          description: Maximum text sharings allowed per month
           type: integer
         upload_count_day:
           description: Files uploaded today
@@ -330,8 +872,66 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.GetUsageResp'
+          description: Account usage statistics
         message:
           description: Human-readable status message
+          type: string
+      type: object
+    val.LinkHistoryData:
+      properties:
+        created_at:
+          description: Unix timestamp when the link was created
+          type: integer
+        domain:
+          description: The domain used for this short URL
+          type: string
+        object_type:
+          description: 'Object type (0: link, 1: file, 2: text, 3: qrcode)'
+          type: integer
+        short_url:
+          description: The complete short URL
+          type: string
+        slug:
+          description: The slug/alias for this short URL
+          type: string
+        target_url:
+          description: The original destination URL
+          type: string
+        title:
+          description: Title of the short link
+          type: string
+        visit_count:
+          description: Number of visits/clicks
+          type: integer
+      type: object
+    val.QrcodeHistoryData:
+      properties:
+        created_at:
+          description: Unix timestamp when the QR code was created
+          type: integer
+        domain:
+          description: The domain used for this QR code short URL
+          type: string
+        pdf_url:
+          description: Download URL of the QR code in PDF format
+          type: string
+        png_url:
+          description: Download URL of the QR code in PNG format
+          type: string
+        scan_count:
+          description: Number of times the QR code has been scanned
+          type: integer
+        short_url:
+          description: The complete short URL encoded in the QR code
+          type: string
+        slug:
+          description: The slug portion of the short URL
+          type: string
+        svg_url:
+          description: Download URL of the QR code in SVG format
+          type: string
+        title:
+          description: Title of the QR code
           type: string
       type: object
     val.TagInfo:
@@ -342,6 +942,82 @@ components:
         name:
           description: Display name of the tag
           type: string
+      type: object
+    val.TextHistoryData:
+      properties:
+        content_preview:
+          description: Preview of the content (truncated)
+          type: string
+        created_at:
+          description: Unix timestamp when the text was created
+          type: integer
+        domain:
+          description: The domain used for this text sharing
+          type: string
+        id:
+          description: Unique identifier for the text
+          type: integer
+        is_expired:
+          description: Whether the text is expired
+          type: boolean
+        short_url:
+          description: The complete URL to access the text sharing
+          type: string
+        slug:
+          description: The slug/alias for this text sharing
+          type: string
+        text_type:
+          description: 'Text type: "plain_text", "source_code", or "markdown"'
+          type: string
+        title:
+          description: Title of the text sharing
+          type: string
+      type: object
+    val.UpdateBioPageReq:
+      properties:
+        background_color:
+          description: Background color, e.g. "#ffffff" or "rgba(255,255,255,1)". Send an empty string to remove.
+          maxLength: 50
+          type: string
+        custom_links:
+          description: Custom links to fully replace the existing list. Omit this field to leave custom links unchanged.
+          items:
+            $ref: '#/components/schemas/val.BioCustomLinkItem'
+          type: array
+        description:
+          description: New description
+          maxLength: 255
+          type: string
+        email:
+          description: Contact email address (optional)
+          maxLength: 255
+          type: string
+        id:
+          description: The numeric ID of the bio page to update (required)
+          minimum: 1
+          type: integer
+        mastodon_url:
+          description: Mastodon profile URL
+          maxLength: 2048
+          type: string
+        rss_url:
+          description: RSS feed URL
+          maxLength: 2048
+          type: string
+        style:
+          $ref: '#/components/schemas/model.BioPageStyle'
+          description: Style configuration for the bio page layout and theme
+        title:
+          description: New title for the bio page (required)
+          maxLength: 255
+          type: string
+        username:
+          description: Display username shown on the bio page. Overrides the account username if provided.
+          maxLength: 40
+          type: string
+      required:
+        - id
+        - title
       type: object
     val.UpdateShortURLReq:
       properties:
@@ -392,7 +1068,6 @@ components:
         - title
       type: object
     val.UploadFileRespData:
-      description: File upload response
       properties:
         created_at:
           description: File upload timestamp (for upload history only)
@@ -412,6 +1087,9 @@ components:
         height:
           description: Image height in pixels (for image files only)
           type: integer
+        mime_type:
+          description: MIME type of the uploaded file (e.g., "image/jpeg", "application/pdf")
+          type: string
         page:
           description: Web page URL where this file can be viewed
           type: string
@@ -423,6 +1101,9 @@ components:
           type: integer
         storename:
           description: Filename in storage
+          type: string
+        thumb_url:
+          description: Thumbnail URL (for image files only)
           type: string
         upload_status:
           description: Upload status code (1 = success)
@@ -441,68 +1122,132 @@ components:
           type: integer
         data:
           $ref: '#/components/schemas/val.UploadFileRespData'
+          description: File upload response
         message:
           description: Human-readable status message
           type: string
-      type: object
-    val.GetFileHistoryRespV:
-      properties:
-        code:
-          description: Response status code (200 indicates success)
-          type: integer
-        data:
-          description: List of uploaded files
-          items:
-            $ref: '#/components/schemas/val.UploadFileRespData'
-          type: array
-        message:
-          description: Human-readable status message
-          type: string
-        success:
-          description: Request status
-          type: boolean
-      type: object
-    val.GetPrivateFileURLRespData:
-      description: Private file download URL response data
-      properties:
-        file_id:
-          description: File ID
-          type: integer
-        url:
-          description: Temporary download URL (valid for a limited time)
-          type: string
-        expires_at:
-          description: URL expiration time (unix timestamp)
-          type: integer
-      type: object
-    val.GetPrivateFileURLRespV:
-      properties:
-        code:
-          description: Response status code (200 indicates success)
-          type: integer
-        message:
-          description: Human-readable status message
-          type: string
-        data:
-          $ref: '#/components/schemas/val.GetPrivateFileURLRespData'
-        success:
-          description: Success flag
-          type: boolean
       type: object
   securitySchemes:
     ApiKeyAuth:
       in: header
       name: Authorization
       type: apiKey
-externalDocs:
-  description: ""
-  url: ""
 info:
   description: 'Welcome to the S.EE API documentation! This API enables you to programmatically create and manage short URLs, share text content, and track link analytics.<br><br><b>Quick Start:</b><br>1. Get your API key from the S.EE dashboard<br>2. Include it in the Authorization header for all requests<br>3. All responses are in JSON format with "code" and "message" fields<br><br><b>Response Codes:</b><br>- 200: Success<br>- 400: Invalid request parameters<br>- 401: Missing or expired API key<br>- 500: Server error'
   title: S.EE API
-  version: "1.0"
+  version: '1.0'
 openapi: 3.1.0
 paths:
+  /api/v1/bio:
+    delete:
+      description: Permanently deletes a bio page. This action cannot be undone.
+      operationId: DeleteBioPage
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.DeleteBioPageReq'
+        description: Bio page identification
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httper.RespBody'
+          description: OK
+      summary: Delete Bio Page
+      tags:
+        - Bio Page
+    post:
+      description: Creates a new bio page with a short URL.
+      operationId: CreateBioPage
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.CreateBioPageReq'
+        description: Bio page content and settings
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.CreateBioPageRespV'
+          description: OK
+      summary: Create Bio Page
+      tags:
+        - Bio Page
+    put:
+      description: Updates an existing bio page.
+      operationId: UpdateBioPage
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.UpdateBioPageReq'
+        description: Updated bio page settings
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httper.RespBody'
+          description: OK
+      summary: Update Bio Page
+      tags:
+        - Bio Page
+  /api/v1/bios:
+    get:
+      description: Returns a paginated list of bio pages.
+      operationId: GetBioPageHistory
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: 'Page number (default: 1)'
+          in: query
+          name: page
+          schema:
+            default: 1
+            minimum: 1
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetBioPageHistoryRespV'
+          description: OK
+      summary: Get Bio Page History
+      tags:
+        - Bio Page
   /api/v1/domains:
     get:
       description: Returns a list of all domains available for creating short URLs with your account. Use these domain values when calling the Create Short URL endpoint.
@@ -515,7 +1260,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -542,7 +1287,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -563,13 +1308,229 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/val.GetAvailableDomainsRespV'
           description: OK
       summary: Get Available Domains for File Sharing
+      tags:
+        - File
+  /api/v1/file/large-file-tus/{upload_id}:
+    delete:
+      description: Terminates a TUS upload and discards the data received so far.
+      operationId: TusTerminateUpload
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: Upload session ID
+          in: path
+          name: upload_id
+          required: true
+          schema:
+            type: string
+        - description: TUS protocol version
+          in: header
+          name: Tus-Resumable
+          required: true
+          schema:
+            enum:
+              - 1.0.0
+            type: string
+      responses:
+        '204':
+          description: Upload terminated
+      summary: TUS Terminate Upload
+      tags:
+        - File
+    head:
+      description: Returns the current offset of a TUS upload in the Upload-Offset response header, so an interrupted upload can be resumed.
+      operationId: TusGetUploadOffset
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: Upload session ID
+          in: path
+          name: upload_id
+          required: true
+          schema:
+            type: string
+        - description: TUS protocol version
+          in: header
+          name: Tus-Resumable
+          required: true
+          schema:
+            enum:
+              - 1.0.0
+            type: string
+      responses:
+        '204':
+          description: The current offset is returned in the Upload-Offset header.
+      summary: TUS Get Upload Offset
+      tags:
+        - File
+    patch:
+      description: Uploads a chunk of a large file using the TUS 1.0 protocol. Use a TUS client library rather than calling this directly. The upload_id comes from the Create Large File Upload Session endpoint.
+      operationId: TusUploadChunk
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: Upload session ID
+          in: path
+          name: upload_id
+          required: true
+          schema:
+            type: string
+        - description: TUS protocol version
+          in: header
+          name: Tus-Resumable
+          required: true
+          schema:
+            enum:
+              - 1.0.0
+            type: string
+        - description: Byte offset of this chunk, which must match the current upload offset
+          in: header
+          name: Upload-Offset
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/offset+octet-stream:
+            schema:
+              format: binary
+              type: string
+        description: Raw bytes of the chunk
+        required: true
+      responses:
+        '204':
+          description: Chunk accepted. The new offset is returned in the Upload-Offset header.
+      summary: TUS Upload Chunk
+      tags:
+        - File
+  /api/v1/file/large-file/cancel:
+    delete:
+      description: Cancels an in-progress upload session and removes the temporary data.
+      operationId: CancelLargeFileUpload
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.CancelLargeFileUploadReq'
+        description: Upload session ID
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httper.RespBody'
+          description: OK
+      summary: Cancel Large File Upload
+      tags:
+        - File
+  /api/v1/file/large-file/complete:
+    post:
+      description: Call this after all TUS chunks have been uploaded. It validates the file, moves it to permanent storage, and returns the file record. This consumes the upload session.
+      operationId: CompleteLargeFileUpload
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.CompleteLargeFileUploadReq'
+        description: Upload session ID
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.CompleteLargeFileUploadRespV'
+          description: OK
+      summary: Complete Large File Upload
+      tags:
+        - File
+  /api/v1/file/large-file/create:
+    post:
+      description: Creates a TUS upload session for files up to 5 GB. Returns an upload_id and TUS endpoint URL. If a file_hash is provided and the file already exists, an instant upload result is returned without needing to transfer any data.
+      operationId: CreateLargeFileUpload
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.CreateLargeFileUploadReq'
+        description: Upload session parameters
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.CreateLargeFileUploadRespV'
+          description: OK
+      summary: Create Large File Upload Session
+      tags:
+        - File
+  /api/v1/file/large-file/progress:
+    get:
+      description: Returns the current progress of a large file upload session.
+      operationId: GetLargeFileUploadProgress
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: Upload session ID
+          in: query
+          name: upload_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetLargeFileUploadProgressRespV'
+          description: OK
+      summary: Get Upload Progress
       tags:
         - File
   /api/v1/file/private/download-url:
@@ -590,13 +1551,51 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/val.GetPrivateFileURLRespV'
           description: OK
       summary: Get Private File Download URL
+      tags:
+        - File
+  /api/v1/file/replace:
+    post:
+      description: This API replaces the content of an existing file with a new file. The short link and the file URL stay unchanged. It counts towards your upload quota. CDN caches are purged after the replacement, but browsers may keep serving a locally cached copy for a while. For files larger than 100MB, use the large file upload API with replace_file_id.
+      operationId: ReplaceFile
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  description: The new file. The key should be 'file' (alias 'smfile').
+                  format: binary
+                  type: string
+                file_id:
+                  description: ID of the file to replace (the file_id returned by the upload API).
+                  type: integer
+              required:
+                - file_id
+                - file
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.UploadFileRespV'
+          description: OK
+      summary: Replace File
       tags:
         - File
   /api/v1/file/upload:
@@ -614,28 +1613,31 @@ paths:
         content:
           multipart/form-data:
             schema:
-              type: object
               properties:
-                file:
-                  type: string
-                  format: binary
-                  description: The file to be uploaded (alias 'smfile')
-                domain:
-                  type: string
-                  description: The domain to be used for the short link
                 custom_slug:
-                  type: string
                   description: Your preferred custom slug (e.g., 'my-link'). If not provided, a random slug will be generated.
+                  type: string
+                domain:
+                  description: The domain to be used for the short link.
+                  type: string
+                file:
+                  description: The file to be uploaded (alias 'smfile')
+                  format: binary
+                  type: string
                 is_private:
                   default: 0
                   description: Whether this file should be private (0 = public, 1 = private).
-                  enum: [0, 1]
+                  enum:
+                    - 0
+                    - 1
                   type: integer
               required:
                 - file
+              type: object
         description: Upload a file using multipart/form-data. The file field is required, domain, custom_slug, and is_private are optional.
+        required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -655,7 +1657,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: Page number (default 1)
+        - description: 'Page number (default: 1)'
           in: query
           name: page
           schema:
@@ -663,7 +1665,7 @@ paths:
             minimum: 1
             type: integer
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -701,7 +1703,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -710,6 +1712,117 @@ paths:
       summary: Get Link Visit Statistics
       tags:
         - Short URLs
+  /api/v1/links:
+    get:
+      description: Returns a paginated list of short links created by the authenticated user.
+      operationId: GetLinkHistory
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: 'Page number (default: 1)'
+          in: query
+          name: page
+          schema:
+            default: 1
+            minimum: 1
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetLinkHistoryRespV'
+          description: OK
+      summary: Get Link Creation History
+      tags:
+        - Short URLs
+  /api/v1/qrcode:
+    delete:
+      description: Permanently deletes a QR code and its associated short link. This action cannot be undone.
+      operationId: DeleteQrcode
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.DeleteQrcodeReq'
+        description: QR code identification
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httper.RespBody'
+          description: OK
+      summary: Delete QR Code
+      tags:
+        - QR Code
+    post:
+      description: Creates a dynamic QR code for a given URL. The QR code is generated server-side and available in PNG, SVG, and PDF formats. Only link-type QR codes are supported.
+      operationId: CreateQrcode
+      parameters:
+        - description: Your API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.CreateQrcodeReq'
+        description: QR code content and settings
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.CreateQrcodeRespV'
+          description: OK
+      summary: Create QR Code
+      tags:
+        - QR Code
+  /api/v1/qrcodes:
+    get:
+      description: Returns a paginated list of QR codes created by the authenticated user.
+      operationId: GetQrcodeHistory
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: 'Page number (default: 1)'
+          in: query
+          name: page
+          schema:
+            default: 1
+            minimum: 1
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetQrcodeHistoryRespV'
+          description: OK
+      summary: Get QR Code History
+      tags:
+        - QR Code
   /api/v1/shorten:
     delete:
       description: Permanently deletes a short URL. This action cannot be undone. The slug will become available for reuse after deletion.
@@ -729,7 +1842,7 @@ paths:
         description: Short URL identification
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -739,7 +1852,7 @@ paths:
       tags:
         - Short URLs
     get:
-      description: A simplified way to create short URLs using query parameters instead of a JSON body. Ideal for quick integrations, bookmarklets, or when you need a plain text response. Set json=true for JSON response format.
+      description: Creates a short URL using query parameters instead of a JSON body. Returns plain text by default; set json=true for a JSON response. This endpoint can be used in bookmarklets and other integrations that send query parameters.
       operationId: CreateShortUrlSimpleMode
       parameters:
         - description: Your API key
@@ -770,12 +1883,14 @@ paths:
           schema:
             type: string
         - description: Tag IDs to categorize this link (optional)
+          explode: false
           in: query
           name: tag_ids
           schema:
             items:
               type: integer
             type: array
+          style: form
         - description: Password to protect this link (optional)
           in: query
           name: password
@@ -792,7 +1907,7 @@ paths:
           schema:
             type: boolean
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -802,7 +1917,7 @@ paths:
       tags:
         - Short URLs
     post:
-      description: Creates a new short URL for your destination link. You can optionally specify a custom slug, password protection, expiration time, and tags for organization.
+      description: Creates a short URL for a destination link. Optional settings include a custom slug, password, expiration time, and tags.
       operationId: CreateShortUrl
       parameters:
         - description: Your API key
@@ -819,7 +1934,7 @@ paths:
         description: Short URL configuration
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -846,7 +1961,7 @@ paths:
         description: Updated short URL details
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -867,22 +1982,11 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/data'
-                properties:
-                  code:
-                    description: Response status code (200 indicates success)
-                    type: integer
-                  data:
-                    description: Response payload
-                  message:
-                    description: Human-readable status message
-                    type: string
-                type: object
+                $ref: '#/components/schemas/val.GetTagsRespV'
           description: OK
       summary: Get All Tags
       tags:
@@ -906,7 +2010,7 @@ paths:
         description: Text sharing identification
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -916,7 +2020,7 @@ paths:
       tags:
         - Text Sharing
     post:
-      description: Creates a shareable text snippet with a unique URL. Perfect for sharing code, notes, or any text content. Supports plain text, source code (with syntax highlighting), and Markdown formatting.
+      description: Creates a text snippet with a unique URL for sharing code, notes, or other text. Supports plain text, source code with syntax highlighting, and Markdown.
       operationId: CreateText
       parameters:
         - description: Your API key
@@ -933,7 +2037,7 @@ paths:
         description: Text content and settings
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -960,7 +2064,7 @@ paths:
         description: Updated text content and settings
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -981,7 +2085,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -990,9 +2094,58 @@ paths:
       summary: Get Available Domains for Text Sharing
       tags:
         - Text Sharing
+  /api/v1/texts:
+    get:
+      description: Returns a paginated list of text sharings created by the authenticated user.
+      operationId: GetTextHistory
+      parameters:
+        - description: API key
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+        - description: 'Page number (default: 1)'
+          in: query
+          name: page
+          schema:
+            default: 1
+            minimum: 1
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.GetTextHistoryRespV'
+          description: OK
+      summary: Get Text Creation History
+      tags:
+        - Text Sharing
+  /api/v1/token/check:
+    post:
+      description: Checks whether an API token is valid. If valid, returns the token string and its expiration time.
+      operationId: CheckToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/val.CheckTokenReq'
+        description: API token to validate
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/val.CheckTokenRespV'
+          description: OK
+      summary: Check API Token
+      tags:
+        - Token
   /api/v1/usage:
     get:
-      description: This API allows you to get the usage of the short link service.
+      description: Returns resource usage for the authenticated account.
       operationId: GetUsage
       parameters:
         - description: Your API key
@@ -1002,7 +2155,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -1013,4 +2166,3 @@ paths:
         - Short URLs
 servers:
   - url: https://s.ee
-

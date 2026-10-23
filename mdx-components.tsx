@@ -5,7 +5,7 @@ import { APIPage } from '@/components/api-page';
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
-    APIPage,
+    OpenAPIPage: APIPage,
     ...components,
   };
 }

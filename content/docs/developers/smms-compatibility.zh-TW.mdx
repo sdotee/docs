@@ -4,11 +4,11 @@ description: 以最少的程式碼改動從 SM.MS 遷移到 S.EE
 icon: RefreshCw
 ---
 
-S.EE 提供相容 SM.MS 的 API 層，讓您可以以最少的程式碼改動從 SM.MS 遷移到 S.EE。只需替換 API 端點地址即可開始使用。
+S.EE 提供相容 SM.MS 的圖片上傳和上傳紀錄端點。移轉時，請依下表更新各端點網址。
 
 ## 快速遷移
 
-將 SM.MS 的 API 基礎 URL 替換為 S.EE 對應地址：
+將 SM.MS 的 API 基底 URL 替換為 S.EE 對應地址：
 
 | SM.MS | S.EE |
 |-------|------|
@@ -19,7 +19,7 @@ S.EE 提供相容 SM.MS 的 API 層，讓您可以以最少的程式碼改動從
 | SM.MS 介面 | S.EE 介面 | 說明 |
 |----------------|---------------|-------------|
 | `POST /api/v2/upload` | `POST /api/v1/file/upload` | 上傳圖片 |
-| `GET /api/v2/upload_history` | `GET /api/v1/files` | 取得上傳歷史 |
+| `GET /api/v2/upload_history` | `GET /api/v1/files` | 取得上傳紀錄 |
 
 ## 上傳圖片
 
@@ -39,7 +39,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 |-----------|------|----------|-------------|
 | `smfile` | file | 是 | 要上傳的圖片檔案（別名：`file`） |
 | `domain` | string | 否 | 短網址使用的自訂網域 |
-| `custom_slug` | string | 否 | URL 的自訂短碼（未提供時隨機生成） |
+| `custom_slug` | string | 否 | URL 的自訂短碼（未提供時隨機產生） |
 
 ### 回應
 
@@ -65,7 +65,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 }
 ```
 
-## 上傳歷史
+## 上傳紀錄
 
 ### 請求
 
@@ -124,23 +124,23 @@ curl "https://s.ee/api/v1/files" \
 
 ## 與 SM.MS 的差異
 
-雖然 S.EE 保持了對 SM.MS API 的相容性，但也提供了一些增強能力：
+S.EE 的相容端點也支援以下功能：
 
 | 功能 | SM.MS | S.EE |
 |---------|-------|------|
 | 自訂網域 | 否 | 是 |
 | 自訂短碼 | 否 | 是 |
-| 檔案大小限制 | 5 MB | 隨套餐而變化 |
-| 支援的格式 | 僅圖片 | 圖片、檔案等更多型別 |
+| 檔案大小限制 | 5 MB | 隨方案而變化 |
+| 支援的格式 | 僅圖片 | 圖片、檔案等更多類型 |
 
 ## 取得您的 API Key
 
 要使用 S.EE API，您需要一個 API Key：
 
 1. 在 [s.ee](https://s.ee) 註冊或登入
-2. 前往 **[工具 > API 金鑰令牌](https://s.ee/user/developers/)**
-3. 生成新的 API Key
+2. 前往 **[工具 > API 權杖](https://s.ee/user/developers/)**
+3. 產生新的 API Key
 
-## 需要幫助？
+## 需要協助？
 
 如果您在遷移過程中遇到任何問題，請 [聯絡支援](https://s.ee/contact) 或檢視我們的 [API 文件](/docs/zh-TW/developers/api)。

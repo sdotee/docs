@@ -1,6 +1,7 @@
 {
   "title": "Developers",
   "description": "S.EE API and SDK documentation",
+  "icon": "md:code",
   "defaultOpen": true,
   "pages": [
     "index",

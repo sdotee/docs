@@ -6,50 +6,50 @@ icon: Upload
 
 ## 概覽
 
-S.EE 檔案分享允許您透過簡短、可分享的連結上傳和分享檔案。非常適合分享圖片、檔案、音訊、影片和其他檔案。
+將圖片、文件、音訊、影片等檔案上傳至 S.EE，即可透過短網址分享。
 
 ---
 
 ## 上傳檔案
 
-### 快速上傳（拖拽）
+### 快速上傳（拖放）
 
 1. 登入 [https://s.ee/user/dashboard](https://s.ee/user/dashboard)
-2. 在左側邊欄點擊 **Sharing > Files**，或直接前往 [https://s.ee/user/files/](https://s.ee/user/files/)
+2. 在左側邊欄點擊 **分享 > 檔案（Sharing > Files）**，或直接前往 [https://s.ee/user/files/](https://s.ee/user/files/)
 3. 將檔案或資料夾拖入 **Drag & Drop** 視窗
    - 您也可以點擊視窗來瀏覽並選擇檔案
    - 上傳資料夾時，會上傳其中的所有檔案
 4. 檔案會使用預設網域和隨機短碼進行分享
 
-### 高階上傳（建立檔案）
+### 進階上傳（建立檔案）
 
 如果您希望更靈活地控制檔案分享：
 
 1. 點擊 **建立檔案** 按鈕
-2. 設定您的設定：
-   - **Domain** - 為分享頁面選擇網域
-   - **Custom Slug** - 設定自訂 URL 短碼
-   - **Other options** - 標籤、過期時間等
+2. 設定以下選項：
+   - **網域（Domain）** - 為分享頁面選擇網域
+   - **自訂短碼（Custom Slug）** - 設定自訂 URL 短碼
+   - **其他選項（Other options）** - 標籤、過期時間等
 3. 選擇檔案並上傳
 
 ---
 
 ## 檔案連結
 
-每個上傳的檔案都會生成兩種連結：
+每個上傳的檔案都會產生兩種連結：
 
-| 連結型別 | 格式 | 說明 |
+| 連結類型 | 格式 | 說明 |
 |-----------|--------|-------------|
 | 分享頁 | `fs.to/[your_slug]` | 支援自訂網域和短碼 |
-| 直鏈 | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | 直接存取原始檔名對應的檔案 |
+| 直接連結 | `i.see.you/[yyyy]/[mm]/[dd]/[random_slug]/[filename].[ext]` | 直接存取原始檔名對應的檔案 |
 
-**注意：** 直鏈當前不支援自訂網域。
+**注意：** 直接連結目前不支援自訂網域。
 
 ---
 
-## 支援的檔案型別
+## 支援的檔案類型
 
-S.EE 支援多種檔案型別：
+S.EE 支援多種檔案類型：
 
 ### 圖片
 
@@ -70,7 +70,7 @@ S.EE 支援多種檔案型別：
 | image/jxl | JPEG XL 圖片（.jxl） |
 | image/vnd.adobe.photoshop | Photoshop 檔案（.psd） |
 
-### 檔案
+### 文件
 
 | MIME Type | 說明 |
 |-----------|-------------|
@@ -87,7 +87,7 @@ S.EE 支援多種檔案型別：
 | application/vnd.oasis.opendocument.text | OpenDocument Text（.odt） |
 | application/vnd.oasis.opendocument.spreadsheet | OpenDocument Spreadsheet（.ods） |
 | application/vnd.oasis.opendocument.presentation | OpenDocument Presentation（.odp） |
-| application/rtf | 富文字格式（.rtf） |
+| application/rtf | RTF 文字格式（.rtf） |
 | application/postscript | PostScript 檔案（.ps、.eps） |
 | application/epub+zip | EPUB 電子書（.epub） |
 
@@ -129,20 +129,20 @@ S.EE 支援多種檔案型別：
 | video/x-flv | FLV 影片（.flv） |
 | video/x-ms-wmv | WMV 影片（.wmv） |
 
-### 壓縮包和磁碟映象
+### 壓縮檔和磁碟映像檔
 
 | MIME Type | 說明 |
 |-----------|-------------|
-| application/zip | ZIP 壓縮包（.zip） |
-| application/x-zip-compressed | ZIP 壓縮包（.zip） |
-| application/gzip | GZIP 壓縮包（.gz） |
-| application/x-bzip2 | BZIP2 壓縮包（.bz2） |
-| application/x-xz | XZ 壓縮包（.xz） |
-| application/x-tar | TAR 壓縮包（.tar） |
-| application/x-7z-compressed | 7-Zip 壓縮包（.7z） |
-| application/x-rar-compressed | RAR 壓縮包（.rar） |
-| application/x-apple-diskimage | DMG 磁碟映象（.dmg） |
-| application/x-iso9660-image | ISO 磁碟映象（.iso） |
+| application/zip | ZIP 壓縮檔（.zip） |
+| application/x-zip-compressed | ZIP 壓縮檔（.zip） |
+| application/gzip | GZIP 壓縮檔（.gz） |
+| application/x-bzip2 | BZIP2 壓縮檔（.bz2） |
+| application/x-xz | XZ 壓縮檔（.xz） |
+| application/x-tar | TAR 壓縮檔（.tar） |
+| application/x-7z-compressed | 7-Zip 壓縮檔（.7z） |
+| application/x-rar-compressed | RAR 壓縮檔（.rar） |
+| application/x-apple-diskimage | DMG 磁碟映像檔（.dmg） |
+| application/x-iso9660-image | ISO 磁碟映像檔（.iso） |
 
 <Callout type="warn">
 出於安全原因，可執行檔案（.exe、.msi、.bat、.app 等）**不允許上傳**。
@@ -153,12 +153,12 @@ S.EE 支援多種檔案型別：
 </Callout>
 
 <Callout type="info">
-對於未知或無法明確識別的檔案型別，我們會強制將回應 `Content-Type` 設定為 `application/octet-stream`。
+對於未知或無法明確識別的檔案類型，我們會強制將回應 `Content-Type` 設定為 `application/octet-stream`。
 </Callout>
 
-### 舊版 / 相容型別
+### 舊版 / 相容類型
 
-這些 MIME Type 出於相容舊系統的目的也會被接受。
+為相容舊系統，S.EE 也接受以下 MIME 類型。
 
 | MIME Type | 說明 |
 |-----------|-------------|
@@ -173,16 +173,16 @@ S.EE 支援多種檔案型別：
 
 ## 儲存限制
 
-不同套餐的儲存限制如下：
+不同方案的儲存限制如下：
 
-| 套餐 | 最大檔案大小 | 總儲存空間 |
+| 方案 | 最大檔案大小 | 總儲存空間 |
 |------|---------------|---------------|
 | Lite | 100 MB | 100 GB |
 | Pro | 1 GB | 500 GB |
 | Premium | 5 GB | 5 TB |
 | Enterprise | 自訂 | 自訂 |
 
-完整套餐詳情請檢視 [s.ee/pricing](https://s.ee/pricing)。
+完整方案詳情請檢視 [s.ee/pricing](https://s.ee/pricing)。
 
 ---
 
@@ -197,7 +197,7 @@ S.EE 支援多種檔案型別：
 
 以下網域支援檔案分享：
 
-| 網域 | 適用場景 |
+| 網域 | 適用情境 |
 |--------|----------|
 | [fs.to](https://fs.to) | 通用檔案分享 |
 | [files.to](https://files.to) | 通用檔案分享 |
@@ -210,7 +210,7 @@ S.EE 支援多種檔案型別：
 
 ## API 存取
 
-您也可以透過 API 使用檔案分享。有關程式化上傳的詳細資訊，請參閱我們的 [API 文件](/docs/zh-TW/developers/api/#檔案分享)。
+您也可以透過 API 使用檔案分享。有關透過程式上傳的詳細資訊，請參閱我們的 [API 文件](/docs/zh-TW/developers/api/#檔案分享)。
 
 ---
 
@@ -218,7 +218,7 @@ S.EE 支援多種檔案型別：
 
 ### 誰可以上傳檔案？
 
-只有付費訂閱使用者可以上傳檔案。您必須擁有有效訂閱。
+上傳檔案需要有效的付費訂閱。
 
 ### 有下載次數限制嗎？
 
@@ -228,6 +228,6 @@ S.EE 支援多種檔案型別：
 
 可以。使用 **建立檔案** 上傳方式時，您可以為分享頁面設定自訂網域和短碼。
 
-### 我可以自訂直鏈 URL 嗎？
+### 我可以自訂直接連結 URL 嗎？
 
-當前直鏈使用固定格式，不支援自訂網域。
+目前直接連結使用固定格式，不支援自訂網域。

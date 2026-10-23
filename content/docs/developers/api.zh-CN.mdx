@@ -4,9 +4,7 @@ description: 面向开发者的 S.EE API 文档。
 icon: BookOpen
 ---
 
-这里是面向开发者的 API 文档。您可以使用 API 创建、更新和删除短网址、文本分享和文件分享，也可以获取可用域名信息。
-
-该 API 设计简洁、易于使用，便于您快速将 S.EE 功能集成到自己的应用中。
+通过 S.EE API，可在应用中管理短网址、文本分享和文件。以下参考文档介绍各接口的用途和参数。
 
 ## 短网址
 
@@ -15,32 +13,65 @@ icon: BookOpen
   <Card title="创建短网址（简单模式）" href="/docs/zh-CN/api/CreateShortUrlSimpleMode/" />
   <Card title="更新短网址" href="/docs/zh-CN/api/UpdateShortUrl/" />
   <Card title="删除短网址" href="/docs/zh-CN/api/DeleteShortUrl/" />
+  <Card title="获取短网址创建历史" href="/docs/zh-CN/api/GetLinkHistory/" />
   <Card title="获取可用域名" href="/docs/zh-CN/api/GetAvailableDomains/" />
-  <Card title="获取链接访问统计" href="/docs/zh-CN/api/GetLinkVisitStat/" />
+  <Card title="获取短网址访问统计" href="/docs/zh-CN/api/GetLinkVisitStat/" />
 </Cards>
 
 ## 文本分享
 
 <Cards>
-  <Card title="创建文本" href="/docs/zh-CN/api/CreateText/" />
-  <Card title="更新文本" href="/docs/zh-CN/api/UpdateText/" />
-  <Card title="删除文本" href="/docs/zh-CN/api/DeleteText/" />
-  <Card title="获取文本可用域名" href="/docs/zh-CN/api/GetTextAvailableDomains/" />
+  <Card title="创建文本分享" href="/docs/zh-CN/api/CreateText/" />
+  <Card title="更新文本分享" href="/docs/zh-CN/api/UpdateText/" />
+  <Card title="删除文本分享" href="/docs/zh-CN/api/DeleteText/" />
+  <Card title="获取文本分享创建历史" href="/docs/zh-CN/api/GetTextHistory/" />
+  <Card title="获取文本分享可用域名" href="/docs/zh-CN/api/GetTextAvailableDomains/" />
 </Cards>
 
 ## 文件分享
 
 <Cards>
   <Card title="上传文件" href="/docs/zh-CN/api/UploadFile/" />
-  <Card title="获取文件上传历史" href="/docs/zh-CN/api/GetFileHistory/" />
-  <Card title="获取私有文件下载 URL" href="/docs/zh-CN/api/GetPrivateFileDownloadURL/" />
+  <Card title="替换文件" href="/docs/zh-CN/api/ReplaceFile/" />
+  <Card title="获取文件上传记录" href="/docs/zh-CN/api/GetFileHistory/" />
+  <Card title="获取私有文件下载地址" href="/docs/zh-CN/api/GetPrivateFileDownloadURL/" />
   <Card title="删除文件" href="/docs/zh-CN/api/DeleteFile/" />
   <Card title="获取文件可用域名" href="/docs/zh-CN/api/GetFileAvailableDomains/" />
+</Cards>
+
+## 大文件上传
+
+<Cards>
+  <Card title="创建大文件上传会话" href="/docs/zh-CN/api/CreateLargeFileUpload/" />
+  <Card title="TUS 上传分片" href="/docs/zh-CN/api/TusUploadChunk/" />
+  <Card title="TUS 获取上传偏移量" href="/docs/zh-CN/api/TusGetUploadOffset/" />
+  <Card title="TUS 终止上传" href="/docs/zh-CN/api/TusTerminateUpload/" />
+  <Card title="获取上传进度" href="/docs/zh-CN/api/GetLargeFileUploadProgress/" />
+  <Card title="完成大文件上传" href="/docs/zh-CN/api/CompleteLargeFileUpload/" />
+  <Card title="取消大文件上传" href="/docs/zh-CN/api/CancelLargeFileUpload/" />
+</Cards>
+
+## 二维码
+
+<Cards>
+  <Card title="创建二维码" href="/docs/zh-CN/api/CreateQrcode/" />
+  <Card title="删除二维码" href="/docs/zh-CN/api/DeleteQrcode/" />
+  <Card title="获取二维码创建记录" href="/docs/zh-CN/api/GetQrcodeHistory/" />
+</Cards>
+
+## 个人主页
+
+<Cards>
+  <Card title="创建个人主页" href="/docs/zh-CN/api/CreateBioPage/" />
+  <Card title="更新个人主页" href="/docs/zh-CN/api/UpdateBioPage/" />
+  <Card title="删除个人主页" href="/docs/zh-CN/api/DeleteBioPage/" />
+  <Card title="获取个人主页列表" href="/docs/zh-CN/api/GetBioPageHistory/" />
 </Cards>
 
 ## 通用
 
 <Cards>
-  <Card title="获取标签" href="/docs/zh-CN/api/GetTags/" />
-  <Card title="获取用量" href="/docs/zh-CN/api/GetUsage/" />
+  <Card title="获取标签列表" href="/docs/zh-CN/api/GetTags/" />
+  <Card title="获取使用量" href="/docs/zh-CN/api/GetUsage/" />
+  <Card title="校验 API 令牌" href="/docs/zh-CN/api/CheckToken/" />
 </Cards>

@@ -53,8 +53,8 @@ function negotiateFromHeader(req: NextRequest): string | undefined {
     // Exact match
     const exact = supported.find((s) => s.toLowerCase() === lower);
     if (exact) return exact;
-    // Primary-subtag match: follows declared list order, so generic "pt"
-    // picks the first supported "pt-*" (pt-PT before pt-BR in our list).
+    // Primary-subtag match: follows declared list order, so generic "zh"
+    // picks the first supported "zh-*" (zh-CN before zh-TW in our list).
     const primary = lower.split('-')[0];
     const byPrimary = supported.find(
       (s) => s.toLowerCase().split('-')[0] === primary,

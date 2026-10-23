@@ -4,7 +4,7 @@ description: 直接在 WordPress 後台中建立短網址、分享文字並託�
 icon: WordPress
 ---
 
-[S.EE WordPress 外掛](https://wordpress.org/plugins/sdotee/) 讓您無需離開 WordPress，就能建立短網址、分享文字和上傳檔案。釋出文章後，系統會自動建立短網址，無需額外步驟。
+[S.EE WordPress 外掛](https://wordpress.org/plugins/sdotee/) 讓您無需離開 WordPress，就能建立短網址、分享文字和上傳檔案。啟用自動產生功能後，發佈文章時會自動建立短網址。
 
 - [WordPress 外掛目錄](https://wordpress.org/plugins/sdotee/)
 - [GitHub 原始碼](https://github.com/sdotee/see-wordpress)
@@ -16,11 +16,11 @@ icon: WordPress
 
 | 功能 | 說明 |
 |---------|-------------|
-| 短網址 | 釋出或更新文章、頁面時自動生成短網址 |
+| 短網址 | 發佈或更新文章、頁面時自動產生短網址 |
 | 文字分享 | 透過連結分享純文字、Markdown 和程式碼片段 |
 | 檔案託管 | 從媒體庫上傳檔案，並將連結複製為 URL、HTML、Markdown 或 BBCode |
-| 自動化 | 自動上傳新媒體，並在釋出時自動生成短網址，設定一次即可長期使用 |
-| 後臺整合 | 直接在文章 / 頁面列表中檢視和管理短網址 |
+| 自動化 | 自動上傳新媒體，並在發佈時自動產生短網址 |
+| 後台整合 | 直接在文章 / 頁面清單中檢視和管理短網址 |
 | S.EE 面板 | 專用的 S.EE 面板，用於文字和檔案分享，並提供完整使用歷史 |
 | 13 種語言 | 英語、中文（簡體 / 繁體）、日語、韓語、印尼語、越南語、德語、法語、西班牙語、葡萄牙語（巴西 / 葡萄牙）、俄語 |
 
@@ -30,7 +30,7 @@ icon: WordPress
 
 - PHP 8.2+
 - WordPress 6.0+
-- 帶有 [API 金鑰令牌](https://s.ee/user/developers/) 的 S.EE 帳號
+- 帶有 [API 權杖](https://s.ee/user/developers/) 的 S.EE 帳號
 
 ---
 
@@ -38,7 +38,7 @@ icon: WordPress
 
 ### 從 WordPress 外掛目錄安裝
 
-1. 在 WordPress 後臺前往 **外掛** > **安裝外掛**
+1. 在 WordPress 後台前往 **外掛** > **安裝外掛**
 2. 搜尋 **S.EE**
 3. 點擊 **立即安裝**，然後點擊 **啟用**
 
@@ -52,25 +52,25 @@ icon: WordPress
 
 ## 設定
 
-### 1. 取得您的 API 金鑰令牌
+### 1. 取得您的 API 權杖
 
 1. 登入您的 S.EE 帳號
-2. 前往 **[工具 > API 金鑰令牌](https://s.ee/user/developers/)**
-3. 生成新的 API 金鑰令牌
+2. 前往 **[工具 > API 權杖](https://s.ee/user/developers/)**
+3. 產生新的 API 權杖
 
 <Callout type="warn">
-不要公開分享您的 API 金鑰令牌，也不要將其提交到版本控制系統中。
+不要公開分享您的 API 權杖，也不要將其提交到版本控制系統中。
 </Callout>
 
 ### 2. 設定外掛
 
 1. 前往 **設定** > **S.EE**
-2. 貼上您的 API 金鑰令牌 並點擊 **驗證**
+2. 貼上您的 API 權杖並點擊 **驗證**
 3. 為短網址、文字和檔案選擇預設網域
-4. 如果您希望完全自動化，可以啟用自動生成和自動上傳
+4. 如果您希望完全自動化，可以啟用自動產生和自動上傳
 
 <Callout type="info">
-您也可以在 `wp-config.php` 中設定 API 金鑰令牌，以避免將其儲存在資料庫中。
+您也可以在 `wp-config.php` 中設定 API 權杖，以避免將其儲存在資料庫中。
 </Callout>
 
 ---
@@ -79,7 +79,7 @@ icon: WordPress
 
 ### 短網址
 
-啟用自動生成功能後，每篇文章和頁面在釋出時都會立即獲得一個短網址。您也可以在後臺文章 / 頁面列表列中建立或檢視短網址。
+啟用自動產生功能後，每篇文章和頁面在發佈時都會立即獲得一個短網址。您也可以在後台文章 / 頁面清單中建立或檢視短網址。
 
 ### 文字分享
 

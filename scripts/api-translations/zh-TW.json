@@ -5,23 +5,27 @@
   },
   "CreateShortUrlSimpleMode": {
     "title": "建立短網址（簡易模式）",
-    "description": "使用簡化參數快速建立短網址，適合零設定情境。"
+    "description": "使用簡化參數建立短網址。"
   },
   "UpdateShortUrl": {
     "title": "更新短網址",
-    "description": "更新既有短網址的目標位址、密碼、到期時間或標籤。"
+    "description": "更新既有短網址的目標網址或標題，透過網域和短碼指定短網址。"
   },
   "DeleteShortUrl": {
     "title": "刪除短網址",
     "description": "永久刪除指定的短網址。"
   },
+  "GetLinkHistory": {
+    "title": "取得短網址建立紀錄",
+    "description": "分頁傳回目前帳號建立的短網址清單。"
+  },
   "GetAvailableDomains": {
     "title": "取得可用網域",
-    "description": "回傳目前帳號可用於建立短網址的網域清單。"
+    "description": "傳回目前帳號可用於建立短網址的網域清單。"
   },
   "GetLinkVisitStat": {
     "title": "取得短網址存取統計",
-    "description": "回傳指定短網址的存取資料，包括點擊次數、來源與地理分布等。"
+    "description": "傳回指定短網址的存取資料，包括點擊次數、來源與地理分布等。"
   },
   "CreateText": {
     "title": "建立文字分享",
@@ -29,23 +33,31 @@
   },
   "UpdateText": {
     "title": "更新文字分享",
-    "description": "更新既有文字分享的內容、密碼或到期時間。"
+    "description": "更新既有文字分享的內容或標題，透過網域和短碼指定文字分享。"
   },
   "DeleteText": {
     "title": "刪除文字分享",
     "description": "永久刪除指定的文字分享。"
   },
+  "GetTextHistory": {
+    "title": "取得文字分享建立紀錄",
+    "description": "分頁傳回目前帳號建立的文字分享清單。"
+  },
   "GetTextAvailableDomains": {
     "title": "取得文字分享可用網域",
-    "description": "回傳可用於建立文字分享的網域清單。"
+    "description": "傳回可用於建立文字分享的網域清單。"
   },
   "UploadFile": {
     "title": "上傳檔案",
     "description": "上傳檔案並產生可分享的短網址，支援設定密碼與到期時間。"
   },
+  "ReplaceFile": {
+    "title": "替換檔案",
+    "description": "以新檔案替換既有檔案的內容，短網址與檔案網址維持不變。"
+  },
   "GetFileHistory": {
-    "title": "取得檔案歷史",
-    "description": "回傳目前帳號上傳的檔案清單。"
+    "title": "取得檔案上傳紀錄",
+    "description": "傳回目前帳號上傳的檔案清單。"
   },
   "GetPrivateFileDownloadURL": {
     "title": "取得私人檔案下載網址",
@@ -57,14 +69,74 @@
   },
   "GetFileAvailableDomains": {
     "title": "取得檔案分享可用網域",
-    "description": "回傳可用於檔案分享的網域清單。"
+    "description": "傳回可用於檔案分享的網域清單。"
+  },
+  "CreateLargeFileUpload": {
+    "title": "建立大型檔案上傳工作階段",
+    "description": "為不超過 5 GB 的檔案建立 TUS 上傳工作階段；若檔案雜湊符合既有檔案，則無需重複上傳。"
+  },
+  "TusUploadChunk": {
+    "title": "TUS 上傳區塊",
+    "description": "透過 TUS 1.0 協定上傳大型檔案的一個區塊。"
+  },
+  "TusGetUploadOffset": {
+    "title": "TUS 取得上傳位移",
+    "description": "傳回 TUS 上傳的目前位移，用於續傳。"
+  },
+  "TusTerminateUpload": {
+    "title": "TUS 終止上傳",
+    "description": "終止 TUS 上傳並捨棄已接收的資料。"
+  },
+  "GetLargeFileUploadProgress": {
+    "title": "取得上傳進度",
+    "description": "傳回大型檔案上傳工作階段的目前進度。"
+  },
+  "CompleteLargeFileUpload": {
+    "title": "完成大型檔案上傳",
+    "description": "所有區塊上傳完成後呼叫，驗證檔案並移至永久儲存空間。"
+  },
+  "CancelLargeFileUpload": {
+    "title": "取消大型檔案上傳",
+    "description": "取消進行中的上傳工作階段並刪除暫存資料。"
+  },
+  "CreateQrcode": {
+    "title": "建立 QR Code",
+    "description": "為指定網址建立動態 QR Code，提供 PNG、SVG 與 PDF 格式。"
+  },
+  "DeleteQrcode": {
+    "title": "刪除 QR Code",
+    "description": "永久刪除 QR Code 及其關聯的短網址。"
+  },
+  "GetQrcodeHistory": {
+    "title": "取得 QR Code 紀錄",
+    "description": "分頁傳回目前帳號建立的 QR Code 清單。"
+  },
+  "CreateBioPage": {
+    "title": "建立個人首頁",
+    "description": "建立一個附短網址的個人首頁。"
+  },
+  "UpdateBioPage": {
+    "title": "更新個人首頁",
+    "description": "更新既有個人首頁的內容、連結與樣式。"
+  },
+  "DeleteBioPage": {
+    "title": "刪除個人首頁",
+    "description": "永久刪除指定的個人首頁。"
+  },
+  "GetBioPageHistory": {
+    "title": "取得個人首頁清單",
+    "description": "分頁傳回目前帳號建立的個人首頁清單。"
   },
   "GetTags": {
     "title": "取得標籤清單",
-    "description": "回傳目前帳號下所有用於整理內容的標籤。"
+    "description": "傳回目前帳號下所有用於整理內容的標籤。"
   },
   "GetUsage": {
     "title": "取得使用量",
-    "description": "回傳目前帳號在本計費週期內的資源使用情況。"
+    "description": "傳回目前帳號在本計費週期內的資源使用情況。"
+  },
+  "CheckToken": {
+    "title": "驗證 API 權杖",
+    "description": "檢查 API 權杖是否有效，有效時傳回權杖及其到期時間。"
   }
 }

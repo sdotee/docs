@@ -77,6 +77,58 @@ async function generateLocalizedApiDocs(lang: string) {
   if (count > 0) console.log(`Generated ${count} ${lang} API pages`);
 }
 
+// Sidebar icons for API pages (Material Symbols, see components/ui/material-icon.tsx)
+const apiIcons: Record<string, string> = {
+  CreateShortUrl: 'add_link',
+  CreateShortUrlSimpleMode: 'bolt',
+  UpdateShortUrl: 'edit',
+  DeleteShortUrl: 'link_off',
+  GetLinkHistory: 'history',
+  GetAvailableDomains: 'language',
+  GetLinkVisitStat: 'analytics',
+  CreateText: 'note_add',
+  UpdateText: 'edit_note',
+  DeleteText: 'delete',
+  GetTextHistory: 'history',
+  GetTextAvailableDomains: 'language',
+  UploadFile: 'upload_file',
+  ReplaceFile: 'swap_horiz',
+  GetFileHistory: 'history',
+  GetPrivateFileDownloadURL: 'download',
+  DeleteFile: 'delete',
+  GetFileAvailableDomains: 'language',
+  CreateLargeFileUpload: 'cloud_upload',
+  TusUploadChunk: 'upload',
+  TusGetUploadOffset: 'resume',
+  TusTerminateUpload: 'cancel',
+  GetLargeFileUploadProgress: 'progress_activity',
+  CompleteLargeFileUpload: 'cloud_done',
+  CancelLargeFileUpload: 'cloud_off',
+  CreateQrcode: 'qr_code_2_add',
+  DeleteQrcode: 'delete',
+  GetQrcodeHistory: 'history',
+  CreateBioPage: 'person_add',
+  UpdateBioPage: 'manage_accounts',
+  DeleteBioPage: 'person_remove',
+  GetBioPageHistory: 'history',
+  GetTags: 'label',
+  GetUsage: 'data_usage',
+  CheckToken: 'key',
+};
+
+// Insert `icon` as a plain line to keep the generator's frontmatter formatting
+async function addApiIcons() {
+  for (const [operationId, icon] of Object.entries(apiIcons)) {
+    const file = join(out, `${operationId}.mdx`);
+    const content = await readFile(file, 'utf-8').catch(() => undefined);
+    if (!content?.startsWith('---\n')) {
+      console.warn(`No API page for icon mapping: ${operationId}`);
+      continue;
+    }
+    await writeFile(file, `---\nicon: md:${icon}\n${content.slice(4)}`);
+  }
+}
+
 async function generate() {
   // Clean generated files (preserve meta.json variants)
   await rimraf(out, {
@@ -90,6 +142,7 @@ async function generate() {
     input: openapi,
     output: out,
   });
+  await addApiIcons();
 
   // Generate localized API pages from translation files
   for (const lang of i18n.languages) {
