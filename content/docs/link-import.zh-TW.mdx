@@ -175,23 +175,21 @@ go.example.com	jobs	https://example.com/careers	加入我們	2024-06-01 11:05:47
 
 ## 錯誤訊息
 
-部分匯入錯誤目前只有英文訊息，下表照實際顯示的內容列出。
-
 | 錯誤訊息 | 處理方式 |
 |----------|----------|
-| This domain has not been added to your account. Please add and verify it first. | 網域尚未新增。在[網域](https://s.ee/user/domains/)頁面新增並驗證該網域後重新匯入 |
+| 此網域尚未新增至您的帳戶，請先新增並完成驗證。 | 在[網域](https://s.ee/user/domains/)頁面新增並驗證該網域後重新匯入 |
 | 此自訂短網址已被使用，請選擇其他名稱。 | 該網域下已有相同別名的連結 |
-| Duplicate row: the same domain and slug appears earlier in the file. | 檔案中有重複的網域和別名，只會匯入第一列 |
-| Missing slug: every imported link must have a slug. | 缺少別名。為該列填寫短連結或別名，匯入不會自動產生別名 |
+| 重複的資料列：檔案中已出現相同的網域和 slug。 | 只會匯入其中的第一列 |
+| 缺少 slug：匯入的每個連結都必須有 slug。 | 為該列填寫短連結或別名，匯入不會自動產生別名 |
 | 目標 URL 必須以 http:// 或 https:// 開頭。 | 修改目標 URL |
 | 別名包含無效字元。 | 移除別名中的 `/` 等不支援的字元 |
 | 您已達到每日建立短網址的上限，請明天再試。 | 明天再試，或[升級方案](https://s.ee/pricing/) |
 | 您已達到每月建立短網址的上限，請下個月再試或升級方案。 | 下個月再試，或[升級方案](https://s.ee/pricing/) |
-| Bulk import is not available on your current plan. Please upgrade to use it. | 目前方案不支援匯入，請[升級到付費方案](https://s.ee/pricing/) |
-| The file exceeds the per-import row limit of your plan. Please split it into smaller files. | 超過單次匯入列數上限，請將檔案拆成多個小檔案 |
-| Invalid file encoding. Please save the file as UTF-8 and try again. | 將檔案另存為 UTF-8 編碼 |
-| The API Key is invalid or lacks permission. Please check and try again. | 檢查 Dub 或 Bitly 的金鑰 |
-| You already have an import in progress. Please wait for it to finish before starting a new one. | 等目前的匯入完成 |
+| 目前方案不支援批次匯入，請升級方案後使用。 | [升級到付費方案](https://s.ee/pricing/) |
+| 檔案列數超過方案的單次匯入上限，請拆分後分批匯入。 | 將檔案拆成多個小檔案 |
+| 檔案編碼無效，請將檔案另存為 UTF-8 編碼後重試。 | 將檔案另存為 UTF-8 編碼 |
+| API 金鑰無效或權限不足，請檢查後重試。 | 檢查 Dub 或 Bitly 的金鑰 |
+| 您已有一個正在進行的匯入任務，請等待其完成後再發起新的匯入。 | 等目前的匯入完成 |
 
 部分資料列失敗時，已匯入的連結會保留。解決問題後可以重新上傳同一個檔案，已匯入過的資料列會顯示「此自訂短網址已被使用」，不會重複建立。
 
