@@ -1,0 +1,200 @@
+---
+title: Import Links
+description: Move short links from a CSV file, Dub, Bitly, YOURLS or Shlink to S.EE
+icon: FileInput
+---
+
+Imported links keep their domain and slug. Once your domain points to S.EE, the links you've already shared keep working.
+
+You can import from:
+
+- **A CSV or TSV file** in the S.EE format, including files from [Export Links](/docs/link-export/)
+- **Dub or Bitly**, using an API key
+- **YOURLS or Shlink**, using a file exported from the database
+
+---
+
+## Before You Start
+
+1. Add the domain your links use (e.g. `go.example.com`) on the [Domains](https://s.ee/user/domains/) page and verify it. See [Custom Domains](/docs/custom-domains/).
+2. Importing requires a paid plan.
+3. Imported links count toward your daily and monthly short link limits. Each import is limited to:
+
+| Plan | Rows per Import |
+|------|-----------------|
+| Lite | 100 |
+| Pro | 1,000 |
+| Premium | 10,000 |
+
+---
+
+## Import a CSV File
+
+1. Go to [https://s.ee/user/links/](https://s.ee/user/links/)
+2. Click **Import**
+3. Select **File import**
+4. Under **Import file**, click **Choose a CSV or TSV file**
+5. Set **Source** to **CSV / TSV**
+6. Choose a **Default domain** for rows that have no domain
+7. Click **Import**
+
+The progress bar shows how many rows have been processed and how many succeeded or failed. If every row fails, you'll see the error for the first one.
+
+### CSV Format
+
+The columns are the same as in an [exported file](/docs/link-export/):
+
+```csv
+Short Link,Target URL,Title,Description,Tags,Clicks,Created At
+https://go.example.com/spring-sale,https://example.com/shop/spring-sale?utm_source=newsletter,Spring Sale,"Up to 50% off, this week only",promo,1280,2025-03-01T09:00:00Z
+https://go.example.com/docs,https://example.com/docs/,Documentation,,,342,2025-04-12T14:30:00Z
+https://go.example.com/careers,https://example.com/careers/,Careers,We're hiring in Berlin and Tokyo,"hr,jobs",57,2025-06-20T08:15:00Z
+https://go.example.com/app,https://example.com/download/,Download the App,,,0,2025-09-02T18:45:10Z
+```
+
+| Column | Required | Description |
+|--------|----------|-------------|
+| Short Link | Yes | The full short link. S.EE reads the domain and slug from it (`go.example.com` and `spring-sale`) |
+| Target URL | Yes | Where the short link redirects |
+| Title | No | Link title |
+| Description | No | Link description |
+| Tags | No | Separate multiple tags with commas and wrap them in quotes, e.g. `"hr,jobs"` |
+| Clicks | No | Not imported. Imported links start at zero clicks |
+| Created At | No | Not imported. The creation date is the time of the import |
+
+- Save the file as UTF-8. Tab-separated (TSV) files work too.
+- Wrap any value that contains a comma in double quotes.
+- You can use separate **Domain** and **Slug** columns instead of **Short Link**. Rows without a domain go to the **Default domain**.
+- Column names from other services also work: `Destination URL`, `Long URL`, `Original URL` or `URL` for the target, and `Keyword`, `Short Code` or `Key` for the slug. Other columns are ignored.
+- The file can be up to 10 MB.
+
+---
+
+## Import from Dub or Bitly
+
+### API Key
+
+Create an API key in your Dub workspace, or an access token in your Bitly account. S.EE only reads your links, so read access is enough.
+
+- **Dub**: all links in the workspace the key belongs to
+- **Bitly**: links in every group of your account
+
+Archived links are skipped. You can delete the key after the import.
+
+### Import
+
+1. Go to [https://s.ee/user/links/](https://s.ee/user/links/) and click **Import**
+2. Select **Remote import**
+3. Choose the **Provider**: **Bitly** or **Dub**
+4. Paste the key into **API key**
+5. Click **Start remote import**. S.EE fetches your links and lists them under **Preview links**
+6. Use the **All domains** menu to filter by domain, and select the links you want
+7. Choose the **Default domain**. All selected links are created on this domain
+8. Click **Confirm import**
+
+The fetched links are kept for 24 hours. After that, click **Start remote import** again.
+
+---
+
+## Import from YOURLS
+
+A YOURLS installation has one domain, set in its config file rather than the database, so the export has no domain column. You choose the domain when you import.
+
+### Export
+
+Run this on your YOURLS server, replacing `<user>` and `<yourls_db>` with your database user and database name:
+
+```bash
+mysql -u <user> -p <yourls_db> --batch -e \
+  "SELECT keyword AS slug, url AS target_url, title, timestamp AS created_at FROM yourls_url" > yourls_export.tsv
+```
+
+If your tables use a custom prefix, replace `yourls_url` with your table name.
+
+The file looks like this:
+
+```text
+slug	target_url	title	created_at
+abc	https://example.com/blog/hello-world	Hello World	2024-01-01 10:00:00
+promo	https://example.com/shop/sale?utm_source=yourls	Summer Sale	2024-03-15 08:30:12
+gh	https://example.com/github	GitHub Repo	2024-05-20 22:14:03
+```
+
+### Import
+
+1. On the [Links](https://s.ee/user/links/) page, click **Import** and select **File import**
+2. Upload `yourls_export.tsv`
+3. Set **Source** to **YOURLS**
+4. Set **Default domain** to your YOURLS domain (e.g. `go.example.com`). All links go to this domain
+5. Click **Import**
+
+The `created_at` column is ignored. Files with the original YOURLS column names (`keyword`, `url`) also work.
+
+---
+
+## Import from Shlink
+
+A Shlink instance can have several domains. Links on the default domain have no domain in the database, so the export command writes an empty value for them.
+
+### Export
+
+**MySQL / MariaDB:**
+
+```bash
+mysql -u <user> -p <shlink_db> --batch -e \
+  "SELECT COALESCE(d.authority,'') AS domain, s.short_code AS slug, s.original_url AS target_url, s.title, s.date_created AS created_at
+   FROM short_urls s LEFT JOIN domains d ON d.id = s.domain_id" > shlink_export.tsv
+```
+
+**PostgreSQL:**
+
+```bash
+psql -d <shlink_db> -c "\copy (SELECT COALESCE(d.authority,'') AS domain, s.short_code AS slug, s.original_url AS target_url, s.title, s.date_created AS created_at FROM short_urls s LEFT JOIN domains d ON d.id = s.domain_id) TO 'shlink_export.csv' CSV HEADER"
+```
+
+The file looks like this:
+
+```text
+domain	slug	target_url	title	created_at
+	Ab3xK	https://example.com/docs	Docs Home	2024-02-01 09:00:00
+go.example.com	launch	https://example.com/product/launch	Product Launch	2024-04-10 14:22:31
+go.example.com	jobs	https://example.com/careers	Careers	2024-06-01 11:05:47
+```
+
+### Import
+
+1. On the [Links](https://s.ee/user/links/) page, click **Import** and select **File import**
+2. Upload `shlink_export.tsv` or `shlink_export.csv`
+3. Set **Source** to **Shlink**
+4. Set **Default domain** to your Shlink default domain
+5. Click **Import**
+
+Rows with an empty domain, like `Ab3xK` above, go to the **Default domain**. The other rows keep their domain (`go.example.com`), which must be added to your S.EE account. Files with the original Shlink column name `short_code` also work.
+
+---
+
+## Errors
+
+| Error | What to do |
+|-------|------------|
+| This domain has not been added to your account. Please add and verify it first. | Add and verify the domain on the [Domains](https://s.ee/user/domains/) page, then import again |
+| This slug is already taken. Please choose a different one. | A link with this slug already exists on the domain |
+| Duplicate row: the same domain and slug appears earlier in the file. | Only the first of these rows is imported |
+| Missing slug: every imported link must have a slug. | Add a short link or slug to the row. Imports don't generate slugs |
+| Target URL must start with http:// or https://. | Fix the target URL |
+| The alias contains invalid characters. | Remove `/` and other unsupported characters from the slug |
+| You have reached the daily limit for creating short links. Please try again tomorrow. | Try again tomorrow, or [upgrade your plan](https://s.ee/pricing/) |
+| You have reached the monthly limit for creating short links. Please try again next month or upgrade your plan. | Try again next month, or [upgrade your plan](https://s.ee/pricing/) |
+| Bulk import is not available on your current plan. Please upgrade to use it. | [Upgrade to a paid plan](https://s.ee/pricing/) |
+| The file exceeds the per-import row limit of your plan. Please split it into smaller files. | Split the file into smaller files |
+| Invalid file encoding. Please save the file as UTF-8 and try again. | Save the file as UTF-8 |
+| The API Key is invalid or lacks permission. Please check and try again. | Check the Dub or Bitly key |
+| You already have an import in progress. Please wait for it to finish before starting a new one. | Wait for the current import to finish |
+
+Links that were imported stay in your account when other rows fail. After fixing the problem, you can upload the same file again. Rows that were already imported fail with "This slug is already taken", so no link is created twice.
+
+---
+
+## Need Help?
+
+Contact us at [hi@s.ee](mailto:hi@s.ee) and tell us where your links are coming from.

@@ -84,6 +84,10 @@ The loader's custom `url()` in `lib/source.tsx` keeps locale **after** `/docs` (
 ### Sidebar Icons
 Icons in sidebar are configured via `icon` frontmatter in MDX files. The custom `createLucideIconsPlugin()` in `lib/source.tsx` transforms icon names to Lucide React components. Icon names must match exports from `lucide-react`'s `icons` object (e.g., `Home`, `BookOpen`, `CircleQuestionMark`).
 
+Every sidebar icon animates on hover:
+- Names in the `animatedIcons` map in `lib/source.tsx` use the animated components in `components/ui/` (motion). A plain Lucide name is only a static fallback, so add an animated component for new pages.
+- `md:<name>` uses a Material Symbol: add its path to `components/ui/material-icon-paths.ts` and its hover animation to `animations` in `components/ui/material-icon.tsx`.
+
 ### Docker
 ```bash
 docker build -t see-docs .

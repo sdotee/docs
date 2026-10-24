@@ -1,7 +1,7 @@
 {
   "CreateShortUrl": {
     "title": "建立短網址",
-    "description": "為目標連結建立新的短網址，並可選擇設定自訂短碼、密碼保護、到期時間與用於分類的標籤。"
+    "description": "為目標 URL 建立新的短網址，並可選擇設定自訂別名、密碼保護、過期時間與用於分類的標籤。"
   },
   "CreateShortUrlSimpleMode": {
     "title": "建立短網址（簡易模式）",
@@ -9,7 +9,7 @@
   },
   "UpdateShortUrl": {
     "title": "更新短網址",
-    "description": "更新既有短網址的目標網址或標題，透過網域和短碼指定短網址。"
+    "description": "更新既有短網址的目標 URL 或標題，透過網域和別名指定短網址。"
   },
   "DeleteShortUrl": {
     "title": "刪除短網址",
@@ -25,7 +25,7 @@
   },
   "GetLinkVisitStat": {
     "title": "取得短網址存取統計",
-    "description": "傳回指定短網址的存取資料，包括點擊次數、來源與地理分布等。"
+    "description": "傳回指定短網址的存取資料，包括點擊量、來源與地理分布等。"
   },
   "CreateText": {
     "title": "建立文字分享",
@@ -33,7 +33,7 @@
   },
   "UpdateText": {
     "title": "更新文字分享",
-    "description": "更新既有文字分享的內容或標題，透過網域和短碼指定文字分享。"
+    "description": "更新既有文字分享的內容或標題，透過網域和別名指定文字分享。"
   },
   "DeleteText": {
     "title": "刪除文字分享",
@@ -49,7 +49,7 @@
   },
   "UploadFile": {
     "title": "上傳檔案",
-    "description": "上傳檔案並產生可分享的短網址，支援設定密碼與到期時間。"
+    "description": "上傳檔案並產生可分享的短網址，支援設定密碼與過期時間。"
   },
   "ReplaceFile": {
     "title": "替換檔案",
@@ -100,16 +100,16 @@
     "description": "取消進行中的上傳工作階段並刪除暫存資料。"
   },
   "CreateQrcode": {
-    "title": "建立 QR Code",
-    "description": "為指定網址建立動態 QR Code，提供 PNG、SVG 與 PDF 格式。"
+    "title": "建立 QR 碼",
+    "description": "為指定網址建立動態 QR 碼，提供 PNG、SVG 與 PDF 格式。"
   },
   "DeleteQrcode": {
-    "title": "刪除 QR Code",
-    "description": "永久刪除 QR Code 及其關聯的短網址。"
+    "title": "刪除 QR 碼",
+    "description": "永久刪除 QR 碼 及其關聯的短網址。"
   },
   "GetQrcodeHistory": {
-    "title": "取得 QR Code 紀錄",
-    "description": "分頁傳回目前帳號建立的 QR Code 清單。"
+    "title": "取得 QR 碼 紀錄",
+    "description": "分頁傳回目前帳號建立的 QR 碼 清單。"
   },
   "CreateBioPage": {
     "title": "建立個人首頁",
@@ -136,7 +136,7 @@
     "description": "傳回目前帳號在本計費週期內的資源使用情況。"
   },
   "CheckToken": {
-    "title": "驗證 API 權杖",
-    "description": "檢查 API 權杖是否有效，有效時傳回權杖及其到期時間。"
+    "title": "驗證 API 金鑰",
+    "description": "檢查 API 金鑰是否有效，有效時傳回金鑰及其過期時間。"
   }
 }

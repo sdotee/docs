@@ -32,7 +32,10 @@ import { AwesomeFaceIcon } from '@/components/ui/awesome-face';
 import { WordPressIcon } from '@/components/ui/wordpress-icon';
 import { SmartphoneIcon } from '@/components/ui/smartphone';
 import { LinkInBioIcon } from '@/components/ui/link-in-bio';
-import { MaterialIcon, hasMaterialIcon } from '@/components/ui/material-icon';
+import { FileInputIcon } from '@/components/ui/file-input';
+import { FileOutputIcon } from '@/components/ui/file-output';
+import { MaterialIcon } from '@/components/ui/material-icon';
+import { hasMaterialIcon } from '@/components/ui/material-icon-paths';
 
 // Mapping from MDX icon names to animated icon components
 const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
@@ -64,6 +67,8 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   WordPress: WordPressIcon,
   Smartphone: SmartphoneIcon,
   LinkInBio: LinkInBioIcon,
+  FileInput: FileInputIcon,
+  FileOutput: FileOutputIcon,
 };
 
 function resolveIcon(iconName: string, key: string) {

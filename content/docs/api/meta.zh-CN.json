@@ -1,7 +1,7 @@
 {
   "title": "API 参考",
   "description": "S.EE API 接口",
-  "icon": "md:api",
+  "icon": "md:data_object",
   "defaultOpen": true,
   "pages": [
     "---短网址---",

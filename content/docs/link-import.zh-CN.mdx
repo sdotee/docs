@@ -1,0 +1,200 @@
+---
+title: 导入链接
+description: 从 CSV 文件、Dub、Bitly、YOURLS 或 Shlink 把短链接迁移到 S.EE
+icon: FileInput
+---
+
+导入后，短链接的域名和别名保持不变。域名解析到 S.EE 之后，之前分享出去的链接照常可以访问。
+
+支持以下来源：
+
+- **CSV 或 TSV 文件**：符合 S.EE 格式的文件，包括[导出链接](/docs/zh-CN/link-export/)得到的文件
+- **Dub 或 Bitly**：使用 API 密钥直接拉取
+- **YOURLS 或 Shlink**：从数据库导出文件后上传
+
+---
+
+## 导入前准备
+
+1. 在[域名](https://s.ee/user/domains/)页面添加短链接所用的域名（例如 `go.example.com`）并完成验证，详见[自定义域名](/docs/zh-CN/custom-domains/)。
+2. 导入功能需要付费方案。
+3. 导入的链接会计入每日和每月创建短网址的上限。单次导入的行数上限如下：
+
+| 方案 | 单次导入行数 |
+|------|--------------|
+| Lite | 100 |
+| Pro | 1,000 |
+| Premium | 10,000 |
+
+---
+
+## 导入 CSV 文件
+
+1. 前往 [https://s.ee/user/links/](https://s.ee/user/links/)
+2. 点击 **导入**
+3. 选择 **文件导入**
+4. 在 **导入文件** 下点击 **选择 CSV 或 TSV 文件**
+5. **来源** 选择 **CSV / TSV**
+6. 选择 **默认域名**，没有域名的行会导入到这个域名
+7. 点击 **导入**
+
+进度条会显示已处理的行数，以及成功和失败的数量。如果所有行都失败，会显示第一行的错误信息。
+
+### CSV 格式
+
+列与[导出文件](/docs/zh-CN/link-export/)相同：
+
+```csv
+Short Link,Target URL,Title,Description,Tags,Clicks,Created At
+https://go.example.com/spring-sale,https://example.com/shop/spring-sale?utm_source=newsletter,春季促销,全场低至五折，仅限本周,promo,1280,2025-03-01T09:00:00Z
+https://go.example.com/docs,https://example.com/docs/,帮助文档,,,342,2025-04-12T14:30:00Z
+https://go.example.com/careers,https://example.com/careers/,加入我们,北京、上海职位招聘中,招聘,57,2025-06-20T08:15:00Z
+https://go.example.com/app,https://example.com/download/,下载 App,,"app,下载",0,2025-09-02T18:45:10Z
+```
+
+| 列 | 必填 | 说明 |
+|----|------|------|
+| Short Link | 是 | 完整的短链接，S.EE 会从中读取域名和别名（`go.example.com` 和 `spring-sale`） |
+| Target URL | 是 | 目标 URL |
+| Title | 否 | 标题 |
+| Description | 否 | 描述 |
+| Tags | 否 | 标签。多个标签用英文逗号分隔，并加上双引号，例如 `"app,下载"` |
+| Clicks | 否 | 不会导入，导入后点击量从 0 开始 |
+| Created At | 否 | 不会导入，创建时间为导入时间 |
+
+- 文件请保存为 UTF-8 编码，也支持 Tab 分隔的 TSV 文件。
+- 含有英文逗号的内容需要加上双引号。
+- 也可以用单独的 **Domain** 和 **Slug** 两列代替 **Short Link**。没有域名的行会导入到 **默认域名**。
+- 其他服务常用的列名也能识别：目标 URL 可以写作 `Destination URL`、`Long URL`、`Original URL` 或 `URL`，别名可以写作 `Keyword`、`Short Code` 或 `Key`。其他列会被忽略。
+- 文件大小不超过 10 MB。
+
+---
+
+## 从 Dub 或 Bitly 导入
+
+### API 密钥
+
+在 Dub 工作区中创建 API 密钥，或在 Bitly 账户中创建访问令牌。S.EE 只读取您的链接，只读权限即可。
+
+- **Dub**：拉取密钥所属工作区的全部链接
+- **Bitly**：拉取账户下所有分组的链接
+
+已归档的链接不会导入。导入完成后可以删除该密钥。
+
+### 导入
+
+1. 前往 [https://s.ee/user/links/](https://s.ee/user/links/)，点击 **导入**
+2. 选择 **远程导入**
+3. **服务商** 选择 **Bitly** 或 **Dub**
+4. 在 **API 密钥** 中粘贴密钥
+5. 点击 **开始远程导入**，拉取完成后链接会显示在 **预览链接** 中
+6. 可以用 **所有域名** 菜单按域名筛选，勾选要导入的链接
+7. 选择 **默认域名**，勾选的链接都会创建在这个域名下
+8. 点击 **确认导入**
+
+拉取的数据保留 24 小时，过期后需要重新点击 **开始远程导入**。
+
+---
+
+## 从 YOURLS 导入
+
+一个 YOURLS 实例只有一个域名，写在配置文件里而不是数据库里，所以导出的文件没有域名列，导入时再选择域名。
+
+### 导出
+
+在 YOURLS 服务器上运行以下命令，把 `<user>` 和 `<yourls_db>` 换成您的数据库用户名和数据库名：
+
+```bash
+mysql -u <user> -p <yourls_db> --batch -e \
+  "SELECT keyword AS slug, url AS target_url, title, timestamp AS created_at FROM yourls_url" > yourls_export.tsv
+```
+
+如果数据表设置了自定义前缀，请把 `yourls_url` 换成实际的表名。
+
+导出的文件如下：
+
+```text
+slug	target_url	title	created_at
+abc	https://example.com/blog/hello-world	Hello World	2024-01-01 10:00:00
+promo	https://example.com/shop/sale?utm_source=yourls	夏季促销	2024-03-15 08:30:12
+gh	https://example.com/github	GitHub 仓库	2024-05-20 22:14:03
+```
+
+### 导入
+
+1. 在[链接](https://s.ee/user/links/)页面点击 **导入**，选择 **文件导入**
+2. 上传 `yourls_export.tsv`
+3. **来源** 选择 **YOURLS**
+4. **默认域名** 选择 YOURLS 使用的域名（例如 `go.example.com`），所有链接都会导入到这个域名
+5. 点击 **导入**
+
+`created_at` 列会被忽略。使用 YOURLS 原来的列名（`keyword`、`url`）也能识别。
+
+---
+
+## 从 Shlink 导入
+
+一个 Shlink 实例可以有多个域名。使用默认域名的链接在数据库中没有域名，导出命令会把它们的域名写成空值。
+
+### 导出
+
+**MySQL / MariaDB：**
+
+```bash
+mysql -u <user> -p <shlink_db> --batch -e \
+  "SELECT COALESCE(d.authority,'') AS domain, s.short_code AS slug, s.original_url AS target_url, s.title, s.date_created AS created_at
+   FROM short_urls s LEFT JOIN domains d ON d.id = s.domain_id" > shlink_export.tsv
+```
+
+**PostgreSQL：**
+
+```bash
+psql -d <shlink_db> -c "\copy (SELECT COALESCE(d.authority,'') AS domain, s.short_code AS slug, s.original_url AS target_url, s.title, s.date_created AS created_at FROM short_urls s LEFT JOIN domains d ON d.id = s.domain_id) TO 'shlink_export.csv' CSV HEADER"
+```
+
+导出的文件如下：
+
+```text
+domain	slug	target_url	title	created_at
+	Ab3xK	https://example.com/docs	帮助文档	2024-02-01 09:00:00
+go.example.com	launch	https://example.com/product/launch	新品发布	2024-04-10 14:22:31
+go.example.com	jobs	https://example.com/careers	加入我们	2024-06-01 11:05:47
+```
+
+### 导入
+
+1. 在[链接](https://s.ee/user/links/)页面点击 **导入**，选择 **文件导入**
+2. 上传 `shlink_export.tsv` 或 `shlink_export.csv`
+3. **来源** 选择 **Shlink**
+4. **默认域名** 选择 Shlink 的默认域名
+5. 点击 **导入**
+
+域名为空的行（例如上面的 `Ab3xK`）会导入到 **默认域名**。其他行使用各自的域名（`go.example.com`），这些域名需要先添加到您的 S.EE 账户。使用 Shlink 原来的列名 `short_code` 也能识别。
+
+---
+
+## 错误信息
+
+| 错误信息 | 处理方法 |
+|----------|----------|
+| 该域名未在您的账户中添加，请先添加并完成验证。 | 在[域名](https://s.ee/user/domains/)页面添加并验证该域名后重新导入 |
+| 此别名已被占用，请选择其他别名。 | 该域名下已有相同别名的链接 |
+| 重复行：文件中已出现相同的域名和 slug。 | 只会导入其中的第一行 |
+| 缺少 slug：导入的每条链接都必须有 slug。 | 为该行填写短链接或别名，导入不会自动生成别名 |
+| 目标链接必须以 http:// 或 https:// 开头。 | 修改目标 URL |
+| 别名包含无效字符。 | 去掉别名中的 `/` 等不支持的字符 |
+| 您已达到每日创建短网址的上限，请明天再试。 | 明天再试，或[升级方案](https://s.ee/pricing/) |
+| 您已达到每月创建短网址的上限，请下月再试或升级套餐。 | 下月再试，或[升级方案](https://s.ee/pricing/) |
+| 当前套餐不支持批量导入，请升级套餐后使用。 | [升级到付费方案](https://s.ee/pricing/) |
+| 文件行数超过套餐的单次导入上限，请拆分后分批导入。 | 把文件拆成多个小文件 |
+| 文件编码无效，请将文件另存为 UTF-8 编码后重试。 | 将文件另存为 UTF-8 编码 |
+| API Key 无效或权限不足，请检查后重试。 | 检查 Dub 或 Bitly 的密钥 |
+| 您已有一个正在进行的导入任务，请等待其完成后再发起新的导入。 | 等当前的导入完成 |
+
+部分行失败时，已导入的链接会保留。解决问题后可以重新上传同一个文件，已导入过的行会提示「此别名已被占用」，不会重复创建。
+
+---
+
+## 需要帮助？
+
+请发送邮件至 [hi@s.ee](mailto:hi@s.ee)，并告诉我们您的链接来自哪个服务。

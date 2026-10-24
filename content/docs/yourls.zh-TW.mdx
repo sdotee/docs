@@ -45,13 +45,13 @@ https://s.ee/api/v1/yourls
 僅支援 `signature` 認證。**不**支援使用者名稱 / 密碼認證。
 </Callout>
 
-`signature` 參數就是您的 **S.EE API 權杖**。
+`signature` 參數就是您的 **S.EE API 金鑰**。
 
-您可以在以下位置產生和管理 API 權杖：
+您可以在以下位置產生和管理 API 金鑰：
 
 https://s.ee/user/developers/
 
-API 權杖綁定到目前認證使用者，並繼承該帳號的相同權限和限制。
+API 金鑰綁定到目前認證使用者，並繼承該帳號的相同權限和限制。
 
 ---
 
@@ -69,16 +69,16 @@ API 權杖綁定到目前認證使用者，並繼承該帳號的相同權限和�
 
 | 參數 | 必填 | 說明 |
 |----------|----------|-------------|
-| `signature` | 是 | 您的 S.EE API 權杖 |
+| `signature` | 是 | 您的 S.EE API 金鑰 |
 | `action` | 是 | 要執行的操作（目前僅支援 `shorturl`） |
 | `url` | 是 | 要縮短的 URL |
 | `format` | 否 | 輸出格式：`json`、`jsonp`、`xml` 或 `simple`（預設：`simple`） |
-| `keyword` | 否 | 短網址的自訂短碼 |
+| `keyword` | 否 | 短網址的自訂別名 |
 | `title` | 否 | 短網址的標題 |
 
 ### 注意
 
-- 如果提供的 `keyword` 已被佔用，API 會自動產生一個新的可用短碼，而不是傳回錯誤。
+- 如果提供的 `keyword` 已被佔用，API 會自動產生一個新的可用別名，而不是傳回錯誤。
 - 所有請求都適用標準的 S.EE 濫用防護和驗證規則。
 
 ---

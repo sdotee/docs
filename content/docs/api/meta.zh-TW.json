@@ -1,7 +1,7 @@
 {
   "title": "API 參考",
   "description": "S.EE API 端點",
-  "icon": "md:api",
+  "icon": "md:data_object",
   "defaultOpen": true,
   "pages": [
     "---短網址---",
@@ -33,7 +33,7 @@
     "GetLargeFileUploadProgress",
     "CompleteLargeFileUpload",
     "CancelLargeFileUpload",
-    "---QR Code---",
+    "---QR 碼---",
     "CreateQrcode",
     "DeleteQrcode",
     "GetQrcodeHistory",

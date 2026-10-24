@@ -1,0 +1,62 @@
+---
+title: Export Links
+description: Download your S.EE short links as a CSV file
+icon: FileOutput
+---
+
+Export your short links to a CSV file to keep a backup, work with them in a spreadsheet, or move them to another domain.
+
+---
+
+## Export
+
+1. Go to [https://s.ee/user/links/](https://s.ee/user/links/)
+2. Click **Export**
+3. Choose a **Domain**. Each export covers one domain
+4. Pick the **Start** and **End** dates. Links created in this period are exported
+5. Click **Export**
+
+Up to 10,000 links download right away. For larger exports, we email you a download link that is valid for 72 hours.
+
+---
+
+## File Format
+
+The file is a UTF-8 CSV with one link per row:
+
+```csv
+Short Link,Target URL,Title,Description,Tags,Clicks,Created At
+https://go.example.com/spring-sale,https://example.com/shop/spring-sale?utm_source=newsletter,Spring Sale,"Up to 50% off, this week only",promo,1280,2025-03-01T09:00:00Z
+https://go.example.com/docs,https://example.com/docs/,Documentation,,,342,2025-04-12T14:30:00Z
+https://go.example.com/careers,https://example.com/careers/,Careers,We're hiring in Berlin and Tokyo,"hr,jobs",57,2025-06-20T08:15:00Z
+https://go.example.com/app,https://example.com/download/,Download the App,,,0,2025-09-02T18:45:10Z
+```
+
+| Column | Description |
+|--------|-------------|
+| Short Link | The full short link |
+| Target URL | Where the short link redirects |
+| Title | Link title |
+| Description | Link description |
+| Tags | Tags, separated by commas |
+| Clicks | Total clicks |
+| Created At | Creation time in UTC ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) |
+
+---
+
+## Import the File Again
+
+The export uses the same format as [Import Links](/docs/link-import/), so you can upload it to S.EE without changes. To move links to another domain:
+
+1. Add the new domain on the [Domains](https://s.ee/user/domains/) page
+2. Export the links on the old domain
+3. In the **Short Link** column, replace the old domain with the new one (e.g. `go.example.com` with `link.example.com`)
+4. [Import](/docs/link-import/) the file
+
+**Clicks** and **Created At** are not imported, so the new links start at zero clicks.
+
+---
+
+## Need Help?
+
+Contact us at [hi@s.ee](mailto:hi@s.ee).

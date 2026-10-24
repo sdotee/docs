@@ -1,0 +1,202 @@
+---
+title: 匯入連結
+description: 從 CSV 檔案、Dub、Bitly、YOURLS 或 Shlink 將短連結移轉到 S.EE
+icon: FileInput
+---
+
+匯入後，短連結的網域和別名保持不變。網域指向 S.EE 之後，先前分享出去的連結照常可以使用。
+
+支援以下來源：
+
+- **CSV 或 TSV 檔案**：符合 S.EE 格式的檔案，包括[匯出連結](/docs/zh-TW/link-export/)取得的檔案
+- **Dub 或 Bitly**：使用 API 金鑰直接擷取
+- **YOURLS 或 Shlink**：從資料庫匯出檔案後上傳
+
+---
+
+## 匯入前準備
+
+1. 在[網域](https://s.ee/user/domains/)頁面新增短連結使用的網域（例如 `go.example.com`）並完成驗證，詳見[自訂網域](/docs/zh-TW/custom-domains/)。
+2. 匯入功能需要付費方案。
+3. 匯入的連結會計入每日和每月建立短網址的上限。單次匯入的列數上限如下：
+
+| 方案 | 單次匯入列數 |
+|------|--------------|
+| Lite | 100 |
+| Pro | 1,000 |
+| Premium | 10,000 |
+
+---
+
+## 匯入 CSV 檔案
+
+1. 前往 [https://s.ee/user/links/](https://s.ee/user/links/)
+2. 點擊 **匯入**
+3. 選擇 **檔案匯入**
+4. 在 **匯入檔案** 下點擊 **選擇 CSV 或 TSV 檔案**
+5. **來源** 選擇 **CSV / TSV**
+6. 選擇 **預設網域**，沒有網域的資料列會匯入到這個網域
+7. 點擊 **匯入**
+
+進度列會顯示已處理的列數，以及成功和失敗的數量。如果所有資料列都失敗，會顯示第一列的錯誤訊息。
+
+### CSV 格式
+
+欄位與[匯出檔案](/docs/zh-TW/link-export/)相同：
+
+```csv
+Short Link,Target URL,Title,Description,Tags,Clicks,Created At
+https://go.example.com/spring-sale,https://example.com/shop/spring-sale?utm_source=newsletter,春季特賣,全館最低五折，只到本週,promo,1280,2025-03-01T09:00:00Z
+https://go.example.com/docs,https://example.com/docs/,說明文件,,,342,2025-04-12T14:30:00Z
+https://go.example.com/careers,https://example.com/careers/,加入我們,台北、高雄職缺招募中,徵才,57,2025-06-20T08:15:00Z
+https://go.example.com/app,https://example.com/download/,下載 App,,"app,下載",0,2025-09-02T18:45:10Z
+```
+
+| 欄位 | 必填 | 說明 |
+|------|------|------|
+| Short Link | 是 | 完整的短連結，S.EE 會從中讀取網域和別名（`go.example.com` 和 `spring-sale`） |
+| Target URL | 是 | 目標 URL |
+| Title | 否 | 標題 |
+| Description | 否 | 描述 |
+| Tags | 否 | 標籤。多個標籤以半形逗號分隔，並加上雙引號，例如 `"app,下載"` |
+| Clicks | 否 | 不會匯入，匯入後點擊量從 0 開始 |
+| Created At | 否 | 不會匯入，建立時間為匯入時間 |
+
+- 檔案請儲存為 UTF-8 編碼，也支援 Tab 分隔的 TSV 檔案。
+- 含有半形逗號的內容需要加上雙引號。
+- 也可以用獨立的 **Domain** 和 **Slug** 兩欄取代 **Short Link**。沒有網域的資料列會匯入到 **預設網域**。
+- 其他服務常用的欄位名稱也能辨識：目標 URL 可以寫作 `Destination URL`、`Long URL`、`Original URL` 或 `URL`，別名可以寫作 `Keyword`、`Short Code` 或 `Key`。其他欄位會被略過。
+- 檔案大小不超過 10 MB。
+
+---
+
+## 從 Dub 或 Bitly 匯入
+
+### API 金鑰
+
+在 Dub 工作區中建立 API 金鑰，或在 Bitly 帳戶中建立存取權杖。S.EE 只會讀取您的連結，唯讀權限即可。
+
+- **Dub**：擷取金鑰所屬工作區的全部連結
+- **Bitly**：擷取帳戶下所有群組的連結
+
+已封存的連結不會匯入。匯入完成後可以刪除該金鑰。
+
+### 匯入
+
+1. 前往 [https://s.ee/user/links/](https://s.ee/user/links/)，點擊 **匯入**
+2. 選擇 **遠端匯入**
+3. **服務商** 選擇 **Bitly** 或 **Dub**
+4. 在 **API 金鑰** 中貼上金鑰
+5. 點擊 **開始遠端匯入**，擷取完成後連結會顯示在 **預覽連結** 中
+6. 可以用 **所有網域** 選單依網域篩選，勾選要匯入的連結
+7. 選擇 **預設網域**，勾選的連結都會建立在這個網域下
+8. 點擊 **確認匯入**
+
+擷取的資料保留 24 小時，過期後需要重新點擊 **開始遠端匯入**。
+
+---
+
+## 從 YOURLS 匯入
+
+一個 YOURLS 實例只有一個網域，寫在設定檔裡而不是資料庫裡，所以匯出的檔案沒有網域欄位，匯入時再選擇網域。
+
+### 匯出
+
+在 YOURLS 伺服器上執行以下指令，將 `<user>` 和 `<yourls_db>` 換成您的資料庫使用者名稱和資料庫名稱：
+
+```bash
+mysql -u <user> -p <yourls_db> --batch -e \
+  "SELECT keyword AS slug, url AS target_url, title, timestamp AS created_at FROM yourls_url" > yourls_export.tsv
+```
+
+如果資料表設定了自訂前綴，請將 `yourls_url` 換成實際的資料表名稱。
+
+匯出的檔案如下：
+
+```text
+slug	target_url	title	created_at
+abc	https://example.com/blog/hello-world	Hello World	2024-01-01 10:00:00
+promo	https://example.com/shop/sale?utm_source=yourls	夏季特賣	2024-03-15 08:30:12
+gh	https://example.com/github	GitHub 儲存庫	2024-05-20 22:14:03
+```
+
+### 匯入
+
+1. 在[連結](https://s.ee/user/links/)頁面點擊 **匯入**，選擇 **檔案匯入**
+2. 上傳 `yourls_export.tsv`
+3. **來源** 選擇 **YOURLS**
+4. **預設網域** 選擇 YOURLS 使用的網域（例如 `go.example.com`），所有連結都會匯入到這個網域
+5. 點擊 **匯入**
+
+`created_at` 欄位會被略過。使用 YOURLS 原本的欄位名稱（`keyword`、`url`）也能辨識。
+
+---
+
+## 從 Shlink 匯入
+
+一個 Shlink 實例可以有多個網域。使用預設網域的連結在資料庫中沒有網域，匯出指令會將它們的網域寫成空值。
+
+### 匯出
+
+**MySQL / MariaDB：**
+
+```bash
+mysql -u <user> -p <shlink_db> --batch -e \
+  "SELECT COALESCE(d.authority,'') AS domain, s.short_code AS slug, s.original_url AS target_url, s.title, s.date_created AS created_at
+   FROM short_urls s LEFT JOIN domains d ON d.id = s.domain_id" > shlink_export.tsv
+```
+
+**PostgreSQL：**
+
+```bash
+psql -d <shlink_db> -c "\copy (SELECT COALESCE(d.authority,'') AS domain, s.short_code AS slug, s.original_url AS target_url, s.title, s.date_created AS created_at FROM short_urls s LEFT JOIN domains d ON d.id = s.domain_id) TO 'shlink_export.csv' CSV HEADER"
+```
+
+匯出的檔案如下：
+
+```text
+domain	slug	target_url	title	created_at
+	Ab3xK	https://example.com/docs	說明文件	2024-02-01 09:00:00
+go.example.com	launch	https://example.com/product/launch	新品發表	2024-04-10 14:22:31
+go.example.com	jobs	https://example.com/careers	加入我們	2024-06-01 11:05:47
+```
+
+### 匯入
+
+1. 在[連結](https://s.ee/user/links/)頁面點擊 **匯入**，選擇 **檔案匯入**
+2. 上傳 `shlink_export.tsv` 或 `shlink_export.csv`
+3. **來源** 選擇 **Shlink**
+4. **預設網域** 選擇 Shlink 的預設網域
+5. 點擊 **匯入**
+
+網域為空的資料列（例如上方的 `Ab3xK`）會匯入到 **預設網域**。其他資料列使用各自的網域（`go.example.com`），這些網域需要先新增到您的 S.EE 帳戶。使用 Shlink 原本的欄位名稱 `short_code` 也能辨識。
+
+---
+
+## 錯誤訊息
+
+部分匯入錯誤目前只有英文訊息，下表照實際顯示的內容列出。
+
+| 錯誤訊息 | 處理方式 |
+|----------|----------|
+| This domain has not been added to your account. Please add and verify it first. | 網域尚未新增。在[網域](https://s.ee/user/domains/)頁面新增並驗證該網域後重新匯入 |
+| 此自訂短網址已被使用，請選擇其他名稱。 | 該網域下已有相同別名的連結 |
+| Duplicate row: the same domain and slug appears earlier in the file. | 檔案中有重複的網域和別名，只會匯入第一列 |
+| Missing slug: every imported link must have a slug. | 缺少別名。為該列填寫短連結或別名，匯入不會自動產生別名 |
+| 目標 URL 必須以 http:// 或 https:// 開頭。 | 修改目標 URL |
+| 別名包含無效字元。 | 移除別名中的 `/` 等不支援的字元 |
+| 您已達到每日建立短網址的上限，請明天再試。 | 明天再試，或[升級方案](https://s.ee/pricing/) |
+| 您已達到每月建立短網址的上限，請下個月再試或升級方案。 | 下個月再試，或[升級方案](https://s.ee/pricing/) |
+| Bulk import is not available on your current plan. Please upgrade to use it. | 目前方案不支援匯入，請[升級到付費方案](https://s.ee/pricing/) |
+| The file exceeds the per-import row limit of your plan. Please split it into smaller files. | 超過單次匯入列數上限，請將檔案拆成多個小檔案 |
+| Invalid file encoding. Please save the file as UTF-8 and try again. | 將檔案另存為 UTF-8 編碼 |
+| The API Key is invalid or lacks permission. Please check and try again. | 檢查 Dub 或 Bitly 的金鑰 |
+| You already have an import in progress. Please wait for it to finish before starting a new one. | 等目前的匯入完成 |
+
+部分資料列失敗時，已匯入的連結會保留。解決問題後可以重新上傳同一個檔案，已匯入過的資料列會顯示「此自訂短網址已被使用」，不會重複建立。
+
+---
+
+## 需要協助？
+
+請寄信至 [hi@s.ee](mailto:hi@s.ee)，並告訴我們您的連結來自哪個服務。

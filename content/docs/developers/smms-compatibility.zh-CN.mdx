@@ -39,7 +39,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 |-----------|------|----------|-------------|
 | `smfile` | file | 是 | 要上传的图片文件（别名：`file`） |
 | `domain` | string | 否 | 短网址使用的自定义域名 |
-| `custom_slug` | string | 否 | URL 的自定义短码（未提供时随机生成） |
+| `custom_slug` | string | 否 | URL 的自定义别名（未提供时随机生成） |
 
 ### 响应
 
@@ -129,17 +129,17 @@ S.EE 的兼容接口还支持以下功能：
 | 功能 | SM.MS | S.EE |
 |---------|-------|------|
 | 自定义域名 | 否 | 是 |
-| 自定义短码 | 否 | 是 |
-| 文件大小限制 | 5 MB | 随套餐而变化 |
+| 自定义别名 | 否 | 是 |
+| 文件大小限制 | 5 MB | 随方案而变化 |
 | 支持的格式 | 仅图片 | 图片、文档等更多类型 |
 
-## 获取您的 API Key
+## 获取您的 API 密钥
 
-要使用 S.EE API，您需要一个 API Key：
+要使用 S.EE API，您需要一个 API 密钥：
 
 1. 在 [s.ee](https://s.ee) 注册或登录
-2. 前往 **[工具 > API Token](https://s.ee/user/developers/)**
-3. 生成新的 API Key
+2. 前往 **[工具 > API 密钥](https://s.ee/user/developers/)**
+3. 点击 **创建令牌**，生成新的 API 密钥
 
 ## 需要帮助？
 

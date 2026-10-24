@@ -39,7 +39,7 @@ curl -X POST "https://s.ee/api/v1/file/upload" \
 |-----------|------|----------|-------------|
 | `smfile` | file | 是 | 要上傳的圖片檔案（別名：`file`） |
 | `domain` | string | 否 | 短網址使用的自訂網域 |
-| `custom_slug` | string | 否 | URL 的自訂短碼（未提供時隨機產生） |
+| `custom_slug` | string | 否 | URL 的自訂別名（未提供時隨機產生） |
 
 ### 回應
 
@@ -129,17 +129,17 @@ S.EE 的相容端點也支援以下功能：
 | 功能 | SM.MS | S.EE |
 |---------|-------|------|
 | 自訂網域 | 否 | 是 |
-| 自訂短碼 | 否 | 是 |
+| 自訂別名 | 否 | 是 |
 | 檔案大小限制 | 5 MB | 隨方案而變化 |
 | 支援的格式 | 僅圖片 | 圖片、檔案等更多類型 |
 
-## 取得您的 API Key
+## 取得您的 API 金鑰
 
-要使用 S.EE API，您需要一個 API Key：
+要使用 S.EE API，您需要一個 API 金鑰：
 
 1. 在 [s.ee](https://s.ee) 註冊或登入
-2. 前往 **[工具 > API 權杖](https://s.ee/user/developers/)**
-3. 產生新的 API Key
+2. 前往 **[工具 > API 金鑰](https://s.ee/user/developers/)**
+3. 點擊 **建立權杖**，產生新的 API 金鑰
 
 ## 需要協助？
 

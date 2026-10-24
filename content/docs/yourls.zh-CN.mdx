@@ -45,13 +45,13 @@ https://s.ee/api/v1/yourls
 仅支持 `signature` 认证。**不**支持用户名 / 密码认证。
 </Callout>
 
-`signature` 参数就是您的 **S.EE API Token**。
+`signature` 参数就是您的 **S.EE API 密钥**。
 
-您可以在以下位置生成和管理 API Token：
+您可以在以下位置生成和管理 API 密钥：
 
 https://s.ee/user/developers/
 
-API Token 绑定到当前认证用户，并继承该账号的相同权限和限制。
+API 密钥 绑定到当前认证用户，并继承该账号的相同权限和限制。
 
 ---
 
@@ -69,16 +69,16 @@ API Token 绑定到当前认证用户，并继承该账号的相同权限和限�
 
 | 参数 | 必填 | 说明 |
 |----------|----------|-------------|
-| `signature` | 是 | 您的 S.EE API Token |
+| `signature` | 是 | 您的 S.EE API 密钥 |
 | `action` | 是 | 要执行的操作（当前仅支持 `shorturl`） |
 | `url` | 是 | 要缩短的 URL |
 | `format` | 否 | 输出格式：`json`、`jsonp`、`xml` 或 `simple`（默认：`simple`） |
-| `keyword` | 否 | 短网址的自定义短码 |
+| `keyword` | 否 | 短网址的自定义别名 |
 | `title` | 否 | 短网址的标题 |
 
 ### 注意
 
-- 如果提供的 `keyword` 已被占用，API 会自动生成一个新的可用短码，而不是返回错误。
+- 如果提供的 `keyword` 已被占用，API 会自动生成一个新的可用别名，而不是返回错误。
 - 所有请求都适用标准的 S.EE 滥用防护和校验规则。
 
 ---

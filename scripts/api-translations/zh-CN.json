@@ -1,7 +1,7 @@
 {
   "CreateShortUrl": {
     "title": "创建短网址",
-    "description": "为目标链接创建短网址，可设置自定义短码、密码、过期时间和标签。"
+    "description": "为目标 URL 创建短网址，可设置自定义别名、密码、过期时间和标签。"
   },
   "CreateShortUrlSimpleMode": {
     "title": "创建短网址（简单模式）",
@@ -9,7 +9,7 @@
   },
   "UpdateShortUrl": {
     "title": "更新短网址",
-    "description": "更新已有短网址的目标地址或标题，通过域名和短码指定短网址。"
+    "description": "更新已有短网址的目标 URL 或标题，通过域名和别名指定短网址。"
   },
   "DeleteShortUrl": {
     "title": "删除短网址",
@@ -33,7 +33,7 @@
   },
   "UpdateText": {
     "title": "更新文本分享",
-    "description": "更新已有文本分享的内容或标题，通过域名和短码指定文本分享。"
+    "description": "更新已有文本分享的内容或标题，通过域名和别名指定文本分享。"
   },
   "DeleteText": {
     "title": "删除文本分享",
@@ -60,8 +60,8 @@
     "description": "返回当前账号上传的文件列表。"
   },
   "GetPrivateFileDownloadURL": {
-    "title": "获取私有文件下载地址",
-    "description": "为受密码保护的私有文件生成临时下载链接。"
+    "title": "获取私密文件下载地址",
+    "description": "为受密码保护的私密文件生成临时下载链接。"
   },
   "DeleteFile": {
     "title": "删除文件",
@@ -136,7 +136,7 @@
     "description": "返回当前账号在本计费周期内的资源使用情况。"
   },
   "CheckToken": {
-    "title": "校验 API 令牌",
-    "description": "检查 API 令牌是否有效，有效时返回令牌及其过期时间。"
+    "title": "校验 API 密钥",
+    "description": "检查 API 密钥是否有效，有效时返回密钥及其过期时间。"
   }
 }

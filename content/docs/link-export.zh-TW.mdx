@@ -1,0 +1,62 @@
+---
+title: 匯出連結
+description: 將 S.EE 短連結下載為 CSV 檔案
+icon: FileOutput
+---
+
+您可以將短連結匯出為 CSV 檔案，用來備份、在試算表軟體中整理，或移轉到其他網域。
+
+---
+
+## 匯出
+
+1. 前往 [https://s.ee/user/links/](https://s.ee/user/links/)
+2. 點擊 **匯出**
+3. 選擇 **網域**，每次匯出一個網域
+4. 選擇 **開始** 和 **結束** 日期，匯出這段期間內建立的連結
+5. 點擊 **匯出**
+
+不超過 10,000 個連結時會直接下載。超過時我們會將下載連結寄到您的電子郵件，72 小時內有效。
+
+---
+
+## 檔案格式
+
+匯出的檔案是 UTF-8 編碼的 CSV，每列一個連結：
+
+```csv
+Short Link,Target URL,Title,Description,Tags,Clicks,Created At
+https://go.example.com/spring-sale,https://example.com/shop/spring-sale?utm_source=newsletter,春季特賣,全館最低五折，只到本週,promo,1280,2025-03-01T09:00:00Z
+https://go.example.com/docs,https://example.com/docs/,說明文件,,,342,2025-04-12T14:30:00Z
+https://go.example.com/careers,https://example.com/careers/,加入我們,台北、高雄職缺招募中,徵才,57,2025-06-20T08:15:00Z
+https://go.example.com/app,https://example.com/download/,下載 App,,"app,下載",0,2025-09-02T18:45:10Z
+```
+
+| 欄位 | 說明 |
+|------|------|
+| Short Link | 完整的短連結 |
+| Target URL | 目標 URL |
+| Title | 標題 |
+| Description | 描述 |
+| Tags | 標籤，多個標籤以半形逗號分隔 |
+| Clicks | 點擊量 |
+| Created At | 建立時間，UTC 時區（[ISO 8601](https://zh.wikipedia.org/zh-tw/ISO_8601) 格式） |
+
+---
+
+## 重新匯入
+
+匯出的檔案和[匯入連結](/docs/zh-TW/link-import/)使用同一種格式，可以直接上傳回 S.EE。移轉到其他網域的步驟：
+
+1. 在[網域](https://s.ee/user/domains/)頁面新增新網域
+2. 匯出舊網域下的連結
+3. 將 **Short Link** 欄位中的舊網域換成新網域（例如將 `go.example.com` 換成 `link.example.com`）
+4. [匯入](/docs/zh-TW/link-import/)修改後的檔案
+
+**Clicks** 和 **Created At** 不會匯入，新連結的點擊量從 0 開始。
+
+---
+
+## 需要協助？
+
+請寄信至 [hi@s.ee](mailto:hi@s.ee)。

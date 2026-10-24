@@ -10,7 +10,7 @@ icon: Terminal
 
 ## 功能
 
-- **短网址管理**：创建、更新和删除带自定义短码、域名和过期时间的短网址
+- **短网址管理**：创建、更新和删除带自定义别名、域名和过期时间的短网址
 - **文本片段**：从 stdin 或文件中分享代码片段和笔记
 - **文件上传**：直接上传文件，或通过 stdin 上传
 - **域名和标签管理**：列出可用域名并管理标签
@@ -56,7 +56,7 @@ go install github.com/sdotee/cli@latest
 
 ## 配置
 
-通过环境变量或参数设置 API Key：
+通过环境变量或参数设置 API 密钥：
 
 ```bash
 # 环境变量（推荐）
@@ -70,7 +70,7 @@ see --api-key "your-api-key" <command>
 
 | 选项 | 环境变量 | 说明 |
 |--------|---------------------|-------------|
-| `--api-key` | `SEE_API_KEY` | 您的 S.EE API Key（必填） |
+| `--api-key` | `SEE_API_KEY` | 您的 S.EE API 密钥（必填） |
 | `--base-url` | `SEE_BASE_URL` | 自定义 API 基础 URL |
 | `--timeout` | `SEE_TIMEOUT` | 请求超时时间 |
 | `--json` | - | 启用 JSON 输出格式 |
