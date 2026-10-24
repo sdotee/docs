@@ -9,31 +9,26 @@ export interface GenerateProps {
   logo?: ReactNode;
 }
 
-const font = readFile('./lib/og/JetBrainsMono-Regular.ttf').then((data) => ({
-  name: 'Mono' as const,
-  data,
-  weight: 400 as const,
-}));
-const fontBold = readFile('./lib/og/JetBrainsMono-Bold.ttf').then((data) => ({
-  name: 'Mono' as const,
-  data,
-  weight: 600 as const,
-}));
+// Same card as the blog and changelog OG images: s.ee light palette, Space
+// Grotesk for Latin, Noto Sans SC/TC for CJK.
+const COLOR = { bg: '#fafafa', fg: '#171717', body: '#525252', accent: '#047857' };
 
-// CJK fallback fonts. When a glyph isn't in JetBrains Mono, the renderer falls
-// back to whichever font has it. Variable TTFs registered at weight 400; bold
-// CJK text degrades to regular weight rather than tofu.
-const cjkFonts = [
-  { file: 'NotoSerifSC-VF.ttf', name: 'CJK-SC' as const },
-  { file: 'NotoSerifTC-VF.ttf', name: 'CJK-TC' as const },
-  { file: 'NotoSerifJP-VF.ttf', name: 'CJK-JP' as const },
-  { file: 'NotoSerifKR-VF.ttf', name: 'CJK-KR' as const },
-].map(({ file, name }) =>
-  readFile(`./lib/og/${file}`).then((data) => ({
-    name,
-    data,
-    weight: 400 as const,
-  })),
+const fontFiles = [
+  { file: 'space-grotesk-latin-400-normal.woff2', name: 'Space Grotesk', weight: 400 },
+  { file: 'space-grotesk-latin-700-normal.woff2', name: 'Space Grotesk', weight: 700 },
+  // CJK fallbacks: glyphs missing from Space Grotesk fall through to these
+  { file: 'NotoSansSC-Regular.ttf', name: 'Noto Sans SC', weight: 400 },
+  { file: 'NotoSansSC-Bold.ttf', name: 'Noto Sans SC', weight: 700 },
+  { file: 'NotoSansTC-Regular.otf', name: 'Noto Sans TC', weight: 400 },
+  { file: 'NotoSansTC-Bold.otf', name: 'Noto Sans TC', weight: 700 },
+] as const;
+
+const fonts = fontFiles.map(({ file, name, weight }) =>
+  readFile(`./lib/og/${file}`).then((data) => ({ name, data, weight })),
+);
+
+const logoSrc = readFile('./lib/og/logo.svg').then(
+  (data) => `data:image/svg+xml;base64,${data.toString('base64')}`,
 );
 
 export async function getImageResponseOptions(): Promise<ImageResponseOptions> {
@@ -41,70 +36,40 @@ export async function getImageResponseOptions(): Promise<ImageResponseOptions> {
     width: 1200,
     height: 630,
     format: 'webp',
-    fonts: await Promise.all([font, fontBold, ...cjkFonts]),
+    fonts: await Promise.all(fonts),
   };
 }
 
-export function generate({ title, description, logo, site = 'My App' }: GenerateProps) {
-  const primaryTextColor = 'rgb(240,240,240)';
-
+export async function generate({ title, description, site = 'S.EE Docs' }: GenerateProps) {
   return (
     <div
       style={{
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         width: '100%',
         height: '100%',
-        color: 'white',
-        backgroundColor: 'rgb(10,10,10)',
+        padding: '72px 80px',
+        backgroundColor: COLOR.bg,
+        color: COLOR.fg,
+        fontFamily: 'Space Grotesk',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          height: '100%',
-          padding: '4rem',
-        }}
-      >
-        <p
-          style={{
-            fontWeight: 600,
-            fontSize: '76px',
-          }}
-        >
-          {title}
-        </p>
-        <p
-          style={{
-            fontSize: '48px',
-            color: 'rgba(240,240,240,0.7)',
-          }}
-        >
-          {description}
-        </p>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '24px',
-            marginTop: 'auto',
-            color: primaryTextColor,
-          }}
-        >
-          {logo}
-          <p
-            style={{
-              fontSize: '46px',
-              fontWeight: 600,
-            }}
-          >
-            {site}
-          </p>
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        <img src={await logoSrc} width={64} height={64} style={{ width: 64, height: 64, marginRight: 20 }} />
+        <div style={{ display: 'flex', fontSize: 34, fontWeight: 700, letterSpacing: '-0.01em' }}>{site}</div>
       </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', fontSize: 72, fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em' }}>
+          {title}
+        </div>
+        {description && (
+          <div style={{ display: 'flex', fontSize: 30, lineHeight: 1.4, color: COLOR.body, marginTop: 28, maxWidth: 960 }}>
+            {description}
+          </div>
+        )}
+      </div>
+      <div style={{ display: 'flex', fontSize: 28, fontWeight: 600, color: COLOR.accent }}>s.ee/docs</div>
     </div>
   );
 }

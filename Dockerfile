@@ -19,7 +19,7 @@ WORKDIR /app
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static .next/static
 COPY --from=builder /app/public public
-COPY --from=builder /app/lib/og/*.ttf lib/og/
+COPY --from=builder /app/lib/og/ lib/og/
 # OpenAPI spec is read lazily at runtime by fumadocs-openapi's APIPage.
 COPY --from=builder /app/openapi_swagger.yaml ./
 

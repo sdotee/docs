@@ -24,10 +24,9 @@ export async function GET(
   if (!page) notFound();
 
   return new ImageResponse(
-    generate({
+    await generate({
       title: page.data.title,
       description: page.data.description,
-      site: 'S.EE',
     }),
     await getImageResponseOptions(),
   );
