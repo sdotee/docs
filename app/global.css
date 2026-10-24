@@ -176,3 +176,14 @@
   flex: 1;
   justify-content: center;
 }
+
+/* Text selection in s.ee brand green instead of the browser's default blue */
+::selection {
+  background-color: #a7f3d0;
+  color: #064e3b;
+}
+
+.dark ::selection {
+  background-color: rgba(52, 211, 153, 0.3);
+  color: #ecfdf5;
+}
