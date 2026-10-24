@@ -1,6 +1,6 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Agentation } from 'agentation';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Space_Grotesk, Space_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { headers } from 'next/headers';
 import './global.css';
@@ -10,13 +10,14 @@ import { i18n, htmlLang } from '@/lib/i18n';
 import { i18nUI } from '@/lib/i18n-ui';
 import { CookieBar } from '@/components/cookie-bar';
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-sans',
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const spaceMono = Space_Mono({
   subsets: ['latin'],
+  weight: ['400', '700'],
   variable: '--font-code',
 });
 
@@ -85,7 +86,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html
       lang={htmlLang(lang)}
-      className={`${inter.className} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${spaceGrotesk.variable} ${spaceMono.variable}`}
       suppressHydrationWarning
     >
       <head>

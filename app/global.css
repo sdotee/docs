@@ -124,10 +124,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    /* Latin in Space Grotesk; CJK falls through to the system fonts */
+    font-family: var(--font-sans), "PingFang SC", "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Noto Sans CJK SC", ui-sans-serif, system-ui, sans-serif;
   }
   code, pre, kbd, samp {
-    font-family: var(--font-code), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-code), ui-monospace, "PingFang SC", "Microsoft YaHei", monospace;
   }
   /* Align content to left, same as API pages */
   #nd-docs-layout article {
