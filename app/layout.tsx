@@ -1,6 +1,7 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Agentation } from 'agentation';
-import { Space_Grotesk, Space_Mono } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import { headers } from 'next/headers';
 import './global.css';
@@ -15,9 +16,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-sans',
 });
 
-const spaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
+const ioskeleyMono = localFont({
+  src: [
+    { path: './fonts/IoskeleyMono-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/IoskeleyMono-Italic.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/IoskeleyMono-Bold.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/IoskeleyMono-BoldItalic.woff2', weight: '700', style: 'italic' },
+  ],
   variable: '--font-code',
 });
 
@@ -86,7 +91,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html
       lang={htmlLang(lang)}
-      className={`${spaceGrotesk.variable} ${spaceMono.variable}`}
+      className={`${spaceGrotesk.variable} ${ioskeleyMono.variable}`}
       suppressHydrationWarning
     >
       <head>

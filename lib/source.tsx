@@ -124,7 +124,7 @@ export function getPageImage(page: Page, lang?: string) {
   const localePrefix =
     lang && lang !== i18n.defaultLanguage ? [lang] : [];
   // Bump the file name when restyling every card, so CDN and social caches miss
-  const segments = [...localePrefix, ...page.slugs, 'image-v2.webp'];
+  const segments = [...localePrefix, ...page.slugs, 'image-v3.webp'];
   return {
     segments,
     url: `/og/${segments.join('/')}`,

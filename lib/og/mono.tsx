@@ -10,12 +10,14 @@ export interface GenerateProps {
 }
 
 // Same card as the blog and changelog OG images: s.ee light palette, Space
-// Grotesk for Latin, Noto Sans SC/TC for CJK.
+// Grotesk for Latin, Noto Sans SC/TC for CJK, Ioskeley Mono for the URL line
+// (the docs' code font).
 const COLOR = { bg: '#fafafa', fg: '#171717', body: '#525252', accent: '#047857' };
 
 const fontFiles = [
   { file: 'space-grotesk-latin-400-normal.woff2', name: 'Space Grotesk', weight: 400 },
   { file: 'space-grotesk-latin-700-normal.woff2', name: 'Space Grotesk', weight: 700 },
+  { file: 'IoskeleyMono-Bold.woff2', name: 'Ioskeley Mono', weight: 700 },
   // CJK fallbacks: glyphs missing from Space Grotesk fall through to these
   { file: 'NotoSansSC-Regular.ttf', name: 'Noto Sans SC', weight: 400 },
   { file: 'NotoSansSC-Bold.ttf', name: 'Noto Sans SC', weight: 700 },
@@ -69,7 +71,9 @@ export async function generate({ title, description, site = 'S.EE Docs' }: Gener
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', fontSize: 28, fontWeight: 600, color: COLOR.accent }}>s.ee/docs</div>
+      <div style={{ display: 'flex', fontFamily: 'Ioskeley Mono', fontSize: 28, fontWeight: 700, color: COLOR.accent }}>
+        s.ee/docs
+      </div>
     </div>
   );
 }
