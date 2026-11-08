@@ -4,7 +4,7 @@ description: Shorten Dropshare upload links with S.EE
 icon: Dropshare
 ---
 
-[Dropshare](https://dropshare.app/) for Mac can shorten the links to your uploads with a custom URL shortener. You can connect it to S.EE in two ways: the S.EE API, or the [YOURLS-compatible API](/docs/yourls/). Both create short links on `s.ee` by default.
+[Dropshare](https://dropshare.app/) for Mac can shorten the links to your uploads with a custom URL shortener. You can connect it to S.EE in three ways: the S.EE API, the S.EE API in simple mode, or the [YOURLS-compatible API](/docs/yourls/).
 
 See also: [Dropshare custom URL shortener guide](https://kb.dropshare.app/how-to/how-to-set-up-a-custom-url-shortener.html)
 
@@ -29,18 +29,30 @@ Copy your API key from **[Tools > API Token](https://s.ee/user/developers/)**.
 | Field | Value |
 |-------|-------|
 | Endpoint | `https://s.ee/api/v1/shorten` |
+| URL Parameter | `POST`, name `target_url` |
+| Additional Parameters | Name `domain`, value `s.ee` |
+| Auth. Parameter | `Header`, name `Authorization`, value: your API key |
+| Response Format | JSON, key `data.short_url` |
+
+This is the regular [Create Short URL](/docs/api/CreateShortUrl) API. It returns JSON with the short link in `data.short_url`. `domain` is required: use `s.ee` or another domain you've added to S.EE, such as `go.example.com`.
+
+---
+
+## Option 2: S.EE API (simple mode)
+
+| Field | Value |
+|-------|-------|
+| Endpoint | `https://s.ee/api/v1/shorten` |
 | URL Parameter | `GET`, name `url` |
 | Additional Parameters | Leave empty |
 | Auth. Parameter | `Header`, name `Authorization`, value: your API key |
 | Response Format | Plaintext |
 
-On success, S.EE returns just the short link as plain text.
-
-To use another domain you've added to S.EE, such as a custom domain, add it to the endpoint: `https://s.ee/api/v1/shorten?domain=go.example.com`.
+[Simple mode](/docs/api/CreateShortUrlSimpleMode) takes everything as query parameters. On success it returns just the short link as plain text. Links are created on `s.ee`; to use another domain, add it to the endpoint: `https://s.ee/api/v1/shorten?domain=go.example.com`.
 
 ---
 
-## Option 2: YOURLS-compatible API
+## Option 3: YOURLS-compatible API
 
 | Field | Value |
 |-------|-------|
@@ -69,7 +81,8 @@ Click **Test**. Dropshare shortens a sample URL and checks that it can read the 
 | Issue | Fix |
 |-------|-----|
 | 401 error | Check the API key in **Auth. Parameter** |
-| Test fails to read the link | Check **Response Format**: Plaintext for the S.EE API, JSON with key `shorturl` for the YOURLS-compatible API |
+| Test fails to read the link | Check **Response Format**: JSON with key `data.short_url` for option 1, Plaintext for option 2, JSON with key `shorturl` for option 3 |
+| 400 error with option 1 | Check that **Additional Parameters** has `domain`, and that the domain is `s.ee` or one you've added |
 
 Dropshare logs the response it gets for each request. See [how to get the log files](https://kb.dropshare.app/faq/how-do-i-get-the-log-files.html).
 
@@ -77,5 +90,6 @@ Dropshare logs the response it gets for each request. See [how to get the log fi
 
 ## Related
 
+- [Create Short URL](/docs/api/CreateShortUrl)
 - [Create Short URL (Simple Mode)](/docs/api/CreateShortUrlSimpleMode)
 - [YOURLS Compatible API](/docs/yourls/)

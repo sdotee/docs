@@ -4,7 +4,7 @@ description: 用 S.EE 缩短 Dropshare 上传链接
 icon: Dropshare
 ---
 
-[Dropshare](https://dropshare.app/) for Mac 可以用自定义短网址服务缩短上传后的链接。连接 S.EE 有两种方式：S.EE API，或 [YOURLS 兼容 API](/docs/zh-CN/yourls/)。两种方式默认都在 `s.ee` 域名下生成短网址。
+[Dropshare](https://dropshare.app/) for Mac 可以用自定义短网址服务缩短上传后的链接。连接 S.EE 有三种方式：S.EE API、S.EE API 简单模式，或 [YOURLS 兼容 API](/docs/zh-CN/yourls/)。
 
 另请参阅：[Dropshare 自定义短网址设置指南](https://kb.dropshare.app/how-to/how-to-set-up-a-custom-url-shortener.html)
 
@@ -29,18 +29,30 @@ icon: Dropshare
 | 字段 | 内容 |
 |------|------|
 | Endpoint | `https://s.ee/api/v1/shorten` |
+| URL Parameter | `POST`，参数名 `target_url` |
+| Additional Parameters | 参数名 `domain`，值 `s.ee` |
+| Auth. Parameter | `Header`，参数名 `Authorization`，值为您的 API 密钥 |
+| Response Format | JSON，键名 `data.short_url` |
+
+这是常规的[创建短网址](/docs/zh-CN/api/CreateShortUrl) API，返回 JSON，短网址在 `data.short_url` 中。`domain` 为必填，可以填 `s.ee`，也可以填已添加到 S.EE 的其他域名，例如 `go.example.com`。
+
+---
+
+## 方式二：S.EE API 简单模式
+
+| 字段 | 内容 |
+|------|------|
+| Endpoint | `https://s.ee/api/v1/shorten` |
 | URL Parameter | `GET`，参数名 `url` |
 | Additional Parameters | 留空 |
 | Auth. Parameter | `Header`，参数名 `Authorization`，值为您的 API 密钥 |
 | Response Format | Plaintext |
 
-请求成功时，S.EE 只返回纯文本的短网址。
-
-如果要使用已添加到 S.EE 的其他域名（例如自定义域名），在 Endpoint 后加上该域名：`https://s.ee/api/v1/shorten?domain=go.example.com`。
+[简单模式](/docs/zh-CN/api/CreateShortUrlSimpleMode)的参数都放在查询字符串中，请求成功时只返回纯文本的短网址。短网址默认创建在 `s.ee` 域名下；如果要使用其他域名，在 Endpoint 后加上该域名：`https://s.ee/api/v1/shorten?domain=go.example.com`。
 
 ---
 
-## 方式二：YOURLS 兼容 API
+## 方式三：YOURLS 兼容 API
 
 | 字段 | 内容 |
 |------|------|
@@ -69,7 +81,8 @@ icon: Dropshare
 | 问题 | 解决方法 |
 |------|----------|
 | 401 错误 | 检查 **Auth. Parameter** 中的 API 密钥 |
-| 测试时读取不到短网址 | 检查 **Response Format**：S.EE API 选 Plaintext，YOURLS 兼容 API 选 JSON 并填写键名 `shorturl` |
+| 测试时读取不到短网址 | 检查 **Response Format**：方式一选 JSON、键名 `data.short_url`；方式二选 Plaintext；方式三选 JSON、键名 `shorturl` |
+| 方式一返回 400 错误 | 检查 **Additional Parameters** 中是否填写了 `domain`，且域名是 `s.ee` 或您已添加的域名 |
 
 Dropshare 会在日志中记录每次请求收到的响应，参见 [如何获取日志文件](https://kb.dropshare.app/faq/how-do-i-get-the-log-files.html)。
 
@@ -77,5 +90,6 @@ Dropshare 会在日志中记录每次请求收到的响应，参见 [如何获�
 
 ## 相关内容
 
+- [创建短网址](/docs/zh-CN/api/CreateShortUrl)
 - [创建短网址（简单模式）](/docs/zh-CN/api/CreateShortUrlSimpleMode)
 - [YOURLS 兼容 API](/docs/zh-CN/yourls/)
