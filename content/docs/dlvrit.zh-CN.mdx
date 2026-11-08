@@ -1,0 +1,58 @@
+---
+title: dlvr.it
+description: 用 S.EE 缩短 dlvr.it 发布到社交媒体的链接
+icon: Dlvrit
+---
+
+[dlvr.it](https://dlvrit.com/) 可以把 RSS 和文章自动分享到社交网络。把 S.EE 添加为第三方短网址服务后，帖子中的链接就会变成 S.EE 短网址。
+
+---
+
+## 获取 API 密钥
+
+在 **[工具 > API 密钥](https://s.ee/user/developers/)** 复制您的 API 密钥。
+
+---
+
+## 添加 S.EE 短网址服务
+
+1. 前往 [https://app.dlvrit.com/config/shorteners](https://app.dlvrit.com/config/shorteners)
+2. 点击 **Add a Shortener**
+3. 选择 **3rd Party Shortener**
+4. 填写表单：
+
+| 字段 | 内容 |
+|------|------|
+| Name | `s.ee`，或您的短网址所用的域名 |
+| Shortener Endpoint | `https://s.ee/api/v1/shorten?signature=YOUR_API_KEY&url=@URL@` |
+
+把 `YOUR_API_KEY` 换成您的密钥。dlvr.it 无法发送请求头，所以密钥要写在 URL 里。dlvr.it 会把要缩短的链接填到 `@URL@`（必须大写）的位置。
+
+5. 按需打开以下选项：
+   - **Default**：手动分享时使用 S.EE，新添加的社交账号也默认使用 S.EE
+   - **Send dlvr.it links to custom shortener**：用 S.EE 缩短 dlvr.it 自己的链接
+   - **Apply to Existing**：已设置的自动分享也改用 S.EE
+6. 点击 **SAVE**
+
+<Callout type="warn">
+Endpoint 中包含您的 API 密钥，不要公开分享。
+</Callout>
+
+---
+
+## 工作原理
+
+dlvr.it 只读取纯文本响应，不支持 JSON 或 XML。所以这个 Endpoint 使用 S.EE API 的[简单模式](/docs/zh-CN/api/CreateShortUrlSimpleMode)，请求成功时只返回纯文本的短网址。
+
+短网址默认创建在 `s.ee` 域名下。如果要使用已添加到 S.EE 的其他域名（例如自定义域名），在 Endpoint 中加上 `domain`：
+
+```
+https://s.ee/api/v1/shorten?signature=YOUR_API_KEY&domain=go.example.com&url=@URL@
+```
+
+---
+
+## 相关内容
+
+- [创建短网址（简单模式）](/docs/zh-CN/api/CreateShortUrlSimpleMode)
+- [自定义域名](/docs/zh-CN/custom-domains/)

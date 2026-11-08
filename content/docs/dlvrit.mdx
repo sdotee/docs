@@ -1,0 +1,58 @@
+---
+title: dlvr.it
+description: Shorten the links dlvr.it posts to social media with S.EE
+icon: Dlvrit
+---
+
+[dlvr.it](https://dlvrit.com/) shares your RSS feeds and posts to social networks. You can add S.EE as a third-party shortener, so the links in your posts become S.EE short links.
+
+---
+
+## Get your API key
+
+Copy your API key from **[Tools > API Token](https://s.ee/user/developers/)**.
+
+---
+
+## Add S.EE as a shortener
+
+1. Go to [https://app.dlvrit.com/config/shorteners](https://app.dlvrit.com/config/shorteners)
+2. Click **Add a Shortener**
+3. Choose **3rd Party Shortener**
+4. Fill in the form:
+
+| Field | Value |
+|-------|-------|
+| Name | `s.ee`, or the domain your short links use |
+| Shortener Endpoint | `https://s.ee/api/v1/shorten?signature=YOUR_API_KEY&url=@URL@` |
+
+Replace `YOUR_API_KEY` with your key; the key goes in the URL because dlvr.it can't send headers. dlvr.it puts the link to shorten in place of `@URL@` (all caps).
+
+5. Turn on the options you need:
+   - **Default**: use S.EE when you share manually, and as the default shortener for new socials
+   - **Send dlvr.it links to custom shortener**: shorten dlvr.it's own links with S.EE
+   - **Apply to Existing**: use S.EE for the automated sharing you've already set up
+6. Click **SAVE**
+
+<Callout type="warn">
+The endpoint contains your API key. Don't share it publicly.
+</Callout>
+
+---
+
+## How it works
+
+dlvr.it only reads plain-text responses, not JSON or XML. That's why the endpoint uses the S.EE API in [simple mode](/docs/api/CreateShortUrlSimpleMode), which returns just the short link as plain text on success.
+
+Links are created on `s.ee`. To use another domain you've added to S.EE, such as a custom domain, add `domain` to the endpoint:
+
+```
+https://s.ee/api/v1/shorten?signature=YOUR_API_KEY&domain=go.example.com&url=@URL@
+```
+
+---
+
+## Related
+
+- [Create Short URL (Simple Mode)](/docs/api/CreateShortUrlSimpleMode)
+- [Custom Domains](/docs/custom-domains/)

@@ -1,0 +1,58 @@
+---
+title: dlvr.it
+description: 用 S.EE 縮短 dlvr.it 發布到社群媒體的連結
+icon: Dlvrit
+---
+
+[dlvr.it](https://dlvrit.com/) 可以將 RSS 和文章自動分享到社群網路。將 S.EE 新增為第三方短網址服務後，貼文中的連結就會變成 S.EE 短網址。
+
+---
+
+## 取得 API 金鑰
+
+在 **[工具 > API 金鑰](https://s.ee/user/developers/)** 複製您的 API 金鑰。
+
+---
+
+## 新增 S.EE 短網址服務
+
+1. 前往 [https://app.dlvrit.com/config/shorteners](https://app.dlvrit.com/config/shorteners)
+2. 點擊 **Add a Shortener**
+3. 選擇 **3rd Party Shortener**
+4. 填寫表單：
+
+| 欄位 | 內容 |
+|------|------|
+| Name | `s.ee`，或您的短網址所用的網域 |
+| Shortener Endpoint | `https://s.ee/api/v1/shorten?signature=YOUR_API_KEY&url=@URL@` |
+
+將 `YOUR_API_KEY` 換成您的金鑰。dlvr.it 無法傳送請求標頭，所以金鑰要寫在 URL 裡。dlvr.it 會將要縮短的連結填入 `@URL@`（必須大寫）的位置。
+
+5. 依需要開啟以下選項：
+   - **Default**：手動分享時使用 S.EE，新加入的社群帳號也預設使用 S.EE
+   - **Send dlvr.it links to custom shortener**：用 S.EE 縮短 dlvr.it 自己的連結
+   - **Apply to Existing**：已設定的自動分享也改用 S.EE
+6. 點擊 **SAVE**
+
+<Callout type="warn">
+Endpoint 中包含您的 API 金鑰，不要公開分享。
+</Callout>
+
+---
+
+## 運作方式
+
+dlvr.it 只讀取純文字回應，不支援 JSON 或 XML。所以這個 Endpoint 使用 S.EE API 的[簡易模式](/docs/zh-TW/api/CreateShortUrlSimpleMode)，請求成功時只回傳純文字的短網址。
+
+短網址預設建立在 `s.ee` 網域下。如果要使用已新增到 S.EE 的其他網域（例如自訂網域），在 Endpoint 中加上 `domain`：
+
+```
+https://s.ee/api/v1/shorten?signature=YOUR_API_KEY&domain=go.example.com&url=@URL@
+```
+
+---
+
+## 相關內容
+
+- [建立短網址（簡易模式）](/docs/zh-TW/api/CreateShortUrlSimpleMode)
+- [自訂網域](/docs/zh-TW/custom-domains/)
