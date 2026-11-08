@@ -1,0 +1,79 @@
+---
+title: Dropshare
+description: Shorten Dropshare upload links with S.EE
+icon: Dropshare
+---
+
+[Dropshare](https://dropshare.app/) for Mac can shorten the links to your uploads with a custom URL shortener. You can connect it to S.EE in two ways: the S.EE API, or the [YOURLS-compatible API](/docs/yourls/). Both give you an S.EE short link on your account's default domain.
+
+See also: [Dropshare custom URL shortener guide](https://kb.dropshare.app/how-to/how-to-set-up-a-custom-url-shortener.html)
+
+---
+
+## Get your API key
+
+Copy your API key from **[Tools > API Token](https://s.ee/user/developers/)**.
+
+---
+
+## Open the shortener settings
+
+1. Open Dropshare **Preferences** and select the **Uploads** tab
+2. Choose **Custom (advanced)** as the URL shortener
+3. Fill in the fields with one of the setups below
+
+---
+
+## Option 1: S.EE API
+
+| Field | Value |
+|-------|-------|
+| Endpoint | `https://s.ee/api/v1/shorten` |
+| URL Parameter | `GET`, name `url` |
+| Additional Parameters | Leave empty |
+| Auth. Parameter | `Header`, name `Authorization`, value: your API key |
+| Response Format | Plaintext |
+
+S.EE returns the short link as plain text.
+
+---
+
+## Option 2: YOURLS-compatible API
+
+| Field | Value |
+|-------|-------|
+| Endpoint | `https://s.ee/api/v1/yourls?action=shorturl&format=json` |
+| URL Parameter | `GET`, name `url` |
+| Additional Parameters | Leave empty |
+| Auth. Parameter | `GET`, name `signature`, value: your API key |
+| Response Format | JSON, key `shorturl` |
+
+Use this one if you already have a YOURLS setup in Dropshare: change the endpoint to S.EE and put your S.EE API key in `signature`.
+
+<Callout type="warn">
+Don't share your API key publicly.
+</Callout>
+
+---
+
+## Test
+
+Click **Test**. Dropshare shortens a sample URL and checks that it can read the short link from the response.
+
+---
+
+## Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| 401 error | Check the API key in **Auth. Parameter** |
+| Test fails to read the link | Check **Response Format**: Plaintext for the S.EE API, JSON with key `shorturl` for the YOURLS-compatible API |
+
+Dropshare logs the response it gets for each request. See [how to get the log files](https://kb.dropshare.app/faq/how-do-i-get-the-log-files.html).
+
+---
+
+## Related
+
+- [Create Short URL (Simple Mode)](/docs/api/CreateShortUrlSimpleMode)
+- [YOURLS Compatible API](/docs/yourls/)

@@ -1,0 +1,79 @@
+---
+title: Dropshare
+description: 用 S.EE 縮短 Dropshare 上傳連結
+icon: Dropshare
+---
+
+[Dropshare](https://dropshare.app/) for Mac 可以用自訂短網址服務縮短上傳後的連結。連接 S.EE 有兩種方式：S.EE API，或 [YOURLS 相容 API](/docs/zh-TW/yourls/)。兩種方式都會在您帳號的預設網域下產生 S.EE 短網址。
+
+另請參閱：[Dropshare 自訂短網址設定指南](https://kb.dropshare.app/how-to/how-to-set-up-a-custom-url-shortener.html)
+
+---
+
+## 取得 API 金鑰
+
+在 **[工具 > API 金鑰](https://s.ee/user/developers/)** 複製您的 API 金鑰。
+
+---
+
+## 開啟短網址設定
+
+1. 開啟 Dropshare 的 **Preferences**，選擇 **Uploads** 分頁
+2. 短網址服務選擇 **Custom (advanced)**
+3. 依下面任一方式填寫
+
+---
+
+## 方式一：S.EE API
+
+| 欄位 | 內容 |
+|------|------|
+| Endpoint | `https://s.ee/api/v1/shorten` |
+| URL Parameter | `GET`，參數名稱 `url` |
+| Additional Parameters | 留空 |
+| Auth. Parameter | `Header`，參數名稱 `Authorization`，值為您的 API 金鑰 |
+| Response Format | Plaintext |
+
+S.EE 以純文字回傳短網址。
+
+---
+
+## 方式二：YOURLS 相容 API
+
+| 欄位 | 內容 |
+|------|------|
+| Endpoint | `https://s.ee/api/v1/yourls?action=shorturl&format=json` |
+| URL Parameter | `GET`，參數名稱 `url` |
+| Additional Parameters | 留空 |
+| Auth. Parameter | `GET`，參數名稱 `signature`，值為您的 API 金鑰 |
+| Response Format | JSON，鍵名 `shorturl` |
+
+如果您在 Dropshare 中已經設定過 YOURLS，只需將 Endpoint 改為 S.EE 的網址，並在 `signature` 中填寫 S.EE API 金鑰。
+
+<Callout type="warn">
+不要公開分享您的 API 金鑰。
+</Callout>
+
+---
+
+## 測試
+
+點擊 **Test**，Dropshare 會縮短一個範例網址，並檢查能否從回應中讀取短網址。
+
+---
+
+## 疑難排解
+
+| 問題 | 解決方法 |
+|------|----------|
+| 401 錯誤 | 檢查 **Auth. Parameter** 中的 API 金鑰 |
+| 測試時讀取不到短網址 | 檢查 **Response Format**：S.EE API 選 Plaintext，YOURLS 相容 API 選 JSON 並填寫鍵名 `shorturl` |
+
+Dropshare 會在記錄檔中記錄每次請求收到的回應，參見 [如何取得記錄檔](https://kb.dropshare.app/faq/how-do-i-get-the-log-files.html)。
+
+---
+
+## 相關內容
+
+- [建立短網址（簡易模式）](/docs/zh-TW/api/CreateShortUrlSimpleMode)
+- [YOURLS 相容 API](/docs/zh-TW/yourls/)
