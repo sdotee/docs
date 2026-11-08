@@ -1,0 +1,85 @@
+---
+title: Zapier
+description: Create S.EE short links in Zapier workflows
+icon: Zapier
+---
+
+[Zapier](https://zapier.com/) connects apps into automated workflows called Zaps. Zapier has no S.EE app, but you can call the S.EE API with **Webhooks by Zapier**. For example, you can shorten the link of every new RSS item or spreadsheet row, then post it or save it somewhere else.
+
+<Callout type="info">
+Webhooks by Zapier is a premium feature. It is available on Zapier's Professional, Team, and Enterprise plans, not on Free.
+</Callout>
+
+---
+
+## Get your API key
+
+Copy your API key from **[Tools > API Token](https://s.ee/user/developers/)**.
+
+---
+
+## Add the S.EE step
+
+1. Create a Zap and set up a trigger that provides the URL you want to shorten
+2. Add an action step and choose **Webhooks by Zapier**
+3. Set **Event** to **POST**
+4. Fill in the step:
+
+| Field | Value |
+|-------|-------|
+| URL | `https://s.ee/api/v1/shorten` |
+| Payload Type | **JSON** |
+| Data | See the table below |
+| Headers | Key `Authorization`, value: your API key |
+
+**Data** takes one key and value per row:
+
+| Key | Value | Required |
+|-----|-------|----------|
+| `target_url` | The URL to shorten, mapped from your trigger | Yes |
+| `domain` | `s.ee`, or another domain you've added to S.EE, such as `go.example.com` | Yes |
+| `custom_slug` | A custom slug | No |
+| `title` | A title for the link | No |
+
+5. Test the step
+
+<Callout type="warn">
+Don't share your API key publicly.
+</Callout>
+
+---
+
+## Use the short link
+
+S.EE returns JSON:
+
+```json
+{
+  "code": 200,
+  "message": "Success",
+  "data": {
+    "short_url": "https://s.ee/abc123",
+    "slug": "abc123",
+    "custom_slug": ""
+  }
+}
+```
+
+The short link is `data.short_url`. After the test, pick that field from the step's output when you map data into later steps, such as a social post or a spreadsheet column.
+
+---
+
+## Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| 401 error | Check the `Authorization` header and your API key |
+| 400 error | Check that **Payload Type** is **JSON** and **Data** has both `target_url` and `domain` |
+| Domain error | The domain must be `s.ee` or a domain you've added to S.EE |
+
+---
+
+## Related
+
+- [Create Short URL](/docs/api/CreateShortUrl)
+- [Custom Domains](/docs/custom-domains/)

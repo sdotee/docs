@@ -31,6 +31,7 @@ import { LinkShareIcon } from '@/components/ui/link-share-icon';
 import { ShortshareIcon } from '@/components/ui/shortshare-icon';
 import { DropshareIcon } from '@/components/ui/dropshare-icon';
 import { DlvritIcon } from '@/components/ui/dlvrit-icon';
+import { ZapierIcon } from '@/components/ui/zapier-icon';
 import { AwesomeFaceIcon } from '@/components/ui/awesome-face';
 import { WordPressIcon } from '@/components/ui/wordpress-icon';
 import { SmartphoneIcon } from '@/components/ui/smartphone';
@@ -69,6 +70,7 @@ const animatedIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   Shortshare: ShortshareIcon,
   Dropshare: DropshareIcon,
   Dlvrit: DlvritIcon,
+  Zapier: ZapierIcon,
   AwesomeFace: AwesomeFaceIcon,
   WordPress: WordPressIcon,
   Smartphone: SmartphoneIcon,

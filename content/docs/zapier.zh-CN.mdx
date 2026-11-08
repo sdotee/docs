@@ -1,0 +1,85 @@
+---
+title: Zapier
+description: 在 Zapier 工作流中创建 S.EE 短网址
+icon: Zapier
+---
+
+[Zapier](https://zapier.com/) 可以把多个应用连接成自动化工作流（Zap）。Zapier 没有 S.EE 应用，但可以通过 **Webhooks by Zapier** 调用 S.EE API。例如，为每条新的 RSS 内容或表格新行生成短网址，再发布出去或保存到其他地方。
+
+<Callout type="info">
+Webhooks by Zapier 是高级功能，仅 Zapier 的 Professional、Team 和 Enterprise 方案可用，Free 方案不可用。
+</Callout>
+
+---
+
+## 获取 API 密钥
+
+在 **[工具 > API 密钥](https://s.ee/user/developers/)** 复制您的 API 密钥。
+
+---
+
+## 添加 S.EE 步骤
+
+1. 创建一个 Zap，设置一个能提供待缩短网址的触发器
+2. 添加一个动作步骤，选择 **Webhooks by Zapier**
+3. **Event** 选择 **POST**
+4. 填写步骤：
+
+| 字段 | 内容 |
+|------|------|
+| URL | `https://s.ee/api/v1/shorten` |
+| Payload Type | **JSON** |
+| Data | 见下表 |
+| Headers | 键 `Authorization`，值为您的 API 密钥 |
+
+**Data** 每行填一个键和值：
+
+| 键 | 值 | 必填 |
+|----|----|------|
+| `target_url` | 要缩短的网址，从触发器中映射 | 是 |
+| `domain` | `s.ee`，或已添加到 S.EE 的其他域名，例如 `go.example.com` | 是 |
+| `custom_slug` | 自定义别名 | 否 |
+| `title` | 链接标题 | 否 |
+
+5. 测试该步骤
+
+<Callout type="warn">
+不要公开分享您的 API 密钥。
+</Callout>
+
+---
+
+## 使用短网址
+
+S.EE 返回 JSON：
+
+```json
+{
+  "code": 200,
+  "message": "Success",
+  "data": {
+    "short_url": "https://s.ee/abc123",
+    "slug": "abc123",
+    "custom_slug": ""
+  }
+}
+```
+
+短网址在 `data.short_url` 中。测试之后，在后续步骤（例如发布社交帖子或写入表格）中映射数据时，从该步骤的输出里选择这个字段。
+
+---
+
+## 故障排查
+
+| 问题 | 解决方法 |
+|------|----------|
+| 401 错误 | 检查 `Authorization` 请求头和 API 密钥 |
+| 400 错误 | 确认 **Payload Type** 为 **JSON**，且 **Data** 中同时填写了 `target_url` 和 `domain` |
+| 域名错误 | 域名必须是 `s.ee` 或您已添加到 S.EE 的域名 |
+
+---
+
+## 相关内容
+
+- [创建短网址](/docs/zh-CN/api/CreateShortUrl)
+- [自定义域名](/docs/zh-CN/custom-domains/)
