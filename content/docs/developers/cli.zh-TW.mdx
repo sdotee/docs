@@ -4,18 +4,19 @@ description: S.EE 平台的命令列用戶端
 icon: Terminal
 ---
 
-使用 S.EE CLI，可直接在終端機中建立和管理短網址、文字片段和檔案。
+使用 S.EE CLI，可直接在終端機中管理短網址、文字片段、檔案、個人首頁和 QR 碼。
 
 - [sdotee/cli](https://github.com/sdotee/cli)
+- [GitHub Releases](https://github.com/sdotee/cli/releases)
 
 ## 功能
 
-- **短網址管理**：建立、更新和刪除帶自訂別名、網域和過期時間的短網址
-- **文字片段**：從 stdin 或檔案中分享程式碼片段和筆記
-- **檔案上傳**：直接上傳檔案，或透過 stdin 上傳
-- **網域和標籤管理**：列出可用網域並管理標籤
-- **密碼保護**：使用密碼保護您的內容
-- **JSON 輸出**：適用於指令碼的機器可讀輸出
+- **短網址**：建立、更新和刪除連結，支援自訂別名、網域、密碼和過期時間；檢視歷史記錄和造訪統計
+- **文字片段**：從標準輸入或檔案分享程式碼和筆記，支援語法醒目提示
+- **檔案**：透過路徑或標準輸入上傳檔案，支援私密檔案，以及最大 5 GB 的續傳上傳
+- **個人首頁和 QR 碼**：建立和管理個人首頁與動態 QR 碼
+- **帳號**：檢視 API 用量，驗證 API 金鑰
+- **JSON 輸出**：任何指令加上 `--json` 即可輸出機器可讀格式
 
 ## 安裝
 
@@ -63,19 +64,27 @@ sudo dnf install see
 
 在 Debian 上也可以執行 `sudo extrepo enable xtom` 新增套件庫。更多方式請參閱 [xTom 套件庫說明](https://github.com/xtomcom/repo#usage)。
 
-### .deb / .rpm 安裝套件
+### Linux 安裝套件
 
-如果不想新增套件庫，可以從 [GitHub Releases](https://github.com/sdotee/cli/releases) 下載單一安裝套件：
+每個 [Release](https://github.com/sdotee/cli/releases) 都提供 `amd64` 和 `arm64` 的安裝套件。下載適合您系統的套件後安裝：
 
 ```bash
 # Debian / Ubuntu
-sudo dpkg -i see-cli_<version>_<arch>.deb
+sudo dpkg -i see-cli_<version>_linux_<arch>.deb
 
 # RHEL / Fedora
 sudo rpm -i see-cli_<version>_linux_<arch>.rpm
+
+# Alpine
+sudo apk add --allow-untrusted see-cli_<version>_linux_<arch>.apk
+
+# Arch Linux
+sudo pacman -U see-cli_<version>_linux_<arch>.pkg.tar.zst
 ```
 
-### Arch Linux
+例如 `see-cli_1.4.0_linux_amd64.deb`。
+
+### Arch Linux（AUR）
 
 ```bash
 yay -S see-cli
@@ -83,17 +92,23 @@ yay -S see-cli
 yay -S see-cli-bin
 ```
 
-### 從原始碼安裝
+### 預先編譯的二進位檔案
+
+[Release](https://github.com/sdotee/cli/releases) 中還提供 macOS、Linux 和 FreeBSD 的壓縮檔（`see_<OS>_<arch>.tar.gz`），以及 Windows 的壓縮檔（`see_Windows_<arch>.zip`），支援 `x86_64` 和 `arm64`。解壓縮後將 `see` 放到 `PATH` 中即可。
+
+### 從原始碼建置
+
+需要 Go 1.26 或更新版本：
 
 ```bash
-go install github.com/sdotee/cli@latest
+git clone https://github.com/sdotee/cli.git
+cd cli
+make build   # 產生 ./see
 ```
-
-預先編譯的二進位檔案和安裝套件可從 [GitHub Releases](https://github.com/sdotee/cli/releases) 下載。
 
 ## 設定
 
-透過環境變數或參數設定 API 金鑰：
+透過環境變數或參數設定 API 金鑰。API 金鑰可在 **[工具 > API 金鑰](https://s.ee/user/developers/)** 取得。
 
 ```bash
 # 環境變數（推薦）
@@ -106,113 +121,180 @@ see --api-key "your-api-key" <command>
 ### 設定選項
 
 | 選項 | 環境變數 | 說明 |
-|--------|---------------------|-------------|
+|------|----------|------|
 | `--api-key` | `SEE_API_KEY` | 您的 S.EE API 金鑰（必填） |
 | `--base-url` | `SEE_BASE_URL` | 自訂 API 基底 URL |
-| `--timeout` | `SEE_TIMEOUT` | 請求逾時時間 |
-| `--json` | - | 啟用 JSON 輸出格式 |
+| `--timeout` | `SEE_TIMEOUT` | 請求逾時時間。參數使用時長格式，例如 `30s`；環境變數使用秒數 |
+| `--json` | - | 輸出 JSON |
 
-## 命令
+執行 `see help <command>` 可檢視指令的全部參數。
+
+## 指令
 
 ### 網域和標籤
 
 ```bash
-# 列出短網址可用網域
+# 短網址可用網域
 see domains
 
-# 列出檔案上傳可用網域
+# 文字和檔案可用網域
+see text domains
 see file domains
 
-# 列出您的標籤
+# 您的標籤
 see tags
 ```
 
 ### 短網址
 
 ```bash
-# 建立短網址
-see url create https://example.com
+# 建立短網址（輸出短網址）
+see shorturl create https://example.com
 
-# 使用自訂選項建立
-see url create https://example.com \
-  --slug my-link \
+# 帶選項建立
+see shorturl create https://example.com \
   --domain s.ee \
-  --title "My Link" \
+  --slug example \
+  --title "Example" \
   --password secret \
-  --expires 2024-12-31
+  --expire-at 1798761600
 
-# 更新短網址
-see url update --domain s.ee --slug my-link --title "New Title"
+# 修改目標網址（必須提供 --target-url）
+see shorturl update example --domain s.ee --target-url https://example.com/new --title "New Title"
 
-# 刪除短網址
-see url delete --domain s.ee --slug my-link
+# 刪除
+see shorturl delete example --domain s.ee
+
+# 歷史記錄和造訪統計
+see shorturl history --page 1
+see shorturl stats example --domain s.ee --period daily
 ```
+
+`--domain` 預設為 `s.ee`。`--expire-at` 使用以秒為單位的 Unix 時間戳記。建立時還可以使用 `--tag-ids` 和 `--expiration-redirect-url`。統計週期可以是 `daily`、`monthly` 或 `totally`。
 
 ### 文字片段
 
+文字指令從標準輸入讀取內容，或用 `--file` 從檔案讀取。
+
 ```bash
-# 從 stdin 建立文字
+# 從標準輸入建立
 echo "Hello World" | see text create --title "greeting"
 
-# 從檔案建立文字
+# 從檔案建立
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# 使用選項建立
+# 帶選項建立
 cat script.sh | see text create \
-  --title "Shell Script" \
   --domain ba.sh \
-  --password secret \
-  --expires 2024-12-31
+  --slug demo \
+  --title "Shell Script" \
+  --type source_code \
+  --password secret
 
-# 更新文字
-see text update --domain ba.sh --slug demo --title "Updated Title"
+# 更新內容和標題
+see text update demo --domain ba.sh --file ./script.sh --title "Updated Title"
 
-# 刪除文字
-see text delete --domain ba.sh --slug demo
+# 刪除
+see text delete demo --domain ba.sh
+
+# 歷史記錄
+see text history --page 1
 ```
 
-### 檔案上傳
+`--type` 可以是 `plain_text`、`source_code` 或 `markdown`。`see text update` 會取代文字內容，所以同樣需要 `--file` 或標準輸入。
+
+### 檔案
 
 ```bash
-# 上傳檔案
-see file upload ./image.png
+# 上傳一個或多個檔案
+see file upload ./image.png ./document.pdf
 
-# 使用自訂網域上傳
-see file upload ./document.pdf --domain fs.to
+# 指定網域和自訂別名
+see file upload ./document.pdf --domain fs.to --slug report
 
-# 從 stdin 上傳
-cat image.png | see file upload --stdin --filename image.png
+# 上傳為私密檔案
+see file upload ./invoice.pdf --private
 
-# 刪除檔案
-see file delete <delete-hash>
+# 從標準輸入上傳（必須提供 --name）
+cat image.png | see file upload --name image.png
+
+# 歷史記錄（每頁 30 個檔案）
+see file history --page 1
+
+# 取得私密檔案的臨時下載連結（約一小時內有效）
+see file download-url <file-id>
+
+# 用上傳後顯示的刪除金鑰刪除
+see file delete <delete-key>
+```
+
+100 MB 以內的檔案一次上傳完成，更大的檔案會分塊續傳，最大 5 GB。從標準輸入上傳時一律一次上傳。
+
+### 個人首頁
+
+```bash
+see bio create "My Bio" \
+  --description "About me" \
+  --mastodon-url https://c.im/@s.ee \
+  --link Blog=https://example.com
+
+see bio update <id> --title "Updated Bio" --link Blog=https://example.com
+see bio history --page 1
+see bio delete <id>
+```
+
+`--link title=url` 可以重複使用。`update` 時傳入的連結會取代現有的自訂連結。`create` 還支援 `--domain`、`--slug` 和 `--rss-url`。
+
+### QR 碼
+
+```bash
+see qrcode create https://example.com --title "Example"
+see qrcode history --page 1
+see qrcode delete <slug> --domain s.ee
+```
+
+`--title` 為必填。建立後會輸出 QR 碼的短網址，以及 PNG、SVG 和 PDF 圖片網址。
+
+### 帳號
+
+```bash
+# API、內容、檔案和儲存空間用量
+see usage
+
+# 檢查目前設定的 API 金鑰，或其他金鑰
+see token check
+see token check <api-key>
+
+# 版本
+see version
 ```
 
 ## JSON 輸出
 
-使用 `--json` 參數取得機器可讀輸出，適合指令碼使用：
+任何指令加上 `--json` 即可輸出機器可讀格式：
 
 ```bash
-see url create https://example.com --json | jq '.short_url'
+see shorturl create https://example.com --json | jq -r '.short_url'
 ```
 
 ## 範例
 
-### 建立短網址並複製到剪貼簿（macOS）
+### 建立短網址並複製（macOS）
 
 ```bash
-see url create https://example.com --json | jq -r '.short_url' | pbcopy
+see shorturl create https://example.com | pbcopy
 ```
 
-### 上傳截圖並取得 URL（Linux）
+### 上傳截圖並輸出連結
 
 ```bash
 see file upload ~/screenshot.png --json | jq -r '.url'
 ```
 
-### 批次建立短網址
+### 縮短檔案中的每個網址
 
 ```bash
-while read url; do
-  see url create "$url" --json
+while read -r url; do
+  see shorturl create "$url"
 done < urls.txt
 ```

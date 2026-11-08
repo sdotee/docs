@@ -4,18 +4,19 @@ description: S.EE 平台的命令行客户端
 icon: Terminal
 ---
 
-使用 S.EE CLI，可直接在终端中创建和管理短网址、文本片段和文件。
+使用 S.EE CLI，可直接在终端中管理短网址、文本片段、文件、个人主页和二维码。
 
 - [sdotee/cli](https://github.com/sdotee/cli)
+- [GitHub Releases](https://github.com/sdotee/cli/releases)
 
 ## 功能
 
-- **短网址管理**：创建、更新和删除带自定义别名、域名和过期时间的短网址
-- **文本片段**：从 stdin 或文件中分享代码片段和笔记
-- **文件上传**：直接上传文件，或通过 stdin 上传
-- **域名和标签管理**：列出可用域名并管理标签
-- **密码保护**：使用密码保护您的内容
-- **JSON 输出**：适用于脚本的机器可读输出
+- **短网址**：创建、更新和删除链接，支持自定义别名、域名、密码和过期时间；查看历史记录和访问统计
+- **文本片段**：从标准输入或文件分享代码和笔记，支持语法高亮
+- **文件**：通过路径或标准输入上传文件，支持私密文件，以及最大 5 GB 的断点续传上传
+- **个人主页和二维码**：创建和管理个人主页与动态二维码
+- **账号**：查看 API 用量，验证 API 密钥
+- **JSON 输出**：任何命令加上 `--json` 即可输出机器可读格式
 
 ## 安装
 
@@ -63,19 +64,27 @@ sudo dnf install see
 
 在 Debian 上也可以运行 `sudo extrepo enable xtom` 添加软件源。更多方式请参阅 [xTom 软件源说明](https://github.com/xtomcom/repo#usage)。
 
-### .deb / .rpm 安装包
+### Linux 安装包
 
-如果不想添加软件源，可以从 [GitHub Releases](https://github.com/sdotee/cli/releases) 下载单个安装包：
+每个 [Release](https://github.com/sdotee/cli/releases) 都提供 `amd64` 和 `arm64` 的安装包。下载适合您系统的安装包后安装：
 
 ```bash
 # Debian / Ubuntu
-sudo dpkg -i see-cli_<version>_<arch>.deb
+sudo dpkg -i see-cli_<version>_linux_<arch>.deb
 
 # RHEL / Fedora
 sudo rpm -i see-cli_<version>_linux_<arch>.rpm
+
+# Alpine
+sudo apk add --allow-untrusted see-cli_<version>_linux_<arch>.apk
+
+# Arch Linux
+sudo pacman -U see-cli_<version>_linux_<arch>.pkg.tar.zst
 ```
 
-### Arch Linux
+例如 `see-cli_1.4.0_linux_amd64.deb`。
+
+### Arch Linux（AUR）
 
 ```bash
 yay -S see-cli
@@ -83,17 +92,23 @@ yay -S see-cli
 yay -S see-cli-bin
 ```
 
-### 从源码安装
+### 预构建二进制文件
+
+[Release](https://github.com/sdotee/cli/releases) 中还提供 macOS、Linux 和 FreeBSD 的压缩包（`see_<OS>_<arch>.tar.gz`），以及 Windows 的压缩包（`see_Windows_<arch>.zip`），支持 `x86_64` 和 `arm64`。解压后把 `see` 放到 `PATH` 中即可。
+
+### 从源码构建
+
+需要 Go 1.26 或更高版本：
 
 ```bash
-go install github.com/sdotee/cli@latest
+git clone https://github.com/sdotee/cli.git
+cd cli
+make build   # 生成 ./see
 ```
-
-预构建二进制文件和安装包可从 [GitHub Releases](https://github.com/sdotee/cli/releases) 下载。
 
 ## 配置
 
-通过环境变量或参数设置 API 密钥：
+通过环境变量或参数设置 API 密钥。API 密钥可在 **[工具 > API 密钥](https://s.ee/user/developers/)** 获取。
 
 ```bash
 # 环境变量（推荐）
@@ -106,113 +121,180 @@ see --api-key "your-api-key" <command>
 ### 配置选项
 
 | 选项 | 环境变量 | 说明 |
-|--------|---------------------|-------------|
+|------|----------|------|
 | `--api-key` | `SEE_API_KEY` | 您的 S.EE API 密钥（必填） |
 | `--base-url` | `SEE_BASE_URL` | 自定义 API 基础 URL |
-| `--timeout` | `SEE_TIMEOUT` | 请求超时时间 |
-| `--json` | - | 启用 JSON 输出格式 |
+| `--timeout` | `SEE_TIMEOUT` | 请求超时时间。参数使用时长格式，例如 `30s`；环境变量使用秒数 |
+| `--json` | - | 输出 JSON |
+
+运行 `see help <command>` 可查看命令的全部参数。
 
 ## 命令
 
 ### 域名和标签
 
 ```bash
-# 列出短网址可用域名
+# 短网址可用域名
 see domains
 
-# 列出文件上传可用域名
+# 文本和文件可用域名
+see text domains
 see file domains
 
-# 列出您的标签
+# 您的标签
 see tags
 ```
 
 ### 短网址
 
 ```bash
-# 创建短网址
-see url create https://example.com
+# 创建短网址（输出短网址）
+see shorturl create https://example.com
 
-# 使用自定义选项创建
-see url create https://example.com \
-  --slug my-link \
+# 带选项创建
+see shorturl create https://example.com \
   --domain s.ee \
-  --title "My Link" \
+  --slug example \
+  --title "Example" \
   --password secret \
-  --expires 2024-12-31
+  --expire-at 1798761600
 
-# 更新短网址
-see url update --domain s.ee --slug my-link --title "New Title"
+# 修改目标网址（必须提供 --target-url）
+see shorturl update example --domain s.ee --target-url https://example.com/new --title "New Title"
 
-# 删除短网址
-see url delete --domain s.ee --slug my-link
+# 删除
+see shorturl delete example --domain s.ee
+
+# 历史记录和访问统计
+see shorturl history --page 1
+see shorturl stats example --domain s.ee --period daily
 ```
+
+`--domain` 默认为 `s.ee`。`--expire-at` 使用以秒为单位的 Unix 时间戳。创建时还可以使用 `--tag-ids` 和 `--expiration-redirect-url`。统计周期可以是 `daily`、`monthly` 或 `totally`。
 
 ### 文本片段
 
+文本命令从标准输入读取内容，或用 `--file` 从文件读取。
+
 ```bash
-# 从 stdin 创建文本
+# 从标准输入创建
 echo "Hello World" | see text create --title "greeting"
 
-# 从文件创建文本
+# 从文件创建
 see text create --file ./snippet.txt --title "Code Snippet"
 
-# 使用选项创建
+# 带选项创建
 cat script.sh | see text create \
-  --title "Shell Script" \
   --domain ba.sh \
-  --password secret \
-  --expires 2024-12-31
+  --slug demo \
+  --title "Shell Script" \
+  --type source_code \
+  --password secret
 
-# 更新文本
-see text update --domain ba.sh --slug demo --title "Updated Title"
+# 更新内容和标题
+see text update demo --domain ba.sh --file ./script.sh --title "Updated Title"
 
-# 删除文本
-see text delete --domain ba.sh --slug demo
+# 删除
+see text delete demo --domain ba.sh
+
+# 历史记录
+see text history --page 1
 ```
 
-### 文件上传
+`--type` 可以是 `plain_text`、`source_code` 或 `markdown`。`see text update` 会替换文本内容，所以同样需要 `--file` 或标准输入。
+
+### 文件
 
 ```bash
-# 上传文件
-see file upload ./image.png
+# 上传一个或多个文件
+see file upload ./image.png ./document.pdf
 
-# 使用自定义域名上传
-see file upload ./document.pdf --domain fs.to
+# 指定域名和自定义别名
+see file upload ./document.pdf --domain fs.to --slug report
 
-# 从 stdin 上传
-cat image.png | see file upload --stdin --filename image.png
+# 上传为私密文件
+see file upload ./invoice.pdf --private
 
-# 删除文件
-see file delete <delete-hash>
+# 从标准输入上传（必须提供 --name）
+cat image.png | see file upload --name image.png
+
+# 历史记录（每页 30 个文件）
+see file history --page 1
+
+# 获取私密文件的临时下载链接（约一小时内有效）
+see file download-url <file-id>
+
+# 用上传后显示的删除密钥删除
+see file delete <delete-key>
+```
+
+100 MB 以内的文件一次上传完成，更大的文件会分块断点续传，最大 5 GB。从标准输入上传时始终一次上传。
+
+### 个人主页
+
+```bash
+see bio create "My Bio" \
+  --description "About me" \
+  --mastodon-url https://c.im/@s.ee \
+  --link Blog=https://example.com
+
+see bio update <id> --title "Updated Bio" --link Blog=https://example.com
+see bio history --page 1
+see bio delete <id>
+```
+
+`--link title=url` 可以重复使用。`update` 时传入的链接会替换现有的自定义链接。`create` 还支持 `--domain`、`--slug` 和 `--rss-url`。
+
+### 二维码
+
+```bash
+see qrcode create https://example.com --title "Example"
+see qrcode history --page 1
+see qrcode delete <slug> --domain s.ee
+```
+
+`--title` 为必填。创建后会输出二维码的短网址，以及 PNG、SVG 和 PDF 图片地址。
+
+### 账号
+
+```bash
+# API、内容、文件和存储用量
+see usage
+
+# 检查当前配置的 API 密钥，或其他密钥
+see token check
+see token check <api-key>
+
+# 版本
+see version
 ```
 
 ## JSON 输出
 
-使用 `--json` 参数获取机器可读输出，适合脚本使用：
+任何命令加上 `--json` 即可输出机器可读格式：
 
 ```bash
-see url create https://example.com --json | jq '.short_url'
+see shorturl create https://example.com --json | jq -r '.short_url'
 ```
 
 ## 示例
 
-### 创建短网址并复制到剪贴板（macOS）
+### 创建短网址并复制（macOS）
 
 ```bash
-see url create https://example.com --json | jq -r '.short_url' | pbcopy
+see shorturl create https://example.com | pbcopy
 ```
 
-### 上传截图并获取 URL（Linux）
+### 上传截图并输出链接
 
 ```bash
 see file upload ~/screenshot.png --json | jq -r '.url'
 ```
 
-### 批量创建短网址
+### 缩短文件中的每个网址
 
 ```bash
-while read url; do
-  see url create "$url" --json
+while read -r url; do
+  see shorturl create "$url"
 done < urls.txt
 ```
