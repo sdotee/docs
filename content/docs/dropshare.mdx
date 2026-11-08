@@ -4,7 +4,7 @@ description: Shorten Dropshare upload links with S.EE
 icon: Dropshare
 ---
 
-[Dropshare](https://dropshare.app/) for Mac can shorten the links to your uploads with a custom URL shortener. You can connect it to S.EE in two ways: the S.EE API, or the [YOURLS-compatible API](/docs/yourls/). Both give you an S.EE short link on your account's default domain.
+[Dropshare](https://dropshare.app/) for Mac can shorten the links to your uploads with a custom URL shortener. You can connect it to S.EE in two ways: the S.EE API, or the [YOURLS-compatible API](/docs/yourls/). Both create short links on `s.ee` by default.
 
 See also: [Dropshare custom URL shortener guide](https://kb.dropshare.app/how-to/how-to-set-up-a-custom-url-shortener.html)
 
@@ -34,7 +34,9 @@ Copy your API key from **[Tools > API Token](https://s.ee/user/developers/)**.
 | Auth. Parameter | `Header`, name `Authorization`, value: your API key |
 | Response Format | Plaintext |
 
-S.EE returns the short link as plain text.
+On success, S.EE returns just the short link as plain text.
+
+To use another domain you've added to S.EE, such as a custom domain, add it to the endpoint: `https://s.ee/api/v1/shorten?domain=go.example.com`.
 
 ---
 
@@ -48,7 +50,7 @@ S.EE returns the short link as plain text.
 | Auth. Parameter | `GET`, name `signature`, value: your API key |
 | Response Format | JSON, key `shorturl` |
 
-Use this one if you already have a YOURLS setup in Dropshare: change the endpoint to S.EE and put your S.EE API key in `signature`.
+Use this one if you already have a YOURLS setup in Dropshare: change the endpoint to S.EE and put your S.EE API key in `signature`. Links from this API are always created on `s.ee`.
 
 <Callout type="warn">
 Don't share your API key publicly.

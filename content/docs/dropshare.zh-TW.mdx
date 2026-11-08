@@ -4,7 +4,7 @@ description: 用 S.EE 縮短 Dropshare 上傳連結
 icon: Dropshare
 ---
 
-[Dropshare](https://dropshare.app/) for Mac 可以用自訂短網址服務縮短上傳後的連結。連接 S.EE 有兩種方式：S.EE API，或 [YOURLS 相容 API](/docs/zh-TW/yourls/)。兩種方式都會在您帳號的預設網域下產生 S.EE 短網址。
+[Dropshare](https://dropshare.app/) for Mac 可以用自訂短網址服務縮短上傳後的連結。連接 S.EE 有兩種方式：S.EE API，或 [YOURLS 相容 API](/docs/zh-TW/yourls/)。兩種方式預設都在 `s.ee` 網域下產生短網址。
 
 另請參閱：[Dropshare 自訂短網址設定指南](https://kb.dropshare.app/how-to/how-to-set-up-a-custom-url-shortener.html)
 
@@ -34,7 +34,9 @@ icon: Dropshare
 | Auth. Parameter | `Header`，參數名稱 `Authorization`，值為您的 API 金鑰 |
 | Response Format | Plaintext |
 
-S.EE 以純文字回傳短網址。
+請求成功時，S.EE 只回傳純文字的短網址。
+
+如果要使用已新增到 S.EE 的其他網域（例如自訂網域），在 Endpoint 後加上該網域：`https://s.ee/api/v1/shorten?domain=go.example.com`。
 
 ---
 
@@ -48,7 +50,7 @@ S.EE 以純文字回傳短網址。
 | Auth. Parameter | `GET`，參數名稱 `signature`，值為您的 API 金鑰 |
 | Response Format | JSON，鍵名 `shorturl` |
 
-如果您在 Dropshare 中已經設定過 YOURLS，只需將 Endpoint 改為 S.EE 的網址，並在 `signature` 中填寫 S.EE API 金鑰。
+如果您在 Dropshare 中已經設定過 YOURLS，只需將 Endpoint 改為 S.EE 的網址，並在 `signature` 中填寫 S.EE API 金鑰。這個 API 產生的短網址固定使用 `s.ee` 網域。
 
 <Callout type="warn">
 不要公開分享您的 API 金鑰。
