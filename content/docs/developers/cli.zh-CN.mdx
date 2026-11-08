@@ -26,16 +26,53 @@ brew tap sdotee/homebrew-tap
 brew install see
 ```
 
-### Debian / Ubuntu
+### Debian / Ubuntu / RHEL（xTom 软件源）
+
+[xTom](https://xtom.com/) 在其 [APT 和 DNF 软件源](https://github.com/xtomcom/repo)中提供了 CLI 的 `amd64` 和 `arm64` 安装包，之后可以通过 `apt upgrade` 或 `dnf upgrade` 更新。支持的系统：Debian 12 和 13，Ubuntu 22.04、24.04 和 26.04 LTS，以及 RHEL、Rocky Linux 和 AlmaLinux 9 和 10。
+
+快速设置，自动为您的系统添加软件源：
 
 ```bash
-dpkg -i see-cli_<version>_<arch>.deb
+curl -sL ba.sh/repo | sudo bash
 ```
 
-### RHEL / Fedora
+然后安装 `see` 软件包：
 
 ```bash
-rpm -i see-cli_<version>_linux_<arch>.rpm
+# Debian / Ubuntu
+sudo apt install see
+
+# RHEL / Rocky / AlmaLinux
+sudo dnf install see
+```
+
+也可以手动添加软件源：
+
+```bash
+# Debian / Ubuntu
+sudo apt install -y ca-certificates curl gnupg
+curl -fsSL https://repo.xtom.com/xtom.key | sudo bash -c 'gpg --dearmor > /usr/share/keyrings/xtom.gpg'
+echo "deb [signed-by=/usr/share/keyrings/xtom.gpg] https://repo.xtom.com/deb stable main" | sudo tee /etc/apt/sources.list.d/xtom.list
+sudo apt update
+sudo apt install see
+
+# RHEL / Rocky / AlmaLinux
+sudo curl -o /etc/yum.repos.d/xtom.repo https://repo.xtom.com/rpm/xtom.repo
+sudo dnf install see
+```
+
+在 Debian 上也可以运行 `sudo extrepo enable xtom` 添加软件源。更多方式请参阅 [xTom 软件源说明](https://github.com/xtomcom/repo#usage)。
+
+### .deb / .rpm 安装包
+
+如果不想添加软件源，可以从 [GitHub Releases](https://github.com/sdotee/cli/releases) 下载单个安装包：
+
+```bash
+# Debian / Ubuntu
+sudo dpkg -i see-cli_<version>_<arch>.deb
+
+# RHEL / Fedora
+sudo rpm -i see-cli_<version>_linux_<arch>.rpm
 ```
 
 ### Arch Linux

@@ -26,16 +26,53 @@ brew tap sdotee/homebrew-tap
 brew install see
 ```
 
-### Debian / Ubuntu
+### Debian / Ubuntu / RHEL (xTom repository)
+
+[xTom](https://xtom.com/) packages the CLI in its [APT and DNF repository](https://github.com/xtomcom/repo) for `amd64` and `arm64`, so you get updates through `apt upgrade` or `dnf upgrade`. Supported systems: Debian 12 and 13, Ubuntu 22.04, 24.04 and 26.04 LTS, and RHEL, Rocky Linux and AlmaLinux 9 and 10.
+
+Quick setup, which adds the repository for your system:
 
 ```bash
-dpkg -i see-cli_<version>_<arch>.deb
+curl -sL ba.sh/repo | sudo bash
 ```
 
-### RHEL / Fedora
+Then install the `see` package:
 
 ```bash
-rpm -i see-cli_<version>_linux_<arch>.rpm
+# Debian / Ubuntu
+sudo apt install see
+
+# RHEL / Rocky / AlmaLinux
+sudo dnf install see
+```
+
+To add the repository by hand instead:
+
+```bash
+# Debian / Ubuntu
+sudo apt install -y ca-certificates curl gnupg
+curl -fsSL https://repo.xtom.com/xtom.key | sudo bash -c 'gpg --dearmor > /usr/share/keyrings/xtom.gpg'
+echo "deb [signed-by=/usr/share/keyrings/xtom.gpg] https://repo.xtom.com/deb stable main" | sudo tee /etc/apt/sources.list.d/xtom.list
+sudo apt update
+sudo apt install see
+
+# RHEL / Rocky / AlmaLinux
+sudo curl -o /etc/yum.repos.d/xtom.repo https://repo.xtom.com/rpm/xtom.repo
+sudo dnf install see
+```
+
+On Debian you can also run `sudo extrepo enable xtom` to add the repository. See the [xTom repository README](https://github.com/xtomcom/repo#usage) for more options.
+
+### .deb / .rpm packages
+
+To install a single package without adding a repository, download it from [GitHub Releases](https://github.com/sdotee/cli/releases):
+
+```bash
+# Debian / Ubuntu
+sudo dpkg -i see-cli_<version>_<arch>.deb
+
+# RHEL / Fedora
+sudo rpm -i see-cli_<version>_linux_<arch>.rpm
 ```
 
 ### Arch Linux
