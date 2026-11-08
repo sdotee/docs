@@ -123,15 +123,15 @@ see text create --file ./snippet.txt --title "Code Snippet"
 # Create with options
 cat script.sh | see text create \
   --title "Shell Script" \
-  --domain fs.to \
+  --domain ba.sh \
   --password secret \
   --expires 2024-12-31
 
 # Update text
-see text update --domain fs.to --slug abc123 --title "Updated Title"
+see text update --domain ba.sh --slug demo --title "Updated Title"
 
 # Delete text
-see text delete --domain fs.to --slug abc123
+see text delete --domain ba.sh --slug demo
 ```
 
 ### File Upload

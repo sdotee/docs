@@ -123,15 +123,15 @@ see text create --file ./snippet.txt --title "Code Snippet"
 # 使用选项创建
 cat script.sh | see text create \
   --title "Shell Script" \
-  --domain fs.to \
+  --domain ba.sh \
   --password secret \
   --expires 2024-12-31
 
 # 更新文本
-see text update --domain fs.to --slug abc123 --title "Updated Title"
+see text update --domain ba.sh --slug demo --title "Updated Title"
 
 # 删除文本
-see text delete --domain fs.to --slug abc123
+see text delete --domain ba.sh --slug demo
 ```
 
 ### 文件上传
