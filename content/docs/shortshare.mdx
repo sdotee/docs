@@ -1,0 +1,51 @@
+---
+title: Shortshare
+description: Shorten links with S.EE in the Shortshare app
+icon: Shortshare
+---
+
+[Shortshare](https://shortshare.app/) is a URL shortener app that can work with custom shortening APIs. Once S.EE is set up as a custom shortener, you can create S.EE short links inside the app or with Shortshare's Shortcuts action.
+
+---
+
+## Get your API key
+
+Copy your API key from **[Tools > API Token](https://s.ee/user/developers/)**.
+
+---
+
+## Set up S.EE in Shortshare
+
+1. Set the **Url Shortener** type to **Custom**
+2. Under **Configure**, fill in:
+
+| Setting | Value |
+|---------|-------|
+| Endpoint | `https://s.ee/api/v1/shorten` |
+| URL Parameter | **GET**, and enter `url` |
+| Auth Parameter | **Header**. First field: `Authorization`. Second field: `Bearer YOUR_API_KEY` |
+| Response Format | **Plaintext**, and leave the field empty |
+
+Replace `YOUR_API_KEY` with your key, and keep the space after `Bearer`.
+
+S.EE returns the short link as plain text, so Shortshare can use the response as is. Links are created on your account's default domain.
+
+<Callout type="warn">
+Don't share your API key publicly.
+</Callout>
+
+---
+
+## Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| 401 error | Check the `Authorization` header value and your API key |
+| No link returned | Make sure **Response Format** is **Plaintext** and its field is empty |
+
+---
+
+## Related
+
+- [Create Short URL (Simple Mode)](/docs/api/CreateShortUrlSimpleMode) — the API endpoint Shortshare calls
+- [Developer API](/docs/developers)

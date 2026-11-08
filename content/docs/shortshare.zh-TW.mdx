@@ -1,0 +1,51 @@
+---
+title: Shortshare
+description: 在 Shortshare 應用程式中使用 S.EE 建立短網址
+icon: Shortshare
+---
+
+[Shortshare](https://shortshare.app/) 是一款支援自訂短網址 API 的短網址應用程式。將 S.EE 設定為自訂短網址服務後，就可以在應用程式內產生 S.EE 短網址，也可以用 Shortshare 的捷徑動作直接產生。
+
+---
+
+## 取得 API 金鑰
+
+在 **[工具 > API 金鑰](https://s.ee/user/developers/)** 複製您的 API 金鑰。
+
+---
+
+## 在 Shortshare 中設定 S.EE
+
+1. **Url Shortener** 類型選擇 **Custom**
+2. 在 **Configure** 中填寫：
+
+| 設定項目 | 內容 |
+|----------|------|
+| Endpoint | `https://s.ee/api/v1/shorten` |
+| URL Parameter | 選擇 **GET**，填寫 `url` |
+| Auth Parameter | 選擇 **Header**。第一個欄位填 `Authorization`，第二個欄位填 `Bearer YOUR_API_KEY` |
+| Response Format | 選擇 **Plaintext**，欄位留空 |
+
+將 `YOUR_API_KEY` 換成您的金鑰，`Bearer` 後面要保留一個空格。
+
+S.EE 以純文字回傳短網址，Shortshare 可以直接使用。短網址會建立在您帳號的預設網域下。
+
+<Callout type="warn">
+不要公開分享您的 API 金鑰。
+</Callout>
+
+---
+
+## 疑難排解
+
+| 問題 | 解決方法 |
+|------|----------|
+| 401 錯誤 | 檢查 `Authorization` 的值和 API 金鑰是否正確 |
+| 沒有回傳短網址 | 確認 **Response Format** 選擇了 **Plaintext**，且欄位為空 |
+
+---
+
+## 相關內容
+
+- [建立短網址（簡易模式）](/docs/zh-TW/api/CreateShortUrlSimpleMode)：Shortshare 呼叫的 API
+- [開發者 API](/docs/zh-TW/developers)
