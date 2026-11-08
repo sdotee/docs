@@ -37,15 +37,15 @@ Update later with `npx skills update`, or remove with `npx skills remove see`.
 
 ### Without Node.js
 
-Clone the repository and run the install script, which installs a personal Claude Code skill:
+Clone the repository and run the install script. It copies the skill to the generic Agent Skills directory `~/.agents/skills/see` and links `~/.claude/skills/see` to it, so Claude Code and other agents share one copy:
 
 ```bash
 git clone https://github.com/sdotee/skills.git
 cd skills
 ./scripts/install.sh
 
-# Or install into another Agent Skills directory
-./scripts/install.sh ~/.agents/skills
+# Or choose the Agent Skills and Claude Code skills directories
+./scripts/install.sh ~/.agents/skills ~/.claude/skills
 ```
 
 You can also copy `.claude/skills/see` to one of these locations:

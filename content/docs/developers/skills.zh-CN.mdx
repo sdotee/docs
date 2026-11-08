@@ -37,15 +37,15 @@ npx skills add sdotee/skills -a claude-code -y
 
 ### 不使用 Node.js
 
-克隆仓库并运行安装脚本，安装为个人 Claude Code skill：
+克隆仓库并运行安装脚本。脚本会把 skill 复制到通用 Agent Skills 目录 `~/.agents/skills/see`，并把 `~/.claude/skills/see` 软链接到这里，Claude Code 和其他 agent 共用同一份：
 
 ```bash
 git clone https://github.com/sdotee/skills.git
 cd skills
 ./scripts/install.sh
 
-# 或安装到其他 Agent Skills 目录
-./scripts/install.sh ~/.agents/skills
+# 或指定 Agent Skills 目录和 Claude Code skills 目录
+./scripts/install.sh ~/.agents/skills ~/.claude/skills
 ```
 
 也可以把 `.claude/skills/see` 复制到以下任一位置：
