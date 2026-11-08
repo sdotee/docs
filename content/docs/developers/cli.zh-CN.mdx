@@ -84,6 +84,14 @@ sudo pacman -U see-cli_<version>_linux_<arch>.pkg.tar.zst
 
 例如 `see-cli_1.4.0_linux_amd64.deb`。
 
+### Android（Termux）
+
+从 v1.4.1 起，Release 中提供适用于 `aarch64` 的 Termux 安装包：
+
+```bash
+dpkg -i see-cli_<version>_android_arm64.termux.deb
+```
+
 ### Arch Linux（AUR）
 
 ```bash
@@ -94,7 +102,7 @@ yay -S see-cli-bin
 
 ### 预构建二进制文件
 
-[Release](https://github.com/sdotee/cli/releases) 中还提供 macOS、Linux 和 FreeBSD 的压缩包（`see_<OS>_<arch>.tar.gz`），以及 Windows 的压缩包（`see_Windows_<arch>.zip`），支持 `x86_64` 和 `arm64`。解压后把 `see` 放到 `PATH` 中即可。
+[Release](https://github.com/sdotee/cli/releases) 中还提供 macOS、Linux 和 FreeBSD 的压缩包（`see_<OS>_<arch>.tar.gz`），以及 Windows 的压缩包（`see_Windows_<arch>.zip`），支持 `x86_64` 和 `arm64`。从 v1.4.1 起还提供 `see_Android_arm64.tar.gz`。解压后把 `see` 放到 `PATH` 中即可。
 
 ### 从源码构建
 
@@ -104,6 +112,13 @@ yay -S see-cli-bin
 git clone https://github.com/sdotee/cli.git
 cd cli
 make build   # 生成 ./see
+```
+
+也可以使用 `go install`（v1.4.1 及以上）。Go 会按模块路径命名二进制文件，安装后的文件名是 `cli`，需要重命名为 `see`：
+
+```bash
+go install github.com/sdotee/cli@latest
+mv "$(go env GOPATH)/bin/cli" "$(go env GOPATH)/bin/see"
 ```
 
 ## 配置
@@ -124,8 +139,15 @@ see --api-key "your-api-key" <command>
 |------|----------|------|
 | `--api-key` | `SEE_API_KEY` | 您的 S.EE API 密钥（必填） |
 | `--base-url` | `SEE_BASE_URL` | 自定义 API 基础 URL |
-| `--timeout` | `SEE_TIMEOUT` | 请求超时时间。参数使用时长格式，例如 `30s`；环境变量使用秒数 |
+| `--timeout` | `SEE_TIMEOUT` | 请求超时时间 |
 | `--json` | - | 输出 JSON |
+
+两种超时设置的格式不同：`--timeout` 使用时长格式，例如 `30s` 或 `2m`；`SEE_TIMEOUT` 使用整数秒，例如 `30`，其他格式的值会被忽略并使用默认超时时间。
+
+```bash
+see --timeout 30s domains
+SEE_TIMEOUT=30 see domains
+```
 
 运行 `see help <command>` 可查看命令的全部参数。
 
@@ -170,7 +192,7 @@ see shorturl history --page 1
 see shorturl stats example --domain s.ee --period daily
 ```
 
-`--domain` 默认为 `s.ee`。`--expire-at` 使用以秒为单位的 Unix 时间戳。创建时还可以使用 `--tag-ids` 和 `--expiration-redirect-url`。统计周期可以是 `daily`、`monthly` 或 `totally`。
+`see url` 是 `see shorturl` 的别名。`--domain` 默认为 `s.ee`。`--expire-at` 使用以秒为单位的 Unix 时间戳。创建时还可以使用 `--tag-ids` 和 `--expiration-redirect-url`。统计周期可以是 `daily`、`monthly` 或 `totally`。
 
 ### 文本片段
 
@@ -192,7 +214,7 @@ cat script.sh | see text create \
   --password secret
 
 # 更新内容和标题
-see text update demo --domain ba.sh --file ./script.sh --title "Updated Title"
+see text update demo --domain ba.sh --title "Updated Title" --file ./script.sh
 
 # 删除
 see text delete demo --domain ba.sh
@@ -201,7 +223,7 @@ see text delete demo --domain ba.sh
 see text history --page 1
 ```
 
-`--type` 可以是 `plain_text`、`source_code` 或 `markdown`。`see text update` 会替换文本内容，所以同样需要 `--file` 或标准输入。
+`--type` 可以是 `plain_text`、`source_code` 或 `markdown`。每条文本都需要标题：`create` 未提供 `--title` 时使用 `Untitled`，`update` 必须提供 `--title`。`see text update` 会替换文本内容，所以同样需要 `--file` 或标准输入。
 
 ### 文件
 

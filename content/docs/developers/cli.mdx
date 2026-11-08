@@ -84,6 +84,14 @@ sudo pacman -U see-cli_<version>_linux_<arch>.pkg.tar.zst
 
 For example, `see-cli_1.4.0_linux_amd64.deb`.
 
+### Android (Termux)
+
+Releases from v1.4.1 include a Termux package for `aarch64`:
+
+```bash
+dpkg -i see-cli_<version>_android_arm64.termux.deb
+```
+
 ### Arch Linux (AUR)
 
 ```bash
@@ -94,7 +102,7 @@ yay -S see-cli-bin
 
 ### Pre-built binaries
 
-[Releases](https://github.com/sdotee/cli/releases) also include archives for macOS, Linux, and FreeBSD (`see_<OS>_<arch>.tar.gz`) and for Windows (`see_Windows_<arch>.zip`), on `x86_64` and `arm64`. Extract the archive and put the `see` binary in your `PATH`.
+[Releases](https://github.com/sdotee/cli/releases) also include archives for macOS, Linux, and FreeBSD (`see_<OS>_<arch>.tar.gz`) and for Windows (`see_Windows_<arch>.zip`), on `x86_64` and `arm64`. From v1.4.1 there is also `see_Android_arm64.tar.gz`. Extract the archive and put the `see` binary in your `PATH`.
 
 ### From source
 
@@ -104,6 +112,13 @@ Requires Go 1.26 or later:
 git clone https://github.com/sdotee/cli.git
 cd cli
 make build   # builds ./see
+```
+
+Or use `go install` (v1.4.1 and later). Go names the binary after the module path, so it installs as `cli`; rename it to `see`:
+
+```bash
+go install github.com/sdotee/cli@latest
+mv "$(go env GOPATH)/bin/cli" "$(go env GOPATH)/bin/see"
 ```
 
 ## Configuration
@@ -124,8 +139,15 @@ see --api-key "your-api-key" <command>
 |--------|---------------------|-------------|
 | `--api-key` | `SEE_API_KEY` | Your S.EE API key (required) |
 | `--base-url` | `SEE_BASE_URL` | Custom API base URL |
-| `--timeout` | `SEE_TIMEOUT` | Request timeout. The flag takes a duration such as `30s`; the environment variable takes seconds |
+| `--timeout` | `SEE_TIMEOUT` | Request timeout |
 | `--json` | - | Output JSON |
+
+The two timeout settings use different formats. `--timeout` takes a duration such as `30s` or `2m`. `SEE_TIMEOUT` takes a whole number of seconds such as `30`; any other value is ignored and the default timeout is used.
+
+```bash
+see --timeout 30s domains
+SEE_TIMEOUT=30 see domains
+```
 
 Run `see help <command>` for every flag of a command.
 
@@ -170,7 +192,7 @@ see shorturl history --page 1
 see shorturl stats example --domain s.ee --period daily
 ```
 
-`--domain` defaults to `s.ee`. `--expire-at` takes a Unix timestamp in seconds. Other create flags: `--tag-ids` and `--expiration-redirect-url`. The statistics period can be `daily`, `monthly`, or `totally`.
+`see url` is an alias for `see shorturl`. `--domain` defaults to `s.ee`. `--expire-at` takes a Unix timestamp in seconds. Other create flags: `--tag-ids` and `--expiration-redirect-url`. The statistics period can be `daily`, `monthly`, or `totally`.
 
 ### Text Snippets
 
@@ -192,7 +214,7 @@ cat script.sh | see text create \
   --password secret
 
 # Update the content and title
-see text update demo --domain ba.sh --file ./script.sh --title "Updated Title"
+see text update demo --domain ba.sh --title "Updated Title" --file ./script.sh
 
 # Delete
 see text delete demo --domain ba.sh
@@ -201,7 +223,7 @@ see text delete demo --domain ba.sh
 see text history --page 1
 ```
 
-`--type` can be `plain_text`, `source_code`, or `markdown`. `see text update` replaces the content, so it also needs `--file` or stdin.
+`--type` can be `plain_text`, `source_code`, or `markdown`. Every text needs a title: `create` uses `Untitled` when `--title` is omitted, and `update` requires `--title`. `see text update` replaces the content, so it also needs `--file` or stdin.
 
 ### Files
 
