@@ -4,82 +4,29 @@ description: 適用於多種程式語言的官方 S.EE SDK
 icon: Package
 ---
 
+使用官方 SDK 在應用程式中呼叫 [S.EE API](/docs/zh-TW/developers/api/)。各儲存庫的 README 中有完整的使用範例。不同 SDK 對較新介面的支援程度不同，請查看所選 SDK 的 README。
+
 ## 官方 SDK
 
-使用官方 SDK，可在應用程式中呼叫 S.EE API：
-
-| 語言 | 儲存庫 | 說明 |
-|----------|------------|-------------|
-| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | 面向 PHP 應用的開發工具包 |
-| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | 為 JavaScript / TypeScript 專案提供型別安全整合 |
-| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go 語言的短網址管理支援 |
-| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | 基於 Python 的短網址和檔案分享支援 |
-| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | 適用於 Java 應用程式的 SDK |
-| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | 適用於 Rust 應用程式的 SDK |
-| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | 適用於 Zig 應用程式的 SDK（實驗性） |
-
----
-
-## MCP Server
-
-對於 AI / LLM 整合，您可以使用我們的 MCP（Model Context Protocol）伺服器：
-
-- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
-
-### 功能
-
-- **URL 管理**：建立、更新、刪除短網址，並列出可用網域
-- **內容分享**：分享帶過期時間和密碼保護的程式碼片段與文字
-- **檔案操作**：上傳和刪除檔案
-- **時間工具**：取得帶時區支援的目前時間資訊
-
-### 要求
-
-- Go 1.25+
-- 有效的 S.EE API 金鑰
-
-### 建置
-
-```bash
-# 使用 Makefile（目前作業系統）
-make build
-
-# 為所有平台建置
-make build-all
-
-# 或直接使用 Go
-go build -o bin/cli-mcp-server .
-```
-
-### 執行
-
-```bash
-./bin/cli-mcp-server -api-key "your-api-key"
-```
-
-您也可以透過環境變數設定 API 金鑰：
-
-```bash
-export SEE_API_KEY="your-api-key"
-./bin/cli-mcp-server
-```
-
-伺服器預設監聽 `30101` 連接埠，並透過 Server-Sent Events 處理 MCP 連線。請在您的 LLM 用戶端設定中（例如 Cherry Studio）設定 MCP 伺服器 URL 以完成整合。
+| 語言 | 儲存庫 | 套件 | 環境需求 |
+|------|--------|------|----------|
+| TypeScript / JavaScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | [`see-sdk`](https://www.npmjs.com/package/see-sdk) (npm) | |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | `github.com/sdotee/sdk.go` | |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | [`see-sdk`](https://pypi.org/project/see-sdk/) (PyPI) | Python 3.11 及以上 |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | [`see-sdk`](https://crates.io/crates/see-sdk) (crates.io) | |
+| Swift | [sdotee/sdk.swift](https://github.com/sdotee/sdk.swift) | Swift Package Manager | Swift 6 及以上 |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | `dev.s.ee:see-java-sdk` | Java 17 及以上 |
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | [`sdotee/sdk`](https://packagist.org/packages/sdotee/sdk) (Packagist) | PHP 8.1 及以上 |
+| .NET / C# | [sdotee/sdk.cs](https://github.com/sdotee/sdk.cs) | `see.sdk` | .NET 8 或 .NET 10 |
 
 ---
 
 ## 安裝
 
-### PHP
+### TypeScript / JavaScript
 
 ```bash
-composer require sdotee/sdk
-```
-
-### TypeScript
-
-```bash
-npm install see-sdk
+npm i see-sdk
 ```
 
 ### Go
@@ -94,20 +41,60 @@ go get github.com/sdotee/sdk.go
 pip install see-sdk
 ```
 
-### Java
-
-請檢視 [sdk.java 儲存庫](https://github.com/sdotee/sdk.java) 取得安裝說明。
-
 ### Rust
 
-請檢視 [sdk.rs 儲存庫](https://github.com/sdotee/sdk.rs) 取得安裝說明。
+```bash
+cargo add see-sdk
+```
 
-### Zig
+### Swift
 
-請檢視 [sdk.zig 儲存庫](https://github.com/sdotee/sdk.zig) 取得安裝說明。
+在 `Package.swift` 中加入相依套件，再將 `see-sdk` product 加入 target，然後 `import SeeSDK`：
+
+```swift
+.package(url: "https://github.com/sdotee/sdk.swift", from: "1.0.0")
+```
+
+### Java
+
+從原始碼建置並安裝 SDK：
+
+```bash
+git clone https://github.com/sdotee/sdk.java see-java-sdk
+cd see-java-sdk
+mvn clean install
+```
+
+然後加入相依套件：
+
+```xml
+<dependency>
+    <groupId>dev.s.ee</groupId>
+    <artifactId>see-java-sdk</artifactId>
+    <version>1.3.0</version>
+</dependency>
+```
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### .NET / C#
+
+安裝方式請參閱 [sdk.cs README](https://github.com/sdotee/sdk.cs)。
 
 ---
 
-## 使用方法
+## 驗證
 
-請參閱各 SDK 儲存庫中的詳細文件與範例。
+所有 SDK 都使用您在 **[工具 > API 金鑰](https://s.ee/user/developers/)** 中取得的 API 金鑰。請從 `SEE_API_KEY` 等環境變數或金鑰管理服務中讀取，不要寫死在程式碼裡。
+
+---
+
+## 相關內容
+
+- [API 參考](/docs/zh-TW/developers/api/)
+- [CLI](/docs/zh-TW/developers/cli/)
+- [Agent Skill](/docs/zh-TW/developers/skills/)：讓 AI 程式設計助理使用 S.EE，並選擇合適的 SDK

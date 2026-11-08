@@ -1,0 +1,94 @@
+---
+title: Agent Skill
+description: 让 Claude Code 等 AI 编程助手使用 S.EE
+icon: Skills
+---
+
+S.EE Agent Skill 让 Claude Code 以及其他兼容 [Agent Skills](https://agentskills.io/) 的编程助手学会安全地使用 S.EE。安装后，助手可以帮您缩短网址、分享文本、上传文件、生成二维码，也可以为您的项目编写 S.EE 集成代码。
+
+- [sdotee/skills](https://github.com/sdotee/skills)
+
+## 涵盖内容
+
+- 短网址、文本分享、文件上传（包括断点续传和私密文件下载）、二维码和个人主页
+- 域名、标签、访问统计、API 密钥验证和账号用量
+- 编写应用代码时，选择与项目匹配的[官方 SDK](/docs/zh-CN/developers/sdk/)
+
+助手执行实际操作时使用 [S.EE CLI](/docs/zh-CN/developers/cli/)，编写应用代码时使用官方 SDK，两者都不支持时再使用 [REST API](/docs/zh-CN/developers/api/)。
+
+---
+
+## 安装
+
+使用 [`skills`](https://github.com/vercel-labs/skills) CLI 安装（需要 Node.js）：
+
+```bash
+# 当前项目；交互式选择智能体
+npx skills add sdotee/skills
+
+# 所有项目（用户级）
+npx skills add sdotee/skills -g
+
+# 仅安装到 Claude Code，不弹出确认
+npx skills add sdotee/skills -a claude-code -y
+```
+
+之后可以用 `npx skills update` 更新，用 `npx skills remove see` 移除。
+
+### 不使用 Node.js
+
+克隆仓库并运行安装脚本，安装为个人 Claude Code skill：
+
+```bash
+git clone https://github.com/sdotee/skills.git
+cd skills
+./scripts/install.sh
+
+# 或安装到其他 Agent Skills 目录
+./scripts/install.sh ~/.agents/skills
+```
+
+也可以把 `.claude/skills/see` 复制到以下任一位置：
+
+| 位置 | 范围 |
+|------|------|
+| `.claude/skills/see` | Claude Code，当前项目 |
+| `~/.claude/skills/see` | Claude Code，所有项目 |
+| `~/.agents/skills/see` | 通用 Agent Skills |
+| `.github/skills/see` | VS Code / Copilot，当前项目 |
+
+如果在 Claude Code 运行期间新建了顶层 skills 目录，需要重启一次。
+
+---
+
+## 设置 CLI
+
+要执行实际操作，请安装 [S.EE CLI](/docs/zh-CN/developers/cli/)，并设置在 **[工具 > API 密钥](https://s.ee/user/developers/)** 中获取的 API 密钥：
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+export SEE_API_KEY="your-api-key"
+```
+
+Linux、Windows 等其他安装方式请参阅 [CLI 文档](/docs/zh-CN/developers/cli/#安装)。不要把 API 密钥提交到代码仓库。
+
+---
+
+## 使用
+
+用 `/see` 调用这个 skill，或直接用自然语言提问：
+
+- "用 S.EE 缩短这个网址"
+- "把这张截图上传到 S.EE，给我链接"
+- "给这个 Python 服务加上 S.EE 文件上传"
+
+除非您明确要求了某项具体修改，否则在创建、修改或删除任何内容之前，skill 都会先请您确认。它从 `SEE_API_KEY` 读取 API 密钥，不会输出密钥，也不会把密钥放进 URL。
+
+---
+
+## 相关内容
+
+- [CLI](/docs/zh-CN/developers/cli/)
+- [SDK](/docs/zh-CN/developers/sdk/)
+- [API 参考](/docs/zh-CN/developers/api/)

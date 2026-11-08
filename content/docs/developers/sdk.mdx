@@ -4,82 +4,29 @@ description: Official S.EE SDKs for various programming languages
 icon: Package
 ---
 
+Use an official SDK to call the [S.EE API](/docs/developers/api/) from your application. Each repository's README has full usage examples. Coverage of newer endpoints differs between SDKs, so check the README of the one you pick.
+
 ## Official SDKs
 
-Use an official SDK to call the S.EE API from your application:
-
-| Language | Repository | Description |
-|----------|------------|-------------|
-| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | Developer toolkit for PHP applications |
-| TypeScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | Type-safe integration for JavaScript/TypeScript projects |
-| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | Go language support for link management |
-| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | Python-based URL shortening and file sharing |
-| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | SDK for Java applications |
-| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | SDK for Rust applications |
-| Zig | [sdotee/sdk.zig](https://github.com/sdotee/sdk.zig) | SDK for Zig applications (experimental) |
-
----
-
-## MCP Server
-
-For AI/LLM integrations, use our MCP (Model Context Protocol) server:
-
-- [sdotee/cli-mcp-server](https://github.com/sdotee/cli-mcp-server)
-
-### Features
-
-- **URL Management**: Create, update, delete, and list domains for short URLs
-- **Content Sharing**: Share code snippets and text with expiration and password protection
-- **File Operations**: Upload and delete files
-- **Time Utilities**: Access current time information with timezone support
-
-### Requirements
-
-- Go 1.25+
-- Valid S.EE API Key
-
-### Build
-
-```bash
-# Using Makefile (current OS)
-make build
-
-# Build for all platforms
-make build-all
-
-# Or using Go directly
-go build -o bin/cli-mcp-server .
-```
-
-### Run
-
-```bash
-./bin/cli-mcp-server -api-key "your-api-key"
-```
-
-You can also set the API key via environment variable:
-
-```bash
-export SEE_API_KEY="your-api-key"
-./bin/cli-mcp-server
-```
-
-The server defaults to port 30101 and uses Server-Sent Events for MCP connections. Configure the MCP server URL in your LLM client settings (e.g., Cherry Studio) to integrate.
+| Language | Repository | Package | Requirements |
+|----------|------------|---------|--------------|
+| TypeScript / JavaScript | [sdotee/sdk.ts](https://github.com/sdotee/sdk.ts) | [`see-sdk`](https://www.npmjs.com/package/see-sdk) on npm | |
+| Go | [sdotee/sdk.go](https://github.com/sdotee/sdk.go) | `github.com/sdotee/sdk.go` | |
+| Python | [sdotee/sdk.py](https://github.com/sdotee/sdk.py) | [`see-sdk`](https://pypi.org/project/see-sdk/) on PyPI | Python 3.11+ |
+| Rust | [sdotee/sdk.rs](https://github.com/sdotee/sdk.rs) | [`see-sdk`](https://crates.io/crates/see-sdk) on crates.io | |
+| Swift | [sdotee/sdk.swift](https://github.com/sdotee/sdk.swift) | Swift Package Manager | Swift 6+ |
+| Java | [sdotee/sdk.java](https://github.com/sdotee/sdk.java) | `dev.s.ee:see-java-sdk` | Java 17+ |
+| PHP | [sdotee/sdk.php](https://github.com/sdotee/sdk.php) | [`sdotee/sdk`](https://packagist.org/packages/sdotee/sdk) on Packagist | PHP 8.1+ |
+| .NET / C# | [sdotee/sdk.cs](https://github.com/sdotee/sdk.cs) | `see.sdk` | .NET 8 or .NET 10 |
 
 ---
 
 ## Installation
 
-### PHP
+### TypeScript / JavaScript
 
 ```bash
-composer require sdotee/sdk
-```
-
-### TypeScript
-
-```bash
-npm install see-sdk
+npm i see-sdk
 ```
 
 ### Go
@@ -94,20 +41,60 @@ go get github.com/sdotee/sdk.go
 pip install see-sdk
 ```
 
-### Java
-
-See the [sdk.java repository](https://github.com/sdotee/sdk.java) for installation instructions.
-
 ### Rust
 
-See the [sdk.rs repository](https://github.com/sdotee/sdk.rs) for installation instructions.
+```bash
+cargo add see-sdk
+```
 
-### Zig
+### Swift
 
-See the [sdk.zig repository](https://github.com/sdotee/sdk.zig) for installation instructions.
+Add the package to `Package.swift`, then add the `see-sdk` product to your target and `import SeeSDK`:
+
+```swift
+.package(url: "https://github.com/sdotee/sdk.swift", from: "1.0.0")
+```
+
+### Java
+
+Build and install the SDK from source:
+
+```bash
+git clone https://github.com/sdotee/sdk.java see-java-sdk
+cd see-java-sdk
+mvn clean install
+```
+
+Then add the dependency:
+
+```xml
+<dependency>
+    <groupId>dev.s.ee</groupId>
+    <artifactId>see-java-sdk</artifactId>
+    <version>1.3.0</version>
+</dependency>
+```
+
+### PHP
+
+```bash
+composer require sdotee/sdk
+```
+
+### .NET / C#
+
+See the [sdk.cs README](https://github.com/sdotee/sdk.cs) for installation.
 
 ---
 
-## Usage
+## Authentication
 
-See each SDK's repository for detailed documentation and examples.
+Every SDK takes your API key from **[Tools > API Token](https://s.ee/user/developers/)**. Load it from an environment variable such as `SEE_API_KEY` or your secret manager instead of hardcoding it.
+
+---
+
+## Related
+
+- [API Reference](/docs/developers/api/)
+- [CLI](/docs/developers/cli/)
+- [Agent Skill](/docs/developers/skills/): lets AI coding agents use S.EE and pick the right SDK

@@ -1,0 +1,94 @@
+---
+title: Agent Skill
+description: Let Claude Code and other AI coding agents use S.EE
+icon: Skills
+---
+
+The S.EE Agent Skill teaches Claude Code and other [Agent Skills](https://agentskills.io/)-compatible coding agents how to use S.EE safely. Once installed, your agent can shorten URLs, share text, upload files, and create QR codes for you, or write S.EE integration code for your project.
+
+- [sdotee/skills](https://github.com/sdotee/skills)
+
+## What it covers
+
+- Short URLs, text sharing, file uploads (including resumable uploads and private downloads), QR codes, and bio pages
+- Domains, tags, analytics, token validation, and account usage
+- Picking an [official SDK](/docs/developers/sdk/) that matches your project when it writes application code
+
+The agent uses the [S.EE CLI](/docs/developers/cli/) for live operations, an official SDK for application code, and the [REST API](/docs/developers/api/) when neither covers the task.
+
+---
+
+## Install
+
+Install with the [`skills`](https://github.com/vercel-labs/skills) CLI (requires Node.js):
+
+```bash
+# Current project; choose agents interactively
+npx skills add sdotee/skills
+
+# All projects (user level)
+npx skills add sdotee/skills -g
+
+# Claude Code only, without prompts
+npx skills add sdotee/skills -a claude-code -y
+```
+
+Update later with `npx skills update`, or remove with `npx skills remove see`.
+
+### Without Node.js
+
+Clone the repository and run the install script, which installs a personal Claude Code skill:
+
+```bash
+git clone https://github.com/sdotee/skills.git
+cd skills
+./scripts/install.sh
+
+# Or install into another Agent Skills directory
+./scripts/install.sh ~/.agents/skills
+```
+
+You can also copy `.claude/skills/see` to one of these locations:
+
+| Location | Scope |
+|----------|-------|
+| `.claude/skills/see` | Claude Code, current project |
+| `~/.claude/skills/see` | Claude Code, all projects |
+| `~/.agents/skills/see` | Generic Agent Skills |
+| `.github/skills/see` | VS Code / Copilot, current project |
+
+If you add a new top-level skills directory while Claude Code is running, restart it once.
+
+---
+
+## Set up the CLI
+
+For live operations, install the [S.EE CLI](/docs/developers/cli/) and set your API key from **[Tools > API Token](https://s.ee/user/developers/)**:
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+export SEE_API_KEY="your-api-key"
+```
+
+See the [CLI guide](/docs/developers/cli/#installation) for Linux, Windows, and other install methods. Don't commit your API key.
+
+---
+
+## Use it
+
+Invoke the skill with `/see`, or ask in plain language:
+
+- "Shorten this URL with S.EE"
+- "Upload this screenshot to S.EE and give me the link"
+- "Add S.EE file upload to this Python service"
+
+The skill asks for confirmation before it creates, changes, or deletes anything, unless you asked for that exact change. It reads the API key from `SEE_API_KEY` and never prints it or puts it in a URL.
+
+---
+
+## Related
+
+- [CLI](/docs/developers/cli/)
+- [SDKs](/docs/developers/sdk/)
+- [API Reference](/docs/developers/api/)

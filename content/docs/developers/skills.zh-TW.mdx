@@ -1,0 +1,94 @@
+---
+title: Agent Skill
+description: 讓 Claude Code 等 AI 程式設計助理使用 S.EE
+icon: Skills
+---
+
+S.EE Agent Skill 讓 Claude Code 以及其他相容 [Agent Skills](https://agentskills.io/) 的程式設計助理學會安全地使用 S.EE。安裝後，助理可以幫您縮短網址、分享文字、上傳檔案、產生 QR 碼，也可以為您的專案撰寫 S.EE 整合程式碼。
+
+- [sdotee/skills](https://github.com/sdotee/skills)
+
+## 涵蓋內容
+
+- 短網址、文字分享、檔案上傳（包括續傳和私密檔案下載）、QR 碼和個人首頁
+- 網域、標籤、造訪統計、API 金鑰驗證和帳號用量
+- 撰寫應用程式程式碼時，選擇與專案相符的[官方 SDK](/docs/zh-TW/developers/sdk/)
+
+助理執行實際操作時使用 [S.EE CLI](/docs/zh-TW/developers/cli/)，撰寫應用程式程式碼時使用官方 SDK，兩者都不支援時再使用 [REST API](/docs/zh-TW/developers/api/)。
+
+---
+
+## 安裝
+
+使用 [`skills`](https://github.com/vercel-labs/skills) CLI 安裝（需要 Node.js）：
+
+```bash
+# 目前專案；互動式選擇代理
+npx skills add sdotee/skills
+
+# 所有專案（使用者層級）
+npx skills add sdotee/skills -g
+
+# 僅安裝到 Claude Code，不跳出確認
+npx skills add sdotee/skills -a claude-code -y
+```
+
+之後可以用 `npx skills update` 更新，用 `npx skills remove see` 移除。
+
+### 不使用 Node.js
+
+複製儲存庫並執行安裝指令碼，安裝為個人 Claude Code skill：
+
+```bash
+git clone https://github.com/sdotee/skills.git
+cd skills
+./scripts/install.sh
+
+# 或安裝到其他 Agent Skills 目錄
+./scripts/install.sh ~/.agents/skills
+```
+
+也可以將 `.claude/skills/see` 複製到以下任一位置：
+
+| 位置 | 範圍 |
+|------|------|
+| `.claude/skills/see` | Claude Code，目前專案 |
+| `~/.claude/skills/see` | Claude Code，所有專案 |
+| `~/.agents/skills/see` | 通用 Agent Skills |
+| `.github/skills/see` | VS Code / Copilot，目前專案 |
+
+如果在 Claude Code 執行期間新增了頂層 skills 目錄，需要重新啟動一次。
+
+---
+
+## 設定 CLI
+
+要執行實際操作，請安裝 [S.EE CLI](/docs/zh-TW/developers/cli/)，並設定在 **[工具 > API 金鑰](https://s.ee/user/developers/)** 中取得的 API 金鑰：
+
+```bash
+brew tap sdotee/homebrew-tap
+brew install see
+export SEE_API_KEY="your-api-key"
+```
+
+Linux、Windows 等其他安裝方式請參閱 [CLI 文件](/docs/zh-TW/developers/cli/#安裝)。不要將 API 金鑰提交到程式碼儲存庫。
+
+---
+
+## 使用
+
+用 `/see` 呼叫這個 skill，或直接用自然語言提問：
+
+- "用 S.EE 縮短這個網址"
+- "把這張截圖上傳到 S.EE，給我連結"
+- "幫這個 Python 服務加上 S.EE 檔案上傳"
+
+除非您明確要求了某項具體修改，否則在建立、修改或刪除任何內容之前，skill 都會先請您確認。它從 `SEE_API_KEY` 讀取 API 金鑰，不會輸出金鑰，也不會將金鑰放進 URL。
+
+---
+
+## 相關內容
+
+- [CLI](/docs/zh-TW/developers/cli/)
+- [SDK](/docs/zh-TW/developers/sdk/)
+- [API 參考](/docs/zh-TW/developers/api/)
